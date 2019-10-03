@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:navigationdrawer="clr-namespace:Syncfusion.SfNavigationDrawer.XForms;assembly=Syncfusion.SfNavigationDrawer.XForms"
+             mc:Ignorable="d"
+             x:Class="UtMobileApp.Views.MainPageGuest">
+    <ContentPage.Content>
+
+        <navigationdrawer:SfNavigationDrawer x:Name="navigationDrawer" 
+                                         DrawerWidth ="200"
+                                         Transition="Push">
+            <navigationdrawer:SfNavigationDrawer.ContentView>
+                <Grid x:Name="mainContentView" 
+                  BackgroundColor="White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <StackLayout BackgroundColor="#ffffff" 
+                               Orientation="Horizontal">
+                        <Button x:Name="hamburgerButton" 
+                            HeightRequest="50" 
+                            WidthRequest="50" 
+                            HorizontalOptions="Start" 
+                            FontSize="20" 
+                            BackgroundColor="#ffffff" 
+                            Clicked="HamburgerButton_Clicked"/>
+                        <Label x:Name="headerLabel" 
+                           HeightRequest="50" 
+                           HorizontalTextAlignment="Center" 
+                           VerticalTextAlignment="Center" 
+                           Text="Home" FontSize="16" 
+                           TextColor="Black" 
+                           BackgroundColor="#ffffff"/>
+                    </StackLayout>
+                    <Label Grid.Row="1" 
+                      x:Name="contentLabel" 
+                      VerticalOptions="Center" 
+                      HorizontalOptions="Center" 
+                      Text="Content View" 
+                      FontSize="14" 
+                      TextColor="Black"/>
+                </Grid>
+            </navigationdrawer:SfNavigationDrawer.ContentView>
+        </navigationdrawer:SfNavigationDrawer>
+
+    </ContentPage.Content>
+</ContentPage>
