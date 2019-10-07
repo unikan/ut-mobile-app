@@ -14,7 +14,18 @@ namespace UtMobileApp.Views
     {
         public MainPageStudent()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Schedule());
+        }
+
+        private void HamburgerButton_Clicked(object sender, EventArgs e)
+        {
+            navigationDrawer.ToggleDrawer();
         }
     }
 }

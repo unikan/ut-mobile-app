@@ -16,12 +16,14 @@ namespace UtMobileApp
 
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Views.MainPageGuest());
+            MainPage = new NavigationPage(new Views.MainPageStudent());
         }
 
         protected override void OnStart()
         {
             // Handle when your app starts
+
+            System.Threading.Tasks.Task.Factory.StartNew(() => { var o = Newtonsoft.Json.JsonConvert.DeserializeObject("https://jsonplaceholder.typicode.com/users"); });
         }
 
         protected override void OnSleep()

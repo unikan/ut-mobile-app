@@ -10,7 +10,9 @@
 
         <navigationdrawer:SfNavigationDrawer x:Name="navigationDrawer" 
                                          DrawerWidth ="200"
-                                         Transition="Push">
+                                         Transition="Push"
+                                         Duration="300"
+                                         TouchThreshold="1000">
             <navigationdrawer:SfNavigationDrawer.ContentView>
                 <Grid x:Name="mainContentView" 
                   BackgroundColor="White">

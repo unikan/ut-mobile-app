@@ -22,5 +22,15 @@ namespace UtMobileApp.Views
         {
             navigationDrawer.ToggleDrawer();
         }
+
+        private void SwipeGestureRecognizer_Swiped(object sender, SwipedEventArgs e)
+        {
+            navigationDrawer.ToggleDrawer();
+        }
+
+        private void SwipeGestureRecognizer_Swiped_1(object sender, SwipedEventArgs e)
+        {
+
+        }
     }
 }
