@@ -26,33 +26,40 @@ namespace UtMobileApp.Views
             string url = "https://spreadsheets.google.com/feeds/list/1SFGzFIq8K7va4HzT9PZUwRNxch_yqZItn80-Kwu-u6c/3/public/values?alt=json";
             var LoadSchedule = new Extensions.LoadSchedule();
             List<Models.ScheduleJSON.Entry> scheduleList = await LoadSchedule.DeserializeJsonAsync(url);
-
-            // Create 6 lists for everyday Monday to Saturday, for actual semester
-            IEnumerable<Models.ScheduleJSON.Entry> MondayList = LoadSchedule.GetDay("e hënë", "I", scheduleList);
-            IEnumerable<Models.ScheduleJSON.Entry> TuesdayList = LoadSchedule.GetDay("e martë", "I", scheduleList);
-            IEnumerable<Models.ScheduleJSON.Entry> WednesdayList = LoadSchedule.GetDay("e mërkurë", "I", scheduleList);
-            IEnumerable<Models.ScheduleJSON.Entry> ThursdayList = LoadSchedule.GetDay("e enjte", "I", scheduleList);
-            IEnumerable<Models.ScheduleJSON.Entry> FridayList = LoadSchedule.GetDay("e premte", "I", scheduleList);
-            IEnumerable<Models.ScheduleJSON.Entry> SaturdayList = LoadSchedule.GetDay("e shtunë", "I", scheduleList);
-
-
-
+            IEnumerable<Models.ScheduleJSON.Entry> semesterList = LoadSchedule.GetDay("e hënë", "I", scheduleList);
+            
+            //IEnumerable<Models.ScheduleJSON.Entry> semesterList = LoadSchedule.GetBySemester("I", scheduleList);
+            Extensions.DateExtensions de = new Extensions.DateExtensions();
+            
+            int[,] dates = new int[6, 3];
+            dates = de.DatesOfWeek1();
 
 
             // Creating an instance for schedule appointment collection
             ScheduleAppointmentCollection scheduleAppointmentCollection = new ScheduleAppointmentCollection();
-            //Adding schedule appointment in schedule appointment collection 
-            scheduleAppointmentCollection.Add(new ScheduleAppointment()
+            
+            for (int i = 0; i < scheduleList.Count; i++)
             {
-                StartTime = new DateTime(2019, 05, 08, 10, 0, 0),
-                EndTime = new DateTime(2017, 05, 08, 12, 0, 0),
-                Subject = "Meeting",
-                Location = "Hutchison road",
-            });
+                if (scheduleList[i].Day != null)
+                {
+                    if (scheduleList[i].Day.t == "e hënë" && scheduleList[i].Semester.t == "I")
+                    {
+                        string[] startTime = scheduleList[i].BeginningTime.t.Split(':');
+                        string[] endTime = scheduleList[i].EndingTime.t.Split(':');
+
+                        //Adding schedule appointment in schedule appointment collection 
+                        scheduleAppointmentCollection.Add(new ScheduleAppointment()
+                        {
+                            StartTime = new DateTime(dates[0, 0], dates[0, 1], dates[0, 2], int.Parse(startTime[0]), int.Parse(startTime[1]), 0),
+                            EndTime = new DateTime(dates[0, 0], dates[0, 1], dates[0, 2], int.Parse(endTime[0]), int.Parse(endTime[1]), 0),
+                            Subject = scheduleList[i].Subjects.t
+                        });
+                    }
+                }
+            }
 
             //Adding schedule appointment collection to DataSource of SfSchedule
             schedule.DataSource = scheduleAppointmentCollection;
-
 
             base.OnAppearing();
         }

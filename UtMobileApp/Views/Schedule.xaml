@@ -8,7 +8,7 @@
              x:Class="UtMobileApp.Views.Schedule">
     <ContentPage.Content>
 
-        <schedule:SfSchedule x:Name="schedule" ScheduleView="DayView">
+        <schedule:SfSchedule x:Name="schedule" ScheduleView="DayView" TimeInterval="30">
             <schedule:SfSchedule.ViewHeaderStyle>
                 <schedule:ViewHeaderStyle
 		            BackgroundColor="#009688"

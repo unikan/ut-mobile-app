@@ -31,5 +31,12 @@ namespace UtMobileApp.Extensions
 
             return results;
         }
+
+        public IEnumerable<Entry> GetBySemester(string semester, List<Entry> schedule)
+        {
+            IEnumerable<Entry> results = schedule.Where(i => i.Semester.t == semester);
+
+            return results;
+        }
     }
 }
