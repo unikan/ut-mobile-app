@@ -3,24 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:schedule="clr-namespace:Syncfusion.SfSchedule.XForms;assembly=Syncfusion.SfSchedule.XForms"
              mc:Ignorable="d"
              x:Class="UtMobileApp.Views.Schedule">
     <ContentPage.Content>
 
-        <StackLayout>
-            <Label x:Name="label" />
-            <ListView x:Name="lsa">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout>
-                                <Label Text="{Binding Teacher.t}" />
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
+        <schedule:SfSchedule x:Name="schedule" ScheduleView="DayView">
+            <schedule:SfSchedule.ViewHeaderStyle>
+                <schedule:ViewHeaderStyle
+		            BackgroundColor="#009688"
+		            DayTextColor="#FFFFFF"
+		            DateTextColor="#FFFFFF"
+		            DayFontFamily="Arial"
+		            DateFontFamily="Arial">
+                </schedule:ViewHeaderStyle>
+            </schedule:SfSchedule.ViewHeaderStyle>
+        </schedule:SfSchedule>
 
     </ContentPage.Content>
 </ContentPage>
