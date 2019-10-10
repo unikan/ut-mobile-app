@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>  
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -8,16 +8,36 @@
              x:Class="UtMobileApp.Views.Schedule">
     <ContentPage.Content>
 
-        <schedule:SfSchedule x:Name="schedule" ScheduleView="DayView" TimeInterval="30">
+        <schedule:SfSchedule x:Name="schedule" ScheduleView="MonthView" TimeInterval="15" CellTapped="Schedule_CellTapped">
             <schedule:SfSchedule.ViewHeaderStyle>
                 <schedule:ViewHeaderStyle
-		            BackgroundColor="#009688"
-		            DayTextColor="#FFFFFF"
-		            DateTextColor="#FFFFFF"
-		            DayFontFamily="Arial"
-		            DateFontFamily="Arial">
+		            BackgroundColor="#FFFFFF"
+		            DayTextColor="#101010"
+		            DateTextColor="#101010">
                 </schedule:ViewHeaderStyle>
             </schedule:SfSchedule.ViewHeaderStyle>
+            <schedule:SfSchedule.DayViewSettings>
+                <!--setting working hours properties -->
+                <schedule:DayViewSettings
+                        StartHour="6.5"
+                        EndHour="20.5"
+                        WorkStartHour="7"
+                        WorkEndHour="20">
+                    <schedule:DayViewSettings.DayLabelSettings>
+                        <schedule:DayLabelSettings TimeFormat="HH:mm" />
+                    </schedule:DayViewSettings.DayLabelSettings>
+                </schedule:DayViewSettings>
+            </schedule:SfSchedule.DayViewSettings>
+            <schedule:SfSchedule.AppointmentStyle>
+                <schedule:AppointmentStyle
+				    BorderWidth="10"
+				    TextColor="White"
+				    BorderCornerRadius="40"
+				    FontSize = "16"
+				    FontAttributes = "Bold"
+                    SelectionBorderColor="FloralWhite">
+                </schedule:AppointmentStyle>
+            </schedule:SfSchedule.AppointmentStyle>
         </schedule:SfSchedule>
 
     </ContentPage.Content>

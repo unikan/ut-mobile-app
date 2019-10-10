@@ -24,19 +24,5 @@ namespace UtMobileApp.Extensions
                 return root.feed.entry;
             }
         }
-
-        public IEnumerable<Entry> GetDay(string day, string semester, List<Entry> schedule)
-        {
-            IEnumerable<Entry> results = schedule.Where(i => (i.Semester.t == semester) && (i.Day.t == day));
-
-            return results;
-        }
-
-        public IEnumerable<Entry> GetBySemester(string semester, List<Entry> schedule)
-        {
-            IEnumerable<Entry> results = schedule.Where(i => i.Semester.t == semester);
-
-            return results;
-        }
     }
 }
