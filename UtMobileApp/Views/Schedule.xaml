@@ -4,41 +4,97 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:schedule="clr-namespace:Syncfusion.SfSchedule.XForms;assembly=Syncfusion.SfSchedule.XForms"
+             xmlns:extensions="clr-namespace:UtMobileApp.Extensions"
              mc:Ignorable="d"
-             x:Class="UtMobileApp.Views.Schedule">
+             x:Class="UtMobileApp.Views.Schedule"
+             BackgroundColor="White">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="Android">0, 10, 0, 0</On>
+            <On Platform="iOS">0, 20, 0, 0</On>
+        </OnPlatform>
+    </ContentPage.Padding>
     <ContentPage.Content>
 
-        <schedule:SfSchedule x:Name="schedule" ScheduleView="MonthView" TimeInterval="15" CellTapped="Schedule_CellTapped">
-            <schedule:SfSchedule.ViewHeaderStyle>
-                <schedule:ViewHeaderStyle
-		            BackgroundColor="#FFFFFF"
-		            DayTextColor="#101010"
-		            DateTextColor="#101010">
-                </schedule:ViewHeaderStyle>
-            </schedule:SfSchedule.ViewHeaderStyle>
-            <schedule:SfSchedule.DayViewSettings>
-                <!--setting working hours properties -->
-                <schedule:DayViewSettings
-                        StartHour="6.5"
+        <AbsoluteLayout>
+            <!-- HEADER -->
+            <StackLayout Orientation="Horizontal" 
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand"
+                         AbsoluteLayout.LayoutBounds="0, 0, 1, .05"
+                         AbsoluteLayout.LayoutFlags="All">
+                <Grid HorizontalOptions="FillAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    
+                    <ImageButton Grid.Row="0" 
+                                 Grid.Column="0" 
+                                 Source="back.png"
+                                 Aspect="AspectFill"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="CenterAndExpand"></ImageButton>
+                    <ActivityIndicator Grid.Row="0" 
+                           Grid.Column="1" 
+                           x:Name="activityIndicator" 
+                           IsRunning="True"
+                           HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="CenterAndExpand"></ActivityIndicator>
+                    <Label Grid.Row="0" 
+                           Grid.Column="2" 
+                           HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="EndAndExpand"></Label>
+                </Grid>
+            </StackLayout>
+            <!-- DAYS -->
+            <StackLayout Orientation="Horizontal" 
+                         HorizontalOptions="CenterAndExpand"
+                         AbsoluteLayout.LayoutBounds="0, .06, 1, .1"
+                         AbsoluteLayout.LayoutFlags="All"
+                         Padding="0, 10">
+                <Button BackgroundColor="Transparent" TextColor="Gray" Text="M" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_monday" CommandParameter="0" Opacity="0"></Button>
+                <Button BackgroundColor="Transparent" TextColor="Gray" Text="T" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_tuesday" CommandParameter="1" Opacity="0"></Button>
+                <Button BackgroundColor="Transparent" TextColor="Gray" Text="W" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_wednesday" CommandParameter="2" Opacity="0"></Button>
+                <Button BackgroundColor="Transparent" TextColor="Gray" Text="T" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_thursday" CommandParameter="3" Opacity="0"></Button>
+                <Button BackgroundColor="Transparent" TextColor="Gray" Text="F" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_friday" CommandParameter="4" Opacity="0"></Button>
+                <Button BackgroundColor="Transparent" TextColor="Gray" Text="S" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_saturday" CommandParameter="5" Opacity="0"></Button>
+            </StackLayout>
+            <!-- SCHEDULE -->
+            <schedule:SfSchedule x:Name="schedule" 
+                                 ScheduleView="DayView" 
+                                 TimeInterval="15"
+                                 TimeIntervalHeight="60"
+                                 ViewHeaderHeight="0"
+                                 HeaderHeight="0"
+                                 AbsoluteLayout.LayoutBounds="0, 1, 1, .85"
+                                 AbsoluteLayout.LayoutFlags="All"
+                                 Opacity="0">
+                <schedule:SfSchedule.DayViewSettings>
+                    <!--setting working hours properties -->
+                    <schedule:DayViewSettings
+                        StartHour="7.75"
                         EndHour="20.5"
-                        WorkStartHour="7"
-                        WorkEndHour="20">
-                    <schedule:DayViewSettings.DayLabelSettings>
-                        <schedule:DayLabelSettings TimeFormat="HH:mm" />
-                    </schedule:DayViewSettings.DayLabelSettings>
-                </schedule:DayViewSettings>
-            </schedule:SfSchedule.DayViewSettings>
-            <schedule:SfSchedule.AppointmentStyle>
-                <schedule:AppointmentStyle
+                        WorkStartHour="7.75"
+                        WorkEndHour="20.5">
+                        <schedule:DayViewSettings.DayLabelSettings>
+                            <schedule:DayLabelSettings TimeFormat="HH:mm" />
+                        </schedule:DayViewSettings.DayLabelSettings>
+                    </schedule:DayViewSettings>
+                </schedule:SfSchedule.DayViewSettings>
+                <schedule:SfSchedule.AppointmentStyle>
+                    <schedule:AppointmentStyle
 				    BorderWidth="10"
-				    TextColor="White"
+				    TextColor="#66000000"
 				    BorderCornerRadius="40"
-				    FontSize = "16"
-				    FontAttributes = "Bold"
-                    SelectionBorderColor="FloralWhite">
-                </schedule:AppointmentStyle>
-            </schedule:SfSchedule.AppointmentStyle>
-        </schedule:SfSchedule>
+				    FontSize = "14"
+                    SelectionBorderColor="FloralWhite"
+                    SelectionTextColor="#000000">
+                    </schedule:AppointmentStyle>
+                </schedule:SfSchedule.AppointmentStyle>
+            </schedule:SfSchedule>
+        </AbsoluteLayout>
 
     </ContentPage.Content>
 </ContentPage>

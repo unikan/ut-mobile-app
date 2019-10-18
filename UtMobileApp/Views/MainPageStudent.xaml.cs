@@ -20,7 +20,7 @@ namespace UtMobileApp.Views
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Schedule());
+            await Navigation.PushAsync(new Schedule(), false);
         }
 
         private void HamburgerButton_Clicked(object sender, EventArgs e)

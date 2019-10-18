@@ -8,9 +8,8 @@ namespace UtMobileApp.Extensions
 {
     public class DateExtensions
     {
-        public int[,] DatesOfWeek1()
+        public int[,] DatesOfWeek1(DateTime Date)
         {
-            DateTime Date = new DateTime(2019, 10, 1);
             int diff = (7 + (Date.DayOfWeek - DayOfWeek.Monday)) % 7;
             DateTime monday = Date.AddDays(-1 * diff).Date;
 
