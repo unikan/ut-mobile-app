@@ -123,11 +123,14 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Syncfusion.Xamarin.Buttons">
+      <Version>17.3.0.17</Version>
+    </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfNavigationDrawer">
-      <Version>17.3.0.14</Version>
+      <Version>17.3.0.17</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfSchedule">
-      <Version>17.3.0.14</Version>
+      <Version>17.3.0.17</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="4.2.0.848062" />
   </ItemGroup>
@@ -137,5 +140,8 @@
       <Project>{CD5DDF5F-526A-4C27-AD1F-372E5F761FFC}</Project>
       <Name>UtMobileApp</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\back.png" />
   </ItemGroup>
 </Project>

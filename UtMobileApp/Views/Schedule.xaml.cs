@@ -26,6 +26,9 @@ namespace UtMobileApp.Views
 
         protected override async void OnAppearing()
         {
+            // Write current month and year in label
+            label_monthYear.Text = DateTime.Now.Year + "\n" + DateTime.Now.ToString("MMMM");
+
             // Disable schedule swiping
             schedule.EnableNavigation = false;
 
@@ -183,22 +186,28 @@ namespace UtMobileApp.Views
             switch (DateTime.Now.DayOfWeek.ToString())
             {
                 case "Monday":
-                    btn_monday.TextColor = Color.Blue;
+                    btn_monday.TextColor = Color.FromHex("#07689F");
+                    btn_monday.FontAttributes = FontAttributes.Bold;
                     break;
                 case "Tuesday":
-                    btn_tuesday.TextColor = Color.Blue;
+                    btn_tuesday.TextColor = Color.FromHex("#07689F");
+                    btn_tuesday.FontAttributes = FontAttributes.Bold;
                     break;
                 case "Wednesday":
-                    btn_wednesday.TextColor = Color.Blue;
+                    btn_wednesday.TextColor = Color.FromHex("#07689F");
+                    btn_wednesday.FontAttributes = FontAttributes.Bold;
                     break;
                 case "Thursday":
-                    btn_thursday.TextColor = Color.Blue;
+                    btn_thursday.TextColor = Color.FromHex("#07689F");
+                    btn_thursday.FontAttributes = FontAttributes.Bold;
                     break;
                 case "Friday":
-                    btn_friday.TextColor = Color.Blue;
+                    btn_friday.TextColor = Color.FromHex("#07689F");
+                    btn_friday.FontAttributes = FontAttributes.Bold;
                     break;
                 case "Saturday":
-                    btn_saturday.TextColor = Color.Blue;
+                    btn_saturday.TextColor = Color.FromHex("#07689F");
+                    btn_saturday.FontAttributes = FontAttributes.Bold;
                     break;
                 default:
                     break;
@@ -225,14 +234,26 @@ namespace UtMobileApp.Views
 
             schedule.MoveToDate = new DateTime(dates[0, 0], dates[0, 1], dates[0, 2]).AddDays(addDays);
 
-            btn_monday.TextColor = Color.Gray;
-            btn_tuesday.TextColor = Color.Gray;
-            btn_wednesday.TextColor = Color.Gray;
-            btn_thursday.TextColor = Color.Gray;
-            btn_friday.TextColor = Color.Gray;
-            btn_saturday.TextColor = Color.Gray;
+            btn_monday.TextColor = Color.FromHex("#8E97A6");
+            btn_monday.FontAttributes = FontAttributes.None;
+            btn_tuesday.TextColor = Color.FromHex("#8E97A6");
+            btn_tuesday.FontAttributes = FontAttributes.None;
+            btn_wednesday.TextColor = Color.FromHex("#8E97A6");
+            btn_wednesday.FontAttributes = FontAttributes.None;
+            btn_thursday.TextColor = Color.FromHex("#8E97A6");
+            btn_thursday.FontAttributes = FontAttributes.None;
+            btn_friday.TextColor = Color.FromHex("#8E97A6");
+            btn_friday.FontAttributes = FontAttributes.None;
+            btn_saturday.TextColor = Color.FromHex("#8E97A6");
+            btn_saturday.FontAttributes = FontAttributes.None;
 
-            clickedBtn.TextColor = Color.Blue;
+            clickedBtn.TextColor = Color.FromHex("#07689F");
+            clickedBtn.FontAttributes = FontAttributes.Bold;
+        }
+
+        private async void BtnBack_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
         }
     }
 }

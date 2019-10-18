@@ -5,12 +5,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:schedule="clr-namespace:Syncfusion.SfSchedule.XForms;assembly=Syncfusion.SfSchedule.XForms"
              xmlns:extensions="clr-namespace:UtMobileApp.Extensions"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              mc:Ignorable="d"
              x:Class="UtMobileApp.Views.Schedule"
              BackgroundColor="White">
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
-            <On Platform="Android">0, 10, 0, 0</On>
+            <On Platform="Android">0, 15, 0, 0</On>
             <On Platform="iOS">0, 20, 0, 0</On>
         </OnPlatform>
     </ContentPage.Padding>
@@ -21,6 +22,7 @@
             <StackLayout Orientation="Horizontal" 
                          HorizontalOptions="FillAndExpand"
                          VerticalOptions="FillAndExpand"
+                         Margin="20, 0"
                          AbsoluteLayout.LayoutBounds="0, 0, 1, .05"
                          AbsoluteLayout.LayoutFlags="All">
                 <Grid HorizontalOptions="FillAndExpand">
@@ -29,13 +31,35 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    
-                    <ImageButton Grid.Row="0" 
-                                 Grid.Column="0" 
-                                 Source="back.png"
-                                 Aspect="AspectFill"
-                                 HorizontalOptions="Center"
-                                 VerticalOptions="CenterAndExpand"></ImageButton>
+
+                    <buttons:SfButton 
+                            Grid.Row="0" 
+                            Grid.Column="0" 
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"
+                            ShowIcon="True" 
+                            BackgroundColor="White"
+                            CornerRadius="200"
+                            WidthRequest="50"
+                            HeightRequest="50"
+                            Clicked="BtnBack_Clicked">
+                        <buttons:SfButton.Content>
+                            <Image Source="back.png"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   WidthRequest="20" 
+                                   HeightRequest="20" />
+                        </buttons:SfButton.Content>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup>
+                                <VisualState x:Name="Pressed">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor"  Value="#0D000000" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </buttons:SfButton>
                     <ActivityIndicator Grid.Row="0" 
                            Grid.Column="1" 
                            x:Name="activityIndicator" 
@@ -44,8 +68,12 @@
                            VerticalOptions="CenterAndExpand"></ActivityIndicator>
                     <Label Grid.Row="0" 
                            Grid.Column="2" 
-                           HorizontalOptions="CenterAndExpand"
-                           VerticalOptions="EndAndExpand"></Label>
+                           HorizontalTextAlignment="End"
+                           VerticalOptions="EndAndExpand"
+                           x:Name="label_monthYear"
+                           FontAttributes="Bold"
+                           FontSize="16">
+                    </Label>
                 </Grid>
             </StackLayout>
             <!-- DAYS -->
@@ -54,12 +82,12 @@
                          AbsoluteLayout.LayoutBounds="0, .06, 1, .1"
                          AbsoluteLayout.LayoutFlags="All"
                          Padding="0, 10">
-                <Button BackgroundColor="Transparent" TextColor="Gray" Text="M" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_monday" CommandParameter="0" Opacity="0"></Button>
-                <Button BackgroundColor="Transparent" TextColor="Gray" Text="T" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_tuesday" CommandParameter="1" Opacity="0"></Button>
-                <Button BackgroundColor="Transparent" TextColor="Gray" Text="W" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_wednesday" CommandParameter="2" Opacity="0"></Button>
-                <Button BackgroundColor="Transparent" TextColor="Gray" Text="T" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_thursday" CommandParameter="3" Opacity="0"></Button>
-                <Button BackgroundColor="Transparent" TextColor="Gray" Text="F" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_friday" CommandParameter="4" Opacity="0"></Button>
-                <Button BackgroundColor="Transparent" TextColor="Gray" Text="S" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_saturday" CommandParameter="5" Opacity="0"></Button>
+                <Button BackgroundColor="Transparent" TextColor="#8E97A6" Text="M" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_monday" CommandParameter="0" Opacity="0"></Button>
+                <Button BackgroundColor="Transparent" TextColor="#8E97A6" Text="T" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_tuesday" CommandParameter="1" Opacity="0"></Button>
+                <Button BackgroundColor="Transparent" TextColor="#8E97A6" Text="W" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_wednesday" CommandParameter="2" Opacity="0"></Button>
+                <Button BackgroundColor="Transparent" TextColor="#8E97A6" Text="T" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_thursday" CommandParameter="3" Opacity="0"></Button>
+                <Button BackgroundColor="Transparent" TextColor="#8E97A6" Text="F" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_friday" CommandParameter="4" Opacity="0"></Button>
+                <Button BackgroundColor="Transparent" TextColor="#8E97A6" Text="S" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_saturday" CommandParameter="5" Opacity="0"></Button>
             </StackLayout>
             <!-- SCHEDULE -->
             <schedule:SfSchedule x:Name="schedule" 
@@ -89,6 +117,7 @@
 				    TextColor="#66000000"
 				    BorderCornerRadius="40"
 				    FontSize = "14"
+                    FontAttributes="Bold"
                     SelectionBorderColor="FloralWhite"
                     SelectionTextColor="#000000">
                     </schedule:AppointmentStyle>

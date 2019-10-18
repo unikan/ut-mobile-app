@@ -27,7 +27,7 @@ namespace UtMobileApp.iOS
             // Initialization of Syncfusion components
             Syncfusion.SfSchedule.XForms.iOS.SfScheduleRenderer.Init();
             Syncfusion.SfNavigationDrawer.XForms.iOS.SfNavigationDrawerRenderer.Init();
-
+            Syncfusion.XForms.iOS.Buttons.SfButtonRenderer.Init();
 
             LoadApplication(new App());
 
