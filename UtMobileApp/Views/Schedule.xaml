@@ -11,7 +11,7 @@
              BackgroundColor="White">
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
-            <On Platform="Android">0, 15, 0, 0</On>
+            <On Platform="Android">0, 10, 0, 0</On>
             <On Platform="iOS">0, 20, 0, 0</On>
         </OnPlatform>
     </ContentPage.Padding>
@@ -19,19 +19,18 @@
 
         <AbsoluteLayout>
             <!-- HEADER -->
-            <StackLayout Orientation="Horizontal" 
+            <StackLayout Orientation="Horizontal"
                          HorizontalOptions="FillAndExpand"
                          VerticalOptions="FillAndExpand"
-                         Margin="20, 0"
+                         Margin="10, 0"
                          AbsoluteLayout.LayoutBounds="0, 0, 1, .05"
                          AbsoluteLayout.LayoutFlags="All">
-                <Grid HorizontalOptions="FillAndExpand">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-
                     <buttons:SfButton 
                             Grid.Row="0" 
                             Grid.Column="0" 
@@ -39,7 +38,7 @@
                             VerticalOptions="Center"
                             ShowIcon="True" 
                             BackgroundColor="White"
-                            CornerRadius="200"
+                            CornerRadius="40"
                             WidthRequest="50"
                             HeightRequest="50"
                             Clicked="BtnBack_Clicked">
@@ -114,7 +113,7 @@
                 <schedule:SfSchedule.AppointmentStyle>
                     <schedule:AppointmentStyle
 				    BorderWidth="10"
-				    TextColor="#66000000"
+				    TextColor="#99000000"
 				    BorderCornerRadius="40"
 				    FontSize = "14"
                     FontAttributes="Bold"

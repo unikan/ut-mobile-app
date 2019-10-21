@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using UtMobileApp.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using static UtMobileApp.Models.ScheduleJSON;
@@ -55,8 +55,8 @@ namespace UtMobileApp.Views
                 {
                     if (scheduleList[i].LectureOrExercise != null)
                     {
-                        if (scheduleList[i].LectureOrExercise.t == "L") color = Color.FromHex("#FFB5AC");
-                        else color = Color.FromHex("#A2D5F2");
+                        if (scheduleList[i].LectureOrExercise.t == "L") color = Color.FromHex("#E67C73"); // #FFB5AC
+                        else color = Color.FromHex("#7986CB"); // #A2D5F2
                     }
                     else
                     {

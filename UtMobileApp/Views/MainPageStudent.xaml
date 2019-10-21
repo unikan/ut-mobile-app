@@ -4,42 +4,140 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:navigationdrawer="clr-namespace:Syncfusion.SfNavigationDrawer.XForms;assembly=Syncfusion.SfNavigationDrawer.XForms"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              mc:Ignorable="d"
-             x:Class="UtMobileApp.Views.MainPageStudent">
+             x:Class="UtMobileApp.Views.MainPageStudent"
+             BackgroundColor="White">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="Android">0, 10, 0, 0</On>
+            <On Platform="iOS">0, 20, 0, 0</On>
+        </OnPlatform>
+    </ContentPage.Padding>
     <ContentPage.Content>
 
         <navigationdrawer:SfNavigationDrawer x:Name="navigationDrawer" 
-                                         DrawerWidth ="200"
-                                         Transition="Push"
-                                         Duration="300"
-                                         TouchThreshold="1000">
+                                             DrawerWidth ="300"
+                                             Transition="Push"
+                                             Duration="400"
+                                             TouchThreshold="100">
             <navigationdrawer:SfNavigationDrawer.ContentView>
-                <Grid x:Name="mainContentView" 
-                  BackgroundColor="White">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <StackLayout BackgroundColor="#ffffff" 
-                               Orientation="Horizontal">
-                        <Button x:Name="hamburgerButton" 
-                            HeightRequest="50" 
-                            WidthRequest="50" 
-                            HorizontalOptions="Start" 
-                            FontSize="20" 
-                            BackgroundColor="#ffffff" 
-                            Clicked="HamburgerButton_Clicked"/>
-                        <Label x:Name="headerLabel" 
-                           HeightRequest="50" 
-                           HorizontalTextAlignment="Center" 
-                           VerticalTextAlignment="Center" 
-                           Text="Home" FontSize="16" 
-                           TextColor="Black" 
-                           BackgroundColor="#ffffff"/>
+                
+                <!-- MAIN CONTENT VIEW -->
+                <AbsoluteLayout>
+                    <!-- HEADER -->
+                    <StackLayout Orientation="Horizontal"
+                                    HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="FillAndExpand"
+                                    Margin="10, 0"
+                                    AbsoluteLayout.LayoutBounds="0, 0, 1, .05"
+                                    AbsoluteLayout.LayoutFlags="All">
+                        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <buttons:SfButton 
+                                Grid.Row="0" 
+                                Grid.Column="0" 
+                                HorizontalOptions="Start"
+                                VerticalOptions="Center"
+                                ShowIcon="True" 
+                                BackgroundColor="White"
+                                CornerRadius="40"
+                                WidthRequest="50"
+                                HeightRequest="50"
+                                Clicked="HamburgerButton_Clicked">
+                                <buttons:SfButton.Content>
+                                    <Image Source="menu.png"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        WidthRequest="20" 
+                                        HeightRequest="20" />
+                                </buttons:SfButton.Content>
+                            </buttons:SfButton>
+                        </Grid>
                     </StackLayout>
-                    
-                    <Button Text="Schedule" Clicked="Button_Clicked" />
-                </Grid>
+                    <!-- Hello Message -->
+                    <StackLayout Orientation="Horizontal" 
+                                 AbsoluteLayout.LayoutBounds="0, .06, 1, .15"
+                                 AbsoluteLayout.LayoutFlags="All"
+                                 Padding="0, 10" 
+                                 Margin="15, 0"
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="Center">
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span FontSize="32" Text="Hello,&#x0a;" />
+                                    <Span FontSize="32" FontAttributes="Bold" x:Name="label_name" Text="Filani" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                    <!-- Navigation Buttons -->
+                    <StackLayout AbsoluteLayout.LayoutBounds="0, .35, 1, .4"
+                                 AbsoluteLayout.LayoutFlags="All"
+                                 Padding="0, 10"
+                                 Margin="15, 0"
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="FillAndExpand">
+                        <Grid RowSpacing="20" ColumnSpacing="20">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <buttons:SfButton Text="Lectures and Exercises" 
+                                              CornerRadius="20" 
+                                              WidthRequest="75"
+                                              HeightRequest="125"
+                                              HorizontalTextAlignment="Start"
+                                              VerticalTextAlignment="End"
+                                              HorizontalOptions="FillAndExpand"
+                                              Padding="15, 0,  0, 15"
+                                              FontAttributes="Bold"
+                                              Grid.Row="0" Grid.Column="0"
+                                              Clicked="BtnSchedule_Clicked" />
+                            <buttons:SfButton Text="Midterms" 
+                                              CornerRadius="20" 
+                                              WidthRequest="75"
+                                              HeightRequest="125"
+                                              HorizontalTextAlignment="Start"
+                                              VerticalTextAlignment="End"
+                                              HorizontalOptions="FillAndExpand"
+                                              Padding="15, 0,  0, 15"
+                                              FontAttributes="Bold"
+                                              Grid.Row="0" Grid.Column="1" />
+                            <buttons:SfButton Text="Exams" 
+                                              CornerRadius="20" 
+                                              WidthRequest="75"
+                                              HeightRequest="125"
+                                              HorizontalTextAlignment="Start"
+                                              VerticalTextAlignment="End"
+                                              HorizontalOptions="FillAndExpand"
+                                              Padding="15, 0,  0, 15"
+                                              FontAttributes="Bold"
+                                              Grid.Row="1" Grid.Column="0" />
+                            <buttons:SfButton Text="Consultations" 
+                                              CornerRadius="20" 
+                                              WidthRequest="75"
+                                              HeightRequest="125"
+                                              HorizontalTextAlignment="Start"
+                                              VerticalTextAlignment="End"
+                                              HorizontalOptions="FillAndExpand"
+                                              Padding="15, 0,  0, 15"
+                                              FontAttributes="Bold"
+                                              Grid.Row="1" Grid.Column="1" />
+                        </Grid>
+                    </StackLayout>
+                </AbsoluteLayout>
+
             </navigationdrawer:SfNavigationDrawer.ContentView>
         </navigationdrawer:SfNavigationDrawer>
 
