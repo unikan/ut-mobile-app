@@ -5,7 +5,7 @@ using System.Text;
 
 namespace UtMobileApp.Models
 {
-    class ScheduleJSON
+    public class ScheduleJSON
     {
         public class Id
     {

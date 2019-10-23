@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using UtMobileApp.Models;
+using Xamarin.Forms;
 
 namespace UtMobileApp.Extensions
 {
@@ -40,6 +41,43 @@ namespace UtMobileApp.Extensions
             allDates[5, 2] = int.Parse(monday.AddDays(5).ToString("dd"));
 
             return allDates;
+        }
+
+        public void AddAppointment(List<Models.ScheduleJSON.Entry> scheduleList, int index, ScheduleAppointmentCollection scheduleAppointmentCollection, int[, ] dates, int day)
+        {
+            // We need hour in one variable, minutes in one variable, so we split the string and save it in an array
+            string[] startTime = scheduleList[index].BeginningTime.t.Split(':');
+            string[] endTime = scheduleList[index].EndingTime.t.Split(':');
+
+            Color color;
+            string teacher, subject, lectureorexercises, venue, group;
+
+            if (scheduleList[index].LectureOrExercise != null)
+            {
+                if (scheduleList[index].LectureOrExercise.t == "L") color = Color.FromHex("#E67C73"); // #FFB5AC
+                else color = Color.FromHex("#7986CB"); // #A2D5F2
+            }
+            else
+            {
+                color = Color.Transparent;
+            }
+
+            teacher = (scheduleList[index].Teacher != null) ? scheduleList[index].Teacher.t : "";
+            subject = (scheduleList[index].Subjects != null) ? scheduleList[index].Subjects.t : "";
+            lectureorexercises = (scheduleList[index].LectureOrExercise != null) ? scheduleList[index].LectureOrExercise.t : "";
+            venue = (scheduleList[index].Venue != null) ? scheduleList[index].Venue.t : "";
+            group = (scheduleList[index].Groups != null) ? " | " + scheduleList[index].Groups.t : "";
+
+            // Adding schedule appointment in schedule appointment collection 
+            scheduleAppointmentCollection.Add(new ScheduleAppointment()
+            {
+                StartTime = new DateTime(dates[day, 0], dates[day, 1], dates[day, 2], int.Parse(startTime[0]), int.Parse(startTime[1]), 0),
+                EndTime = new DateTime(dates[day, 0], dates[day, 1], dates[day, 2], int.Parse(endTime[0]), int.Parse(endTime[1]), 0),
+                Subject = "\n" + teacher + "\n" +
+                            subject + " (" + lectureorexercises + ")" + group + "\n" +
+                            "Venue: " + venue,
+                Color = color
+            });
         }
     }
 }

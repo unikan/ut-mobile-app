@@ -43,128 +43,33 @@ namespace UtMobileApp.Views
             // Creating an instance for schedule appointment collection
             ScheduleAppointmentCollection scheduleAppointmentCollection = new ScheduleAppointmentCollection();
 
-            string[] startTime = new string[2]; // Hour is saved on first element, minutes in second element for Start Time
-            string[] endTime = new string[2]; // Hour is saved on first element, minutes in second element for End Time
-
-            Color color;
-            string teacher, subject, lectureorexercises, venue, group;
-
             for (int i = 0; i < scheduleList.Count; i++)
             {
                 if (scheduleList[i].Day != null && scheduleList[i].BeginningTime != null && scheduleList[i].EndingTime != null)
                 {
-                    if (scheduleList[i].LectureOrExercise != null)
+                    if (scheduleList[i].Day.t == "e hënë")
                     {
-                        if (scheduleList[i].LectureOrExercise.t == "L") color = Color.FromHex("#E67C73"); // #FFB5AC
-                        else color = Color.FromHex("#7986CB"); // #A2D5F2
+                        de.AddAppointment(scheduleList, i, scheduleAppointmentCollection, dates, 0);
                     }
-                    else
+                    else if (scheduleList[i].Day.t == "e martë")
                     {
-                        color = Color.Transparent;
+                        de.AddAppointment(scheduleList, i, scheduleAppointmentCollection, dates, 1);
                     }
-
-                    teacher = (scheduleList[i].Teacher != null) ? scheduleList[i].Teacher.t : "";
-                    subject = (scheduleList[i].Subjects != null) ? scheduleList[i].Subjects.t : "";
-                    lectureorexercises = (scheduleList[i].LectureOrExercise != null) ? scheduleList[i].LectureOrExercise.t : "";
-                    venue = (scheduleList[i].Venue != null) ? scheduleList[i].Venue.t : "";
-                    group = (scheduleList[i].Groups != null) ? " | " + scheduleList[i].Groups.t : "";
-
-                    if (scheduleList[i].Day.t == "e hënë" && scheduleList[i].Semester.t == "V") // Semester from FireBase
+                    else if (scheduleList[i].Day.t == "e mërkurë")
                     {
-                        startTime = scheduleList[i].BeginningTime.t.Split(':');
-                        endTime = scheduleList[i].EndingTime.t.Split(':');
-
-                        //Adding schedule appointment in schedule appointment collection 
-                        scheduleAppointmentCollection.Add(new ScheduleAppointment()
-                        {
-                            StartTime = new DateTime(dates[0, 0], dates[0, 1], dates[0, 2], int.Parse(startTime[0]), int.Parse(startTime[1]), 0),
-                            EndTime = new DateTime(dates[0, 0], dates[0, 1], dates[0, 2], int.Parse(endTime[0]), int.Parse(endTime[1]), 0),
-                            Subject = "\n" + teacher + "\n" +
-                                        subject + " (" + lectureorexercises + ")" + group + "\n" +
-                                        "Venue: " + venue,
-                            Color = color
-                        });
+                        de.AddAppointment(scheduleList, i, scheduleAppointmentCollection, dates, 2);
                     }
-                    else if (scheduleList[i].Day.t == "e martë" && scheduleList[i].Semester.t == "V") // Semester from FireBase
+                    else if (scheduleList[i].Day.t == "e enjte")
                     {
-                        startTime = scheduleList[i].BeginningTime.t.Split(':');
-                        endTime = scheduleList[i].EndingTime.t.Split(':');
-
-                        //Adding schedule appointment in schedule appointment collection
-                        scheduleAppointmentCollection.Add(new ScheduleAppointment()
-                        {
-                            StartTime = new DateTime(dates[1, 0], dates[1, 1], dates[1, 2], int.Parse(startTime[0]), int.Parse(startTime[1]), 0),
-                            EndTime = new DateTime(dates[1, 0], dates[1, 1], dates[1, 2], int.Parse(endTime[0]), int.Parse(endTime[1]), 0),
-                            Subject = "\n" + teacher + "\n" +
-                                        subject + " (" + lectureorexercises + ")" + group + "\n" +
-                                        "Venue: " + venue,
-                            Color = color
-                        });
+                        de.AddAppointment(scheduleList, i, scheduleAppointmentCollection, dates, 3);
                     }
-                    else if (scheduleList[i].Day.t == "e mërkurë" && scheduleList[i].Semester.t == "V") // Semester from FireBase
+                    else if (scheduleList[i].Day.t == "e premte")
                     {
-                        startTime = scheduleList[i].BeginningTime.t.Split(':');
-                        endTime = scheduleList[i].EndingTime.t.Split(':');
-
-                        //Adding schedule appointment in schedule appointment collection 
-                        scheduleAppointmentCollection.Add(new ScheduleAppointment()
-                        {
-                            StartTime = new DateTime(dates[2, 0], dates[2, 1], dates[2, 2], int.Parse(startTime[0]), int.Parse(startTime[1]), 0),
-                            EndTime = new DateTime(dates[2, 0], dates[2, 1], dates[2, 2], int.Parse(endTime[0]), int.Parse(endTime[1]), 0),
-                            Subject = "\n" + teacher + "\n" +
-                                        subject + " (" + lectureorexercises + ")" + group + "\n" +
-                                        "Venue: " + venue,
-                            Color = color
-                        });
+                        de.AddAppointment(scheduleList, i, scheduleAppointmentCollection, dates, 4);
                     }
-                    else if (scheduleList[i].Day.t == "e enjte" && scheduleList[i].Semester.t == "V") // Semester from FireBase
+                    else if (scheduleList[i].Day.t == "e shtunë")
                     {
-                        startTime = scheduleList[i].BeginningTime.t.Split(':');
-                        endTime = scheduleList[i].EndingTime.t.Split(':');
-
-                        //Adding schedule appointment in schedule appointment collection 
-                        scheduleAppointmentCollection.Add(new ScheduleAppointment()
-                        {
-                            StartTime = new DateTime(dates[3, 0], dates[3, 1], dates[3, 2], int.Parse(startTime[0]), int.Parse(startTime[1]), 0),
-                            EndTime = new DateTime(dates[3, 0], dates[3, 1], dates[3, 2], int.Parse(endTime[0]), int.Parse(endTime[1]), 0),
-                            Subject = "\n" + teacher + "\n" +
-                                        subject + " (" + lectureorexercises + ")" + group + "\n" +
-                                        "Venue: " + venue,
-                            Color = color
-                        });
-                    }
-                    else if (scheduleList[i].Day.t == "e premte" && scheduleList[i].Semester.t == "V") // Semester from FireBase
-                    {
-                        startTime = scheduleList[i].BeginningTime.t.Split(':');
-                        endTime = scheduleList[i].EndingTime.t.Split(':');
-
-                        //Adding schedule appointment in schedule appointment collection 
-                        scheduleAppointmentCollection.Add(new ScheduleAppointment()
-                        {
-                            StartTime = new DateTime(dates[4, 0], dates[4, 1], dates[4, 2], int.Parse(startTime[0]), int.Parse(startTime[1]), 0),
-                            EndTime = new DateTime(dates[4, 0], dates[4, 1], dates[4, 2], int.Parse(endTime[0]), int.Parse(endTime[1]), 0),
-                            Subject = "\n" + teacher + "\n" +
-                                        subject + " (" + lectureorexercises + ")" + group + "\n" +
-                                        "Venue: " + venue,
-                            Color = color
-                        });
-                    }
-                    else if (scheduleList[i].Day.t == "e shtunë" && scheduleList[i].Semester.t == "V") // Semester from FireBase
-                    {
-                        startTime = scheduleList[i].BeginningTime.t.Split(':');
-                        endTime = scheduleList[i].EndingTime.t.Split(':');
-
-                        //Adding schedule appointment in schedule appointment collection 
-
-                        scheduleAppointmentCollection.Add(new ScheduleAppointment()
-                        {
-                            StartTime = new DateTime(dates[5, 0], dates[5, 1], dates[5, 2], int.Parse(startTime[0]), int.Parse(startTime[1]), 0),
-                            EndTime = new DateTime(dates[5, 0], dates[5, 1], dates[5, 2], int.Parse(endTime[0]), int.Parse(endTime[1]), 0),
-                            Subject = "\n" + teacher + "\n" +
-                                        subject + " (" + lectureorexercises + ")" + group + "\n" +
-                                        "Venue: " + venue,
-                            Color = color
-                        });
+                        de.AddAppointment(scheduleList, i, scheduleAppointmentCollection, dates, 5);
                     }
                 }
             }
