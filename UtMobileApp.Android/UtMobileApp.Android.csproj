@@ -76,15 +76,21 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Syncfusion.Xamarin.Buttons">
-      <Version>17.3.0.17</Version>
+      <Version>17.3.0.19</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.Core">
+      <Version>17.3.0.19</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfNavigationDrawer">
-      <Version>17.3.0.17</Version>
+      <Version>17.3.0.19</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfSchedule">
-      <Version>17.3.0.17</Version>
+      <Version>17.3.0.19</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.2.0.848062" />
+    <PackageReference Include="WordPressPCL">
+      <Version>1.6.2</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="4.3.0.908675" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Tabbar.axml" />

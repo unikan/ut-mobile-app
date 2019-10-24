@@ -26,6 +26,8 @@ namespace UtMobileApp.Views
 
         protected override async void OnAppearing()
         {
+            base.OnAppearing();
+
             // Write current month and year in label
             label_monthYear.Text = DateTime.Now.Year + "\n" + DateTime.Now.ToString("MMMM");
 
@@ -118,9 +120,11 @@ namespace UtMobileApp.Views
                     break;
             }
 
+            // Hide activity indicator
             await activityIndicator.FadeTo(0, 300, Easing.Linear);
             activityIndicator.IsRunning = false;
 
+            // Show buttons
             await btn_monday.FadeTo(1, 100, Easing.Linear);
             await btn_tuesday.FadeTo(1, 100, Easing.Linear);
             await btn_wednesday.FadeTo(1, 100, Easing.Linear);
@@ -128,8 +132,6 @@ namespace UtMobileApp.Views
             await btn_friday.FadeTo(1, 100, Easing.Linear);
             await btn_saturday.FadeTo(1, 100, Easing.Linear);
             await schedule.FadeTo(1, 100, Easing.Linear);
-
-            base.OnAppearing();
         }
 
         private void Button_ChangeDay_Clicked(object sender, EventArgs e)

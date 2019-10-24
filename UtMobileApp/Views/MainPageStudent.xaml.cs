@@ -18,6 +18,21 @@ namespace UtMobileApp.Views
             InitializeComponent();
         }
 
+        protected override async void OnAppearing()
+        {
+            // Get latest post, Announcements is the category with id 59
+            // List of categories id https://unite.edu.mk/wp-json/wp/v2/categories?per_page=20
+
+            Extensions.WordpressServices wordpressServices = new Extensions.WordpressServices();
+            announcementList.ItemsSource = await wordpressServices.GetLatestPostsAsync(59);
+
+            shimmer.IsActive = false;
+            shimmer.IsVisible = false;
+            announcementList.IsVisible = true;
+
+            base.OnAppearing();
+        }
+
         private async void BtnSchedule_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Schedule(), false);
@@ -26,6 +41,13 @@ namespace UtMobileApp.Views
         private void HamburgerButton_Clicked(object sender, EventArgs e)
         {
             navigationDrawer.ToggleDrawer();
+        }
+
+        private async void announcementList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var selectedPost = e.SelectedItem as WordPressPCL.Models.Post;
+
+            await Navigation.PushAsync(new PostDetailPage(selectedPost));
         }
     }
 }

@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:navigationdrawer="clr-namespace:Syncfusion.SfNavigationDrawer.XForms;assembly=Syncfusion.SfNavigationDrawer.XForms"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:shimmer="clr-namespace:Syncfusion.XForms.Shimmer;assembly=Syncfusion.Core.XForms"
              mc:Ignorable="d"
              x:Class="UtMobileApp.Views.MainPageStudent"
              BackgroundColor="White">
@@ -62,7 +63,7 @@
                     </StackLayout>
                     <!-- Hello Message -->
                     <StackLayout Orientation="Horizontal" 
-                                 AbsoluteLayout.LayoutBounds="0, .06, 1, .15"
+                                 AbsoluteLayout.LayoutBounds="0, .06, 1, .20"
                                  AbsoluteLayout.LayoutFlags="All"
                                  Padding="0, 10" 
                                  Margin="15, 0"
@@ -135,6 +136,34 @@
                                               FontAttributes="Bold"
                                               Grid.Row="1" Grid.Column="1" />
                         </Grid>
+                    </StackLayout>
+                    <!-- Latest Announcements -->
+                    <StackLayout AbsoluteLayout.LayoutBounds="0, 1, 1, .4"
+                                 AbsoluteLayout.LayoutFlags="All"
+                                 Padding="0, 10, 0, 0"
+                                 Margin="15, 0"
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="StartAndExpand">
+                        <shimmer:SfShimmer x:Name="shimmer" VerticalOptions="Fill"
+                                           IsActive="True">
+                            <shimmer:SfShimmer.Content>
+                                <StackLayout>
+                                    <Label Text="Content is loaded!" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </shimmer:SfShimmer.Content>
+                        </shimmer:SfShimmer>
+                        
+                        <ListView x:Name="announcementList" ItemSelected="announcementList_ItemSelected" IsVisible="False" BackgroundColor="AliceBlue">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout>
+                                            <Label Text="{Binding Title.Rendered}" />
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
                     </StackLayout>
                 </AbsoluteLayout>
 
