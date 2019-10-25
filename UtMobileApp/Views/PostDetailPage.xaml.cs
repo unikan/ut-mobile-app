@@ -13,12 +13,14 @@ namespace UtMobileApp.Views
     public partial class PostDetailPage : ContentPage
     {
         public string content;
+        Extensions.WordpressServices ws;
 
         public PostDetailPage(WordPressPCL.Models.Post SelectedPost)
         {
             InitializeComponent();
 
             content = SelectedPost.Content.Rendered;
+            ws = new Extensions.WordpressServices();
         }
 
         protected override void OnAppearing()
@@ -27,8 +29,9 @@ namespace UtMobileApp.Views
 
             var html = new HtmlWebViewSource
             {
-                Html = "<!DOCTYPE html><html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/></head><link href=\"https://unite.edu.mk/wp-content/themes/Avada/assets/css/style.min.css?ver=5.5.1\" type=\"text/css\" rel=\"stylesheet\"/><body>" + content + "</body></html>"
+                Html = ws.HtmlStart + content + ws.HtmlEnd
             };
+
             webView.Source = html;
             webView.Navigating += async (s, e) =>
             {
