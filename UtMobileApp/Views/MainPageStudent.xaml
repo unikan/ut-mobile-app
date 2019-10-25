@@ -6,6 +6,7 @@
              xmlns:navigationdrawer="clr-namespace:Syncfusion.SfNavigationDrawer.XForms;assembly=Syncfusion.SfNavigationDrawer.XForms"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              xmlns:shimmer="clr-namespace:Syncfusion.XForms.Shimmer;assembly=Syncfusion.Core.XForms"
+             xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
              mc:Ignorable="d"
              x:Class="UtMobileApp.Views.MainPageStudent"
              BackgroundColor="White">
@@ -103,8 +104,18 @@
                                               HorizontalOptions="FillAndExpand"
                                               Padding="15, 0,  0, 15"
                                               FontAttributes="Bold"
+                                              TextColor="White"
                                               Grid.Row="0" Grid.Column="0"
-                                              Clicked="BtnSchedule_Clicked" />
+                                              Clicked="BtnSchedule_Clicked">
+                                <buttons:SfButton.BackgroundGradient>
+                                    <gradient:SfLinearGradientBrush>
+                                        <gradient:SfLinearGradientBrush.GradientStops>
+                                            <gradient:SfGradientStop Color="#553C8B" Offset="0"/>
+                                            <gradient:SfGradientStop Color="#9EA9F0" Offset="1"/>
+                                        </gradient:SfLinearGradientBrush.GradientStops>
+                                    </gradient:SfLinearGradientBrush>
+                                </buttons:SfButton.BackgroundGradient>
+                            </buttons:SfButton>
                             <buttons:SfButton Text="Midterms" 
                                               CornerRadius="20" 
                                               WidthRequest="75"
@@ -114,7 +125,17 @@
                                               HorizontalOptions="FillAndExpand"
                                               Padding="15, 0,  0, 15"
                                               FontAttributes="Bold"
-                                              Grid.Row="0" Grid.Column="1" />
+                                              TextColor="White"
+                                              Grid.Row="0" Grid.Column="1">
+                                <buttons:SfButton.BackgroundGradient>
+                                    <gradient:SfLinearGradientBrush>
+                                        <gradient:SfLinearGradientBrush.GradientStops>
+                                            <gradient:SfGradientStop Color="#553C8B" Offset="0"/>
+                                            <gradient:SfGradientStop Color="#9EA9F0" Offset="1"/>
+                                        </gradient:SfLinearGradientBrush.GradientStops>
+                                    </gradient:SfLinearGradientBrush>
+                                </buttons:SfButton.BackgroundGradient>
+                            </buttons:SfButton>
                             <buttons:SfButton Text="Exams" 
                                               CornerRadius="20" 
                                               WidthRequest="75"
@@ -124,7 +145,17 @@
                                               HorizontalOptions="FillAndExpand"
                                               Padding="15, 0,  0, 15"
                                               FontAttributes="Bold"
-                                              Grid.Row="1" Grid.Column="0" />
+                                              TextColor="White"
+                                              Grid.Row="1" Grid.Column="0">
+                                <buttons:SfButton.BackgroundGradient>
+                                    <gradient:SfLinearGradientBrush>
+                                        <gradient:SfLinearGradientBrush.GradientStops>
+                                            <gradient:SfGradientStop Color="#553C8B" Offset="0"/>
+                                            <gradient:SfGradientStop Color="#9EA9F0" Offset="1"/>
+                                        </gradient:SfLinearGradientBrush.GradientStops>
+                                    </gradient:SfLinearGradientBrush>
+                                </buttons:SfButton.BackgroundGradient>
+                            </buttons:SfButton>
                             <buttons:SfButton Text="Consultations" 
                                               CornerRadius="20" 
                                               WidthRequest="75"
@@ -134,7 +165,17 @@
                                               HorizontalOptions="FillAndExpand"
                                               Padding="15, 0,  0, 15"
                                               FontAttributes="Bold"
-                                              Grid.Row="1" Grid.Column="1" />
+                                              TextColor="White"
+                                              Grid.Row="1" Grid.Column="1">
+                                <buttons:SfButton.BackgroundGradient>
+                                    <gradient:SfLinearGradientBrush>
+                                        <gradient:SfLinearGradientBrush.GradientStops>
+                                            <gradient:SfGradientStop Color="#553C8B" Offset="0"/>
+                                            <gradient:SfGradientStop Color="#9EA9F0" Offset="1"/>
+                                        </gradient:SfLinearGradientBrush.GradientStops>
+                                    </gradient:SfLinearGradientBrush>
+                                </buttons:SfButton.BackgroundGradient>
+                            </buttons:SfButton>
                         </Grid>
                     </StackLayout>
                     <!-- Latest Announcements -->
