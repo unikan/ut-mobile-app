@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "559523781574",
+    "firebase_url": "https://utappdatabase.firebaseio.com",
+    "project_id": "utappdatabase",
+    "storage_bucket": "utappdatabase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:559523781574:android:b90bcc0ee33da1138030c7",
+        "android_client_info": {
+          "package_name": "Unikan.Utapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "559523781574-9i163gmq07lt0d5drn08lrcphcqk2aeq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7-SbfRZORgAVrnW43d_GIdMQucydGxsY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "559523781574-9i163gmq07lt0d5drn08lrcphcqk2aeq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "559523781574-nkvoamo9nlg482afct3v2mhfr4eibspf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "Unikan.Utapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
