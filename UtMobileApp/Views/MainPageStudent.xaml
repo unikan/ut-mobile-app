@@ -9,6 +9,7 @@
              xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
              xmlns:listviews="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
              xmlns:data="clr-namespace:Syncfusion.DataSource;assembly=Syncfusion.DataSource.Portable"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
              mc:Ignorable="d"
              x:Class="UtMobileApp.Views.MainPageStudent"
              BackgroundColor="White">
@@ -188,15 +189,60 @@
                                  HorizontalOptions="FillAndExpand"
                                  VerticalOptions="StartAndExpand">
                         <shimmer:SfShimmer x:Name="shimmer" 
-                                           VerticalOptions="Start"
-                                           IsActive="True"
-                                           Type="Shopping">
+                                           VerticalOptions="CenterAndExpand"
+                                           IsActive="True">
+                            <shimmer:SfShimmer.CustomView>
+                                <StackLayout>
+                                    <Grid x:Name="customView"
+                                      Padding="10" ColumnSpacing="15" RowSpacing="15"
+                                      HorizontalOptions="FillAndExpand"
+                                      VerticalOptions="Center">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="4*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="2*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+
+                                        <border:SfBorder Grid.Row="0" Grid.Column="0"
+                                                     BackgroundColor="{Binding Color,Source={x:Reference shimmer}}"
+                                                     BorderColor="Gray"
+                                                     HeightRequest="30"
+                                                     VerticalOptions="Center" />
+                                        <StackLayout Orientation="Vertical"
+                                                 Grid.Row="0"
+                                                 Grid.Column="2">
+                                            <border:SfBorder BackgroundColor="{Binding Color,Source={x:Reference shimmer}}"
+                                                     BorderColor="Gray"
+                                                     HeightRequest="30"
+                                                     VerticalOptions="Center" />
+                                            <border:SfBorder BackgroundColor="{Binding Color,Source={x:Reference shimmer}}"
+                                                     BorderColor="Gray"
+                                                     HeightRequest="30"
+                                                     VerticalOptions="Center" />
+                                        </StackLayout>
+                                    </Grid>
+                                    <Label Text="Loading announcements..."
+                                           HorizontalOptions="CenterAndExpand"
+                                           FontSize="Medium"
+                                           FontAttributes="Bold"/>
+                                </StackLayout>
+                            </shimmer:SfShimmer.CustomView>
+                            <shimmer:SfShimmer.Content>
+                                <StackLayout>
+                                    <Label Text="Content is loaded!"/>
+                                </StackLayout>
+                            </shimmer:SfShimmer.Content>
                         </shimmer:SfShimmer>
                         <listviews:SfListView x:Name="announcementList" 
-                                                      ItemTapped="announcementList_ItemTapped"
-                                                      ItemSize="100"
-                                                      AutoFitMode="Height"
-                                                      SelectionBackgroundColor="LightGray">
+                                              ItemTapped="announcementList_ItemTapped"
+                                              ItemSize="100"
+                                              AutoFitMode="Height"
+                                              SelectionBackgroundColor="LightGray"
+                                              Opacity="0">
                             <listviews:SfListView.ItemTemplate>
                                 <DataTemplate>
                                     <Grid Padding="1" Margin="1">
@@ -207,42 +253,42 @@
                                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
                                                 <Label Grid.Row="0"
-                                                               Grid.Column="0"
-                                                               HorizontalOptions="StartAndExpand"
-                                                               VerticalOptions="CenterAndExpand"
-                                                               FontSize="Medium"
-                                                               FontAttributes="Bold"
-                                                               TextType="Html"
-                                                               Padding="10, 0, 0, 0"
-                                                               Text="{Binding Title.Rendered}"></Label>
+                                                       Grid.Column="0"
+                                                       HorizontalOptions="StartAndExpand"
+                                                       VerticalOptions="CenterAndExpand"
+                                                       FontSize="Medium"
+                                                       FontAttributes="Bold"
+                                                       TextType="Html"
+                                                       Padding="10, 0, 0, 0"
+                                                       Text="{Binding Title.Rendered}"></Label>
                                                 <Grid Grid.Row="0"
-                                                              Grid.Column="1"
-                                                              HorizontalOptions="CenterAndExpand"
-                                                              VerticalOptions="CenterAndExpand">
+                                                      Grid.Column="1"
+                                                      HorizontalOptions="CenterAndExpand"
+                                                      VerticalOptions="CenterAndExpand">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition Height="2*"></RowDefinition>
                                                         <RowDefinition Height="*"></RowDefinition>
                                                     </Grid.RowDefinitions>
                                                     <Label Grid.Row="0" 
-                                                                   HorizontalOptions="CenterAndExpand"
-                                                                   VerticalOptions="EndAndExpand"
-                                                                   HorizontalTextAlignment="Center"
-                                                                   VerticalTextAlignment="End"
-                                                                   Padding="0"
-                                                                   Margin="0"
-                                                                   FontSize="Medium"
-                                                                   FontAttributes="Bold"
-                                                                   Text="{Binding Date, StringFormat='{0:dd}'}"></Label>
+                                                           HorizontalOptions="CenterAndExpand"
+                                                           VerticalOptions="EndAndExpand"
+                                                           HorizontalTextAlignment="Center"
+                                                           VerticalTextAlignment="End"
+                                                           Padding="0"
+                                                           Margin="0"
+                                                           FontSize="Medium"
+                                                           FontAttributes="Bold"
+                                                           Text="{Binding Date, StringFormat='{0:dd}'}"></Label>
                                                     <Label Grid.Row="1" 
-                                                                   HorizontalOptions="CenterAndExpand"
-                                                                   VerticalOptions="StartAndExpand"
-                                                                   HorizontalTextAlignment="Center"
-                                                                   VerticalTextAlignment="Start"
-                                                                   Padding="0"
-                                                                   Margin="0"
-                                                                   FontSize="Small"
-                                                                   FontAttributes="Bold, Italic"
-                                                                   Text="{Binding Date, StringFormat='{0:MMMM}'}"></Label>
+                                                           HorizontalOptions="CenterAndExpand"
+                                                           VerticalOptions="StartAndExpand"
+                                                           HorizontalTextAlignment="Center"
+                                                           VerticalTextAlignment="Start"
+                                                           Padding="0"
+                                                           Margin="0"
+                                                           FontSize="Small"
+                                                           FontAttributes="Bold, Italic"
+                                                           Text="{Binding Date, StringFormat='{0:MMMM}'}"></Label>
                                                 </Grid>
                                             </Grid>
                                         </Frame>
