@@ -210,7 +210,7 @@
                                         <border:SfBorder Grid.Row="0" Grid.Column="0"
                                                      BackgroundColor="{Binding Color,Source={x:Reference shimmer}}"
                                                      BorderColor="Gray"
-                                                     HeightRequest="30"
+                                                     HeightRequest="500"
                                                      VerticalOptions="Center" />
                                         <StackLayout Orientation="Vertical"
                                                  Grid.Row="0"
