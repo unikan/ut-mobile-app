@@ -44,6 +44,21 @@ namespace UtMobileApp.iOS
             return getuser;
         }
 
+        public async Task<string> ResetPassword(string email)
+        {
+            try
+            {
+                await FirebaseAuth.Instance.SendPasswordResetEmailAsync(email);
+                return email;
+            }
+            catch (FirebaseAuthInvalidUserException e)
+            {
+                e.PrintStackTrace();
+                return "";
+            }
+
+        }
+
         public async Task<string> SignupWithEmailPassword(string email, string password)
         {
             try

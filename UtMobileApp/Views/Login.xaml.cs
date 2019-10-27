@@ -47,5 +47,25 @@ namespace UtMobileApp
         {
 
         }
+
+        async void Reset_Password(object sender, EventArgs e)
+        {
+            if (EmailInput.Text == null)
+            {
+                await DisplayAlert("Alert", "Please enter the email of which account you want to reset the password to :) ", "OK");
+            }
+            else
+            {
+                string Token = await auth.ResetPassword(EmailInput.Text);
+                if (Token != "")
+                {
+                    await Navigation.PushAsync(new UtMobileApp.Views.ResetPass());
+                }
+                else
+                {
+                    ShowError();
+                }
+            }
+        }
     }
 }

@@ -15,5 +15,9 @@ namespace UtMobileApp
 
         Task<string> SignupWithEmailPassword(string email, string password);
 
+        Task<string> ResetPassword(string email);
+
+        Task<string> VerifyEmail(string email);
+
     }
 }

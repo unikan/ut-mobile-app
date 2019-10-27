@@ -13,7 +13,7 @@
                 Margin="0,20"
                 FontSize="35"
                 HorizontalOptions="Center"
-                Text="FireAuth"
+                Text="Sign Up"
                 TextColor="#4682B4" />
 
             <Entry
@@ -30,7 +30,7 @@
                 Margin="60,40"
                 BackgroundColor="#4682B4"
                 Clicked="SignUpClicked"
-                Text="Enter"
+                Text="Send Verification Email"
                 TextColor="White" />
 
         </StackLayout>
