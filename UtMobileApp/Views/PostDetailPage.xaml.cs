@@ -12,14 +12,17 @@ namespace UtMobileApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PostDetailPage : ContentPage
     {
-        public string content;
+        protected WordPressPCL.Models.Post currentPost;
+        protected string currentCategory;
         Extensions.WordpressServices ws;
 
-        public PostDetailPage(WordPressPCL.Models.Post SelectedPost)
+        public PostDetailPage(WordPressPCL.Models.Post SelectedPost, string category)
         {
             InitializeComponent();
 
-            content = SelectedPost.Content.Rendered;
+            NavigationPage.SetHasNavigationBar(this, false);
+            currentPost = SelectedPost;
+            currentCategory = category;
             ws = new Extensions.WordpressServices();
         }
 
@@ -27,15 +30,18 @@ namespace UtMobileApp.Views
         {
             base.OnAppearing();
 
+            label_type.Text = currentCategory;
+            label_title.Text = currentPost.Title.Rendered;
+            label_date.Text = "Posted: " + currentPost.Date.ToString("dddd, dd MMMM yyyy HH:mm");
+            
             var html = new HtmlWebViewSource
             {
-                Html = ws.HtmlStart + content + ws.HtmlEnd
+                Html = ws.HtmlStart + currentPost.Content.Rendered + ws.HtmlEnd
             };
-
             webView.Source = html;
             webView.Navigating += async (s, e) =>
             {
-                if (e.Url.StartsWith("http://www.unite.edu.mk") || e.Url.StartsWith("https://www.unite.edu.mk") || e.Url.StartsWith("http://unite.edu.mk") || e.Url.StartsWith("https://unite.edu.mk"))
+                if (e.Url.StartsWith("http://") || e.Url.StartsWith("https://"))
                 {
                     try
                     {
@@ -49,6 +55,11 @@ namespace UtMobileApp.Views
                     e.Cancel = true;
                 }
             };
+        }
+
+        private async void BtnBack_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
         }
     }
 }

@@ -3,11 +3,82 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              mc:Ignorable="d"
-             x:Class="UtMobileApp.Views.PostDetailPage">
+             x:Class="UtMobileApp.Views.PostDetailPage"
+             BackgroundColor="White">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="Android">0, 10, 0, 0</On>
+            <On Platform="iOS">0, 20, 0, 0</On>
+        </OnPlatform>
+    </ContentPage.Padding>
     <ContentPage.Content>
-        <StackLayout>
-            <WebView x:Name="webView" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"></WebView>
-        </StackLayout>
+        <AbsoluteLayout>
+            <!-- HEADER -->
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand"
+                         Margin="10, 0"
+                         AbsoluteLayout.LayoutBounds="0, 0, 1, .1"
+                         AbsoluteLayout.LayoutFlags="All">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="4*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <buttons:SfButton 
+                            Grid.Row="0" 
+                            Grid.Column="0" 
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"
+                            ShowIcon="True" 
+                            BackgroundColor="White"
+                            CornerRadius="40"
+                            WidthRequest="50"
+                            HeightRequest="50"
+                            Clicked="BtnBack_Clicked">
+                        <buttons:SfButton.Content>
+                            <Image Source="back.png"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   WidthRequest="20" 
+                                   HeightRequest="20" />
+                        </buttons:SfButton.Content>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup>
+                                <VisualState x:Name="Pressed">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor"  Value="#0D000000" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </buttons:SfButton>
+                    <Label Grid.Row="0"
+                           Grid.Column="1"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center"
+                           HorizontalTextAlignment="Start"
+                           FontSize="Medium"
+                           FontAttributes="Bold"
+                           MaxLines="1"
+                           x:Name="label_type"></Label>
+                </Grid>
+            </StackLayout>
+            <StackLayout AbsoluteLayout.LayoutBounds="0, 1, 1, 0.9"
+                         AbsoluteLayout.LayoutFlags="All">
+                <Label x:Name="label_title"
+                       Margin="20, 0"
+                       TextType="Html"
+                       FontSize="Large"
+                       HorizontalOptions="StartAndExpand" />
+                <Label x:Name="label_date" Margin="20, 0" />
+                <WebView x:Name="webView" 
+                     VerticalOptions="FillAndExpand" 
+                     HorizontalOptions="FillAndExpand">
+                </WebView>
+            </StackLayout>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

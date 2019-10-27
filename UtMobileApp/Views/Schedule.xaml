@@ -23,7 +23,7 @@
                          HorizontalOptions="FillAndExpand"
                          VerticalOptions="FillAndExpand"
                          Margin="10, 0"
-                         AbsoluteLayout.LayoutBounds="0, 0, 1, .05"
+                         AbsoluteLayout.LayoutBounds="0, 0, 1, .1"
                          AbsoluteLayout.LayoutFlags="All">
                 <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                     <Grid.ColumnDefinitions>
@@ -68,19 +68,18 @@
                     <Label Grid.Row="0" 
                            Grid.Column="2" 
                            HorizontalTextAlignment="End"
-                           VerticalOptions="EndAndExpand"
+                           VerticalOptions="CenterAndExpand"
                            x:Name="label_monthYear"
                            FontAttributes="Bold"
-                           FontSize="16">
-                    </Label>
+                           FontSize="16"></Label>
                 </Grid>
             </StackLayout>
             <!-- DAYS -->
             <StackLayout Orientation="Horizontal" 
                          HorizontalOptions="CenterAndExpand"
-                         AbsoluteLayout.LayoutBounds="0, .06, 1, .1"
+                         AbsoluteLayout.LayoutBounds="0, .1, 1, .1"
                          AbsoluteLayout.LayoutFlags="All"
-                         Padding="0, 10">
+                         Padding="10, 10">
                 <Button BackgroundColor="Transparent" TextColor="#8E97A6" Text="M" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_monday" CommandParameter="0" Opacity="0"></Button>
                 <Button BackgroundColor="Transparent" TextColor="#8E97A6" Text="T" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_tuesday" CommandParameter="1" Opacity="0"></Button>
                 <Button BackgroundColor="Transparent" TextColor="#8E97A6" Text="W" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_wednesday" CommandParameter="2" Opacity="0"></Button>
@@ -95,7 +94,7 @@
                                  TimeIntervalHeight="60"
                                  ViewHeaderHeight="0"
                                  HeaderHeight="0"
-                                 AbsoluteLayout.LayoutBounds="0, 1, 1, .85"
+                                 AbsoluteLayout.LayoutBounds="0, 1, 1, .8"
                                  AbsoluteLayout.LayoutFlags="All"
                                  Opacity="0">
                 <schedule:SfSchedule.DayViewSettings>
