@@ -26,8 +26,11 @@ namespace UtMobileApp.Views
             // List of categories id https://unite.edu.mk/wp-json/wp/v2/categories?per_page=20
             Extensions.WordpressServices wordpressServices = new Extensions.WordpressServices();
             announcementList.ItemsSource = await wordpressServices.GetLatestPostsAsync(59);
-            shimmer.IsVisible = false;
-            shimmer.IsActive = false;
+            // Hide busy indicator indicator
+            await busyindicator.FadeTo(0, 300, Easing.Linear);
+            busyindicator.IsVisible = false;
+            busyindicator.IsBusy = false;
+
             await announcementList.FadeTo(1, 300, Easing.Linear);
         }
 

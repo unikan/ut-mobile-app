@@ -6,10 +6,9 @@
              xmlns:navigationdrawer="clr-namespace:Syncfusion.SfNavigationDrawer.XForms;assembly=Syncfusion.SfNavigationDrawer.XForms"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              xmlns:shimmer="clr-namespace:Syncfusion.XForms.Shimmer;assembly=Syncfusion.Core.XForms"
-             xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
              xmlns:listviews="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
-             xmlns:data="clr-namespace:Syncfusion.DataSource;assembly=Syncfusion.DataSource.Portable"
              xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
              mc:Ignorable="d"
              x:Class="UtMobileApp.Views.MainPageStudent"
              BackgroundColor="White">
@@ -109,15 +108,8 @@
                                               FontAttributes="Bold"
                                               TextColor="White"
                                               Grid.Row="0" Grid.Column="0"
+                                              BackgroundImage="lecturesbg.jpeg"
                                               Clicked="BtnSchedule_Clicked">
-                                <buttons:SfButton.BackgroundGradient>
-                                    <gradient:SfLinearGradientBrush>
-                                        <gradient:SfLinearGradientBrush.GradientStops>
-                                            <gradient:SfGradientStop Color="#553C8B" Offset="0"/>
-                                            <gradient:SfGradientStop Color="#9EA9F0" Offset="1"/>
-                                        </gradient:SfLinearGradientBrush.GradientStops>
-                                    </gradient:SfLinearGradientBrush>
-                                </buttons:SfButton.BackgroundGradient>
                             </buttons:SfButton>
                             <buttons:SfButton Text="Midterms" 
                                               CornerRadius="20" 
@@ -129,15 +121,8 @@
                                               Padding="15, 0,  0, 15"
                                               FontAttributes="Bold"
                                               TextColor="White"
-                                              Grid.Row="0" Grid.Column="1">
-                                <buttons:SfButton.BackgroundGradient>
-                                    <gradient:SfLinearGradientBrush>
-                                        <gradient:SfLinearGradientBrush.GradientStops>
-                                            <gradient:SfGradientStop Color="#553C8B" Offset="0"/>
-                                            <gradient:SfGradientStop Color="#9EA9F0" Offset="1"/>
-                                        </gradient:SfLinearGradientBrush.GradientStops>
-                                    </gradient:SfLinearGradientBrush>
-                                </buttons:SfButton.BackgroundGradient>
+                                              Grid.Row="0" Grid.Column="1"
+                                              BackgroundImage="lecturesbg.jpeg">
                             </buttons:SfButton>
                             <buttons:SfButton Text="Exams" 
                                               CornerRadius="20" 
@@ -149,15 +134,8 @@
                                               Padding="15, 0,  0, 15"
                                               FontAttributes="Bold"
                                               TextColor="White"
-                                              Grid.Row="1" Grid.Column="0">
-                                <buttons:SfButton.BackgroundGradient>
-                                    <gradient:SfLinearGradientBrush>
-                                        <gradient:SfLinearGradientBrush.GradientStops>
-                                            <gradient:SfGradientStop Color="#553C8B" Offset="0"/>
-                                            <gradient:SfGradientStop Color="#9EA9F0" Offset="1"/>
-                                        </gradient:SfLinearGradientBrush.GradientStops>
-                                    </gradient:SfLinearGradientBrush>
-                                </buttons:SfButton.BackgroundGradient>
+                                              Grid.Row="1" Grid.Column="0"
+                                              BackgroundImage="lecturesbg.jpeg">
                             </buttons:SfButton>
                             <buttons:SfButton Text="Consultations" 
                                               CornerRadius="20" 
@@ -169,74 +147,26 @@
                                               Padding="15, 0,  0, 15"
                                               FontAttributes="Bold"
                                               TextColor="White"
-                                              Grid.Row="1" Grid.Column="1">
-                                <buttons:SfButton.BackgroundGradient>
-                                    <gradient:SfLinearGradientBrush>
-                                        <gradient:SfLinearGradientBrush.GradientStops>
-                                            <gradient:SfGradientStop Color="#553C8B" Offset="0"/>
-                                            <gradient:SfGradientStop Color="#9EA9F0" Offset="1"/>
-                                        </gradient:SfLinearGradientBrush.GradientStops>
-                                    </gradient:SfLinearGradientBrush>
-                                </buttons:SfButton.BackgroundGradient>
+                                              Grid.Row="1" Grid.Column="1"
+                                              BackgroundImage="lecturesbg.jpeg">
                             </buttons:SfButton>
                         </Grid>
                     </StackLayout>
                     <!-- Latest Announcements -->
-                    <StackLayout AbsoluteLayout.LayoutBounds="0, 1, 1, .4"
+                    <StackLayout AbsoluteLayout.LayoutBounds="0, 1, 1, .36"
                                  AbsoluteLayout.LayoutFlags="All"
                                  Padding="0, 10, 0, 0"
                                  Margin="15, 0"
                                  HorizontalOptions="FillAndExpand"
                                  VerticalOptions="StartAndExpand">
-                        <shimmer:SfShimmer x:Name="shimmer" 
-                                           VerticalOptions="CenterAndExpand"
-                                           IsActive="True">
-                            <shimmer:SfShimmer.CustomView>
-                                <StackLayout>
-                                    <Grid x:Name="customView"
-                                      Padding="10" ColumnSpacing="15" RowSpacing="15"
-                                      HorizontalOptions="FillAndExpand"
-                                      VerticalOptions="Center">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="4*" />
-                                            <ColumnDefinition Width="*" />
-                                            <ColumnDefinition Width="2*" />
-                                        </Grid.ColumnDefinitions>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="*" />
-                                            <RowDefinition Height="*" />
-                                        </Grid.RowDefinitions>
 
-                                        <border:SfBorder Grid.Row="0" Grid.Column="0"
-                                                     BackgroundColor="{Binding Color,Source={x:Reference shimmer}}"
-                                                     BorderColor="Gray"
-                                                     HeightRequest="500"
-                                                     VerticalOptions="Center" />
-                                        <StackLayout Orientation="Vertical"
-                                                 Grid.Row="0"
-                                                 Grid.Column="2">
-                                            <border:SfBorder BackgroundColor="{Binding Color,Source={x:Reference shimmer}}"
-                                                     BorderColor="Gray"
-                                                     HeightRequest="30"
-                                                     VerticalOptions="Center" />
-                                            <border:SfBorder BackgroundColor="{Binding Color,Source={x:Reference shimmer}}"
-                                                     BorderColor="Gray"
-                                                     HeightRequest="30"
-                                                     VerticalOptions="Center" />
-                                        </StackLayout>
-                                    </Grid>
-                                    <Label Text="Loading announcements..."
-                                           HorizontalOptions="CenterAndExpand"
-                                           FontSize="Medium"
-                                           FontAttributes="Bold"/>
-                                </StackLayout>
-                            </shimmer:SfShimmer.CustomView>
-                            <shimmer:SfShimmer.Content>
-                                <StackLayout>
-                                    <Label Text="Content is loaded!"/>
-                                </StackLayout>
-                            </shimmer:SfShimmer.Content>
-                        </shimmer:SfShimmer>
+                        <busyindicator:SfBusyIndicator x:Name="busyindicator"
+                                                       ViewBoxHeight="70"
+                                                       ViewBoxWidth="70"
+                                                       Title="Loading announcements..."
+                                                       TextColor="Salmon"
+                                                       TextSize="15" />
+                        
                         <listviews:SfListView x:Name="announcementList" 
                                               ItemTapped="announcementList_ItemTapped"
                                               ItemSize="100"
@@ -246,7 +176,12 @@
                             <listviews:SfListView.ItemTemplate>
                                 <DataTemplate>
                                     <Grid Padding="1" Margin="1">
-                                        <Frame x:Name="frame" HasShadow="True" Padding="2" Margin="2" BackgroundColor="#ccc1ff">
+                                        <Frame x:Name="frame" 
+                                               HasShadow="True" 
+                                               Padding="2" 
+                                               Margin="2" 
+                                               CornerRadius="10"
+                                               BackgroundColor="#FD7F59">
                                             <Grid>
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="2.5*"></ColumnDefinition>
@@ -258,6 +193,7 @@
                                                        VerticalOptions="CenterAndExpand"
                                                        FontSize="Medium"
                                                        FontAttributes="Bold"
+                                                       TextColor="White"
                                                        TextType="Html"
                                                        Padding="10, 0, 0, 0"
                                                        Text="{Binding Title.Rendered}"></Label>
@@ -266,7 +202,7 @@
                                                       HorizontalOptions="CenterAndExpand"
                                                       VerticalOptions="CenterAndExpand">
                                                     <Grid.RowDefinitions>
-                                                        <RowDefinition Height="2*"></RowDefinition>
+                                                        <RowDefinition Height="*"></RowDefinition>
                                                         <RowDefinition Height="*"></RowDefinition>
                                                     </Grid.RowDefinitions>
                                                     <Label Grid.Row="0" 
@@ -276,16 +212,18 @@
                                                            VerticalTextAlignment="End"
                                                            Padding="0"
                                                            Margin="0"
+                                                           TextColor="White"
                                                            FontSize="Medium"
                                                            FontAttributes="Bold"
                                                            Text="{Binding Date, StringFormat='{0:dd}'}"></Label>
                                                     <Label Grid.Row="1" 
                                                            HorizontalOptions="CenterAndExpand"
-                                                           VerticalOptions="StartAndExpand"
+                                                           VerticalOptions="Start"
                                                            HorizontalTextAlignment="Center"
                                                            VerticalTextAlignment="Start"
                                                            Padding="0"
                                                            Margin="0"
+                                                           TextColor="White"
                                                            FontSize="Small"
                                                            FontAttributes="Bold, Italic"
                                                            Text="{Binding Date, StringFormat='{0:MMMM}'}"></Label>

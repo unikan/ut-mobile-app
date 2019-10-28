@@ -120,9 +120,9 @@ namespace UtMobileApp.Views
                     break;
             }
 
-            // Hide activity indicator
-            await activityIndicator.FadeTo(0, 300, Easing.Linear);
-            activityIndicator.IsRunning = false;
+            // Hide busy indicator indicator
+            await busyindicator.FadeTo(0, 300, Easing.Linear);
+            busyindicator.IsBusy = false;
 
             // Show buttons
             await btn_monday.FadeTo(1, 100, Easing.Linear);

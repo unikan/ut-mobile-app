@@ -129,6 +129,9 @@
     <PackageReference Include="Syncfusion.Xamarin.Core">
       <Version>17.3.0.19</Version>
     </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator">
+      <Version>17.3.0.19</Version>
+    </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfListView">
       <Version>17.3.0.19</Version>
     </PackageReference>
@@ -155,5 +158,8 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lecturesbg.jpg" />
   </ItemGroup>
 </Project>

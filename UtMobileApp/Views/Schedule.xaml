@@ -6,6 +6,7 @@
              xmlns:schedule="clr-namespace:Syncfusion.SfSchedule.XForms;assembly=Syncfusion.SfSchedule.XForms"
              xmlns:extensions="clr-namespace:UtMobileApp.Extensions"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
              mc:Ignorable="d"
              x:Class="UtMobileApp.Views.Schedule"
              BackgroundColor="White">
@@ -59,12 +60,15 @@
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
                     </buttons:SfButton>
-                    <ActivityIndicator Grid.Row="0" 
-                           Grid.Column="1" 
-                           x:Name="activityIndicator" 
-                           IsRunning="True"
-                           HorizontalOptions="CenterAndExpand"
-                           VerticalOptions="CenterAndExpand"></ActivityIndicator>
+                    <busyindicator:SfBusyIndicator Grid.Column="1" 
+                                                   Grid.Row="0"
+                                                   x:Name="busyindicator"
+                                                   ViewBoxHeight="70"
+                                                   ViewBoxWidth="70"
+                                                   TextColor="Salmon"
+                                                   TextSize="15"  
+                                                   HorizontalOptions="CenterAndExpand"
+                                                   VerticalOptions="CenterAndExpand"></busyindicator:SfBusyIndicator>
                     <Label Grid.Row="0" 
                            Grid.Column="2" 
                            HorizontalTextAlignment="End"
