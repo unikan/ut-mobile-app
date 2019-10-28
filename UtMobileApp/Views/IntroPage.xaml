@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="UtMobileApp.Login"
+    x:Class="UtMobileApp.Views.IntroPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -14,25 +14,36 @@
                 Margin="0,20"
                 FontSize="35"
                 HorizontalOptions="Center"
-                Text="Login Page"
+                Text="Welcome to UnitEd!"
+                TextColor="#4682B4" />
+            <Label
+                x:Name="label2"
+                Margin="0,20"
+                FontSize="15"
+                HorizontalOptions="Center"
+                Text="Made for students by students."
                 TextColor="#4682B4" />
 
-
-            <Entry
-                x:Name="EmailInput"
-                Keyboard="Email"
-                Placeholder="E-mail" />
-
-            <Entry
-                x:Name="PasswordInput"
-                IsPassword="true"
-                Placeholder="Password" />
 
             <Button
                 Margin="60,40"
                 BackgroundColor="#4682B4"
-                Clicked="LoginClicked"
+                Clicked="Login"
                 Text="Login"
+                TextColor="White" />
+
+            <Button
+                Margin="60,40"
+                BackgroundColor="#4682B4"
+                Clicked="SignUp"
+                Text="Sign Up"
+                TextColor="White" />
+
+            <Button
+                Margin="60,40"
+                BackgroundColor="#4682B4"
+                Clicked="Reset"
+                Text="Reset Password"
                 TextColor="White" />
 
 

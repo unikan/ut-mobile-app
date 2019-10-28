@@ -26,29 +26,43 @@ namespace UtMobileApp
         async void SignUpClicked(object sender, EventArgs e)
         {
 
-            try {
-                //string Token = await auth.SignupWithEmailPassword(EmailInput.Text, PasswordInput.Text);
-                //if (Token != "")
-                //{
-                //    await Navigation.PushAsync(new Logged());
-                //}
-                //else
-                //{
-                //    ShowError();
-                //}
-                auth.SignupWithEmailPassword(EmailInput.Text, PasswordInput.Text);
-                await Navigation.PushAsync(new Logged()); // Verify email, pajte baben nenkuptohet se nena duhet te sakrifikoje per taj ene ta pajse ajo baben, ene mapa hajde ktau te presem ne :*
-            }
-            catch(Exception ex)
+            string emailvalue = EmailInput.Text.ToString();
+            string[] split = emailvalue.Split('@');
+            if (split[0].Any(char.IsDigit) && (split[1] == "unite.edu.mk"))
             {
-                await DisplayAlert("Warning",ex.Message, "OK");
+
+                try
+                {
+                    //string Token = await auth.SignupWithEmailPassword(EmailInput.Text, PasswordInput.Text);
+                    //if (Token != "")
+                    //{
+                    //    await Navigation.PushAsync(new Logged());
+                    //}
+                    //else
+                    //{
+                    //    ShowError();
+                    //}
+                    auth.SignupWithEmailPassword(EmailInput.Text, PasswordInput.Text);
+                    await Navigation.PushAsync(new Views.NewUserData()); // Verify email
+                }
+                catch (Exception)
+                {
+                    ShowError();
+                }
             }
+            else ShowErrorUnite();
+
            } 
         
 
         async private void ShowError()
         {
             await DisplayAlert("Registration Failed", "E-mail or password are incorrect. Try again!", "OK");
+        }
+
+        async private void ShowErrorUnite()
+        {
+            await DisplayAlert("Authentication Failed", "E-mail needs to end in @unite.edu.mk, try again!", "OK");
         }
 
     }

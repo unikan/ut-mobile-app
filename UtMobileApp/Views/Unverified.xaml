@@ -9,9 +9,20 @@
     <ContentPage.Content>
         <StackLayout>
             <Label
+                Margin="20,20,20,20"
+                FontSize="25"
                 HorizontalOptions="CenterAndExpand"
-                Text="O baba a da verifikojsh at email a si e kie rendin??"
+                Text="You haven't verified your email address yet , please verify your email addres to login."
+                TextColor="#4682B4"
                 VerticalOptions="CenterAndExpand" />
+
+            <Button
+                Margin="60,40"
+                BackgroundColor="#4682B4"
+                Clicked="GotoLogin"
+                Text="Return to Login"
+                TextColor="White" />
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

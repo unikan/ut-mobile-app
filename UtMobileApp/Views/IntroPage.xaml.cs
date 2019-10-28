@@ -10,16 +10,28 @@ using Xamarin.Forms.Xaml;
 namespace UtMobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Unverified : ContentPage
+    public partial class IntroPage : ContentPage
     {
-        public Unverified()
+        public IntroPage()
         {
             InitializeComponent();
         }
 
-       async private void GotoLogin(object sender, EventArgs e)
+        async void Login(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Login());
         }
+
+        async void Reset(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ResetPass());
+        }
+
+        async void SignUp(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Register());
+        }
+
+
     }
 }

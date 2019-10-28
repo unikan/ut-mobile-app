@@ -31,18 +31,18 @@ namespace UtMobileApp.iOS
 
         }
 
-        public async Task<string> Burek(string getuser, string getemail)
-        {
+        //public async Task<string> Burek(string getuser, string getemail)
+        //{
 
-            var currentuser = Auth.DefaultInstance.CurrentUser;
+        //    var currentuser = Auth.DefaultInstance.CurrentUser;
 
-            if (currentuser != null)
-            {
-                getuser = currentuser.Uid;
-                getemail = currentuser.Email;
-            }
-            return getuser;
-        }
+        //    if (currentuser != null)
+        //    {
+        //        getuser = currentuser.Uid;
+        //        getemail = currentuser.Email;
+        //    }
+        //    return getuser;
+        //}
 
         public async Task<string> ResetPassword(string email)
         {

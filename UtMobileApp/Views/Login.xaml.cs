@@ -25,24 +25,30 @@ namespace UtMobileApp
         async void LoginClicked(object sender, EventArgs e)
         {
 
-            string Token = await auth.LoginWithEmailPassword(EmailInput.Text, PasswordInput.Text);
-            if (Token != "")
+            string emailvalue = EmailInput.Text.ToString();
+            string[] split = emailvalue.Split('@');
+            if (split[0].Any(char.IsDigit) && (split[1] == "unite.edu.mk"))
             {
 
-                if (auth.GetCurrentUserStatus())
+                string Token = await auth.LoginWithEmailPassword(EmailInput.Text, PasswordInput.Text);
+                if (Token != "")
                 {
-                    await Navigation.PushAsync(new Logged());
+
+                    if (auth.GetCurrentUserStatus())
+                    {
+                        await Navigation.PushAsync(new Views.MainPageStudent());
+                    }
+                    else
+                    {
+                        await Navigation.PushAsync(new Views.Unverified());
+                    }
                 }
                 else
                 {
-                    await Navigation.PushAsync(new Views.Unverified());
+                    ShowError();
                 }
             }
-            else
-            {
-                ShowError();
-            }
-
+            else ShowErrorUnite();
 
         }
 
@@ -51,29 +57,30 @@ namespace UtMobileApp
             await DisplayAlert("Authentication Failed", "E-mail or password are incorrect. Try again!", "OK");
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        async private void ShowErrorUnite()
         {
-
+            await DisplayAlert("Authentication Failed", "E-mail needs to end in @unite.edu.mk, try again!", "OK");
         }
 
-        async void Reset_Password(object sender, EventArgs e)
-        {
-            if (EmailInput.Text == null)
-            {
-                await DisplayAlert("Alert", "Please enter the email of which account you want to reset the password to :) ", "OK");
-            }
-            else
-            {
-                string Token = await auth.ResetPassword(EmailInput.Text);
-                if (Token != "")
-                {
-                    await Navigation.PushAsync(new UtMobileApp.Views.ResetPass());
-                }
-                else
-                {
-                    ShowError();
-                }
-            }
-        }
+
+        //async void Reset_Password(object sender, EventArgs e)
+        //{
+        //    if (EmailInput.Text == null)
+        //    {
+        //        await DisplayAlert("Alert", "Please enter the email of which account you want to reset the password to :) ", "OK");
+        //    }
+        //    else
+        //    {
+        //        string Token = await auth.ResetPassword(EmailInput.Text);
+        //        if (Token != "")
+        //        {
+        //            await Navigation.PushAsync(new UtMobileApp.Views.ResetPass());
+        //        }
+        //        else
+        //        {
+        //            ShowError();
+        //        }
+        //    }
+        //}
     }
 }

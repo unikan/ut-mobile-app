@@ -9,9 +9,28 @@
     <ContentPage.Content>
         <StackLayout>
             <Label
-                HorizontalOptions="CenterAndExpand"
-                Text="Your have recieved a password reset email"
-                VerticalOptions="CenterAndExpand" />
+                x:Name="label1"
+                Margin="0,20"
+                FontSize="15"
+                HorizontalOptions="Center"
+                Text="Please enter the your email address.  "
+                TextColor="#4682B4" />
+
+            <Entry
+                x:Name="EmailInput"
+                Keyboard="Email"
+                Placeholder="E-mail"
+                VerticalOptions="Center" />
+
+
+            <Button
+                Margin="60,40"
+                BackgroundColor="#4682B4"
+                Clicked="ResetPassword_Clicked"
+                Text="Reset Password"
+                TextColor="White" />  
+
+
             <Button
                 Margin="60,40"
                 BackgroundColor="#4682B4"

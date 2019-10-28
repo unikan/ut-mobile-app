@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="UtMobileApp.Views.NewUserData"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
+    xmlns:autocomplete="clr-namespace:Syncfusion.SfAutoComplete.XForms;assembly=Syncfusion.SfAutoComplete.XForms"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <StackLayout>
+            <inputLayout:SfTextInputLayout Hint="Name">
+                <Entry />
+            </inputLayout:SfTextInputLayout>
+            <inputLayout:SfTextInputLayout Hint="LastName">
+                <Entry />
+            </inputLayout:SfTextInputLayout>
+
+            <inputLayout:SfTextInputLayout Hint="Faculty">
+                <autocomplete:SfAutoComplete AutoCompleteMode="SuggestAppend" SelectionChanged="SfAutoComplete_SelectionChanged">
+                    <autocomplete:SfAutoComplete.AutoCompleteSource>
+                        <ListCollection:List x:TypeArguments="x:String">
+                            <x:String>Faculty of Agriculture and Biotechnology</x:String>
+                            <x:String>Faculty of Applied Sciences</x:String>
+                            <x:String>Faculty of Arts</x:String>
+                            <x:String>Faculty of Business Administration</x:String>
+                            <x:String>Faculty of Economics</x:String>
+                            <x:String>Faculty of Food Technology and Nutrition</x:String>
+                            <x:String>Faculty of Law</x:String>
+                            <x:String>Faculty of Medical Sciences</x:String>
+                            <x:String>Faculty of Natural Sciences and Mathematics</x:String>
+                            <x:String>Faculty of Pedagogy</x:String>
+                            <x:String>Faculty of Philology</x:String>
+                            <x:String>Faculty of Philosophy</x:String>
+                            <x:String>Faculty of Physical Education</x:String>
+                        </ListCollection:List>
+                    </autocomplete:SfAutoComplete.AutoCompleteSource>
+                </autocomplete:SfAutoComplete>
+            </inputLayout:SfTextInputLayout>
+
+            <inputLayout:SfTextInputLayout x:Name="InputProgram" Hint="Program">
+                <autocomplete:SfAutoComplete x:Name="AutoCompleteProgram" AutoCompleteMode="SuggestAppend" />
+            </inputLayout:SfTextInputLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
