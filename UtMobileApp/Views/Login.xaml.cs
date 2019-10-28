@@ -28,7 +28,15 @@ namespace UtMobileApp
             string Token = await auth.LoginWithEmailPassword(EmailInput.Text, PasswordInput.Text);
             if (Token != "")
             {
-                await Navigation.PushAsync(new Logged());
+
+                if (auth.GetCurrentUserStatus())
+                {
+                    await Navigation.PushAsync(new Logged());
+                }
+                else
+                {
+                    await Navigation.PushAsync(new Views.Unverified());
+                }
             }
             else
             {

@@ -27,6 +27,14 @@
                 Text=""
                 TextColor="#4682B4" />
 
+            <Label
+                x:Name="userlabel2"
+                Margin="0,20"
+                FontSize="35"
+                HorizontalOptions="Center"
+                Text=""
+                TextColor="#4682B4" />
+
 
             <Button
                 Margin="60,40"

@@ -16,7 +16,7 @@ namespace UtMobileApp
 
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Login());
+            MainPage = new NavigationPage(new UtMobileApp.Register());
         }
 
         protected override void OnStart()

@@ -26,16 +26,18 @@ namespace UtMobileApp
         async void SignUpClicked(object sender, EventArgs e)
         {
 
-            try { string Token = await auth.SignupWithEmailPassword(EmailInput.Text, PasswordInput.Text);
-                if (Token != "")
-                {
-                    await Navigation.PushAsync(new Logged());
-                }
-                else
-                {
-                    ShowError();
-                }
-
+            try {
+                //string Token = await auth.SignupWithEmailPassword(EmailInput.Text, PasswordInput.Text);
+                //if (Token != "")
+                //{
+                //    await Navigation.PushAsync(new Logged());
+                //}
+                //else
+                //{
+                //    ShowError();
+                //}
+                auth.SignupWithEmailPassword(EmailInput.Text, PasswordInput.Text);
+                await Navigation.PushAsync(new Logged()); // Verify email, pajte baben nenkuptohet se nena duhet te sakrifikoje per taj ene ta pajse ajo baben, ene mapa hajde ktau te presem ne :*
             }
             catch(Exception ex)
             {

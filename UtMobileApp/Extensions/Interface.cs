@@ -11,13 +11,14 @@ namespace UtMobileApp
     {
        Task<string> LoginWithEmailPassword(string email, string password);
 
-        Task<string> Burek(string getuser, string getemail);
+        string GetCurrentUserEmail();
+        bool GetCurrentUserStatus();
 
-        Task<string> SignupWithEmailPassword(string email, string password);
+        void SignupWithEmailPassword(string email, string password);
 
         Task<string> ResetPassword(string email);
 
-        Task<string> VerifyEmail(string email);
+        
 
     }
 }

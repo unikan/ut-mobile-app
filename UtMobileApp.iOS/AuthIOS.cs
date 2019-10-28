@@ -48,29 +48,76 @@ namespace UtMobileApp.iOS
         {
             try
             {
-                await FirebaseAuth.Instance.SendPasswordResetEmailAsync(email);
+                await Auth.DefaultInstance.SendPasswordResetAsync(email);
                 return email;
             }
-            catch (FirebaseAuthInvalidUserException e)
+            catch (Exception e)
             {
-                e.PrintStackTrace();
+               
                 return "";
             }
 
         }
 
-        public async Task<string> SignupWithEmailPassword(string email, string password)
+        public string GetCurrentUserEmail()
         {
-            try
+
+            var currentuser = Auth.DefaultInstance.CurrentUser;
+            string getEmail = "";
+
+            if (currentuser != null)
             {
-                var user = await Auth.DefaultInstance.CreateUserAsync(email, password);
-                return await user.User.GetIdTokenAsync();
-            }
-            catch (Exception e)
-            {
-                return "";
+                getEmail = currentuser.Email;
             }
 
+            return getEmail;
+        }
+
+        public bool GetCurrentUserStatus()
+        {
+            var currentuser = Auth.DefaultInstance.CurrentUser;
+           
+            bool status = false;
+
+            if (currentuser != null)
+            {
+                status = currentuser.IsEmailVerified;
+            }
+
+            return status;
+        }
+
+        //public async Task<string> SignupWithEmailPassword(string email, string password)
+        //{
+        //    try
+        //    {
+        //        var user = await Auth.DefaultInstance.CreateUserAsync(email, password);
+        //        return await user.User.GetIdTokenAsync();
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        return "";
+        //    }
+
+        //}
+
+        public async void SignupWithEmailPassword(string email, string password)
+        {
+            //var user = await FirebaseAuth.Instance.CreateUserWithEmailAndPasswordAsync(email, password);
+            var action = new ActionCodeSettings();
+            action.IOSBundleId = "Unikan.Utapp";
+            var auth = Auth.DefaultInstance;
+            using (var authResult = await auth.CreateUserAsync(email, password))
+            using (var user = authResult.User)
+            using (var actionCode = action)
+            {
+                await user.SendEmailVerificationAsync(actionCode);
+            }
+
+            //await FirebaseAuth.Instance.CurrentUser.SendEmailVerificationAsync();
+
+            //var token = await user.User.GetIdTokenAsync(false);
+            //return token.Token;
         }
 
 

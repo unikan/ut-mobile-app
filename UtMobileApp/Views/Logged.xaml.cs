@@ -28,11 +28,12 @@ namespace UtMobileApp
             await Navigation.PushAsync(new Login());
         }
 
-        private async void GetUser_Clicked(object sender, EventArgs e)
+        private void GetUser_Clicked(object sender, EventArgs e)
         {
-            string getuser = await auth.Burek(userlabel.Text, userlabel1.Text);
+            string currentUserEmail = auth.GetCurrentUserEmail();
 
-            userlabel.Text = getuser;
+            userlabel.Text = currentUserEmail;
+
         }
     }
 }

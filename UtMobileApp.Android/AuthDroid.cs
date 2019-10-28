@@ -56,43 +56,67 @@ namespace UtMobileApp.Android
             
         }
 
-        public async Task<string> VerifyEmail(string email)
-        {
-            try
-            {
-                FirebaseUser currentuser = FirebaseAuth.Instance.CurrentUser;
-                email = currentuser.Email;
+        //public async Task<string> VerifyEmail(string email)
+        //{
+        //    try
+        //    {
+        //        FirebaseUser currentuser = FirebaseAuth.Instance.CurrentUser;
+        //        email = currentuser.Email;
                 
-                await FirebaseAuth.Instance.CurrentUser.SendEmailVerificationAsync(email);
-                return email;
-            }
-            catch (FirebaseAuthInvalidUserException e)
-            {
-                e.PrintStackTrace();
-                return "";
-            }
-        }
+        //        await FirebaseAuth.Instance.CurrentUser.SendEmailVerificationAsync();
+        //        return email;
+        //    }
+        //    catch (FirebaseAuthInvalidUserException e)
+        //    {
+        //        e.PrintStackTrace();
+        //        return "";
+        //    }
+        //}
 
-        public async Task<string> Burek(string getuser, string getemail)
+        public string GetCurrentUserEmail()
         {
             
             var currentuser = FirebaseAuth.Instance.CurrentUser;
+            string getEmail = "";
 
             if (currentuser != null)
             {
-                getuser = currentuser.Uid;
-                getemail = currentuser.Email;
+                getEmail = currentuser.Email;
             }
-            return getuser;
+
+            return getEmail;
+        }
+
+        public bool GetCurrentUserStatus()
+        {
+            var currentuser = FirebaseAuth.Instance.CurrentUser;
+            bool status = false;
+
+            if (currentuser != null)
+            {
+                status = currentuser.IsEmailVerified;
+            }
+
+            return status;
         }
 
 
-        public async Task<string> SignupWithEmailPassword(string email, string password)
+        public async void SignupWithEmailPassword(string email, string password)
         {
-            var user = await FirebaseAuth.Instance.CreateUserWithEmailAndPasswordAsync(email, password);
-            
-            var token = await user.User.GetIdTokenAsync(false);
-            return token.Token;
+           //var user = await FirebaseAuth.Instance.CreateUserWithEmailAndPasswordAsync(email, password);
+
+            var auth = FirebaseAuth.Instance;
+            using (var authResult = await auth.CreateUserWithEmailAndPasswordAsync(email, password))
+            using (var user = authResult.User)
+            using (var actionCode = ActionCodeSettings.NewBuilder().SetAndroidPackageName("Unikan.Utapp", true, "0").Build())
+            {
+                await user.SendEmailVerificationAsync(actionCode);
+            }
+
+            //await FirebaseAuth.Instance.CurrentUser.SendEmailVerificationAsync();
+
+            //var token = await user.User.GetIdTokenAsync(false);
+            //return token.Token;
         }
     }
 }
