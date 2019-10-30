@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WordPressPCL;
@@ -23,6 +24,29 @@ namespace UtMobileApp.Extensions
             });
 
             return posts;
+        }
+
+        // Get posts with featured image
+        public async Task<List<Models.WPFeaturedPost>> GetFeaturedPost(int category)
+        {
+            IEnumerable<WordPressPCL.Models.Post> news = await GetLatestPostsAsync(category);
+            List<WordPressPCL.Models.Post> newsList = news.ToList();
+
+            List<WordPressPCL.Models.MediaItem> WpMedia;
+            List<Models.WPFeaturedPost> FeaturedPost = new List<Models.WPFeaturedPost>();
+            
+            for (int i = 0; i < newsList.Count; i++)
+            {
+                if (newsList[i] == null) break;
+                WpMedia = newsList[i].Embedded.WpFeaturedmedia.ToList();
+                FeaturedPost.Add(new Models.WPFeaturedPost
+                {
+                    ImageUrl = WpMedia[0].SourceUrl,
+                    Title = newsList[i].Title.Rendered
+                });
+            }
+
+            return FeaturedPost;
         }
     }
 }
