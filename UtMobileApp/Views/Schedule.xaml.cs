@@ -83,12 +83,12 @@ namespace UtMobileApp.Views
             schedule.MoveToDate = DateTime.Now;
 
             // Add date to every day button
-            btn_monday.Text = "M\n" + dates[0, 2];
-            btn_tuesday.Text = "T\n" + dates[1, 2];
-            btn_wednesday.Text = "W\n" + dates[2, 2];
-            btn_thursday.Text = "T\n" + dates[3, 2];
-            btn_friday.Text = "F\n" + dates[4, 2];
-            btn_saturday.Text = "S\n" + dates[5, 2];
+            btn_monday.Text = "M\n" + dates[0, 2].ToString("00");
+            btn_tuesday.Text = "T\n" + dates[1, 2].ToString("00");
+            btn_wednesday.Text = "W\n" + dates[2, 2].ToString("00");
+            btn_thursday.Text = "T\n" + dates[3, 2].ToString("00");
+            btn_friday.Text = "F\n" + dates[4, 2].ToString("00");
+            btn_saturday.Text = "S\n" + dates[5, 2].ToString("00");
 
             switch (DateTime.Now.DayOfWeek.ToString())
             {

@@ -80,16 +80,15 @@
             </StackLayout>
             <!-- DAYS -->
             <StackLayout Orientation="Horizontal" 
-                         HorizontalOptions="CenterAndExpand"
+                         HorizontalOptions="FillAndExpand"
                          AbsoluteLayout.LayoutBounds="0, .1, 1, .1"
-                         AbsoluteLayout.LayoutFlags="All"
-                         Padding="10, 10">
-                <Button BackgroundColor="Transparent" TextColor="#8E97A6" Text="M" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_monday" CommandParameter="0" Opacity="0"></Button>
-                <Button BackgroundColor="Transparent" TextColor="#8E97A6" Text="T" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_tuesday" CommandParameter="1" Opacity="0"></Button>
-                <Button BackgroundColor="Transparent" TextColor="#8E97A6" Text="W" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_wednesday" CommandParameter="2" Opacity="0"></Button>
-                <Button BackgroundColor="Transparent" TextColor="#8E97A6" Text="T" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_thursday" CommandParameter="3" Opacity="0"></Button>
-                <Button BackgroundColor="Transparent" TextColor="#8E97A6" Text="F" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_friday" CommandParameter="4" Opacity="0"></Button>
-                <Button BackgroundColor="Transparent" TextColor="#8E97A6" Text="S" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_saturday" CommandParameter="5" Opacity="0"></Button>
+                         AbsoluteLayout.LayoutFlags="All">
+                <Button BackgroundColor="Transparent" TextColor="#8E97A6" Text="M" HorizontalOptions="CenterAndExpand" WidthRequest="50" Clicked="Button_ChangeDay_Clicked" x:Name="btn_monday" CommandParameter="0" Opacity="0"></Button>
+                <Button BackgroundColor="Transparent" TextColor="#8E97A6" Text="T" HorizontalOptions="CenterAndExpand" WidthRequest="50" Clicked="Button_ChangeDay_Clicked" x:Name="btn_tuesday" CommandParameter="1" Opacity="0"></Button>
+                <Button BackgroundColor="Transparent" TextColor="#8E97A6" Text="W" HorizontalOptions="CenterAndExpand" WidthRequest="50" Clicked="Button_ChangeDay_Clicked" x:Name="btn_wednesday" CommandParameter="2" Opacity="0"></Button>
+                <Button BackgroundColor="Transparent" TextColor="#8E97A6" Text="T" HorizontalOptions="CenterAndExpand" WidthRequest="50" Clicked="Button_ChangeDay_Clicked" x:Name="btn_thursday" CommandParameter="3" Opacity="0"></Button>
+                <Button BackgroundColor="Transparent" TextColor="#8E97A6" Text="F" HorizontalOptions="CenterAndExpand" WidthRequest="50" Clicked="Button_ChangeDay_Clicked" x:Name="btn_friday" CommandParameter="4" Opacity="0"></Button>
+                <Button BackgroundColor="Transparent" TextColor="#8E97A6" Text="S" HorizontalOptions="CenterAndExpand" WidthRequest="50" Clicked="Button_ChangeDay_Clicked" x:Name="btn_saturday" CommandParameter="5" Opacity="0"></Button>
             </StackLayout>
             <!-- SCHEDULE -->
             <schedule:SfSchedule x:Name="schedule" 

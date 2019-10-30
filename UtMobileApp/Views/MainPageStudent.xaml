@@ -5,7 +5,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:navigationdrawer="clr-namespace:Syncfusion.SfNavigationDrawer.XForms;assembly=Syncfusion.SfNavigationDrawer.XForms"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
-             xmlns:shimmer="clr-namespace:Syncfusion.XForms.Shimmer;assembly=Syncfusion.Core.XForms"
              xmlns:listviews="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
              xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
              xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
@@ -24,9 +23,109 @@
                                              DrawerWidth ="300"
                                              Transition="Push"
                                              Duration="400"
-                                             TouchThreshold="500">
+                                             TouchThreshold="500"
+                                             DrawerFooterHeight="30">
+            <!-- DRAWER HEADER -->
+            <navigationdrawer:SfNavigationDrawer.DrawerHeaderView>
+                <Grid BackgroundColor="White">
+                    <StackLayout VerticalOptions="Center" 
+                                 HorizontalOptions="Center"
+                                 Orientation="Horizontal">
+                        <border:SfBorder BorderColor="Black" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="50" WidthRequest="50" HeightRequest="50" BorderWidth="1">
+                            <Image Source="https://i5.walmartimages.com/asr/e9c1e290-55cb-4608-8edd-06b01ea694d0_1.cd6956088a6814bf191640ab06739752.png" />
+                        </border:SfBorder>
+                        <StackLayout>
+                            <Label x:Name="label_flname" 
+                               HorizontalOptions="Start" 
+                               VerticalOptions="End"
+                               FontAttributes="Bold"
+                               FontSize="Medium"
+                               Text="Filan Fisteki" />
+                            <Label x:Name="label_email"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Start"
+                                   FontSize="Small"
+                                   Text="f.filani3615111043" />
+                        </StackLayout>
+                    </StackLayout>
+                </Grid>
+            </navigationdrawer:SfNavigationDrawer.DrawerHeaderView>
+            <!-- DRAWER CONTENT -->
+            <navigationdrawer:SfNavigationDrawer.DrawerContentView>
+                <StackLayout BackgroundColor="#f7f5fc"
+                             Padding="20">
+                    <buttons:SfButton Text="Profile" 
+                                      TextColor="Black"
+                                      FontSize="Medium"
+                                      HorizontalTextAlignment="Start"
+                                      BackgroundColor="Transparent" />
+                    <buttons:SfButton Text="News" 
+                                      TextColor="Black"
+                                      FontSize="Medium"
+                                      HorizontalTextAlignment="Start"
+                                      BackgroundColor="Transparent" />
+                    <buttons:SfButton Text="Calls" 
+                                      TextColor="Black"
+                                      FontSize="Medium"
+                                      HorizontalTextAlignment="Start"
+                                      BackgroundColor="Transparent" />
+                    <buttons:SfButton Text="Library" 
+                                      TextColor="Black"
+                                      FontSize="Medium"
+                                      HorizontalTextAlignment="Start"
+                                      BackgroundColor="Transparent" />
+                    <buttons:SfButton Text="Administration Offices" 
+                                      TextColor="Black"
+                                      FontSize="Medium"
+                                      HorizontalTextAlignment="Start"
+                                      BackgroundColor="Transparent" />
+                    <buttons:SfButton Text="Documents" 
+                                      TextColor="Black"
+                                      FontSize="Medium"
+                                      HorizontalTextAlignment="Start"
+                                      BackgroundColor="Transparent" />
+                    <buttons:SfButton Text="Discussion Forum" 
+                                      TextColor="Black"
+                                      FontSize="Medium"
+                                      HorizontalTextAlignment="Start"
+                                      BackgroundColor="Transparent" />
+                    <buttons:SfButton Text="Student Parliament" 
+                                      TextColor="Black"
+                                      FontSize="Medium"
+                                      HorizontalTextAlignment="Start"
+                                      BackgroundColor="Transparent" />
+                    <buttons:SfButton Text="Erasmus+" 
+                                      TextColor="Black"
+                                      FontSize="Medium"
+                                      HorizontalTextAlignment="Start"
+                                      BackgroundColor="Transparent" />
+                    <buttons:SfButton Text="Kujdesi për ty" 
+                                      TextColor="Black"
+                                      FontSize="Medium"
+                                      HorizontalTextAlignment="Start"
+                                      BackgroundColor="Transparent" />
+                    <buttons:SfButton Text="Facebook" 
+                                      TextColor="Black"
+                                      FontSize="Medium"
+                                      HorizontalTextAlignment="Start"
+                                      BackgroundColor="Transparent" />
+                    <buttons:SfButton Text="Contact Us" 
+                                      TextColor="Black"
+                                      FontSize="Medium"
+                                      HorizontalTextAlignment="Start"
+                                      BackgroundColor="Transparent" />
+                </StackLayout>
+            </navigationdrawer:SfNavigationDrawer.DrawerContentView>
+            <!-- FOOTER CONTENT -->
+            <navigationdrawer:SfNavigationDrawer.DrawerFooterView>
+                <Grid BackgroundColor="Transparent">
+                    <StackLayout VerticalOptions="Center" 
+                         HorizontalOptions="Center">
+                        <Label Text="Powered by UNIKAN&#x1F970;"/>
+                    </StackLayout>
+                </Grid>
+            </navigationdrawer:SfNavigationDrawer.DrawerFooterView>
             <navigationdrawer:SfNavigationDrawer.ContentView>
-                
                 <!-- MAIN CONTENT VIEW -->
                 <AbsoluteLayout>
                     <!-- HEADER -->
@@ -106,9 +205,10 @@
                                               HorizontalOptions="FillAndExpand"
                                               Padding="15, 0,  0, 15"
                                               FontAttributes="Bold"
+                                              FontSize="Medium"
                                               TextColor="White"
                                               Grid.Row="0" Grid.Column="0"
-                                              BackgroundImage="lecturesbg.jpeg"
+                                              BackgroundImage="lecturesbg.png"
                                               Clicked="BtnSchedule_Clicked">
                             </buttons:SfButton>
                             <buttons:SfButton Text="Midterms" 
@@ -120,9 +220,10 @@
                                               HorizontalOptions="FillAndExpand"
                                               Padding="15, 0,  0, 15"
                                               FontAttributes="Bold"
+                                              FontSize="Medium"
                                               TextColor="White"
                                               Grid.Row="0" Grid.Column="1"
-                                              BackgroundImage="lecturesbg.jpeg">
+                                              BackgroundImage="midtermsbg.png">
                             </buttons:SfButton>
                             <buttons:SfButton Text="Exams" 
                                               CornerRadius="20" 
@@ -133,9 +234,10 @@
                                               HorizontalOptions="FillAndExpand"
                                               Padding="15, 0,  0, 15"
                                               FontAttributes="Bold"
+                                              FontSize="Medium"
                                               TextColor="White"
                                               Grid.Row="1" Grid.Column="0"
-                                              BackgroundImage="lecturesbg.jpeg">
+                                              BackgroundImage="examsbg.png">
                             </buttons:SfButton>
                             <buttons:SfButton Text="Consultations" 
                                               CornerRadius="20" 
@@ -146,9 +248,10 @@
                                               HorizontalOptions="FillAndExpand"
                                               Padding="15, 0,  0, 15"
                                               FontAttributes="Bold"
+                                              FontSize="Medium"
                                               TextColor="White"
                                               Grid.Row="1" Grid.Column="1"
-                                              BackgroundImage="lecturesbg.jpeg">
+                                              BackgroundImage="consultationsbg.png">
                             </buttons:SfButton>
                         </Grid>
                     </StackLayout>
@@ -171,7 +274,7 @@
                                               ItemTapped="announcementList_ItemTapped"
                                               ItemSize="100"
                                               AutoFitMode="Height"
-                                              SelectionBackgroundColor="LightGray"
+                                              SelectionBackgroundColor="Transparent"
                                               Opacity="0">
                             <listviews:SfListView.ItemTemplate>
                                 <DataTemplate>
@@ -181,7 +284,7 @@
                                                Padding="2" 
                                                Margin="2" 
                                                CornerRadius="10"
-                                               BackgroundColor="#FD7F59">
+                                               BackgroundColor="#f7f5fc">
                                             <Grid>
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="2.5*"></ColumnDefinition>
@@ -193,7 +296,6 @@
                                                        VerticalOptions="CenterAndExpand"
                                                        FontSize="Medium"
                                                        FontAttributes="Bold"
-                                                       TextColor="White"
                                                        TextType="Html"
                                                        Padding="10, 0, 0, 0"
                                                        Text="{Binding Title.Rendered}"></Label>
@@ -210,9 +312,8 @@
                                                            VerticalOptions="EndAndExpand"
                                                            HorizontalTextAlignment="Center"
                                                            VerticalTextAlignment="End"
-                                                           Padding="0"
+                                                           Padding="0, 10, 0, 0"
                                                            Margin="0"
-                                                           TextColor="White"
                                                            FontSize="Medium"
                                                            FontAttributes="Bold"
                                                            Text="{Binding Date, StringFormat='{0:dd}'}"></Label>
@@ -221,11 +322,10 @@
                                                            VerticalOptions="Start"
                                                            HorizontalTextAlignment="Center"
                                                            VerticalTextAlignment="Start"
-                                                           Padding="0"
+                                                           Padding="0, 0, 0, 10"
                                                            Margin="0"
-                                                           TextColor="White"
                                                            FontSize="Small"
-                                                           FontAttributes="Bold, Italic"
+                                                           FontAttributes="Italic"
                                                            Text="{Binding Date, StringFormat='{0:MMMM}'}"></Label>
                                                 </Grid>
                                             </Grid>

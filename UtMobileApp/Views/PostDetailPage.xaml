@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
              mc:Ignorable="d"
              x:Class="UtMobileApp.Views.PostDetailPage"
              BackgroundColor="White">
@@ -74,9 +75,19 @@
                        FontSize="Large"
                        HorizontalOptions="StartAndExpand" />
                 <Label x:Name="label_date" Margin="20, 0" />
-                <WebView x:Name="webView" 
+
+                <busyindicator:SfBusyIndicator x:Name="busyindicator"
+                                                       ViewBoxHeight="70"
+                                                       ViewBoxWidth="70"
+                                                       Title="Loading announcements..."
+                                                       TextColor="Salmon"
+                                                       TextSize="15" />
+
+                <WebView x:Name="webView"
                      VerticalOptions="FillAndExpand" 
-                     HorizontalOptions="FillAndExpand">
+                     HorizontalOptions="FillAndExpand"
+                     Navigating="webView_Navigating"
+                     Opacity="0">
                 </WebView>
             </StackLayout>
         </AbsoluteLayout>

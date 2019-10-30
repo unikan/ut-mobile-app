@@ -160,6 +160,15 @@
     <BundleResource Include="Resources\menu.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\lecturesbg.jpg" />
+    <BundleResource Include="Resources\consultationsbg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lecturesbg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\examsbg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\midtermsbg.png" />
   </ItemGroup>
 </Project>

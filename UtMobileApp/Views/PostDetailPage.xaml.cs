@@ -26,40 +26,47 @@ namespace UtMobileApp.Views
             ws = new Extensions.WordpressServices();
         }
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
 
             label_type.Text = currentCategory;
             label_title.Text = currentPost.Title.Rendered;
             label_date.Text = "Posted: " + currentPost.Date.ToString("dddd, dd MMMM yyyy HH:mm");
-            
+
+            // Hide busy indicator indicator
+            await busyindicator.FadeTo(0, 300, Easing.Linear);
+            busyindicator.IsVisible = false;
+            busyindicator.IsBusy = false;
+
             var html = new HtmlWebViewSource
             {
                 Html = ws.HtmlStart + currentPost.Content.Rendered + ws.HtmlEnd
             };
             webView.Source = html;
-            webView.Navigating += async (s, e) =>
-            {
-                if (e.Url.StartsWith("http://") || e.Url.StartsWith("https://"))
-                {
-                    try
-                    {
-                        var uri = new Uri(e.Url);
-                        await Launcher.OpenAsync(uri);
-                    }
-                    catch (Exception)
-                    {
-                    }
-
-                    e.Cancel = true;
-                }
-            };
+            await webView.FadeTo(1, 300, Easing.Linear);
         }
 
         private async void BtnBack_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
+        }
+
+        private async void webView_Navigating(object sender, WebNavigatingEventArgs e)
+        {
+            if (e.Url.StartsWith("http://") || e.Url.StartsWith("https://"))
+            {
+                try
+                {
+                    var uri = new Uri(e.Url);
+                    await Launcher.OpenAsync(uri);
+                }
+                catch (Exception)
+                {
+                }
+
+                e.Cancel = true;
+            }
         }
     }
 }
