@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XamarinFirebase.Helper;
+
 
 
 namespace UtMobileApp
@@ -14,6 +16,7 @@ namespace UtMobileApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Login : ContentPage
     {
+        FirebaseHelper firebaseHelper = new FirebaseHelper();
         Interface auth;
 
         public Login()
@@ -33,10 +36,17 @@ namespace UtMobileApp
                 string Token = await auth.LoginWithEmailPassword(EmailInput.Text, PasswordInput.Text);
                 if (Token != "")
                 {
-
+                    //bool trueanauk = await firebaseHelper.UserExists(emailvalue);
+                    //string trueanauks = trueanauk.ToString();
+                    //DisplayAlert("haa", trueanauks, "SI THAUE");
                     if (auth.GetCurrentUserStatus())
                     {
-                        await Navigation.PushAsync(new Views.MainPageStudent());
+                        if (await firebaseHelper.UserExists(emailvalue)) {
+                            await Navigation.PushAsync(new Views.MainPageStudent());
+                        }
+                        else {  
+                            await Navigation.PushAsync(new Views.NewUserData());
+                            }
                     }
                     else
                     {

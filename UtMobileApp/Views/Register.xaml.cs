@@ -43,7 +43,7 @@ namespace UtMobileApp
                     //    ShowError();
                     //}
                     auth.SignupWithEmailPassword(EmailInput.Text, PasswordInput.Text);
-                    await Navigation.PushAsync(new Views.NewUserData()); // Verify email
+                    await Navigation.PushAsync(new Login());
                 }
                 catch (Exception)
                 {

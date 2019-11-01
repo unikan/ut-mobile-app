@@ -6,14 +6,20 @@ namespace XamarinFirebase.Model
 {
     class Registrations
     {
-        public string StudentId { get; set; }
+        public string Email { get; set; }
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
-        public long IndexNr { get; set; }
+
+        public string IndexNr { get; set; }
+
+        public string Group { get; set; }
 
         public string Semestri { get; set; }
 
+        public string Faculty { get; set; } 
+
+        public string Program { get; set; }
 
     }
 }

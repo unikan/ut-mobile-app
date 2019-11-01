@@ -12,6 +12,7 @@ namespace UtMobileApp
        Task<string> LoginWithEmailPassword(string email, string password);
 
         string GetCurrentUserEmail();
+
         bool GetCurrentUserStatus();
 
         void SignupWithEmailPassword(string email, string password);
