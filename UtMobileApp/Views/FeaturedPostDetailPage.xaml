@@ -6,7 +6,7 @@
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
              mc:Ignorable="d"
-             x:Class="UtMobileApp.Views.PostDetailPage"
+             x:Class="UtMobileApp.Views.FeaturedPostDetailPage"
              BackgroundColor="White">
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">

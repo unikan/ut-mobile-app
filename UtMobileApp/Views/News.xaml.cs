@@ -26,9 +26,26 @@ namespace UtMobileApp.Views
         {
             base.OnAppearing();
 
-            List<Models.WPFeaturedPost> wplist = await ws.GetFeaturedPost(31);
-            ImageNews.Source = wplist[0].ImageUrl;
-            LabelUrl.Text = wplist[0].Title;
+            newsList.ItemsSource = await ws.GetFeaturedPost(31);
+
+            // Hide busy indicator indicator
+            await busyindicator.FadeTo(0, 300, Easing.Linear);
+            busyindicator.IsVisible = false;
+            busyindicator.IsBusy = false;
+
+            await newsList.FadeTo(1, 300, Easing.Linear);
+        }
+
+        private async void newsList_ItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)
+        {
+            var selectedPost = e.ItemData as Models.WPFeaturedPost;
+
+            await Navigation.PushAsync(new FeaturedPostDetailPage(selectedPost, "News"));
+        }
+
+        private async void BtnBack_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
         }
     }
 }

@@ -63,7 +63,8 @@
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
-                                      BackgroundColor="Transparent" />
+                                      BackgroundColor="Transparent"
+                                      Clicked="BtnNews_Clicked"/>
                     <buttons:SfButton Text="Calls" 
                                       TextColor="Black"
                                       FontSize="Medium"
@@ -118,7 +119,7 @@
             </navigationdrawer:SfNavigationDrawer.DrawerContentView>
             <!-- FOOTER CONTENT -->
             <navigationdrawer:SfNavigationDrawer.DrawerFooterView>
-                <Grid BackgroundColor="Transparent">
+                <Grid BackgroundColor="Salmon">
                     <StackLayout VerticalOptions="Center" 
                          HorizontalOptions="Center">
                         <Label Text="Powered by UNIKAN&#x1F970;"/>

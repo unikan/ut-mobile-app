@@ -42,7 +42,9 @@ namespace UtMobileApp.Extensions
                 FeaturedPost.Add(new Models.WPFeaturedPost
                 {
                     ImageUrl = WpMedia[0].SourceUrl,
-                    Title = newsList[i].Title.Rendered
+                    Title = newsList[i].Title.Rendered,
+                    Content = newsList[i].Content.Rendered,
+                    Date = newsList[i].Date
                 });
             }
 
