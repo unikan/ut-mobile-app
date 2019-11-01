@@ -56,5 +56,10 @@ namespace UtMobileApp.Views
         {
             await Navigation.PushAsync(new Views.News());
         }
+
+        private async void BtnCalls_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Views.Calls());
+        }
     }
 }

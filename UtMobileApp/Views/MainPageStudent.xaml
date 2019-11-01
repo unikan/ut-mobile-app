@@ -69,7 +69,8 @@
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
-                                      BackgroundColor="Transparent" />
+                                      BackgroundColor="Transparent" 
+                                      Clicked="BtnCalls_Clicked"/>
                     <buttons:SfButton Text="Library" 
                                       TextColor="Black"
                                       FontSize="Medium"
