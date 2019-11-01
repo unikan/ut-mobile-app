@@ -111,7 +111,8 @@
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
-                                      BackgroundColor="Transparent" />
+                                      BackgroundColor="Transparent"
+                                      Clicked="BtnFacebook_Clicked"/>
                     <buttons:SfButton Text="Contact Us" 
                                       TextColor="Black"
                                       FontSize="Medium"

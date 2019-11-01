@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -65,6 +65,18 @@ namespace UtMobileApp.Views
         private async void BtnKujdesi_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Views.KujdesiPerTy());
+        }
+
+        private async void BtnFacebook_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                var uri = new Uri("fb://page/338685373241583");
+                await Launcher.OpenAsync(uri);
+            }
+            catch (Exception)
+            {
+            }
         }
     }
 }
