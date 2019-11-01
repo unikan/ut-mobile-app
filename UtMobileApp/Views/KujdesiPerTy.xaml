@@ -3,11 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              mc:Ignorable="d"
-             x:Class="UtMobileApp.Views.PostDetailPage"
-             BackgroundColor="White">
+             x:Class="UtMobileApp.Views.KujdesiPerTy"
+BackgroundColor="White">
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
             <On Platform="Android">0, 10, 0, 0</On>
@@ -64,29 +64,21 @@
                            FontSize="Medium"
                            FontAttributes="Bold"
                            MaxLines="1"
-                           x:Name="label_type"></Label>
+                           Text="Kujdesi për ty"></Label>
                 </Grid>
             </StackLayout>
-            <StackLayout AbsoluteLayout.LayoutBounds="0, 1, 1, 0.9"
-                         AbsoluteLayout.LayoutFlags="All">
-                <Label x:Name="label_title"
-                       Margin="20, 0"
-                       TextType="Html"
-                       FontSize="Large"
-                       HorizontalOptions="StartAndExpand" />
-                <Label x:Name="label_date" Margin="20, 0" />
-
+            <StackLayout AbsoluteLayout.LayoutBounds="0, 1, 1, .9"
+                         AbsoluteLayout.LayoutFlags="All"
+                         Margin="10, 0">
                 <busyindicator:SfBusyIndicator x:Name="busyindicator"
-                                                       ViewBoxHeight="70"
-                                                       ViewBoxWidth="70"
-                                                       Title="Loading..."
-                                                       TextColor="Salmon"
-                                                       TextSize="15" />
-
+                                               ViewBoxHeight="70"
+                                               ViewBoxWidth="70"
+                                               Title="Loading..."
+                                               TextColor="Salmon"
+                                               TextSize="15" />
                 <WebView x:Name="webView"
                          VerticalOptions="FillAndExpand" 
                          HorizontalOptions="FillAndExpand"
-                         Navigating="webView_Navigating"
                          Opacity="0">
                 </WebView>
             </StackLayout>

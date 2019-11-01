@@ -105,7 +105,8 @@
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
-                                      BackgroundColor="Transparent" />
+                                      BackgroundColor="Transparent"
+                                      Clicked="BtnKujdesi_Clicked"/>
                     <buttons:SfButton Text="Facebook" 
                                       TextColor="Black"
                                       FontSize="Medium"

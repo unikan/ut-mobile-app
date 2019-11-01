@@ -61,5 +61,10 @@ namespace UtMobileApp.Views
         {
             await Navigation.PushAsync(new Views.Calls());
         }
+
+        private async void BtnKujdesi_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Views.KujdesiPerTy());
+        }
     }
 }
