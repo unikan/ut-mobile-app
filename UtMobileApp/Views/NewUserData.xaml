@@ -21,7 +21,7 @@
                     <Entry x:Name="lastname" />
                 </inputLayout:SfTextInputLayout>
                 <inputLayout:SfTextInputLayout Hint="Index Number">
-                    <Entry x:Name="indexnumber" />
+                    <Entry x:Name="indexnumber" IsEnabled="False" />
                 </inputLayout:SfTextInputLayout>
                 <inputLayout:SfTextInputLayout Hint="Semester">
                     <combobox:SfComboBox x:Name="comboboxS">
@@ -43,12 +43,15 @@
                         </combobox:SfComboBox.ComboBoxSource>
                     </combobox:SfComboBox>
                 </inputLayout:SfTextInputLayout>
-                <inputLayout:SfTextInputLayout
-                        Hint="Group"
-                        HelperText="If you don't have a group , especially you Zumreta , ta chifja nonen npichk tajjj . qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq">
-                    <numeric:SfNumericUpDown 
-                            x:Name="numericUpDown" 
-                            Value="1" Maximum="20" Minimum="0"/>
+                <inputLayout:SfTextInputLayout HelperText="If you leave the group blank that means you don't have a group and it's totally fine :) " Hint="Group">
+                    <numeric:SfNumericUpDown
+                        x:Name="numericUpDown"
+                        AllowNull="true"
+                        FormatString="n"
+                        Maximum="20"
+                        MaximumDecimalDigits="0"
+                        Minimum="0"
+                        Value="0" />
                 </inputLayout:SfTextInputLayout>
 
 
