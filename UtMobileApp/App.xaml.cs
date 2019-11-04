@@ -16,7 +16,7 @@ namespace UtMobileApp
 
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Views.MainPageStudent()); //MainPage = new NavigationPage(new Views.MainPageStudent());
+            MainPage = new FormsControls.Base.AnimationNavigationPage(new Views.MainPageStudent()); //MainPage = new NavigationPage(new Views.MainPageStudent());
         }
 
         protected override void OnStart()

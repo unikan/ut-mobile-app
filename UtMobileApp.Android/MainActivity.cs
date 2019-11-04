@@ -20,6 +20,10 @@ namespace UtMobileApp.Android
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+
+            // Initialization of Animation for transitions
+            FormsControls.Droid.Main.Init(this);
+
             LoadApplication(new App());
         }
     }

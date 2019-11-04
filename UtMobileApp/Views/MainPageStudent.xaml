@@ -5,9 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:navigationdrawer="clr-namespace:Syncfusion.SfNavigationDrawer.XForms;assembly=Syncfusion.SfNavigationDrawer.XForms"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
-             xmlns:listviews="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
              xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
-             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
              mc:Ignorable="d"
              x:Class="UtMobileApp.Views.MainPageStudent"
              BackgroundColor="White">
@@ -16,15 +14,14 @@
                                              DrawerWidth ="300"
                                              Transition="Push"
                                              Duration="400"
-                                             TouchThreshold="300"
+                                             TouchThreshold="200"
                                              DrawerFooterHeight="30">
             <!-- DRAWER HEADER -->
             <navigationdrawer:SfNavigationDrawer.DrawerHeaderView>
                 <Grid BackgroundColor="#F5F5F5">
                     <StackLayout VerticalOptions="EndAndExpand" 
                                  HorizontalOptions="Center"
-                                 Orientation="Horizontal"
-                                 Margin="0, 0, 0, 5">
+                                 Orientation="Horizontal">
                         <border:SfBorder BorderColor="Black" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="50" WidthRequest="50" HeightRequest="50" BorderWidth="1">
                             <Image Source="https://i5.walmartimages.com/asr/e9c1e290-55cb-4608-8edd-06b01ea694d0_1.cd6956088a6814bf191640ab06739752.png" />
                         </border:SfBorder>
@@ -169,7 +166,7 @@
                                    AbsoluteLayout.LayoutBounds="1, 0, 1, 1"
                                    AbsoluteLayout.LayoutFlags="All"
                                    TranslationX="50"
-                                   TranslationY="-70" />
+                                   TranslationY="-60" />
                         </AbsoluteLayout>
                     </border:SfBorder>
                     <!--<Button Text="Hey"

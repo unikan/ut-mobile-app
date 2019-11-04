@@ -1,14 +1,8 @@
 ﻿using Syncfusion.SfSchedule.XForms;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UtMobileApp.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using static UtMobileApp.Models.ScheduleJSON;
 
 namespace UtMobileApp.Views
 {
@@ -18,7 +12,6 @@ namespace UtMobileApp.Views
         public Schedule()
         {
             NavigationPage.SetHasNavigationBar(this, false);
-            NavigationPage.SetHasBackButton(this, false);
             InitializeComponent();
         }
 
@@ -83,12 +76,12 @@ namespace UtMobileApp.Views
             schedule.MoveToDate = DateTime.Now;
 
             // Add date to every day button
-            btn_monday.Text = "M\n" + dates[0, 2].ToString("00");
-            btn_tuesday.Text = "T\n" + dates[1, 2].ToString("00");
-            btn_wednesday.Text = "W\n" + dates[2, 2].ToString("00");
-            btn_thursday.Text = "T\n" + dates[3, 2].ToString("00");
-            btn_friday.Text = "F\n" + dates[4, 2].ToString("00");
-            btn_saturday.Text = "S\n" + dates[5, 2].ToString("00");
+            btn_monday.Text = "MON\n" + dates[0, 2].ToString("00");
+            btn_tuesday.Text = "TUE\n" + dates[1, 2].ToString("00");
+            btn_wednesday.Text = "WED\n" + dates[2, 2].ToString("00");
+            btn_thursday.Text = "THU\n" + dates[3, 2].ToString("00");
+            btn_friday.Text = "FRI\n" + dates[4, 2].ToString("00");
+            btn_saturday.Text = "SAT\n" + dates[5, 2].ToString("00");
 
             switch (DateTime.Now.DayOfWeek.ToString())
             {
@@ -125,13 +118,13 @@ namespace UtMobileApp.Views
             busyindicator.IsBusy = false;
 
             // Show buttons
-            await btn_monday.FadeTo(1, 100, Easing.Linear);
-            await btn_tuesday.FadeTo(1, 100, Easing.Linear);
-            await btn_wednesday.FadeTo(1, 100, Easing.Linear);
-            await btn_thursday.FadeTo(1, 100, Easing.Linear);
-            await btn_friday.FadeTo(1, 100, Easing.Linear);
-            await btn_saturday.FadeTo(1, 100, Easing.Linear);
-            await schedule.FadeTo(1, 100, Easing.Linear);
+            await btn_monday.ScaleTo(1, 100, Easing.Linear);
+            await btn_tuesday.ScaleTo(1, 100, Easing.Linear);
+            await btn_wednesday.ScaleTo(1, 100, Easing.Linear);
+            await btn_thursday.ScaleTo(1, 100, Easing.Linear);
+            await btn_friday.ScaleTo(1, 100, Easing.Linear);
+            await btn_saturday.ScaleTo(1, 100, Easing.Linear);
+            await schedule.FadeTo(1, 150, Easing.Linear);
         }
 
         private void Button_ChangeDay_Clicked(object sender, EventArgs e)

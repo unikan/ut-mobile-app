@@ -67,9 +67,9 @@ namespace UtMobileApp.Views
 
         private async void BtnLectures_Clicked(object sender, EventArgs e)
         {
-            await navigationDrawer.TranslateTo(-1000, 0, 2000, Easing.BounceOut);
-            await Navigation.PushAsync(new Schedule(), false);
-            await navigationDrawer.TranslateTo(0, 0, 300, Easing.BounceOut);
+            await BtnLectures.ScaleTo(1.1, 200, Easing.BounceOut);
+            await Navigation.PushAsync(new Views.Schedule());
+            BtnLectures.Scale = 1;
         }
 
         //private async void announcementList_ItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)

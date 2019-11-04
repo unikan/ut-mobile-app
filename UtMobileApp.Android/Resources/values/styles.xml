@@ -26,6 +26,8 @@
     <!-- Light theme status bar -->
     <!--<item name="android:windowLightStatusBar">true</item>
     <item name="android:datePickerDialogTheme">@style/AppCompatDialogStyle</item>-->
+
+    <item name="android:windowBackground">@drawable/splash_background</item>
   </style>
 
   <!--<style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">

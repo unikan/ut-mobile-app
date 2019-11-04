@@ -60,7 +60,7 @@ namespace UtMobileApp.Views
             }
         }
 
-        private async void NavToggle_Clicked(object sender, EventArgs e)
+        private void NavToggle_Clicked(object sender, EventArgs e)
         {
             navigationDrawer.ToggleDrawer();
         }
