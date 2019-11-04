@@ -3,14 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:navigationdrawer="clr-namespace:Syncfusion.SfNavigationDrawer.XForms;assembly=Syncfusion.SfNavigationDrawer.XForms"
-             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
-             xmlns:listviews="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
              xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
-             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:navigationdrawer="clr-namespace:Syncfusion.SfNavigationDrawer.XForms;assembly=Syncfusion.SfNavigationDrawer.XForms"
              mc:Ignorable="d"
-             x:Class="UtMobileApp.Views.MainPageStudent"
-             BackgroundColor="White">
+             x:Class="UtMobileApp.Views.MainPageStudentUI"
+             BackgroundColor="#F5F5F5">
+    <!-- Dark Color: #39375B; Orange Color: #FD7E52; Light Color: #FFE7D1; Light Color 2: #E6EEF1-->
+    <!--<ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="Android">0, 10, 0, 0</On>
+            <On Platform="iOS">0, 20, 0, 0</On>
+        </OnPlatform>
+    </ContentPage.Padding>-->
     <ContentPage.Content>
         <navigationdrawer:SfNavigationDrawer x:Name="navigationDrawer" 
                                              DrawerWidth ="300"
@@ -195,8 +200,7 @@
                                                   FontSize="24"
                                                   TranslationX="600"
                                                   Scale="0.95"
-                                                  BackgroundColor="#096B92"
-                                                  Clicked="BtnLectures_Clicked" />
+                                                  BackgroundColor="#096B92" />
                                 <buttons:SfButton x:Name="BtnMidterms"
                                                   Text="Midterms"  
                                                   CornerRadius="20" 

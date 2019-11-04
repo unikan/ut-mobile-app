@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Essentials;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace UtMobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainPageStudent : ContentPage
+    public partial class MainPageStudentUI : ContentPage
     {
-        public MainPageStudent()
+        public MainPageStudentUI()
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
@@ -45,13 +45,13 @@ namespace UtMobileApp.Views
             else if (e.ScrollX >= 120.1 && e.ScrollX <= 240.0)
             {
                 BtnMidterms.ScaleTo(1.12 - e.ScrollX / 1000, 150, Easing.Linear);
-
+                
             }
 
             else if (e.ScrollX >= 240.1 && e.ScrollX <= 360.0)
             {
                 BtnExams.ScaleTo(1.24 - e.ScrollX / 1000, 150, Easing.Linear);
-
+                
             }
 
             else if (e.ScrollX >= 360.1 && e.ScrollX <= 479.0)
@@ -60,50 +60,29 @@ namespace UtMobileApp.Views
             }
         }
 
-        private void NavToggle_Clicked(object sender, EventArgs e)
+        private async void NavToggle_Clicked(object sender, EventArgs e)
         {
             navigationDrawer.ToggleDrawer();
         }
 
-        private async void BtnLectures_Clicked(object sender, EventArgs e)
+        private void BtnNews_Clicked(object sender, EventArgs e)
         {
-            await navigationDrawer.TranslateTo(-1000, 0, 2000, Easing.BounceOut);
-            await Navigation.PushAsync(new Schedule(), false);
-            await navigationDrawer.TranslateTo(0, 0, 300, Easing.BounceOut);
+
         }
 
-        //private async void announcementList_ItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)
-        //{
-        //    var selectedPost = e.ItemData as WordPressPCL.Models.Post;
-
-        //    await Navigation.PushAsync(new PostDetailPage(selectedPost, "Announcement"));
-        //}
-
-        private async void BtnNews_Clicked(object sender, EventArgs e)
+        private void BtnCalls_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Views.News());
+
         }
 
-        private async void BtnCalls_Clicked(object sender, EventArgs e)
+        private void BtnKujdesi_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Views.Calls());
+
         }
 
-        private async void BtnKujdesi_Clicked(object sender, EventArgs e)
+        private void BtnFacebook_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Views.KujdesiPerTy());
-        }
 
-        private async void BtnFacebook_Clicked(object sender, EventArgs e)
-        {
-            try
-            {
-                var uri = new Uri("fb://page/338685373241583");
-                await Launcher.OpenAsync(uri);
-            }
-            catch (Exception)
-            {
-            }
         }
     }
 }

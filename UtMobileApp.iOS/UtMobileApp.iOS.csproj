@@ -154,9 +154,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\back.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\menu.png" />
   </ItemGroup>
   <ItemGroup>
@@ -170,5 +167,8 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\midtermsbg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\book.png" />
   </ItemGroup>
 </Project>
