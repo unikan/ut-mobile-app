@@ -6,6 +6,7 @@
              xmlns:navigationdrawer="clr-namespace:Syncfusion.SfNavigationDrawer.XForms;assembly=Syncfusion.SfNavigationDrawer.XForms"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
              mc:Ignorable="d"
              x:Class="UtMobileApp.Views.MainPageStudent"
              BackgroundColor="White">
@@ -131,9 +132,18 @@
                     <border:SfBorder AbsoluteLayout.LayoutBounds="0, 0, 1, 0.55"
                                      AbsoluteLayout.LayoutFlags="All"
                                      CornerRadius="0, 0, 150, 0" 
-                                     BorderWidth="0"
-                                     BackgroundColor="#D35656">
+                                     BorderWidth="0">
                         <AbsoluteLayout>
+                            <gradient:SfGradientView>
+                                <gradient:SfGradientView.BackgroundBrush>
+                                    <gradient:SfLinearGradientBrush>
+                                        <gradient:SfLinearGradientBrush.GradientStops>
+                                            <gradient:SfGradientStop Color="#CB356B" Offset="0.0" />
+                                            <gradient:SfGradientStop Color="#BD3F32" Offset="1.0" />
+                                        </gradient:SfLinearGradientBrush.GradientStops>
+                                    </gradient:SfLinearGradientBrush>
+                                </gradient:SfGradientView.BackgroundBrush>
+                            </gradient:SfGradientView>
                             <!-- Nav toggle -->
                             <buttons:SfButton x:Name="NavToggle" 
                                               ShowIcon="True" 
@@ -186,50 +196,50 @@
                                                   CornerRadius="20" 
                                                   WidthRequest="200"
                                                   HeightRequest="300"
-                                                  HorizontalTextAlignment="End"
-                                                  VerticalTextAlignment="End"
+                                                  HorizontalTextAlignment="Center"
+                                                  VerticalTextAlignment="Center"
                                                   Padding="20"
                                                   FontSize="24"
                                                   TranslationX="600"
                                                   Scale="0.95"
-                                                  BackgroundColor="#096B92"
+                                                  BackgroundImage="lectures.png"
                                                   Clicked="BtnLectures_Clicked" />
                                 <buttons:SfButton x:Name="BtnMidterms"
                                                   Text="Midterms"  
                                                   CornerRadius="20" 
                                                   WidthRequest="200"
                                                   HeightRequest="300"
-                                                  HorizontalTextAlignment="End"
-                                                  VerticalTextAlignment="End"
+                                                  HorizontalTextAlignment="Center"
+                                                  VerticalTextAlignment="Center"
                                                   Padding="20"
                                                   FontSize="24"
                                                   TranslationX="600"
                                                   Scale="0.95"
-                                                  BackgroundColor="#F6B31F"/>
+                                                  BackgroundImage="midterms.png"/>
                                 <buttons:SfButton x:Name="BtnExams"
                                                   Text="Exams"  
                                                   CornerRadius="20" 
                                                   WidthRequest="200"
                                                   HeightRequest="300"
-                                                  HorizontalTextAlignment="End"
-                                                  VerticalTextAlignment="End"
+                                                  HorizontalTextAlignment="Center"
+                                                  VerticalTextAlignment="Center"
                                                   Padding="20"
                                                   FontSize="24"
                                                   TranslationX="600"
                                                   Scale="0.95"
-                                                  BackgroundColor="#78C7A7"/>
+                                                  BackgroundImage="exams.png"/>
                                 <buttons:SfButton x:Name="BtnConsultations"
                                                   Text="Consultations"  
                                                   CornerRadius="20" 
                                                   WidthRequest="200"
                                                   HeightRequest="300"
-                                                  HorizontalTextAlignment="End"
-                                                  VerticalTextAlignment="End"
+                                                  HorizontalTextAlignment="Center"
+                                                  VerticalTextAlignment="Center"
                                                   Padding="20"
                                                   FontSize="24"
                                                   TranslationX="600"
                                                   Scale="0.95"
-                                                  BackgroundColor="#83C5E7"/>
+                                                  BackgroundImage="consultations.png"/>
                             </StackLayout>
                         </ScrollView>
                     </StackLayout>

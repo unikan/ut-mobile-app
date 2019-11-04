@@ -160,18 +160,6 @@
     <BundleResource Include="Resources\menu.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\consultationsbg.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\lecturesbg.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\examsbg.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\midtermsbg.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\book.png" />
   </ItemGroup>
   <ItemGroup>
@@ -179,5 +167,17 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\exams.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lectures.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\midterms.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\consultations.png" />
   </ItemGroup>
 </Project>

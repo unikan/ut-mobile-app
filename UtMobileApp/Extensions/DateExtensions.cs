@@ -54,8 +54,8 @@ namespace UtMobileApp.Extensions
 
             if (scheduleList[index].LectureOrExercise != null)
             {
-                if (scheduleList[index].LectureOrExercise.t == "L") color = Color.FromHex("#E67C73"); // #FFB5AC
-                else color = Color.FromHex("#7986CB"); // #A2D5F2
+                if (scheduleList[index].LectureOrExercise.t == "L") color = Color.FromHex("#F28883"); // #FFB5AC
+                else color = Color.FromHex("#B9A6E0"); // #A2D5F2
             }
             else
             {

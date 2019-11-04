@@ -86,27 +86,27 @@ namespace UtMobileApp.Views
             switch (DateTime.Now.DayOfWeek.ToString())
             {
                 case "Monday":
-                    btn_monday.TextColor = Color.FromHex("#07689F");
+                    btn_monday.TextColor = Color.FromHex("#101010");
                     btn_monday.FontAttributes = FontAttributes.Bold;
                     break;
                 case "Tuesday":
-                    btn_tuesday.TextColor = Color.FromHex("#07689F");
+                    btn_tuesday.TextColor = Color.FromHex("#101010");
                     btn_tuesday.FontAttributes = FontAttributes.Bold;
                     break;
                 case "Wednesday":
-                    btn_wednesday.TextColor = Color.FromHex("#07689F");
+                    btn_wednesday.TextColor = Color.FromHex("#101010");
                     btn_wednesday.FontAttributes = FontAttributes.Bold;
                     break;
                 case "Thursday":
-                    btn_thursday.TextColor = Color.FromHex("#07689F");
+                    btn_thursday.TextColor = Color.FromHex("#101010");
                     btn_thursday.FontAttributes = FontAttributes.Bold;
                     break;
                 case "Friday":
-                    btn_friday.TextColor = Color.FromHex("#07689F");
+                    btn_friday.TextColor = Color.FromHex("#101010");
                     btn_friday.FontAttributes = FontAttributes.Bold;
                     break;
                 case "Saturday":
-                    btn_saturday.TextColor = Color.FromHex("#07689F");
+                    btn_saturday.TextColor = Color.FromHex("#101010");
                     btn_saturday.FontAttributes = FontAttributes.Bold;
                     break;
                 default:
@@ -147,7 +147,7 @@ namespace UtMobileApp.Views
             btn_saturday.TextColor = Color.FromHex("#8E97A6");
             btn_saturday.FontAttributes = FontAttributes.None;
 
-            clickedBtn.TextColor = Color.FromHex("#07689F");
+            clickedBtn.TextColor = Color.FromHex("#101010");
             clickedBtn.FontAttributes = FontAttributes.Bold;
         }
 
