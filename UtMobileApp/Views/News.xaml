@@ -63,7 +63,7 @@
                            FontSize="Large"
                            FontAttributes="Bold"
                            MaxLines="1"
-                           Text="Latest news"
+                           Text="News"
                            TextColor="White"></Label>
                 </Grid>
             </StackLayout>

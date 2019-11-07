@@ -61,7 +61,8 @@
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
-                                      BackgroundColor="Transparent" />
+                                      BackgroundColor="Transparent" 
+                                      Clicked="BtnAnnouncements_Clicked"/>
                     <buttons:SfButton Text="Calls" 
                                       TextColor="Black"
                                       FontSize="Medium"
@@ -150,6 +151,9 @@
                                               CornerRadius="100"
                                               BackgroundColor="Transparent"
                                               Clicked="NavToggle_Clicked"
+                                              Padding="0"
+                                              HeightRequest="50"
+                                              WidthRequest="50"
                                               AbsoluteLayout.LayoutBounds="0.05, 0.13, 50, 50"
                                               AbsoluteLayout.LayoutFlags="PositionProportional">
                                 <buttons:SfButton.Content>

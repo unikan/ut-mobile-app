@@ -94,6 +94,11 @@ namespace UtMobileApp.Views
             await Navigation.PushAsync(new Views.KujdesiPerTy());
         }
 
+        private async void BtnAnnouncements_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Views.Announcements());
+        }
+
         private async void BtnFacebook_Clicked(object sender, EventArgs e)
         {
             try
