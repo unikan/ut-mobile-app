@@ -24,30 +24,39 @@ namespace UtMobileApp.Android
    public class AuthDroid : Interface
     {
 
-        public async Task<string> LoginWithEmailPassword(string email, string password)
+        public async Task<Tuple<string,bool>> LoginWithEmailPassword(string email, string password)
         {
+
             try
             {
                 var user = await FirebaseAuth.Instance.SignInWithEmailAndPasswordAsync(email, password);
                 var token = await user.User.GetIdTokenAsync(false);
-                return token.Token;
+                return Tuple.Create(token.Token, false);
             }
-            catch (FirebaseAuthInvalidCredentialsException e)
-            {
-                e.PrintStackTrace();
-                return "";
-            }
-            catch (FirebaseAuthInvalidUserException e)
-            {
-                e.PrintStackTrace();
-                return "";
-            }
-            catch (FirebaseAuthEmailException e)
-            {
-                e.PrintStackTrace();
-                return "";
 
+            catch (Exception e)
+            {
+                //e.PrintStackTrace();
+                return Tuple.Create(e.Message, true);
             }
+
+            //catch (FirebaseAuthInvalidCredentialsException e)
+            //{
+            //    //e.PrintStackTrace();
+            //    return Tuple.Create(e.Message, true);
+            //}
+
+            //catch (FirebaseAuthInvalidUserException e)
+            //{
+            //    //e.PrintStackTrace();
+            //    return Tuple.Create(e.Message, true);
+            //}
+            //catch (FirebaseAuthEmailException e)
+            //{
+            //    //e.PrintStackTrace();
+            //    return Tuple.Create(e.Message, true);
+
+            //}
 
 
         }
@@ -111,6 +120,40 @@ namespace UtMobileApp.Android
             return status;
         }
 
+        public async Task<string> VerifyEmail()
+        {
+            try
+            {
+                using (var actionCode = ActionCodeSettings.NewBuilder().SetAndroidPackageName("Unikan.Utapp", true, "0").Build())
+                {
+                    await FirebaseAuth.Instance.CurrentUser.SendEmailVerificationAsync(actionCode);
+                }
+
+                return "";
+            } 
+            catch(Exception)
+            {
+                return "Cannot send email verification link ";
+            }
+        }
+
+
+        public void SignOut()
+        {
+            string k = "you haven't signed in yet";
+            try
+            {
+                FirebaseAuth.Instance.SignOut();
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine(k);
+
+            }
+
+        }
+
 
         public async void SignupWithEmailPassword(string email, string password)
         {
@@ -123,13 +166,12 @@ namespace UtMobileApp.Android
                 {
                     await user.SendEmailVerificationAsync(actionCode);
                 }
-               
             }
             //await FirebaseAuth.Instance.CurrentUser.SendEmailVerificationAsync();
             //var token = await user.User.GetIdTokenAsync(false);
             //return token.Token;
             catch (FirebaseAuthUserCollisionException) {
-                
+               
             }
         }
     }

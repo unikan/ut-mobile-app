@@ -9,7 +9,7 @@ namespace UtMobileApp
 {
     public interface Interface
     {
-       Task<string> LoginWithEmailPassword(string email, string password);
+       Task<Tuple<string, bool>> LoginWithEmailPassword(string email, string password);
 
         string GetCurrentUserEmail();
 
@@ -19,7 +19,9 @@ namespace UtMobileApp
 
         Task<string> ResetPassword(string email);
 
-        
+        Task<string> VerifyEmail();
+
+        void SignOut();
 
     }
 }

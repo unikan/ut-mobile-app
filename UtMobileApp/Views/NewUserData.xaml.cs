@@ -180,12 +180,12 @@ namespace UtMobileApp.Views
         {
 
             await firebaseHelper.AddStudent(email: auth.GetCurrentUserEmail(), name.Text, lastname.Text, indexnumber.Text, numericUpDown.Value.ToString(), comboboxS.SelectedItem.ToString(), comboboxf.SelectedItem.ToString(), AutoCompleteProgram.SelectedItem.ToString());
-            name.Text = string.Empty;
-            lastname.Text = string.Empty;
-            numericUpDown.Value = string.Empty;
-            comboboxf.SelectedItem = string.Empty;
-            await DisplayAlert("Success", "Person Added Successfully", "OK");
-
+            //name.Text = string.Empty;
+            //lastname.Text = string.Empty;
+            //numericUpDown.Value = 0;
+            //comboboxf.SelectedItem = string.Empty;
+            //await DisplayAlert("Success", "Person Added Successfully", "OK");
+            await Navigation.PushAsync(new Views.MainPageStudent());
         }
 
     }

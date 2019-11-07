@@ -16,11 +16,20 @@
                 TextColor="#4682B4"
                 VerticalOptions="CenterAndExpand" />
 
+
+
             <Button
                 Margin="60,40"
                 BackgroundColor="#4682B4"
                 Clicked="GotoLogin"
                 Text="Return to Login"
+                TextColor="White" />
+
+            <Button
+                Margin="60,40"
+                BackgroundColor="#4682B4"
+                Clicked="VerifyAgain_Clicked"
+                Text="Send Email Verification Again"
                 TextColor="White" />
 
         </StackLayout>

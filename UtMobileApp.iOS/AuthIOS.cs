@@ -17,19 +17,21 @@ namespace UtMobileApp.iOS
     public class AuthIOS : Interface
     {
 
-        public async Task<string> LoginWithEmailPassword(string email, string password)
+        public async Task<Tuple<string, bool>> LoginWithEmailPassword(string email, string password)
         {
             try
             {
                 var user = await Auth.DefaultInstance.SignInWithPasswordAsync(email, password);
-                return await user.User.GetIdTokenAsync();
+                return Tuple.Create(await user.User.GetIdTokenAsync(),false);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return "";
+                return Tuple.Create(e.Message, true);
             }
 
         }
+
+
 
         //public async Task<string> Burek(string getuser, string getemail)
         //{
@@ -58,6 +60,23 @@ namespace UtMobileApp.iOS
             }
 
         }
+
+        public void SignOut()
+        {
+            string k = "You haven't signed in yet";
+            try
+            {
+                Auth.DefaultInstance.SignOut(out NSError error);
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine(k);
+
+            }
+
+        }
+
 
         public string GetCurrentUserEmail()
         {
@@ -100,6 +119,26 @@ namespace UtMobileApp.iOS
         //    }
 
         //}
+
+        public async Task<string> VerifyEmail()
+        {
+            try
+            {
+                var action = new ActionCodeSettings();
+                action.IOSBundleId = "Unikan.Utapp";
+                using (var actionCode = action)
+                {
+                    await Auth.DefaultInstance.CurrentUser.SendEmailVerificationAsync(actionCode);
+                }
+
+                return "";
+            }
+            catch (Exception)
+            {
+                return "Cannot send email verification link ";
+            }
+        }
+
 
         public async void SignupWithEmailPassword(string email, string password)
         {

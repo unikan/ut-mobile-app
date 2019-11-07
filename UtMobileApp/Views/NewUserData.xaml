@@ -14,14 +14,14 @@
     <ContentPage.Content>
         <ScrollView Orientation="Vertical">
             <StackLayout>
+                <inputLayout:SfTextInputLayout Hint="Index Number">
+                    <Entry x:Name="indexnumber" IsEnabled="False" />
+                </inputLayout:SfTextInputLayout>
                 <inputLayout:SfTextInputLayout Hint="Name">
                     <Entry x:Name="name" />
                 </inputLayout:SfTextInputLayout>
                 <inputLayout:SfTextInputLayout Hint="LastName">
                     <Entry x:Name="lastname" />
-                </inputLayout:SfTextInputLayout>
-                <inputLayout:SfTextInputLayout Hint="Index Number">
-                    <Entry x:Name="indexnumber" IsEnabled="False" />
                 </inputLayout:SfTextInputLayout>
                 <inputLayout:SfTextInputLayout Hint="Semester">
                     <combobox:SfComboBox x:Name="comboboxS">
@@ -47,7 +47,6 @@
                     <numeric:SfNumericUpDown
                         x:Name="numericUpDown"
                         AllowNull="true"
-                        FormatString="n"
                         Maximum="20"
                         MaximumDecimalDigits="0"
                         Minimum="0"
