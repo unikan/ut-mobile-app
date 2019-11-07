@@ -24,7 +24,7 @@ namespace UtMobileApp.Android
    public class AuthDroid : Interface
     {
 
-        public async Task<Tuple<string,bool>> LoginWithEmailPassword(string email, string password)
+        public async Task<Tuple<string, bool>> LoginWithEmailPassword(string email, string password)
         {
 
             try
@@ -40,25 +40,37 @@ namespace UtMobileApp.Android
                 return Tuple.Create(e.Message, true);
             }
 
-            //catch (FirebaseAuthInvalidCredentialsException e)
-            //{
-            //    //e.PrintStackTrace();
-            //    return Tuple.Create(e.Message, true);
-            //}
+        }
 
-            //catch (FirebaseAuthInvalidUserException e)
-            //{
-            //    //e.PrintStackTrace();
-            //    return Tuple.Create(e.Message, true);
-            //}
-            //catch (FirebaseAuthEmailException e)
-            //{
-            //    //e.PrintStackTrace();
-            //    return Tuple.Create(e.Message, true);
+        //catch (FirebaseAuthInvalidCredentialsException e)
+        //{
+        //    //e.PrintStackTrace();
+        //    return Tuple.Create(e.Message, true);
+        //}
 
-            //}
+        //catch (FirebaseAuthInvalidUserException e)
+        //{
+        //    //e.PrintStackTrace();
+        //    return Tuple.Create(e.Message, true);
+        //}
+        //catch (FirebaseAuthEmailException e)
+        //{
+        //    //e.PrintStackTrace();
+        //    return Tuple.Create(e.Message, true);
+
+        //}
 
 
+        public async Task<Tuple<string, bool>> CheckifEmailExists(string email)
+        {
+            try {  
+            await FirebaseAuth.Instance.FetchProvidersForEmailAsync(email);
+                return Tuple.Create(email, false);
+            }
+            catch(Exception e)
+            {
+                return Tuple.Create(e.Message, true);
+            }
         }
 
         public async Task<string> ResetPassword(string email)
@@ -153,6 +165,7 @@ namespace UtMobileApp.Android
             }
 
         }
+
 
 
         public async void SignupWithEmailPassword(string email, string password)

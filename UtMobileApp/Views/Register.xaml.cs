@@ -31,28 +31,37 @@ namespace UtMobileApp
             string[] split = emailvalue.Split('@');
             if (split[0].Any(char.IsDigit) && (split[1] == "unite.edu.mk"))
             {
-
-                try
+                    try
                 {
-                    //string Token = await auth.SignupWithEmailPassword(EmailInput.Text, PasswordInput.Text);
-                    //if (Token != "")
-                    //{
-                    //    await Navigation.PushAsync(new Logged());
-                    //}
-                    //else
-                    //{
-                    //    ShowError();
-                    //}
-                    auth.SignupWithEmailPassword(EmailInput.Text, PasswordInput.Text);
-                    if(await firebaseHelper.UserExists(emailvalue))
+                    var Checkemail = await auth.CheckifEmailExists(EmailInput.Text);
+                    if (Checkemail.Item2)
                     {
-                        await DisplayAlert("Warning", " This email address already exists!", "OK");
+                        await DisplayAlert("Warning", Checkemail.Item1, "OK");
                     }
                     else
                     {
-                        await Navigation.PushAsync(new Views.Unverified());
-                    }
 
+                        //string Token = await auth.SignupWithEmailPassword(EmailInput.Text, PasswordInput.Text);
+                        //if (Token != "")
+                        //{
+                        //    await Navigation.PushAsync(new Logged());
+                        //}
+                        //else
+                        //{
+                        //    ShowError();
+                        //}
+                        auth.SignupWithEmailPassword(EmailInput.Text, PasswordInput.Text);
+
+
+                        if (await firebaseHelper.UserExists(emailvalue))
+                        {
+                            await DisplayAlert("Warning", " This email address already exists!", "OK");
+                        }
+                        else
+                        {
+                            await Navigation.PushAsync(new Views.Unverified());
+                        }
+                    }
                 }
                 catch (Exception)
                 {

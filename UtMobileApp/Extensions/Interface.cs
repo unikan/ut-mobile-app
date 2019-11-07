@@ -23,5 +23,7 @@ namespace UtMobileApp
 
         void SignOut();
 
+        Task<Tuple<string, bool>> CheckifEmailExists(string email);
+
     }
 }
