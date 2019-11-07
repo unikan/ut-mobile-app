@@ -32,13 +32,24 @@ namespace UtMobileApp.Android
                 var token = await user.User.GetIdTokenAsync(false);
                 return token.Token;
             }
+            catch (FirebaseAuthInvalidCredentialsException e)
+            {
+                e.PrintStackTrace();
+                return "";
+            }
             catch (FirebaseAuthInvalidUserException e)
             {
                 e.PrintStackTrace();
                 return "";
             }
+            catch (FirebaseAuthEmailException e)
+            {
+                e.PrintStackTrace();
+                return "";
 
-            
+            }
+
+
         }
 
         public async Task<string> ResetPassword(string email)
@@ -103,20 +114,23 @@ namespace UtMobileApp.Android
 
         public async void SignupWithEmailPassword(string email, string password)
         {
-           //var user = await FirebaseAuth.Instance.CreateUserWithEmailAndPasswordAsync(email, password);
-
-            var auth = FirebaseAuth.Instance;
-            using (var authResult = await auth.CreateUserWithEmailAndPasswordAsync(email, password))
-            using (var user = authResult.User)
-            using (var actionCode = ActionCodeSettings.NewBuilder().SetAndroidPackageName("Unikan.Utapp", true, "0").Build())
-            {
-                await user.SendEmailVerificationAsync(actionCode);
+            //var user = await FirebaseAuth.Instance.CreateUserWithEmailAndPasswordAsync(email, password);
+            try {
+                var auth = FirebaseAuth.Instance;
+                using (var authResult = await auth.CreateUserWithEmailAndPasswordAsync(email, password))
+                using (var user = authResult.User)
+                using (var actionCode = ActionCodeSettings.NewBuilder().SetAndroidPackageName("Unikan.Utapp", true, "0").Build())
+                {
+                    await user.SendEmailVerificationAsync(actionCode);
+                }
+               
             }
-
             //await FirebaseAuth.Instance.CurrentUser.SendEmailVerificationAsync();
-
             //var token = await user.User.GetIdTokenAsync(false);
             //return token.Token;
+            catch (FirebaseAuthUserCollisionException) {
+                
+            }
         }
     }
 }

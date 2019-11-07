@@ -24,7 +24,7 @@ namespace UtMobileApp.iOS
                 var user = await Auth.DefaultInstance.SignInWithPasswordAsync(email, password);
                 return await user.User.GetIdTokenAsync();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return "";
             }
@@ -51,7 +51,7 @@ namespace UtMobileApp.iOS
                 await Auth.DefaultInstance.SendPasswordResetAsync(email);
                 return email;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                
                 return "";
@@ -103,6 +103,8 @@ namespace UtMobileApp.iOS
 
         public async void SignupWithEmailPassword(string email, string password)
         {
+           
+            try { 
             //var user = await FirebaseAuth.Instance.CreateUserWithEmailAndPasswordAsync(email, password);
             var action = new ActionCodeSettings();
             action.IOSBundleId = "Unikan.Utapp";
@@ -112,6 +114,13 @@ namespace UtMobileApp.iOS
             using (var actionCode = action)
             {
                 await user.SendEmailVerificationAsync(actionCode);
+            }
+
+            }
+            
+            catch (Exception)
+            {
+
             }
 
             //await FirebaseAuth.Instance.CurrentUser.SendEmailVerificationAsync();

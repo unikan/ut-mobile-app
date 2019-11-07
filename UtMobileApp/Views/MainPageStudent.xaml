@@ -1,15 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:navigationdrawer="clr-namespace:Syncfusion.SfNavigationDrawer.XForms;assembly=Syncfusion.SfNavigationDrawer.XForms"
-             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
-             xmlns:shimmer="clr-namespace:Syncfusion.XForms.Shimmer;assembly=Syncfusion.Core.XForms"
-             xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
-             mc:Ignorable="d"
-             x:Class="UtMobileApp.Views.MainPageStudent"
-             BackgroundColor="White">
+<ContentPage
+    x:Class="UtMobileApp.Views.MainPageStudent"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:navigationdrawer="clr-namespace:Syncfusion.SfNavigationDrawer.XForms;assembly=Syncfusion.SfNavigationDrawer.XForms"
+    xmlns:shimmer="clr-namespace:Syncfusion.XForms.Shimmer;assembly=Syncfusion.Core.XForms"
+    BackgroundColor="White"
+    mc:Ignorable="d">
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
             <On Platform="Android">0, 10, 0, 0</On>
@@ -18,75 +19,84 @@
     </ContentPage.Padding>
     <ContentPage.Content>
 
-        <navigationdrawer:SfNavigationDrawer x:Name="navigationDrawer" 
-                                             DrawerWidth ="300"
-                                             Transition="Push"
-                                             Duration="400"
-                                             TouchThreshold="100">
+        <navigationdrawer:SfNavigationDrawer
+            x:Name="navigationDrawer"
+            DrawerWidth="300"
+            TouchThreshold="100"
+            Transition="Push"
+            Duration="400">
             <navigationdrawer:SfNavigationDrawer.ContentView>
-                
-                <!-- MAIN CONTENT VIEW -->
+
+                <!--  MAIN CONTENT VIEW  -->
                 <AbsoluteLayout>
-                    <!-- HEADER -->
-                    <StackLayout Orientation="Horizontal"
-                                    HorizontalOptions="FillAndExpand"
-                                    VerticalOptions="FillAndExpand"
-                                    Margin="10, 0"
-                                    AbsoluteLayout.LayoutBounds="0, 0, 1, .05"
-                                    AbsoluteLayout.LayoutFlags="All">
+                    <!--  HEADER  -->
+                    <StackLayout
+                        Margin="10,0"
+                        AbsoluteLayout.LayoutBounds="0, 0, 1, .05"
+                        AbsoluteLayout.LayoutFlags="All"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Horizontal"
+                        VerticalOptions="FillAndExpand">
                         <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <buttons:SfButton 
-                                Grid.Row="0" 
-                                Grid.Column="0" 
-                                HorizontalOptions="Start"
-                                VerticalOptions="Center"
-                                ShowIcon="True" 
+                            <buttons:SfButton
+                                Grid.Row="0"
+                                Grid.Column="0"
                                 BackgroundColor="White"
+                                Clicked="HamburgerButton_Clicked"
                                 CornerRadius="40"
-                                WidthRequest="50"
                                 HeightRequest="50"
-                                Clicked="HamburgerButton_Clicked">
+                                HorizontalOptions="Start"
+                                ShowIcon="True"
+                                VerticalOptions="Center"
+                                WidthRequest="50">
                                 <buttons:SfButton.Content>
-                                    <Image Source="menu.png"
+                                    <Image
+                                        HeightRequest="20"
                                         HorizontalOptions="Center"
+                                        Source="menu.png"
                                         VerticalOptions="Center"
-                                        WidthRequest="20" 
-                                        HeightRequest="20" />
+                                        WidthRequest="20" />
                                 </buttons:SfButton.Content>
                             </buttons:SfButton>
                         </Grid>
                     </StackLayout>
-                    <!-- Hello Message -->
-                    <StackLayout Orientation="Horizontal" 
-                                 AbsoluteLayout.LayoutBounds="0, .06, 1, .20"
-                                 AbsoluteLayout.LayoutFlags="All"
-                                 Padding="0, 10" 
-                                 Margin="15, 0"
-                                 HorizontalOptions="FillAndExpand"
-                                 VerticalOptions="Center">
+                    <!--  Hello Message  -->
+                    <StackLayout
+                        Margin="15,0"
+                        Padding="0,10"
+                        AbsoluteLayout.LayoutBounds="0, .06, 1, .20"
+                        AbsoluteLayout.LayoutFlags="All"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Horizontal"
+                        VerticalOptions="Center">
                         <Label>
                             <Label.FormattedText>
                                 <FormattedString>
                                     <Span FontSize="32" Text="Hello,&#x0a;" />
-                                    <Span FontSize="32" FontAttributes="Bold" x:Name="label_name" Text="Filani" />
+                                    <Span
+                                        x:Name="label_name"
+                                        FontAttributes="Bold"
+                                        FontSize="32"
+                                        Text="Filani" />
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
                     </StackLayout>
-                    <!-- Navigation Buttons -->
-                    <StackLayout AbsoluteLayout.LayoutBounds="0, .35, 1, .4"
-                                 AbsoluteLayout.LayoutFlags="All"
-                                 Padding="0, 10"
-                                 Margin="15, 0"
-                                 HorizontalOptions="FillAndExpand"
-                                 VerticalOptions="FillAndExpand">
-                        <Grid RowSpacing="20" ColumnSpacing="20">
+                    <!--  Navigation Buttons  -->
+                    <StackLayout
+                        Margin="15,0"
+                        Padding="0,10"
+                        AbsoluteLayout.LayoutBounds="0, .35, 1, .4"
+                        AbsoluteLayout.LayoutFlags="All"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand">
+                        <Grid ColumnSpacing="20" RowSpacing="20">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="*" />
@@ -95,106 +105,133 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <buttons:SfButton Text="Lectures and Exercises" 
-                                              CornerRadius="20" 
-                                              WidthRequest="75"
-                                              HeightRequest="125"
-                                              HorizontalTextAlignment="Start"
-                                              VerticalTextAlignment="End"
-                                              HorizontalOptions="FillAndExpand"
-                                              Padding="15, 0,  0, 15"
-                                              FontAttributes="Bold"
-                                              TextColor="White"
-                                              Grid.Row="0" Grid.Column="0"
-                                              Clicked="BtnSchedule_Clicked">
+                            <buttons:SfButton
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Padding="15,0,0,15"
+                                Clicked="BtnSchedule_Clicked"
+                                CornerRadius="20"
+                                FontAttributes="Bold"
+                                HeightRequest="125"
+                                HorizontalOptions="FillAndExpand"
+                                HorizontalTextAlignment="Start"
+                                Text="Lectures and Exercises"
+                                TextColor="White"
+                                VerticalTextAlignment="End"
+                                WidthRequest="75">
                                 <buttons:SfButton.BackgroundGradient>
                                     <gradient:SfLinearGradientBrush>
                                         <gradient:SfLinearGradientBrush.GradientStops>
-                                            <gradient:SfGradientStop Color="#553C8B" Offset="0"/>
-                                            <gradient:SfGradientStop Color="#9EA9F0" Offset="1"/>
+                                            <gradient:SfGradientStop Offset="0" Color="#553C8B" />
+                                            <gradient:SfGradientStop Offset="1" Color="#9EA9F0" />
                                         </gradient:SfLinearGradientBrush.GradientStops>
                                     </gradient:SfLinearGradientBrush>
                                 </buttons:SfButton.BackgroundGradient>
                             </buttons:SfButton>
-                            <buttons:SfButton Text="Midterms" 
-                                              CornerRadius="20" 
-                                              WidthRequest="75"
-                                              HeightRequest="125"
-                                              HorizontalTextAlignment="Start"
-                                              VerticalTextAlignment="End"
-                                              HorizontalOptions="FillAndExpand"
-                                              Padding="15, 0,  0, 15"
-                                              FontAttributes="Bold"
-                                              TextColor="White"
-                                              Grid.Row="0" Grid.Column="1">
+                            <buttons:SfButton
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Padding="15,0,0,15"
+                                CornerRadius="20"
+                                FontAttributes="Bold"
+                                HeightRequest="125"
+                                HorizontalOptions="FillAndExpand"
+                                HorizontalTextAlignment="Start"
+                                Text="Midterms"
+                                TextColor="White"
+                                VerticalTextAlignment="End"
+                                WidthRequest="75">
                                 <buttons:SfButton.BackgroundGradient>
                                     <gradient:SfLinearGradientBrush>
                                         <gradient:SfLinearGradientBrush.GradientStops>
-                                            <gradient:SfGradientStop Color="#553C8B" Offset="0"/>
-                                            <gradient:SfGradientStop Color="#9EA9F0" Offset="1"/>
+                                            <gradient:SfGradientStop Offset="0" Color="#553C8B" />
+                                            <gradient:SfGradientStop Offset="1" Color="#9EA9F0" />
                                         </gradient:SfLinearGradientBrush.GradientStops>
                                     </gradient:SfLinearGradientBrush>
                                 </buttons:SfButton.BackgroundGradient>
                             </buttons:SfButton>
-                            <buttons:SfButton Text="Exams" 
-                                              CornerRadius="20" 
-                                              WidthRequest="75"
-                                              HeightRequest="125"
-                                              HorizontalTextAlignment="Start"
-                                              VerticalTextAlignment="End"
-                                              HorizontalOptions="FillAndExpand"
-                                              Padding="15, 0,  0, 15"
-                                              FontAttributes="Bold"
-                                              TextColor="White"
-                                              Grid.Row="1" Grid.Column="0">
+                            <buttons:SfButton
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Padding="15,0,0,15"
+                                CornerRadius="20"
+                                FontAttributes="Bold"
+                                HeightRequest="125"
+                                HorizontalOptions="FillAndExpand"
+                                HorizontalTextAlignment="Start"
+                                Text="Exams"
+                                TextColor="White"
+                                VerticalTextAlignment="End"
+                                WidthRequest="75">
                                 <buttons:SfButton.BackgroundGradient>
                                     <gradient:SfLinearGradientBrush>
                                         <gradient:SfLinearGradientBrush.GradientStops>
-                                            <gradient:SfGradientStop Color="#553C8B" Offset="0"/>
-                                            <gradient:SfGradientStop Color="#9EA9F0" Offset="1"/>
+                                            <gradient:SfGradientStop Offset="0" Color="#553C8B" />
+                                            <gradient:SfGradientStop Offset="1" Color="#9EA9F0" />
                                         </gradient:SfLinearGradientBrush.GradientStops>
                                     </gradient:SfLinearGradientBrush>
                                 </buttons:SfButton.BackgroundGradient>
                             </buttons:SfButton>
-                            <buttons:SfButton Text="Consultations" 
-                                              CornerRadius="20" 
-                                              WidthRequest="75"
-                                              HeightRequest="125"
-                                              HorizontalTextAlignment="Start"
-                                              VerticalTextAlignment="End"
-                                              HorizontalOptions="FillAndExpand"
-                                              Padding="15, 0,  0, 15"
-                                              FontAttributes="Bold"
-                                              TextColor="White"
-                                              Grid.Row="1" Grid.Column="1">
+                            <buttons:SfButton
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Padding="15,0,0,15"
+                                CornerRadius="20"
+                                FontAttributes="Bold"
+                                HeightRequest="125"
+                                HorizontalOptions="FillAndExpand"
+                                HorizontalTextAlignment="Start"
+                                Text="Consultations"
+                                TextColor="White"
+                                VerticalTextAlignment="End"
+                                WidthRequest="75">
+
+                                <Button
+                                    Margin="60,40"
+                                    BackgroundColor="#4682B4"
+                                    Clicked="SignUp_Clicked"
+                                    Text="LogOut"
+                                    TextColor="White" />
+
+
                                 <buttons:SfButton.BackgroundGradient>
                                     <gradient:SfLinearGradientBrush>
                                         <gradient:SfLinearGradientBrush.GradientStops>
-                                            <gradient:SfGradientStop Color="#553C8B" Offset="0"/>
-                                            <gradient:SfGradientStop Color="#9EA9F0" Offset="1"/>
+                                            <gradient:SfGradientStop Offset="0" Color="#553C8B" />
+                                            <gradient:SfGradientStop Offset="1" Color="#9EA9F0" />
                                         </gradient:SfLinearGradientBrush.GradientStops>
                                     </gradient:SfLinearGradientBrush>
                                 </buttons:SfButton.BackgroundGradient>
                             </buttons:SfButton>
                         </Grid>
                     </StackLayout>
-                    <!-- Latest Announcements -->
-                    <StackLayout AbsoluteLayout.LayoutBounds="0, 1, 1, .4"
-                                 AbsoluteLayout.LayoutFlags="All"
-                                 Padding="0, 10, 0, 0"
-                                 Margin="15, 0"
-                                 HorizontalOptions="FillAndExpand"
-                                 VerticalOptions="StartAndExpand">
-                        <shimmer:SfShimmer x:Name="shimmer" VerticalOptions="Fill"
-                                           IsActive="True">
+                    <!--  Latest Announcements  -->
+                    <StackLayout
+                        Margin="15,0"
+                        Padding="0,10,0,0"
+                        AbsoluteLayout.LayoutBounds="0, 1, 1, .4"
+                        AbsoluteLayout.LayoutFlags="All"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="StartAndExpand">
+                        <shimmer:SfShimmer
+                            x:Name="shimmer"
+                            IsActive="True"
+                            VerticalOptions="Fill">
                             <shimmer:SfShimmer.Content>
                                 <StackLayout>
-                                    <Label Text="Content is loaded!" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                                    <Label
+                                        HorizontalOptions="CenterAndExpand"
+                                        Text="Content is loaded!"
+                                        VerticalOptions="CenterAndExpand" />
                                 </StackLayout>
                             </shimmer:SfShimmer.Content>
                         </shimmer:SfShimmer>
-                        
-                        <ListView x:Name="announcementList" ItemSelected="announcementList_ItemSelected" IsVisible="False" BackgroundColor="AliceBlue">
+
+                        <ListView
+                            x:Name="announcementList"
+                            BackgroundColor="AliceBlue"
+                            IsVisible="False"
+                            ItemSelected="announcementList_ItemSelected">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>

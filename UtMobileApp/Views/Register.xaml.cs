@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XamarinFirebase.Helper;
 
 namespace UtMobileApp
 {
@@ -14,7 +15,7 @@ namespace UtMobileApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Register : ContentPage
     {
-
+        FirebaseHelper firebaseHelper = new FirebaseHelper();
         Interface auth;
 
         public Register()
@@ -43,7 +44,15 @@ namespace UtMobileApp
                     //    ShowError();
                     //}
                     auth.SignupWithEmailPassword(EmailInput.Text, PasswordInput.Text);
-                    await Navigation.PushAsync(new Login());
+                    if(await firebaseHelper.UserExists(emailvalue))
+                    {
+                        await DisplayAlert("Warning", " This email address already exists!", "OK");
+                    }
+                    else
+                    {
+                        await Navigation.PushAsync(new Views.Unverified());
+                    }
+
                 }
                 catch (Exception)
                 {
@@ -57,12 +66,12 @@ namespace UtMobileApp
 
         async private void ShowError()
         {
-            await DisplayAlert("Registration Failed", "E-mail or password are incorrect. Try again!", "OK");
+            await DisplayAlert("Registration Failed", "E-mail already exists", "OK");
         }
 
         async private void ShowErrorUnite()
         {
-            await DisplayAlert("Authentication Failed", "E-mail needs to end in @unite.edu.mk, try again!", "OK");
+            await DisplayAlert("Authentication Failed", "E-mail needs to end in @unite.edu.mk and needs to be a students email address , please try again!", "OK");
         }
 
     }

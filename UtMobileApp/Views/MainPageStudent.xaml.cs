@@ -49,5 +49,10 @@ namespace UtMobileApp.Views
 
             await Navigation.PushAsync(new PostDetailPage(selectedPost));
         }
+
+        private void SignUp_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
