@@ -94,7 +94,7 @@
                                         <Image Source="{Binding ImageUrl}" Aspect="AspectFill" VerticalOptions="End" />
                                     </border:SfBorder>
                                     <Frame CornerRadius="10" HasShadow="True" BackgroundColor="White"  AbsoluteLayout.LayoutBounds="0, 0.7, 1, 0.4" AbsoluteLayout.LayoutFlags="All" Margin="20, 0">
-                                        <Label FontAttributes="Bold" FontSize="Medium" Text="{Binding Title}"/>
+                                        <Label FontAttributes="Bold" FontSize="16" Text="{Binding Title}"/>
                                     </Frame>
                                 </AbsoluteLayout>
                             </DataTemplate>

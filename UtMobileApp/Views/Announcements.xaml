@@ -108,7 +108,7 @@
                                                FontSize="Medium"
                                                FontAttributes="Bold"
                                                TextType="Html"
-                                               Padding="5, 0, 0, 0"
+                                               Padding="10, 0, 0, 0"
                                                Text="{Binding Title.Rendered}"></Label>
                                             <Grid Grid.Row="0"
                                               Grid.Column="1"
