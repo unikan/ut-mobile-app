@@ -30,7 +30,6 @@ namespace UtMobileApp.Views
         {
             base.OnAppearing();
 
-            label_type.Text = currentCategory;
             label_title.Text = currentPost.Title;
             label_date.Text = "Posted: " + currentPost.Date.ToString("dddd, dd MMMM yyyy HH:mm");
 

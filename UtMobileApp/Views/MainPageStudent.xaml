@@ -138,8 +138,8 @@
                                 <gradient:SfGradientView.BackgroundBrush>
                                     <gradient:SfLinearGradientBrush>
                                         <gradient:SfLinearGradientBrush.GradientStops>
-                                            <gradient:SfGradientStop Color="#CB356B" Offset="0.0" />
-                                            <gradient:SfGradientStop Color="#BD3F32" Offset="1.0" />
+                                            <gradient:SfGradientStop Color="#484c7f" Offset="0.0" />
+                                            <gradient:SfGradientStop Color="#719192" Offset="1.0" />
                                         </gradient:SfLinearGradientBrush.GradientStops>
                                     </gradient:SfLinearGradientBrush>
                                 </gradient:SfGradientView.BackgroundBrush>

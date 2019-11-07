@@ -54,15 +54,6 @@
                                    WidthRequest="20" 
                                    HeightRequest="20" />
                         </buttons:SfButton.Content>
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup>
-                                <VisualState x:Name="Pressed">
-                                    <VisualState.Setters>
-                                        <Setter Property="BackgroundColor"  Value="#0D000000" />
-                                    </VisualState.Setters>
-                                </VisualState>
-                            </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
                     </buttons:SfButton>
                     <busyindicator:SfBusyIndicator Grid.Column="1" 
                                                    Grid.Row="0"

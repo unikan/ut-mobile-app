@@ -7,28 +7,34 @@
              xmlns:listviews="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
              mc:Ignorable="d"
              x:Class="UtMobileApp.Views.News"
              BackgroundColor="White">
-    <ContentPage.Padding>
-        <OnPlatform x:TypeArguments="Thickness">
-            <On Platform="Android">0, 10, 0, 0</On>
-            <On Platform="iOS">0, 20, 0, 0</On>
-        </OnPlatform>
-    </ContentPage.Padding>
     <ContentPage.Content>
         <AbsoluteLayout>
+            <gradient:SfGradientView>
+                <gradient:SfGradientView.BackgroundBrush>
+                    <gradient:SfLinearGradientBrush>
+                        <gradient:SfLinearGradientBrush.GradientStops>
+                            <gradient:SfGradientStop Color="#7F4782" Offset="0.0" />
+                            <gradient:SfGradientStop Color="#7445A7" Offset="1.0" />
+                        </gradient:SfLinearGradientBrush.GradientStops>
+                    </gradient:SfLinearGradientBrush>
+                </gradient:SfGradientView.BackgroundBrush>
+            </gradient:SfGradientView>
             <!-- HEADER -->
             <StackLayout Orientation="Horizontal"
                          HorizontalOptions="FillAndExpand"
                          VerticalOptions="FillAndExpand"
                          Margin="10, 0"
-                         AbsoluteLayout.LayoutBounds="0, 0, 1, .1"
+                         AbsoluteLayout.LayoutBounds="0.05, 0.03, 1, 0.13"
                          AbsoluteLayout.LayoutFlags="All">
                 <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"></ColumnDefinition>
-                        <ColumnDefinition Width="4*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <buttons:SfButton 
                             Grid.Row="0" 
@@ -36,7 +42,7 @@
                             HorizontalOptions="Start"
                             VerticalOptions="Center"
                             ShowIcon="True" 
-                            BackgroundColor="White"
+                            BackgroundColor="Transparent"
                             CornerRadius="40"
                             WidthRequest="50"
                             HeightRequest="50"
@@ -48,55 +54,54 @@
                                    WidthRequest="20" 
                                    HeightRequest="20" />
                         </buttons:SfButton.Content>
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup>
-                                <VisualState x:Name="Pressed">
-                                    <VisualState.Setters>
-                                        <Setter Property="BackgroundColor"  Value="#0D000000" />
-                                    </VisualState.Setters>
-                                </VisualState>
-                            </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
                     </buttons:SfButton>
                     <Label Grid.Row="0"
                            Grid.Column="1"
-                           HorizontalOptions="Start"
+                           HorizontalOptions="Center"
                            VerticalOptions="Center"
                            HorizontalTextAlignment="Start"
-                           FontSize="Medium"
+                           FontSize="Large"
                            FontAttributes="Bold"
                            MaxLines="1"
-                           Text="Latest news"></Label>
+                           Text="Latest news"
+                           TextColor="White"></Label>
                 </Grid>
             </StackLayout>
-            <StackLayout AbsoluteLayout.LayoutBounds="0, 1, 1, .9"
-                         AbsoluteLayout.LayoutFlags="All">
-                <busyindicator:SfBusyIndicator x:Name="busyindicator"
+
+            <border:SfBorder AbsoluteLayout.LayoutBounds="0, 1, 1, .8"
+                             AbsoluteLayout.LayoutFlags="All"
+                             CornerRadius="20, 20, 0, 0" 
+                             BorderWidth="0"
+                             BackgroundColor="#F6F8FC"
+                             Padding="20, 0">
+                <StackLayout>
+                    <busyindicator:SfBusyIndicator x:Name="busyindicator"
                                                ViewBoxHeight="70"
                                                ViewBoxWidth="70"
                                                Title="Loading news..."
                                                TextColor="Salmon"
                                                TextSize="15" />
 
-                <listviews:SfListView x:Name="newsList" 
+                    <listviews:SfListView x:Name="newsList" 
                                   ItemTapped="newsList_ItemTapped"
                                   ItemSize="300"
                                   SelectionBackgroundColor="Transparent"
                                   Opacity="0">
-                    <listviews:SfListView.ItemTemplate>
-                        <DataTemplate>
-                            <AbsoluteLayout>
-                                <border:SfBorder CornerRadius="10" BorderColor="Transparent" AbsoluteLayout.LayoutBounds="0, 0, 1, 0.6" AbsoluteLayout.LayoutFlags="All" Margin="10, 0">
-                                    <Image Source="{Binding ImageUrl}" Aspect="AspectFill" VerticalOptions="End" />
-                                </border:SfBorder>
-                                <Frame CornerRadius="10" HasShadow="True" BackgroundColor="White"  AbsoluteLayout.LayoutBounds="0, 0.7, 1, 0.4" AbsoluteLayout.LayoutFlags="All" Margin="20, 0">
-                                    <Label FontAttributes="Bold" FontSize="Medium" Text="{Binding Title}"/>
-                                </Frame>
-                            </AbsoluteLayout>
-                        </DataTemplate>
-                    </listviews:SfListView.ItemTemplate>
-                </listviews:SfListView>
-            </StackLayout>
+                        <listviews:SfListView.ItemTemplate>
+                            <DataTemplate>
+                                <AbsoluteLayout>
+                                    <border:SfBorder CornerRadius="10" BorderColor="Transparent" AbsoluteLayout.LayoutBounds="0, 0, 1, 0.6" AbsoluteLayout.LayoutFlags="All" Margin="10, 0">
+                                        <Image Source="{Binding ImageUrl}" Aspect="AspectFill" VerticalOptions="End" />
+                                    </border:SfBorder>
+                                    <Frame CornerRadius="10" HasShadow="True" BackgroundColor="White"  AbsoluteLayout.LayoutBounds="0, 0.7, 1, 0.4" AbsoluteLayout.LayoutFlags="All" Margin="20, 0">
+                                        <Label FontAttributes="Bold" FontSize="Medium" Text="{Binding Title}"/>
+                                    </Frame>
+                                </AbsoluteLayout>
+                            </DataTemplate>
+                        </listviews:SfListView.ItemTemplate>
+                    </listviews:SfListView>
+                </StackLayout>
+            </border:SfBorder>
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>
