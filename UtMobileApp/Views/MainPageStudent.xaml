@@ -19,9 +19,9 @@
                                              DrawerFooterHeight="30">
             <!-- DRAWER HEADER -->
             <navigationdrawer:SfNavigationDrawer.DrawerHeaderView>
-                <Grid BackgroundColor="#F5F5F5">
-                    <StackLayout VerticalOptions="EndAndExpand" 
-                                 HorizontalOptions="Center"
+                <Grid BackgroundColor="#018c5e">
+                    <StackLayout VerticalOptions="CenterAndExpand" 
+                                 HorizontalOptions="CenterAndExpand"
                                  Orientation="Horizontal">
                         <border:SfBorder BorderColor="Black" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="50" WidthRequest="50" HeightRequest="50" BorderWidth="1">
                             <Image Source="https://i5.walmartimages.com/asr/e9c1e290-55cb-4608-8edd-06b01ea694d0_1.cd6956088a6814bf191640ab06739752.png" />
@@ -44,83 +44,96 @@
             </navigationdrawer:SfNavigationDrawer.DrawerHeaderView>
             <!-- DRAWER CONTENT -->
             <navigationdrawer:SfNavigationDrawer.DrawerContentView>
-                <StackLayout BackgroundColor="#F5F5F5"
+                <StackLayout BackgroundColor="#EEEEEE"
                              Padding="20">
                     <buttons:SfButton Text="Profile" 
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
+                                      HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent" />
                     <buttons:SfButton Text="News" 
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
+                                      HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent"
                                       Clicked="BtnNews_Clicked" />
                     <buttons:SfButton Text="Announcements" 
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
+                                      HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent" 
                                       Clicked="BtnAnnouncements_Clicked"/>
                     <buttons:SfButton Text="Calls" 
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
+                                      HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent" 
                                       Clicked="BtnCalls_Clicked" />
                     <buttons:SfButton Text="Library" 
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
+                                      HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent" />
                     <buttons:SfButton Text="Administration Offices" 
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
+                                      HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent" />
                     <buttons:SfButton Text="Documents" 
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
+                                      HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent" />
                     <buttons:SfButton Text="Discussion Forum" 
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
+                                      HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent" />
                     <buttons:SfButton Text="Student Parliament" 
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
+                                      HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent" />
                     <buttons:SfButton Text="Erasmus+" 
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
+                                      HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent" />
                     <buttons:SfButton Text="Kujdesi për ty" 
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
+                                      HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent"
                                       Clicked="BtnKujdesi_Clicked" />
                     <buttons:SfButton Text="Facebook" 
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
+                                      HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent"
                                       Clicked="BtnFacebook_Clicked" />
                     <buttons:SfButton Text="Contact Us" 
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
+                                      HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent" />
                 </StackLayout>
             </navigationdrawer:SfNavigationDrawer.DrawerContentView>
             <!-- FOOTER CONTENT -->
             <navigationdrawer:SfNavigationDrawer.DrawerFooterView>
-                <Grid BackgroundColor="#D35656">
+                <Grid BackgroundColor="#01593c">
                     <StackLayout VerticalOptions="Center" 
                          HorizontalOptions="Center">
                         <Label Text="Powered by UNIKAN&#x1F970;"/>
@@ -134,7 +147,17 @@
                                      AbsoluteLayout.LayoutFlags="All"
                                      CornerRadius="0, 0, 150, 0" 
                                      BorderWidth="0">
-                        <AbsoluteLayout BackgroundColor="#01c283">
+                        <AbsoluteLayout>
+                            <gradient:SfGradientView>
+                                <gradient:SfGradientView.BackgroundBrush>
+                                    <gradient:SfLinearGradientBrush>
+                                        <gradient:SfLinearGradientBrush.GradientStops>
+                                            <gradient:SfGradientStop Color="#e68471" Offset="0.0" />
+                                            <gradient:SfGradientStop Color="#cc7564" Offset="1.0" />
+                                        </gradient:SfLinearGradientBrush.GradientStops>
+                                    </gradient:SfLinearGradientBrush>
+                                </gradient:SfGradientView.BackgroundBrush>
+                            </gradient:SfGradientView>
                             <!-- Nav toggle -->
                             <buttons:SfButton x:Name="NavToggle" 
                                               ShowIcon="True" 
