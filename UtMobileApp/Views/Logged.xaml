@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="UtMobileApp.Logged"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <Label FontSize="Large" Text="Hello Logged User" />
+
+
+            <Label
+                x:Name="userlabel"
+                Margin="0,20"
+                FontSize="35"
+                HorizontalOptions="Center"
+                Text=""
+                TextColor="#4682B4" />
+
+            <Label
+                x:Name="userlabel1"
+                Margin="0,20"
+                FontSize="35"
+                HorizontalOptions="Center"
+                Text=""
+                TextColor="#4682B4" />
+
+            <Label
+                x:Name="userlabel2"
+                Margin="0,20"
+                FontSize="35"
+                HorizontalOptions="Center"
+                Text=""
+                TextColor="#4682B4" />
+
+
+            <Button
+                Margin="60,40"
+                BackgroundColor="#4682B4"
+                Clicked="GotoLogin_Clicked"
+                Text="Go to login"
+                TextColor="White" />
+
+            <Button
+                Margin="60,40"
+                BackgroundColor="#4682B4"
+                Clicked="GetUser_Clicked"
+                Text="Get User"
+                TextColor="White" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

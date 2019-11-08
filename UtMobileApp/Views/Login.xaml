@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="UtMobileApp.Login"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <StackLayout Margin="20" VerticalOptions="Center">
+
+            <Label
+                x:Name="label1"
+                Margin="0,20"
+                FontSize="35"
+                HorizontalOptions="Center"
+                Text="Login Page"
+                TextColor="#4682B4" />
+
+
+            <Entry
+                x:Name="EmailInput"
+                Keyboard="Email"
+                Placeholder="E-mail" />
+
+            <Entry
+                x:Name="PasswordInput"
+                IsPassword="true"
+                Placeholder="Password" />
+
+            <Button
+                Margin="60,40"
+                BackgroundColor="#4682B4"
+                Clicked="LoginClicked"
+                Text="Login"
+                TextColor="White" />
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

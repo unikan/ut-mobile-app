@@ -141,28 +141,29 @@
                                     AbsoluteLayout.LayoutFlags="All">
                         <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <buttons:SfButton 
-                                Grid.Row="0" 
-                                Grid.Column="0" 
-                                HorizontalOptions="Start"
-                                VerticalOptions="Center"
-                                ShowIcon="True" 
+                            <buttons:SfButton
+                                Grid.Row="0"
+                                Grid.Column="0"
                                 BackgroundColor="White"
+                                Clicked="HamburgerButton_Clicked"
                                 CornerRadius="40"
-                                WidthRequest="50"
                                 HeightRequest="50"
-                                Clicked="HamburgerButton_Clicked">
+                                HorizontalOptions="Start"
+                                ShowIcon="True"
+                                VerticalOptions="Center"
+                                WidthRequest="50">
                                 <buttons:SfButton.Content>
-                                    <Image Source="menu.png"
+                                    <Image
+                                        HeightRequest="20"
                                         HorizontalOptions="Center"
+                                        Source="menu.png"
                                         VerticalOptions="Center"
-                                        WidthRequest="20" 
-                                        HeightRequest="20" />
+                                        WidthRequest="20" />
                                 </buttons:SfButton.Content>
                             </buttons:SfButton>
                         </Grid>
@@ -179,7 +180,11 @@
                             <Label.FormattedText>
                                 <FormattedString>
                                     <Span FontSize="32" Text="Hello,&#x0a;" />
-                                    <Span FontSize="32" FontAttributes="Bold" x:Name="label_name" Text="Filani" />
+                                    <Span
+                                        x:Name="label_name"
+                                        FontAttributes="Bold"
+                                        FontSize="32"
+                                        Text="Filani" />
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>

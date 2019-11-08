@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="UtMobileApp.Views.NewUserData"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
+    xmlns:autocomplete="clr-namespace:Syncfusion.SfAutoComplete.XForms;assembly=Syncfusion.SfAutoComplete.XForms"
+    xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:numeric="clr-namespace:Syncfusion.SfNumericUpDown.XForms;assembly=Syncfusion.SfNumericUpDown.XForms"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <ScrollView Orientation="Vertical">
+            <StackLayout>
+                <inputLayout:SfTextInputLayout Hint="Index Number">
+                    <Entry x:Name="indexnumber" IsEnabled="False" />
+                </inputLayout:SfTextInputLayout>
+                <inputLayout:SfTextInputLayout Hint="Name">
+                    <Entry x:Name="name" />
+                </inputLayout:SfTextInputLayout>
+                <inputLayout:SfTextInputLayout Hint="LastName">
+                    <Entry x:Name="lastname" />
+                </inputLayout:SfTextInputLayout>
+                <inputLayout:SfTextInputLayout Hint="Semester">
+                    <combobox:SfComboBox x:Name="comboboxS">
+                        <combobox:SfComboBox.ComboBoxSource>
+                            <ListCollection:List x:TypeArguments="x:String">
+                                <x:String>I</x:String>
+                                <x:String>II</x:String>
+                                <x:String>III</x:String>
+                                <x:String>IV</x:String>
+                                <x:String>V</x:String>
+                                <x:String>VI</x:String>
+                                <x:String>VII</x:String>
+                                <x:String>VIII</x:String>
+                                <x:String>IX</x:String>
+                                <x:String>X</x:String>
+                                <x:String>XI</x:String>
+                                <x:String>XII</x:String>
+                            </ListCollection:List>
+                        </combobox:SfComboBox.ComboBoxSource>
+                    </combobox:SfComboBox>
+                </inputLayout:SfTextInputLayout>
+                <inputLayout:SfTextInputLayout HelperText="If you leave the group blank that means you don't have a group and it's totally fine :) " Hint="Group">
+                    <numeric:SfNumericUpDown
+                        x:Name="numericUpDown"
+                        AllowNull="true"
+                        Maximum="20"
+                        MaximumDecimalDigits="0"
+                        Minimum="0"
+                        Value="0" />
+                </inputLayout:SfTextInputLayout>
+
+
+
+                <!--<inputLayout:SfTextInputLayout Hint="Faculty">
+                <autocomplete:SfAutoComplete AutoCompleteMode="SuggestAppend" SelectionChanged="SfAutoComplete_SelectionChanged">
+                    <autocomplete:SfAutoComplete.AutoCompleteSource>
+                        <ListCollection:List x:TypeArguments="x:String">
+                            <x:String>Faculty of Agriculture and Biotechnology</x:String>
+                            <x:String>Faculty of Applied Sciences</x:String>
+                            <x:String>Faculty of Arts</x:String>
+                            <x:String>Faculty of Business Administration</x:String>
+                            <x:String>Faculty of Economics</x:String>
+                            <x:String>Faculty of Food Technology and Nutrition</x:String>
+                            <x:String>Faculty of Law</x:String>
+                            <x:String>Faculty of Medical Sciences</x:String>
+                            <x:String>Faculty of Natural Sciences and Mathematics</x:String>
+                            <x:String>Faculty of Pedagogy</x:String>
+                            <x:String>Faculty of Philology</x:String>
+                            <x:String>Faculty of Philosophy</x:String>
+                            <x:String>Faculty of Physical Education</x:String>
+                        </ListCollection:List>
+                    </autocomplete:SfAutoComplete.AutoCompleteSource>
+                </autocomplete:SfAutoComplete>
+            </inputLayout:SfTextInputLayout>-->
+
+                <inputLayout:SfTextInputLayout Hint="Faculty">
+                    <combobox:SfComboBox x:Name="comboboxf" SelectionChanged="SfComboBox_SelectionChanged">
+                        <combobox:SfComboBox.ComboBoxSource>
+                            <ListCollection:List x:TypeArguments="x:String">
+                                <x:String>Faculty of Agriculture and Biotechnology</x:String>
+                                <x:String>Faculty of Applied Sciences</x:String>
+                                <x:String>Faculty of Arts</x:String>
+                                <x:String>Faculty of Business Administration</x:String>
+                                <x:String>Faculty of Economics</x:String>
+                                <x:String>Faculty of Food Technology and Nutrition</x:String>
+                                <x:String>Faculty of Law</x:String>
+                                <x:String>Faculty of Medical Sciences</x:String>
+                                <x:String>Faculty of Natural Sciences and Mathematics</x:String>
+                                <x:String>Faculty of Pedagogy</x:String>
+                                <x:String>Faculty of Philology</x:String>
+                                <x:String>Faculty of Philosophy</x:String>
+                                <x:String>Faculty of Physical Education</x:String>
+                            </ListCollection:List>
+                        </combobox:SfComboBox.ComboBoxSource>
+                    </combobox:SfComboBox>
+                </inputLayout:SfTextInputLayout>
+
+
+                <inputLayout:SfTextInputLayout x:Name="InputProgram" Hint="Program">
+                    <combobox:SfComboBox x:Name="AutoCompleteProgram" ComboBoxMode="SuggestAppend" />
+                </inputLayout:SfTextInputLayout>
+
+                <Button
+                    x:Name="ComReg"
+                    Clicked="ComReg_Clicked"
+                    Text="Complete Registration"
+                    WidthRequest="200" />
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

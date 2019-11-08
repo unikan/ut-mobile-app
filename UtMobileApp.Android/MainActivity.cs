@@ -1,5 +1,5 @@
 ﻿using System;
-
+using Firebase;
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
@@ -20,6 +20,8 @@ namespace UtMobileApp.Android
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+            //Initialization of Firebase Database
+            FirebaseApp.InitializeApp(Application.Context);
             LoadApplication(new App());
         }
     }

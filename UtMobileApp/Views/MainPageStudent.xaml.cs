@@ -12,10 +12,15 @@ namespace UtMobileApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPageStudent : ContentPage
     {
+
+        Interface auth;
+
         public MainPageStudent()
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
+            auth = DependencyService.Get<Interface>();
+
         }
 
         protected override async void OnAppearing()
@@ -77,6 +82,12 @@ namespace UtMobileApp.Views
             catch (Exception)
             {
             }
+        }
+
+        private async void SignUp_Clicked(object sender, EventArgs e)
+        {
+            auth.SignOut();
+            await Navigation.PushAsync(new Login());
         }
     }
 }

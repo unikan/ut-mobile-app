@@ -23,7 +23,8 @@ namespace UtMobileApp.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-
+            // Initialization of Firebase Database
+            Firebase.Core.App.Configure();
             // Initialization of Syncfusion components
             Syncfusion.SfSchedule.XForms.iOS.SfScheduleRenderer.Init();
             Syncfusion.SfNavigationDrawer.XForms.iOS.SfNavigationDrawerRenderer.Init();
