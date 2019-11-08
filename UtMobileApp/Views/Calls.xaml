@@ -17,8 +17,8 @@
                 <gradient:SfGradientView.BackgroundBrush>
                     <gradient:SfLinearGradientBrush>
                         <gradient:SfLinearGradientBrush.GradientStops>
-                            <gradient:SfGradientStop Color="#7F4782" Offset="0.0" />
-                            <gradient:SfGradientStop Color="#7445A7" Offset="1.0" />
+                            <gradient:SfGradientStop Color="#01d28e" Offset="0.0" />
+                            <gradient:SfGradientStop Color="#019967" Offset="1.0" />
                         </gradient:SfLinearGradientBrush.GradientStops>
                     </gradient:SfLinearGradientBrush>
                 </gradient:SfGradientView.BackgroundBrush>
@@ -72,7 +72,7 @@
                              AbsoluteLayout.LayoutFlags="All"
                              CornerRadius="20, 20, 0, 0" 
                              BorderWidth="0"
-                             BackgroundColor="#F6F8FC"
+                             BackgroundColor="#EEEEEE"
                              Padding="20, 0">
                 <StackLayout>
                     <busyindicator:SfBusyIndicator x:Name="busyindicator"

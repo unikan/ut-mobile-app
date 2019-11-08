@@ -27,6 +27,12 @@ namespace UtMobileApp.Views
         {
             base.OnAppearing();
 
+            // We need to remove all pages from stack probably
+            if (!auth.GetCurrentUserStatus())
+            {
+                await Navigation.PushAsync(new Login());
+            }
+
             label_date.Text = "\n\n" + DateTime.Now.ToString("dddd, dd MMMM");
 
             await Task.Delay(1000); // Wait 1sec so the animation can be seen

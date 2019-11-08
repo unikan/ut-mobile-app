@@ -6,19 +6,19 @@
 
 <ItemGroup>
 <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
-<PackageReference Include="Syncfusion.Xamarin.Buttons" Version="17.3.0.21" />
-<PackageReference Include="Syncfusion.Xamarin.Core" Version="17.3.0.21" />
-<PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator" Version="17.3.0.21" />
-<PackageReference Include="Syncfusion.Xamarin.SfListView" Version="17.3.0.21" />
-<PackageReference Include="Syncfusion.Xamarin.SfNavigationDrawer" Version="17.3.0.21" />
-<PackageReference Include="Syncfusion.Xamarin.SfSchedule" Version="17.3.0.21" />
+<PackageReference Include="Syncfusion.Xamarin.Buttons" Version="17.3.0.26" />
+<PackageReference Include="Syncfusion.Xamarin.Core" Version="17.3.0.26" />
+<PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator" Version="17.3.0.26" />
+<PackageReference Include="Syncfusion.Xamarin.SfListView" Version="17.3.0.26" />
+<PackageReference Include="Syncfusion.Xamarin.SfNavigationDrawer" Version="17.3.0.26" />
+<PackageReference Include="Syncfusion.Xamarin.SfSchedule" Version="17.3.0.26" />
 <PackageReference Include="WordPressPCL" Version="1.6.2" />
 <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
 <PackageReference Include="Xamarin.Forms" Version="4.3.0.947036" />
 <PackageReference Include="FirebaseDatabase.net" Version="4.0.3" />
-<PackageReference Include="Syncfusion.Xamarin.SfAutoComplete" Version="17.3.0.21" />
-<PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="17.3.0.21" />
-<PackageReference Include="Syncfusion.Xamarin.SfNumericUpDown" Version="17.3.0.21" />
+<PackageReference Include="Syncfusion.Xamarin.SfAutoComplete" Version="17.3.0.26" />
+<PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="17.3.0.26" />
+<PackageReference Include="Syncfusion.Xamarin.SfNumericUpDown" Version="17.3.0.26" />
 <PackageReference Include="Xamarin.Firebase.Core" Version="60.1142.1" />
 <PackageReference Include="XForms.Plugin.AnimationNavigationPage" Version="1.0.7" />
 </ItemGroup>
@@ -39,7 +39,7 @@
     <EmbeddedResource Update="Views\FeaturedPostDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\KujdesiPerTy.xaml"/>
+    <EmbeddedResource Update="Views\KujdesiPerTy.xaml" />
     <EmbeddedResource Update="Views\IntroPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -50,9 +50,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\NewUserData.xaml"></EmbeddedResource>
-    <EmbeddedResource Update="Views\MainPageStudentUI.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Views\News.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
