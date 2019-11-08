@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -22,15 +18,31 @@ namespace UtMobileApp.Views
         {
             base.OnAppearing();
 
-            Extensions.WordpressServices wordpressServices = new Extensions.WordpressServices();
-            announcementsList.ItemsSource = await wordpressServices.GetLatestPostsAsync(59);
+            try
+            {
+                var current = Connectivity.NetworkAccess;
 
-            // Hide busy indicator indicator
-            await busyindicator.FadeTo(0, 300, Easing.Linear);
-            busyindicator.IsVisible = false;
-            busyindicator.IsBusy = false;
+                if (current == NetworkAccess.Internet)
+                {
+                    Extensions.WordpressServices wordpressServices = new Extensions.WordpressServices();
+                    announcementsList.ItemsSource = await wordpressServices.GetLatestPostsAsync(59);
 
-            await announcementsList.FadeTo(1, 300, Easing.Linear);
+                    // Hide busy indicator indicator
+                    await busyindicator.FadeTo(0, 300, Easing.Linear);
+                    busyindicator.IsVisible = false;
+                    busyindicator.IsBusy = false;
+
+                    await announcementsList.FadeTo(1, 300, Easing.Linear);
+                }
+                else
+                {
+                    busyindicator.Title = "No internet, please check your connection";
+                }
+            }
+            catch (Exception e)
+            {
+                await DisplayAlert("Warning", e.Message, "OK");
+            }
         }
 
         private async void announcementsList_ItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)

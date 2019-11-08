@@ -134,17 +134,7 @@
                                      AbsoluteLayout.LayoutFlags="All"
                                      CornerRadius="0, 0, 150, 0" 
                                      BorderWidth="0">
-                        <AbsoluteLayout>
-                            <gradient:SfGradientView>
-                                <gradient:SfGradientView.BackgroundBrush>
-                                    <gradient:SfLinearGradientBrush>
-                                        <gradient:SfLinearGradientBrush.GradientStops>
-                                            <gradient:SfGradientStop Color="#484c7f" Offset="0.0" />
-                                            <gradient:SfGradientStop Color="#719192" Offset="1.0" />
-                                        </gradient:SfLinearGradientBrush.GradientStops>
-                                    </gradient:SfLinearGradientBrush>
-                                </gradient:SfGradientView.BackgroundBrush>
-                            </gradient:SfGradientView>
+                        <AbsoluteLayout BackgroundColor="#39375b">
                             <!-- Nav toggle -->
                             <buttons:SfButton x:Name="NavToggle" 
                                               ShowIcon="True" 
