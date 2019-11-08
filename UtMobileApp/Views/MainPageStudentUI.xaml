@@ -3,26 +3,33 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:navigationdrawer="clr-namespace:Syncfusion.SfNavigationDrawer.XForms;assembly=Syncfusion.SfNavigationDrawer.XForms"
-             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
-             xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:navigationdrawer="clr-namespace:Syncfusion.SfNavigationDrawer.XForms;assembly=Syncfusion.SfNavigationDrawer.XForms"
              mc:Ignorable="d"
-             x:Class="UtMobileApp.Views.MainPageStudent"
-             BackgroundColor="White">
+             x:Class="UtMobileApp.Views.MainPageStudentUI"
+             BackgroundColor="#F5F5F5">
+    <!-- Dark Color: #39375B; Orange Color: #FD7E52; Light Color: #FFE7D1; Light Color 2: #E6EEF1-->
+    <!--<ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="Android">0, 10, 0, 0</On>
+            <On Platform="iOS">0, 20, 0, 0</On>
+        </OnPlatform>
+    </ContentPage.Padding>-->
     <ContentPage.Content>
         <navigationdrawer:SfNavigationDrawer x:Name="navigationDrawer" 
                                              DrawerWidth ="300"
                                              Transition="Push"
                                              Duration="400"
-                                             TouchThreshold="200"
+                                             TouchThreshold="300"
                                              DrawerFooterHeight="30">
             <!-- DRAWER HEADER -->
             <navigationdrawer:SfNavigationDrawer.DrawerHeaderView>
                 <Grid BackgroundColor="#F5F5F5">
                     <StackLayout VerticalOptions="EndAndExpand" 
                                  HorizontalOptions="Center"
-                                 Orientation="Horizontal">
+                                 Orientation="Horizontal"
+                                 Margin="0, 0, 0, 5">
                         <border:SfBorder BorderColor="Black" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="50" WidthRequest="50" HeightRequest="50" BorderWidth="1">
                             <Image Source="https://i5.walmartimages.com/asr/e9c1e290-55cb-4608-8edd-06b01ea694d0_1.cd6956088a6814bf191640ab06739752.png" />
                         </border:SfBorder>
@@ -61,8 +68,7 @@
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
-                                      BackgroundColor="Transparent" 
-                                      Clicked="BtnAnnouncements_Clicked"/>
+                                      BackgroundColor="Transparent" />
                     <buttons:SfButton Text="Calls" 
                                       TextColor="Black"
                                       FontSize="Medium"
@@ -133,25 +139,15 @@
                     <border:SfBorder AbsoluteLayout.LayoutBounds="0, 0, 1, 0.55"
                                      AbsoluteLayout.LayoutFlags="All"
                                      CornerRadius="0, 0, 150, 0" 
-                                     BorderWidth="0">
+                                     BorderWidth="0"
+                                     BackgroundColor="#D35656">
                         <AbsoluteLayout>
-                            <gradient:SfGradientView>
-                                <gradient:SfGradientView.BackgroundBrush>
-                                    <gradient:SfLinearGradientBrush>
-                                        <gradient:SfLinearGradientBrush.GradientStops>
-                                            <gradient:SfGradientStop Color="#484c7f" Offset="0.0" />
-                                            <gradient:SfGradientStop Color="#719192" Offset="1.0" />
-                                        </gradient:SfLinearGradientBrush.GradientStops>
-                                    </gradient:SfLinearGradientBrush>
-                                </gradient:SfGradientView.BackgroundBrush>
-                            </gradient:SfGradientView>
                             <!-- Nav toggle -->
                             <buttons:SfButton x:Name="NavToggle" 
                                               ShowIcon="True" 
                                               CornerRadius="100"
                                               BackgroundColor="Transparent"
                                               Clicked="NavToggle_Clicked"
-                                              Padding="0"
                                               AbsoluteLayout.LayoutBounds="0.05, 0.13, 50, 50"
                                               AbsoluteLayout.LayoutFlags="PositionProportional">
                                 <buttons:SfButton.Content>
@@ -178,7 +174,7 @@
                                    AbsoluteLayout.LayoutBounds="1, 0, 1, 1"
                                    AbsoluteLayout.LayoutFlags="All"
                                    TranslationX="50"
-                                   TranslationY="-60" />
+                                   TranslationY="-70" />
                         </AbsoluteLayout>
                     </border:SfBorder>
                     <!--<Button Text="Hey"
@@ -198,50 +194,49 @@
                                                   CornerRadius="20" 
                                                   WidthRequest="200"
                                                   HeightRequest="300"
-                                                  HorizontalTextAlignment="Center"
-                                                  VerticalTextAlignment="Center"
+                                                  HorizontalTextAlignment="End"
+                                                  VerticalTextAlignment="End"
                                                   Padding="20"
                                                   FontSize="24"
                                                   TranslationX="600"
                                                   Scale="0.95"
-                                                  BackgroundImage="lectures.png"
-                                                  Clicked="BtnLectures_Clicked" />
+                                                  BackgroundColor="#096B92" />
                                 <buttons:SfButton x:Name="BtnMidterms"
                                                   Text="Midterms"  
                                                   CornerRadius="20" 
                                                   WidthRequest="200"
                                                   HeightRequest="300"
-                                                  HorizontalTextAlignment="Center"
-                                                  VerticalTextAlignment="Center"
+                                                  HorizontalTextAlignment="End"
+                                                  VerticalTextAlignment="End"
                                                   Padding="20"
                                                   FontSize="24"
                                                   TranslationX="600"
                                                   Scale="0.95"
-                                                  BackgroundImage="midterms.png"/>
+                                                  BackgroundColor="#F6B31F"/>
                                 <buttons:SfButton x:Name="BtnExams"
                                                   Text="Exams"  
                                                   CornerRadius="20" 
                                                   WidthRequest="200"
                                                   HeightRequest="300"
-                                                  HorizontalTextAlignment="Center"
-                                                  VerticalTextAlignment="Center"
+                                                  HorizontalTextAlignment="End"
+                                                  VerticalTextAlignment="End"
                                                   Padding="20"
                                                   FontSize="24"
                                                   TranslationX="600"
                                                   Scale="0.95"
-                                                  BackgroundImage="exams.png"/>
+                                                  BackgroundColor="#78C7A7"/>
                                 <buttons:SfButton x:Name="BtnConsultations"
                                                   Text="Consultations"  
                                                   CornerRadius="20" 
                                                   WidthRequest="200"
                                                   HeightRequest="300"
-                                                  HorizontalTextAlignment="Center"
-                                                  VerticalTextAlignment="Center"
+                                                  HorizontalTextAlignment="End"
+                                                  VerticalTextAlignment="End"
                                                   Padding="20"
                                                   FontSize="24"
                                                   TranslationX="600"
                                                   Scale="0.95"
-                                                  BackgroundImage="consultations.png"/>
+                                                  BackgroundColor="#83C5E7"/>
                             </StackLayout>
                         </ScrollView>
                     </StackLayout>

@@ -20,8 +20,12 @@ namespace UtMobileApp.Android
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            //Initialization of Firebase Database
+
             FirebaseApp.InitializeApp(Application.Context);
+
+            // Initialization of Animation for transitions
+            FormsControls.Droid.Main.Init(this);
+
             LoadApplication(new App());
         }
     }

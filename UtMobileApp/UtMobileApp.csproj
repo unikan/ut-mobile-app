@@ -20,55 +20,7 @@
 <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="17.3.0.21" />
 <PackageReference Include="Syncfusion.Xamarin.SfNumericUpDown" Version="17.3.0.21" />
 <PackageReference Include="Xamarin.Firebase.Core" Version="60.1142.1" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<PackageReference Include="XForms.Plugin.AnimationNavigationPage" Version="1.0.7" />
 </ItemGroup>
 
   <ItemGroup>
@@ -78,6 +30,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\Announcements.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Calls.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -94,8 +49,11 @@
     <EmbeddedResource Update="Views\MainPageStudent.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\News.xaml"/>
-    <EmbeddedResource Update="Views\NewUserData.xaml">
+    <EmbeddedResource Update="Views\NewUserData.xaml"></EmbeddedResource>
+    <EmbeddedResource Update="Views\MainPageStudentUI.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\News.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\PostDetailPage.xaml">

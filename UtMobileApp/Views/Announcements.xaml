@@ -3,13 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
-             xmlns:listviews="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
-             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
              xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             xmlns:listviews="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
              mc:Ignorable="d"
-             x:Class="UtMobileApp.Views.Calls"
+             x:Class="UtMobileApp.Views.Announcements"
              BackgroundColor="White">
     <ContentPage.Content>
         <AbsoluteLayout>
@@ -60,10 +60,10 @@
                            HorizontalOptions="Center"
                            VerticalOptions="Center"
                            HorizontalTextAlignment="Start"
-                           FontSize="Large"
+                           FontSize="Medium"
                            FontAttributes="Bold"
                            MaxLines="1"
-                           Text="Calls"
+                           Text="Announcements"
                            TextColor="White"></Label>
                 </Grid>
             </StackLayout>
@@ -78,12 +78,12 @@
                     <busyindicator:SfBusyIndicator x:Name="busyindicator"
                                                ViewBoxHeight="70"
                                                ViewBoxWidth="70"
-                                               Title="Loading calls..."
+                                               Title="Loading announcements..."
                                                TextColor="Salmon"
                                                TextSize="15" />
 
-                    <listviews:SfListView x:Name="callsList" 
-                                      ItemTapped="callsList_ItemTapped"
+                    <listviews:SfListView x:Name="announcementsList" 
+                                      ItemTapped="announcementsList_ItemTapped"
                                       ItemSize="100"
                                       SelectionBackgroundColor="Transparent"
                                       Opacity="0">

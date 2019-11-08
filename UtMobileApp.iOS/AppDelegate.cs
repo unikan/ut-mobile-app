@@ -33,6 +33,9 @@ namespace UtMobileApp.iOS
             Syncfusion.ListView.XForms.iOS.SfListViewRenderer.Init();
             Syncfusion.SfBusyIndicator.XForms.iOS.SfBusyIndicatorRenderer.Init();
 
+            // Initialization of Animation for transitions
+            FormsControls.Touch.Main.Init();
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
