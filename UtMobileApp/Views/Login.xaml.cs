@@ -18,13 +18,23 @@ namespace UtMobileApp
     {
         FirebaseHelper firebaseHelper = new FirebaseHelper();
         Interface auth;
-
+        
         public Login()
         {
             InitializeComponent();
             auth = DependencyService.Get<Interface>();
+            
         }
 
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+            if(auth.GetCurrentUserStatus())
+            {
+                await Navigation.PushAsync(new Views.MainPageStudent());
+            } 
+
+        }
         async void LoginClicked(object sender, EventArgs e)
         {
             try {

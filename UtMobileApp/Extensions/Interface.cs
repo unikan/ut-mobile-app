@@ -15,7 +15,7 @@ namespace UtMobileApp
 
         bool GetCurrentUserStatus();
 
-        void SignupWithEmailPassword(string email, string password);
+        Task<Tuple<string, bool>> SignupWithEmailPassword(string email, string password);
 
         Task<string> ResetPassword(string email);
 
@@ -23,7 +23,7 @@ namespace UtMobileApp
 
         void SignOut();
 
-        Task<Tuple<string, bool>> CheckifEmailExists(string email);
+        //Task<Tuple<string, bool>> CheckifEmailExists(string email);
 
     }
 }

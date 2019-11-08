@@ -19,8 +19,6 @@ using UtMobileApp.Android;
 namespace UtMobileApp.Android
 {
 
-    
-
    public class AuthDroid : Interface
     {
 
@@ -61,17 +59,17 @@ namespace UtMobileApp.Android
         //}
 
 
-        public async Task<Tuple<string, bool>> CheckifEmailExists(string email)
-        {
-            try {  
-            await FirebaseAuth.Instance.FetchProvidersForEmailAsync(email);
-                return Tuple.Create(email, false);
-            }
-            catch(Exception e)
-            {
-                return Tuple.Create(e.Message, true);
-            }
-        }
+        //public async Task<Tuple<string, bool>> CheckifEmailExists(string email)
+        //{
+        //    try {  
+        //    await FirebaseAuth.Instance.FetchProvidersForEmailAsync(email);
+        //        return Tuple.Create(email, false);
+        //    }
+        //    catch(Exception e)
+        //    {
+        //        return Tuple.Create(e.Message, true);
+        //    }
+        //}
 
         public async Task<string> ResetPassword(string email)
         {
@@ -168,7 +166,7 @@ namespace UtMobileApp.Android
 
 
 
-        public async void SignupWithEmailPassword(string email, string password)
+        public async Task<Tuple<string, bool>> SignupWithEmailPassword(string email, string password)
         {
             //var user = await FirebaseAuth.Instance.CreateUserWithEmailAndPasswordAsync(email, password);
             try {
@@ -178,13 +176,14 @@ namespace UtMobileApp.Android
                 using (var actionCode = ActionCodeSettings.NewBuilder().SetAndroidPackageName("Unikan.Utapp", true, "0").Build())
                 {
                     await user.SendEmailVerificationAsync(actionCode);
+                    return Tuple.Create("success", false);
                 }
             }
             //await FirebaseAuth.Instance.CurrentUser.SendEmailVerificationAsync();
             //var token = await user.User.GetIdTokenAsync(false);
             //return token.Token;
-            catch (FirebaseAuthUserCollisionException) {
-               
+            catch (Exception e) {
+                return Tuple.Create(e.Message, true);
             }
         }
     }

@@ -33,13 +33,13 @@ namespace UtMobileApp
             {
                     try
                 {
-                    var Checkemail = await auth.CheckifEmailExists(EmailInput.Text);
-                    if (Checkemail.Item2)
-                    {
-                        await DisplayAlert("Warning", Checkemail.Item1, "OK");
-                    }
-                    else
-                    {
+                    //var Checkemail = await auth.CheckifEmailExists(EmailInput.Text);
+                    //if (Checkemail.Item2)
+                    //{
+                    //    await DisplayAlert("Warning", Checkemail.Item1, "OK");
+                    //}
+                    //else
+                    //{
 
                         //string Token = await auth.SignupWithEmailPassword(EmailInput.Text, PasswordInput.Text);
                         //if (Token != "")
@@ -50,7 +50,7 @@ namespace UtMobileApp
                         //{
                         //    ShowError();
                         //}
-                        auth.SignupWithEmailPassword(EmailInput.Text, PasswordInput.Text);
+                        await auth.SignupWithEmailPassword(EmailInput.Text, PasswordInput.Text);
 
 
                         if (await firebaseHelper.UserExists(emailvalue))
@@ -61,7 +61,7 @@ namespace UtMobileApp
                         {
                             await Navigation.PushAsync(new Views.Unverified());
                         }
-                    }
+                    //}
                 }
                 catch (Exception)
                 {

@@ -77,6 +77,18 @@ namespace UtMobileApp.iOS
 
         }
 
+        //public async Task<Tuple<string, bool>> CheckifEmailExists(string email)
+        //{
+        //    try
+        //    {
+        //        await Auth.DefaultInstance.FetchProvidersAsync(email);
+        //        return Tuple.Create(email, false);
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        return Tuple.Create(e.Message, true);
+        //    }
+        //}
 
         public string GetCurrentUserEmail()
         {
@@ -140,7 +152,7 @@ namespace UtMobileApp.iOS
         }
 
 
-        public async void SignupWithEmailPassword(string email, string password)
+        public async Task<Tuple<string, bool>> SignupWithEmailPassword(string email, string password)
         {
            
             try { 
@@ -153,13 +165,14 @@ namespace UtMobileApp.iOS
             using (var actionCode = action)
             {
                 await user.SendEmailVerificationAsync(actionCode);
-            }
+                    return Tuple.Create("success", false);
+                }
 
             }
             
-            catch (Exception)
+            catch (Exception e)
             {
-
+                return Tuple.Create(e.Message, true);
             }
 
             //await FirebaseAuth.Instance.CurrentUser.SendEmailVerificationAsync();
