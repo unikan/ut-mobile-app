@@ -5,49 +5,56 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
+    xmlns:button="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
     mc:Ignorable="d"
     BackgroundColor="White">
     <ContentPage.Content>
-        <StackLayout Margin="20" VerticalOptions="Center">
-
-            <Label
-                x:Name="label1"
-                Margin="0,20"
+        <AbsoluteLayout>
+            <StackLayout AbsoluteLayout.LayoutBounds="0, 0.15, 1, 0.5"
+                         AbsoluteLayout.LayoutFlags="All"
+                         HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand">
+                <Label
                 FontSize="35"
                 HorizontalOptions="Center"
                 Text="Welcome to UnitEd!"
-                TextColor="#4682B4" />
-            <Label
-                x:Name="label2"
-                Margin="0,20"
+                TextColor="#101010" />
+                <Label
                 FontSize="15"
                 HorizontalOptions="Center"
                 Text="Made for students by students."
-                TextColor="#4682B4" />
-
-
-            <Button
-                Margin="60,40"
-                BackgroundColor="#4682B4"
-                Clicked="Login"
-                Text="Login"
-                TextColor="White" />
-
-            <Button
-                Margin="60,40"
-                BackgroundColor="#4682B4"
-                Clicked="SignUp"
-                Text="Sign Up"
-                TextColor="White" />
-
-            <Button
-                Margin="60,40"
-                BackgroundColor="#4682B4"
-                Clicked="Reset"
-                Text="Reset Password"
-                TextColor="White" />
-
-
-        </StackLayout>
+                TextColor="#101010" />
+            </StackLayout>
+            <StackLayout AbsoluteLayout.LayoutBounds="0, 0.7, 0.9, 0.5"
+                         AbsoluteLayout.LayoutFlags="All"
+                         HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="EndAndExpand">
+                <button:SfButton x:Name="Btn_Login" 
+                                 Text="Log In" 
+                                 CornerRadius="100"
+                                 BackgroundColor="#101010"
+                                 HeightRequest="50"
+                                 FontSize="20"
+                                 Clicked="Btn_Login_Clicked">
+                </button:SfButton>
+                <button:SfButton x:Name="Btn_SignUp" 
+                                 Text="Sign Up" 
+                                 CornerRadius="100"
+                                 BackgroundColor="#101010"
+                                 HeightRequest="50"
+                                 FontSize="20"
+                                 Clicked="Btn_SignUp_Clicked">
+                </button:SfButton>
+                <button:SfButton x:Name="Btn_ForgetPsw" 
+                                 Text="Forget Password?" 
+                                 CornerRadius="100"
+                                 BackgroundColor="#101010"
+                                 HeightRequest="50"
+                                 FontSize="20"
+                                 Clicked="Btn_ForgetPsw_Clicked">
+                </button:SfButton>
+            </StackLayout>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

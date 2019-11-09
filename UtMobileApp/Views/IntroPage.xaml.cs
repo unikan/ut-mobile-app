@@ -14,24 +14,23 @@ namespace UtMobileApp.Views
     {
         public IntroPage()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
         }
 
-        async void Login(object sender, EventArgs e)
+        private async void Btn_Login_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Login());
         }
 
-        async void Reset(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new ResetPass());
-        }
-
-        async void SignUp(object sender, EventArgs e)
+        private async void Btn_SignUp_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Register());
         }
 
-
+        private async void Btn_ForgetPsw_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ResetPass());
+        }
     }
 }

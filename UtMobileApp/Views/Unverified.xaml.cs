@@ -16,6 +16,7 @@ namespace UtMobileApp.Views
         Interface auth;
         public Unverified()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             auth = DependencyService.Get<Interface>();
 

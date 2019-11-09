@@ -71,6 +71,11 @@ namespace UtMobileApp.Views
             }
         }
 
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
+        }
+
         private void NavToggle_Clicked(object sender, EventArgs e)
         {
             navigationDrawer.ToggleDrawer();

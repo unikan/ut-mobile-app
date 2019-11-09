@@ -21,6 +21,7 @@ namespace UtMobileApp
         
         public Login()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             auth = DependencyService.Get<Interface>();
             

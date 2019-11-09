@@ -20,6 +20,7 @@ namespace UtMobileApp
 
         public Register()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             auth = DependencyService.Get<Interface>();
         }

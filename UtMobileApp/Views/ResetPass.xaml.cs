@@ -16,6 +16,7 @@ namespace UtMobileApp.Views
 
         public ResetPass()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             auth = DependencyService.Get<Interface>();
         }
