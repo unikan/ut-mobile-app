@@ -6,6 +6,12 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace UtMobileApp.Android
 {
@@ -25,6 +31,12 @@ namespace UtMobileApp.Android
 
             // Initialization of Animation for transitions
             FormsControls.Droid.Main.Init(this);
+
+            // Appcenter
+            AppCenter.Start("f7bbcd28-6f3e-467d-96c2-ee9c7a2d01b9",
+                   typeof(Analytics), typeof(Crashes));
+            AppCenter.Start("f7bbcd28-6f3e-467d-96c2-ee9c7a2d01b9",
+                               typeof(Analytics), typeof(Crashes));
 
             LoadApplication(new App());
         }

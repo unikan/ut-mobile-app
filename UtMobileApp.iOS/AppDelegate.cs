@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using Foundation;
 using UIKit;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace UtMobileApp.iOS
 {
@@ -35,6 +37,12 @@ namespace UtMobileApp.iOS
 
             // Initialization of Animation for transitions
             FormsControls.Touch.Main.Init();
+
+            // Appcenter
+            AppCenter.Start("c79194b5-5202-45a0-9c03-836b08c99659",
+                   typeof(Analytics), typeof(Crashes));
+            AppCenter.Start("c79194b5-5202-45a0-9c03-836b08c99659",
+                               typeof(Analytics), typeof(Crashes));
 
             LoadApplication(new App());
 
