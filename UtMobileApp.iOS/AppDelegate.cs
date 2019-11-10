@@ -4,6 +4,9 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace UtMobileApp.iOS
 {
@@ -31,6 +34,9 @@ namespace UtMobileApp.iOS
             Syncfusion.XForms.iOS.Shimmer.SfShimmerRenderer.Init();
             Syncfusion.ListView.XForms.iOS.SfListViewRenderer.Init();
             Syncfusion.SfBusyIndicator.XForms.iOS.SfBusyIndicatorRenderer.Init();
+
+            AppCenter.Start("c79194b5-5202-45a0-9c03-836b08c99659",
+                   typeof(Analytics), typeof(Crashes));
 
             LoadApplication(new App());
 
