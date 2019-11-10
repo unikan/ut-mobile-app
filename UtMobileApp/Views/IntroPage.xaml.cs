@@ -31,7 +31,5 @@ namespace UtMobileApp.Views
         {
             await Navigation.PushAsync(new Register());
         }
-
-
     }
 }
