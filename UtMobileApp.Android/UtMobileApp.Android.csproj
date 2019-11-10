@@ -113,6 +113,9 @@
     <PackageReference Include="WordPressPCL">
       <Version>1.6.2</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.Firebase.iOS.Analytics">
+      <Version>5.0.1</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="4.3.0.947036">
     </PackageReference>
     <PackageReference Include="Xamarin.Essentials">

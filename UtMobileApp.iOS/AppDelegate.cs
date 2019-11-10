@@ -41,8 +41,6 @@ namespace UtMobileApp.iOS
             // Appcenter
             AppCenter.Start("c79194b5-5202-45a0-9c03-836b08c99659",
                    typeof(Analytics), typeof(Crashes));
-            AppCenter.Start("c79194b5-5202-45a0-9c03-836b08c99659",
-                               typeof(Analytics), typeof(Crashes));
 
             LoadApplication(new App());
 
