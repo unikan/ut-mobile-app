@@ -15,7 +15,7 @@ variables:
 steps:
 - task: XamariniOS@2
   inputs:
-    solutionFile: '**/*iOS.csproj'
+    solutionFile: 'UtMobileApp.iOS/UtMobileApp.iOS.csproj'
     configuration: '$(buildConfiguration)'
     packageApp: true
     buildForSimulator: false
