@@ -19,18 +19,6 @@
 	<key>STORAGE_BUCKET</key>
 	<string>utappdatabase.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
-	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
-	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
-	<key>IS_GCM_ENABLED</key>
-	<true></true>
-	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
-	<key>GOOGLE_APP_ID</key>
-	<string>1:559523781574:ios:270071d77494ed6f8030c7</string>
-	<key>DATABASE_URL</key>
-	<string>https://utappdatabase.firebaseio.com</string>
+	<false/>
 </dict>
 </plist>
