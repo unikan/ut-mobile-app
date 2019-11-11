@@ -27,10 +27,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
-    <AotAssemblies>false</AotAssemblies>
-    <EnableLLVM>false</EnableLLVM>
-    <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
-    <BundleAssemblies>false</BundleAssemblies>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,7 +40,7 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\UtMobileApp\UtMobileApp.csproj">
-      <Project>{2549C2E8-38C9-4C78-BBF2-EC15416A2E9A}</Project>
+      <Project>{DF69CA8D-4D5E-462F-91D9-533EA6D347EC}</Project>
       <Name>UtMobileApp</Name>
     </ProjectReference>
   </ItemGroup>
