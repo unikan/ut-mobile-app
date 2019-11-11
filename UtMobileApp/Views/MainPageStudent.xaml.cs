@@ -127,5 +127,11 @@ namespace UtMobileApp.Views
             auth.SignOut();
             await Navigation.PushAsync(new Login());
         }
+
+        private async void BtnMidterms_Clicked(object sender, EventArgs e)
+        {
+            auth.SignOut();
+            await Navigation.PushAsync(new IntroPage());
+        }
     }
 }

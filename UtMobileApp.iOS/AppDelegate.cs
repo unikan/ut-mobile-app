@@ -28,12 +28,16 @@ namespace UtMobileApp.iOS
             // Initialization of Firebase Database
             Firebase.Core.App.Configure();
             // Initialization of Syncfusion components
+            Syncfusion.XForms.iOS.Border.SfBorderRenderer.Init();
+            Syncfusion.XForms.iOS.Buttons.SfButtonRenderer.Init();
             Syncfusion.SfSchedule.XForms.iOS.SfScheduleRenderer.Init();
             Syncfusion.SfNavigationDrawer.XForms.iOS.SfNavigationDrawerRenderer.Init();
-            Syncfusion.XForms.iOS.Buttons.SfButtonRenderer.Init();
             Syncfusion.XForms.iOS.Shimmer.SfShimmerRenderer.Init();
             Syncfusion.ListView.XForms.iOS.SfListViewRenderer.Init();
             Syncfusion.SfBusyIndicator.XForms.iOS.SfBusyIndicatorRenderer.Init();
+            Syncfusion.SfAutoComplete.XForms.iOS.SfAutoCompleteRenderer.Init();
+            Syncfusion.XForms.iOS.ComboBox.SfComboBoxRenderer.Init();
+            Syncfusion.SfNumericUpDown.XForms.iOS.SfNumericUpDownRenderer.Init();
 
             // Initialization of Animation for transitions
             FormsControls.Touch.Main.Init();
