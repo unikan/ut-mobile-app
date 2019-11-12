@@ -18,6 +18,13 @@ namespace UtMobileApp.Views
             InitializeComponent();
         }
 
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            await Navigation.PopToRootAsync();
+        }
+
         private async void Btn_Login_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Login());

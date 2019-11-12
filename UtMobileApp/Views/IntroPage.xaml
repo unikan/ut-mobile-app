@@ -8,51 +8,45 @@
     xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
     xmlns:button="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
     mc:Ignorable="d"
-    BackgroundColor="White">
+    BackgroundColor="#EEEEEE">
     <ContentPage.Content>
-        <AbsoluteLayout>
+        <AbsoluteLayout HorizontalOptions="CenterAndExpand">
             <StackLayout AbsoluteLayout.LayoutBounds="0, 0.15, 1, 0.5"
                          AbsoluteLayout.LayoutFlags="All"
-                         HorizontalOptions="CenterAndExpand"
                          VerticalOptions="CenterAndExpand">
                 <Label
                 FontSize="35"
                 HorizontalOptions="Center"
                 Text="Welcome to UnitEd!"
-                TextColor="#101010" />
+                TextColor="#242424" />
                 <Label
-                FontSize="15"
+                FontSize="18"
                 HorizontalOptions="Center"
                 Text="Made for students by students."
-                TextColor="#101010" />
+                TextColor="#242424" />
             </StackLayout>
-            <StackLayout AbsoluteLayout.LayoutBounds="0, 0.7, 0.9, 0.5"
+            <StackLayout AbsoluteLayout.LayoutBounds="0, 0.7, 1, 0.5"
                          AbsoluteLayout.LayoutFlags="All"
-                         HorizontalOptions="CenterAndExpand"
                          VerticalOptions="EndAndExpand">
                 <button:SfButton x:Name="Btn_Login" 
                                  Text="Log In" 
                                  CornerRadius="100"
-                                 BackgroundColor="#101010"
-                                 HeightRequest="50"
+                                 BackgroundColor="#e68471"
+                                 TextColor="#242424"
+                                 HeightRequest="60"
                                  FontSize="20"
                                  Clicked="Btn_Login_Clicked">
                 </button:SfButton>
                 <button:SfButton x:Name="Btn_SignUp" 
                                  Text="Sign Up" 
                                  CornerRadius="100"
-                                 BackgroundColor="#101010"
-                                 HeightRequest="50"
+                                 BackgroundColor="Transparent"
+                                 TextColor="#242424"
+                                 BorderColor="#e68471"
+                                 BorderWidth="3"
+                                 HeightRequest="60"
                                  FontSize="20"
                                  Clicked="Btn_SignUp_Clicked">
-                </button:SfButton>
-                <button:SfButton x:Name="Btn_ForgetPsw" 
-                                 Text="Forget Password?" 
-                                 CornerRadius="100"
-                                 BackgroundColor="#101010"
-                                 HeightRequest="50"
-                                 FontSize="20"
-                                 Clicked="Btn_ForgetPsw_Clicked">
                 </button:SfButton>
             </StackLayout>
         </AbsoluteLayout>

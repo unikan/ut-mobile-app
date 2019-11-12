@@ -7,6 +7,7 @@ using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XamarinFirebase.Helper;
+using Xamarin.Essentials;
 
 namespace UtMobileApp
 {
@@ -25,34 +26,29 @@ namespace UtMobileApp
             auth = DependencyService.Get<Interface>();
         }
 
-        async void SignUpClicked(object sender, EventArgs e)
+        protected override void OnAppearing()
         {
+            base.OnAppearing();
 
-            string emailvalue = EmailInput.Text.ToString();
-            string[] split = emailvalue.Split('@');
-            if (split[0].Any(char.IsDigit) && (split[1] == "unite.edu.mk"))
+            if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
-                    try
+                RegisterContent.IsVisible = false;
+                NoInternetContent.IsVisible = true;
+            }
+        }
+
+        private async void Btn_SignUp_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
                 {
-                    //var Checkemail = await auth.CheckifEmailExists(EmailInput.Text);
-                    //if (Checkemail.Item2)
-                    //{
-                    //    await DisplayAlert("Warning", Checkemail.Item1, "OK");
-                    //}
-                    //else
-                    //{
+                    string emailvalue = EmailInput.Text.ToString();
+                    string[] split = emailvalue.Split('@');
+                    if (split[0].Any(char.IsDigit) && (split[1] == "unite.edu.mk"))
+                    {
 
-                        //string Token = await auth.SignupWithEmailPassword(EmailInput.Text, PasswordInput.Text);
-                        //if (Token != "")
-                        //{
-                        //    await Navigation.PushAsync(new Logged());
-                        //}
-                        //else
-                        //{
-                        //    ShowError();
-                        //}
                         await auth.SignupWithEmailPassword(EmailInput.Text, PasswordInput.Text);
-
 
                         if (await firebaseHelper.UserExists(emailvalue))
                         {
@@ -62,27 +58,50 @@ namespace UtMobileApp
                         {
                             await Navigation.PushAsync(new Views.Unverified());
                         }
-                    //}
+                    }
+                    else
+                    {
+                        await DisplayAlert("Warning", "Please use your official student email (@unite.edu.mk)", "OK");
+                    }
                 }
-                catch (Exception)
+                else
                 {
-                    ShowError();
+                    await DisplayAlert("Warning", "Check your internet connection", "OK");
                 }
             }
-            else ShowErrorUnite();
+            catch (NullReferenceException)
+            {
+                await DisplayAlert("Warning", "Please type your email and password!", "OK");
+            }
 
-           } 
-        
-
-        async private void ShowError()
-        {
-            await DisplayAlert("Registration Failed", "E-mail already exists", "OK");
+            catch (Exception ex)
+            {
+                await DisplayAlert("Warning", ex.Message, "OK");
+            }
         }
 
-        async private void ShowErrorUnite()
+        private void EmailInput_Completed(object sender, EventArgs e)
         {
-            await DisplayAlert("Authentication Failed", "E-mail needs to end in @unite.edu.mk and needs to be a students email address , please try again!", "OK");
+            PasswordInput.Focus();
         }
 
+        private async void BtnBack_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
+
+        private void Reload_Clicked(object sender, EventArgs e)
+        {
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+                RegisterContent.IsVisible = true;
+                NoInternetContent.IsVisible = false;
+            }
+            else
+            {
+                RegisterContent.IsVisible = false;
+                NoInternetContent.IsVisible = true;
+            }
+        }
     }
 }

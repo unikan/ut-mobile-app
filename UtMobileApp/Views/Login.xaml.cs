@@ -7,8 +7,7 @@ using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XamarinFirebase.Helper;
-
-
+using Xamarin.Essentials;
 
 namespace UtMobileApp
 {
@@ -18,7 +17,7 @@ namespace UtMobileApp
     {
         FirebaseHelper firebaseHelper = new FirebaseHelper();
         Interface auth;
-        
+
         public Login()
         {
             NavigationPage.SetHasNavigationBar(this, false);
@@ -30,86 +29,100 @@ namespace UtMobileApp
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            if(auth.GetCurrentUserStatus())
+
+            if (auth.GetCurrentUserStatus())
             {
                 await Navigation.PushAsync(new Views.MainPageStudent());
-            } 
+            }
 
+            if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+            {
+                LoginContent.IsVisible = false;
+                NoInternetContent.IsVisible = true;
+            }
         }
-        async void LoginClicked(object sender, EventArgs e)
+
+        private void EmailInput_Completed(object sender, EventArgs e)
         {
-            try {
-                string emailvalue = EmailInput.Text.ToString();
-                string[] split = emailvalue.Split('@');
-                if (split[0].Any(char.IsDigit) && (split[1] == "unite.edu.mk"))
+            PasswordInput.Focus();
+        }
+
+        private async void Btn_Login_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
                 {
-
-                    var LoginInfo = await auth.LoginWithEmailPassword(EmailInput.Text, PasswordInput.Text);
-                    if (LoginInfo.Item2)
+                    string emailvalue = EmailInput.Text.ToString();
+                    string[] split = emailvalue.Split('@');
+                    if (split[0].Any(char.IsDigit) && (split[1] == "unite.edu.mk"))
                     {
-                        await DisplayAlert("Warning", LoginInfo.Item1, "OK");
-                    }
-                    else
-                    {
-                        //bool trueanauk = await firebaseHelper.UserExists(emailvalue);
-                        //string trueanauks = trueanauk.ToString();
-                        //DisplayAlert("haa", trueanauks, "SI THAUE");
 
-                        if (auth.GetCurrentUserStatus())
+                        var LoginInfo = await auth.LoginWithEmailPassword(EmailInput.Text, PasswordInput.Text);
+                        if (LoginInfo.Item2)
                         {
-                            if (await firebaseHelper.UserExists(emailvalue))
-                            {
-                                await Navigation.PushAsync(new Views.MainPageStudent());
-                            }
-                            else
-                            {
-                                await Navigation.PushAsync(new Views.NewUserData());
-                            }
+                            await DisplayAlert("Warning", LoginInfo.Item1, "OK");
                         }
                         else
                         {
-                            await Navigation.PushAsync(new Views.Unverified());
+
+                            if (auth.GetCurrentUserStatus())
+                            {
+                                if (await firebaseHelper.UserExists(emailvalue))
+                                {
+                                    await Navigation.PushAsync(new Views.MainPageStudent());
+                                }
+                                else
+                                {
+                                    await Navigation.PushAsync(new Views.NewUserData());
+                                }
+                            }
+                            else
+                            {
+                                await Navigation.PushAsync(new Views.Unverified());
+                            }
                         }
                     }
+                    else
+                    {
+                        await DisplayAlert("Warning", "Please use your official student email (@unite.edu.mk)", "OK");
+                    }
                 }
-                else ShowErrorUnite();
 
+                else 
+                {
+                    await DisplayAlert("Warning", "Check your internet connection", "OK");
+                }
             }
 
-            
-        catch (Exception) { }
+            catch (NullReferenceException)
+            {
+                await DisplayAlert("Warning", "Please type your email and password!", "OK");
+            }
 
+            catch (Exception ex) 
+            {
+                await DisplayAlert("Warning", ex.Message, "OK");
+            }
         }
-        async private void ShowError(string error) 
+
+        private async void BtnBack_Clicked(object sender, EventArgs e)
         {
-            await DisplayAlert("Authentication Failed", error, "OK");
+            await Navigation.PopAsync();
         }
 
-        async private void ShowErrorUnite()
+        private void Reload_Clicked(object sender, EventArgs e)
         {
-            await DisplayAlert("Authentication Failed", "E-mail needs to end in @unite.edu.mk, try again!", "OK");
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+                LoginContent.IsVisible = true;
+                NoInternetContent.IsVisible = false;
+            }
+            else
+            {
+                LoginContent.IsVisible = false;
+                NoInternetContent.IsVisible = true;
+            }
         }
-
-
-
-        //async void Reset_Password(object sender, EventArgs e)
-        //{
-        //    if (EmailInput.Text == null)
-        //    {
-        //        await DisplayAlert("Alert", "Please enter the email of which account you want to reset the password to :) ", "OK");
-        //    }
-        //    else
-        //    {
-        //        string Token = await auth.ResetPassword(EmailInput.Text);
-        //        if (Token != "")
-        //        {
-        //            await Navigation.PushAsync(new UtMobileApp.Views.ResetPass());
-        //        }
-        //        else
-        //        {
-        //            ShowError();
-        //        }
-        //    }
-        //}
     }
 }
