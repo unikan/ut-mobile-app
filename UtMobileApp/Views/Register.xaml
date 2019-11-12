@@ -60,8 +60,9 @@
                                            ContainerType="Outlined"
                                            FocusedColor="#e68471">
                     <Entry Placeholder="n.lastname3615111035@unite.edu.mk"
-                       x:Name="EmailInput"
-                       Completed="EmailInput_Completed"/>
+                           x:Name="EmailInput"
+                           Completed="EmailInput_Completed"
+                           Keyboard="Email"/>
                 </inputLayout:SfTextInputLayout>
 
                 <inputLayout:SfTextInputLayout Hint="Password" 
@@ -69,7 +70,7 @@
                                            EnablePasswordVisibilityToggle="True"
                                            FocusedColor="#e68471">
                     <Entry IsPassword="True"
-                       x:Name="PasswordInput"/>
+                           x:Name="PasswordInput"/>
                 </inputLayout:SfTextInputLayout>
                 <buttons:SfButton x:Name="Btn_SignUp" 
                                  Text="Sign Up" 

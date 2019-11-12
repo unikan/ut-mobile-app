@@ -59,11 +59,10 @@ namespace UtMobileApp.Views
                             if (Token != "")
                             {
                                 await DisplayAlert("Success", "You have received a reset password link in your email", "OK");
-                                await Navigation.PushAsync(new IntroPage());
                             }
                             else
                             {
-                                await DisplayAlert("Authentication Failed", "E-mail or password are incorrect. Try again!", "OK");
+                                await DisplayAlert("Authentication Failed", "E-mail doesn't exist. Try again!", "OK");
                             }
                         }
                         else

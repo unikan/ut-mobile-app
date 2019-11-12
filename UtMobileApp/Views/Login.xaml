@@ -61,7 +61,8 @@
                                                FocusedColor="#e68471">
                     <Entry Placeholder="n.lastname3615111035@unite.edu.mk"
                            x:Name="EmailInput"
-                           Completed="EmailInput_Completed"/>
+                           Completed="EmailInput_Completed"
+                           Keyboard="Email"/>
                 </inputLayout:SfTextInputLayout>
 
                 <inputLayout:SfTextInputLayout Hint="Password" 

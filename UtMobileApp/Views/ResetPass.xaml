@@ -65,7 +65,8 @@
                                                ContainerType="Outlined"
                                                FocusedColor="#e68471">
                     <Entry Placeholder="n.lastname3615111035@unite.edu.mk"
-                           x:Name="EmailInput" />
+                           x:Name="EmailInput"
+                           Keyboard="Email"/>
                 </inputLayout:SfTextInputLayout>
 
                 <buttons:SfButton x:Name="Btn_ForgotPsw" 
