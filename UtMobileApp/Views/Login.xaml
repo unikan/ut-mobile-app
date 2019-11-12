@@ -80,6 +80,13 @@
                                   FontSize="20"
                                   Clicked="Btn_Login_Clicked">
                 </buttons:SfButton>
+                <buttons:SfButton x:Name="Btn_ForgotPsw" 
+                                  Text="Forgot Password?" 
+                                  BackgroundColor="Transparent"
+                                  TextColor="#242424"
+                                  FontSize="16"
+                                  Clicked="Btn_ForgotPsw_Clicked">
+                </buttons:SfButton>
             </StackLayout>
             <StackLayout AbsoluteLayout.LayoutBounds="0, 1, 1, 1"
                          AbsoluteLayout.LayoutFlags="All"

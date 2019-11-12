@@ -124,5 +124,10 @@ namespace UtMobileApp
                 NoInternetContent.IsVisible = true;
             }
         }
+
+        private async void Btn_ForgotPsw_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Views.ResetPass());
+        }
     }
 }
