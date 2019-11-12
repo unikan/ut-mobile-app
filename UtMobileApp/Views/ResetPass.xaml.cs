@@ -58,7 +58,8 @@ namespace UtMobileApp.Views
                             string Token = await auth.ResetPassword(EmailInput.Text);
                             if (Token != "")
                             {
-                                await Navigation.PushAsync(new UtMobileApp.Views.ResetPass());
+                                await DisplayAlert("Success", "You have received a reset password link in your email", "OK");
+                                await Navigation.PushAsync(new IntroPage());
                             }
                             else
                             {
