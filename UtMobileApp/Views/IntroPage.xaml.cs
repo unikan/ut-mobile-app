@@ -19,22 +19,17 @@ namespace UtMobileApp.Views
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
+            auth = DependencyService.Get<Interface>();
         }
 
         protected override async void OnAppearing()
         {
-            try
+            if (auth.GetCurrentUserStatus())
             {
-                if (auth.GetCurrentUserStatus())
-                {
-                    await Navigation.PushAsync(new Views.MainPageStudent());
-                }
+                await Navigation.PushAsync(new Views.MainPageStudent());
             }
-            catch { }
 
             base.OnAppearing();
-
-            await Navigation.PopToRootAsync();
         }
 
         private async void Btn_Login_Clicked(object sender, EventArgs e)

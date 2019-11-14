@@ -25,14 +25,8 @@ namespace UtMobileApp.Views
 
         protected override async void OnAppearing()
         {
-            try
-            {
-                if (auth.GetCurrentUserEmail() == "")
-                {
-                    await Navigation.PopToRootAsync();
-                }
-            }
-            catch
+            // Check if he's good to go
+            if (!auth.GetCurrentUserStatus())
             {
                 await Navigation.PopToRootAsync();
             }
@@ -136,7 +130,11 @@ namespace UtMobileApp.Views
         private async void SignOut_Clicked(object sender, EventArgs e)
         {
             auth.SignOut();
-            await Navigation.PopToRootAsync();
+
+            if (Navigation.NavigationStack.Count > 0)
+            {
+                await Navigation.PopToRootAsync();
+            }
         }
     }
 }

@@ -9,7 +9,7 @@
              xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
              mc:Ignorable="d"
              x:Class="UtMobileApp.Views.MainPageStudent"
-             BackgroundColor="White">
+             BackgroundColor="#EEEEEE">
     <ContentPage.Content>
         <navigationdrawer:SfNavigationDrawer x:Name="navigationDrawer" 
                                              DrawerWidth ="300"
@@ -155,8 +155,7 @@
                     <border:SfBorder AbsoluteLayout.LayoutBounds="0, 0, 1, 0.55"
                                      AbsoluteLayout.LayoutFlags="All"
                                      CornerRadius="0, 0, 150, 0" 
-                                     BorderWidth="0"
-                                     BackgroundColor="#cc7564">
+                                     BorderWidth="0">
                         <AbsoluteLayout>
                             <gradient:SfGradientView>
                                 <gradient:SfGradientView.BackgroundBrush>
@@ -204,6 +203,9 @@
                                    TranslationY="-60" />
                         </AbsoluteLayout>
                     </border:SfBorder>
+                    <!--<Button Text="Hey"
+                            AbsoluteLayout.LayoutBounds="0.4, 0.55, 100, 50"
+                            AbsoluteLayout.LayoutFlags="PositionProportional"></Button>-->
                     <StackLayout AbsoluteLayout.LayoutBounds="1, 1, 1, 0.45"
                                  AbsoluteLayout.LayoutFlags="All"
                                  HorizontalOptions="CenterAndExpand"

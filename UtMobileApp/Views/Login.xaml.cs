@@ -24,7 +24,6 @@ namespace UtMobileApp
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             auth = DependencyService.Get<Interface>();
-            
         }
 
         protected override void OnAppearing()
