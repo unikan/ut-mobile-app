@@ -92,28 +92,36 @@ namespace UtMobileApp.iOS
 
         public string GetCurrentUserEmail()
         {
-
-            var currentuser = Auth.DefaultInstance.CurrentUser;
             string getEmail = "";
 
-            if (currentuser != null)
+            try
             {
-                getEmail = currentuser.Email;
+                var currentuser = Auth.DefaultInstance.CurrentUser;
+
+                if (currentuser != null)
+                {
+                    getEmail = currentuser.Email;
+                }
             }
+            catch (Exception) { }
 
             return getEmail;
         }
 
         public bool GetCurrentUserStatus()
         {
-            var currentuser = Auth.DefaultInstance.CurrentUser;
-           
             bool status = false;
 
-            if (currentuser != null)
+            try
             {
-                status = currentuser.IsEmailVerified;
+                var currentuser = Auth.DefaultInstance.CurrentUser;
+
+                if (currentuser != null)
+                {
+                    status = currentuser.IsEmailVerified;
+                }
             }
+            catch (Exception) { }
 
             return status;
         }

@@ -32,6 +32,8 @@ namespace UtMobileApp.iOS
             Syncfusion.XForms.iOS.Shimmer.SfShimmerRenderer.Init();
             Syncfusion.ListView.XForms.iOS.SfListViewRenderer.Init();
             Syncfusion.SfBusyIndicator.XForms.iOS.SfBusyIndicatorRenderer.Init();
+            Syncfusion.XForms.iOS.Border.SfBorderRenderer.Init();
+            Syncfusion.XForms.iOS.Graphics.SfGradientViewRenderer.Init();
 
             // Initialization of Animation for transitions
             FormsControls.Touch.Main.Init();

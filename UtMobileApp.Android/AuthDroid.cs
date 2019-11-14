@@ -105,27 +105,36 @@ namespace UtMobileApp.Android
 
         public string GetCurrentUserEmail()
         {
-            
-            var currentuser = FirebaseAuth.Instance.CurrentUser;
             string getEmail = "";
 
-            if (currentuser != null)
+            try
             {
-                getEmail = currentuser.Email;
+                var currentuser = FirebaseAuth.Instance.CurrentUser;
+
+                if (currentuser != null)
+                {
+                    getEmail = currentuser.Email;
+                }
             }
+            catch (Exception) { }
 
             return getEmail;
         }
 
         public bool GetCurrentUserStatus()
         {
-            var currentuser = FirebaseAuth.Instance.CurrentUser;
             bool status = false;
 
-            if (currentuser != null)
+            try
             {
-                status = currentuser.IsEmailVerified;
+                var currentuser = FirebaseAuth.Instance.CurrentUser;
+
+                if (currentuser != null)
+                {
+                    status = currentuser.IsEmailVerified;
+                }
             }
+            catch (Exception) { }
 
             return status;
         }
@@ -182,7 +191,8 @@ namespace UtMobileApp.Android
             //await FirebaseAuth.Instance.CurrentUser.SendEmailVerificationAsync();
             //var token = await user.User.GetIdTokenAsync(false);
             //return token.Token;
-            catch (Exception e) {
+            catch (Exception e) 
+            {
                 return Tuple.Create(e.Message, true);
             }
         }

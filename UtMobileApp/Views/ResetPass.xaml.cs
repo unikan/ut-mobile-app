@@ -12,18 +12,14 @@ namespace UtMobileApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ResetPass : ContentPage
     {
-        Interface auth;
+        readonly Interface auth;
+        readonly Extensions.Helper helper = new Extensions.Helper();
 
         public ResetPass()
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             auth = DependencyService.Get<Interface>();
-        }
-
-        async void GotoLogin_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new Login());
         }
 
         protected override void OnAppearing()
@@ -39,6 +35,9 @@ namespace UtMobileApp.Views
 
         private async void Btn_ForgotPsw_Clicked(object sender, EventArgs e)
         {
+            Syncfusion.XForms.Buttons.SfButton btn = sender as Syncfusion.XForms.Buttons.SfButton;
+            helper.DisableButton(btn);
+
             try
             {
                 if (Connectivity.NetworkAccess == NetworkAccess.Internet)
@@ -86,15 +85,24 @@ namespace UtMobileApp.Views
             {
                 await DisplayAlert("Warning", ex.Message, "OK");
             }
+
+            await helper.EnableButtonAfter2Sec(btn);
         }
 
         private async void BtnBack_Clicked(object sender, EventArgs e)
         {
+            Syncfusion.XForms.Buttons.SfButton btn = sender as Syncfusion.XForms.Buttons.SfButton;
+
+            helper.DisableButton(btn);
             await Navigation.PopAsync();
+            await helper.EnableButtonAfter2Sec(btn);
         }
 
-        private void Reload_Clicked(object sender, EventArgs e)
+        private async void Reload_Clicked(object sender, EventArgs e)
         {
+            Syncfusion.XForms.Buttons.SfButton btn = sender as Syncfusion.XForms.Buttons.SfButton;
+            helper.DisableButton(btn);
+
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 LoginContent.IsVisible = true;
@@ -105,6 +113,8 @@ namespace UtMobileApp.Views
                 LoginContent.IsVisible = false;
                 NoInternetContent.IsVisible = true;
             }
+
+            await helper.EnableButtonAfter2Sec(btn);
         }
     }
 }

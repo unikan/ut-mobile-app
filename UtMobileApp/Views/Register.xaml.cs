@@ -16,8 +16,9 @@ namespace UtMobileApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Register : ContentPage
     {
-        FirebaseHelper firebaseHelper = new FirebaseHelper();
-        Interface auth;
+        readonly FirebaseHelper firebaseHelper = new FirebaseHelper();
+        readonly Interface auth;
+        readonly Extensions.Helper helper = new Extensions.Helper();
 
         public Register()
         {
@@ -47,17 +48,34 @@ namespace UtMobileApp
                     string[] split = emailvalue.Split('@');
                     if (split[0].Any(char.IsDigit) && (split[1] == "unite.edu.mk"))
                     {
+                        // Enable busy indicator 
+                        busyindicator.IsBusy = true;
 
-                        await auth.SignupWithEmailPassword(EmailInput.Text, PasswordInput.Text);
-
-                        if (await firebaseHelper.UserExists(emailvalue))
+                        if (PasswordInput.Text.Length >= 6)
                         {
-                            await DisplayAlert("Warning", " This email address already exists!", "OK");
+                            await auth.SignupWithEmailPassword(EmailInput.Text, PasswordInput.Text);
+
+                            if (await firebaseHelper.UserExists(emailvalue))
+                            {
+                                await DisplayAlert("Warning", "This email address already exists!", "OK");
+                            }
+                            else
+                            {
+                                Syncfusion.XForms.Buttons.SfButton btn = sender as Syncfusion.XForms.Buttons.SfButton;
+
+                                helper.DisableButton(btn);
+                                await DisplayAlert("Success", "You have been registered successfully, you have received a verification email.", "OK");
+                                await Navigation.PopToRootAsync();
+                                await helper.EnableButtonAfter2Sec(btn);
+                            }
                         }
                         else
                         {
-                            await Navigation.PushAsync(new Views.Unverified());
+                            await DisplayAlert("Warning", "The password should at least contain 6 characters", "OK");
                         }
+
+                        // Disable busy indicator
+                        busyindicator.IsBusy = false;
                     }
                     else
                     {
@@ -87,7 +105,11 @@ namespace UtMobileApp
 
         private async void BtnBack_Clicked(object sender, EventArgs e)
         {
+            Syncfusion.XForms.Buttons.SfButton btn = sender as Syncfusion.XForms.Buttons.SfButton;
+
+            helper.DisableButton(btn);
             await Navigation.PopAsync();
+            await helper.EnableButtonAfter2Sec(btn);
         }
 
         private void Reload_Clicked(object sender, EventArgs e)

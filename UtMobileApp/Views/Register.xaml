@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
     xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+    xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
     mc:Ignorable="d"
     BackgroundColor="#EEEEEE">
     <ContentPage.Content>
@@ -72,6 +73,12 @@
                     <Entry IsPassword="True"
                            x:Name="PasswordInput"/>
                 </inputLayout:SfTextInputLayout>
+                <Label Text="Password should at least contain 6 characters"
+                       FontSize="Small"
+                       TextColor="Gray"
+                       Margin="0, 0, 0, 10"
+                       Padding="0"
+                       HorizontalOptions="CenterAndExpand"></Label>
                 <buttons:SfButton x:Name="Btn_SignUp" 
                                  Text="Sign Up" 
                                  CornerRadius="100"
@@ -82,6 +89,15 @@
                                  Clicked="Btn_SignUp_Clicked">
                 </buttons:SfButton>
             </StackLayout>
+            <busyindicator:SfBusyIndicator AbsoluteLayout.LayoutBounds="0, 1, 1, 0.3"
+                                           AbsoluteLayout.LayoutFlags="All"
+                                           x:Name="busyindicator"
+                                           ViewBoxHeight="70"
+                                           ViewBoxWidth="70"
+                                           Title="Please wait..."
+                                           TextColor="Salmon"
+                                           TextSize="15"
+                                           IsBusy="False" />
             <StackLayout AbsoluteLayout.LayoutBounds="0, 1, 1, 1"
                          AbsoluteLayout.LayoutFlags="All"
                          Padding="20, 0"

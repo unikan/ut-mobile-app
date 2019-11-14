@@ -12,6 +12,9 @@ namespace UtMobileApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class IntroPage : ContentPage
     {
+        readonly Extensions.Helper helper = new Extensions.Helper();
+        readonly Interface auth;
+
         public IntroPage()
         {
             NavigationPage.SetHasNavigationBar(this, false);
@@ -20,6 +23,15 @@ namespace UtMobileApp.Views
 
         protected override async void OnAppearing()
         {
+            try
+            {
+                if (auth.GetCurrentUserStatus())
+                {
+                    await Navigation.PushAsync(new Views.MainPageStudent());
+                }
+            }
+            catch { }
+
             base.OnAppearing();
 
             await Navigation.PopToRootAsync();
@@ -27,17 +39,20 @@ namespace UtMobileApp.Views
 
         private async void Btn_Login_Clicked(object sender, EventArgs e)
         {
+            Syncfusion.XForms.Buttons.SfButton btn = sender as Syncfusion.XForms.Buttons.SfButton;
+
+            helper.DisableButton(btn);
             await Navigation.PushAsync(new Login());
+            await helper.EnableButtonAfter2Sec(btn);
         }
 
         private async void Btn_SignUp_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Register());
-        }
+            Syncfusion.XForms.Buttons.SfButton btn = sender as Syncfusion.XForms.Buttons.SfButton;
 
-        private async void Btn_ForgetPsw_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new ResetPass());
+            helper.DisableButton(btn);
+            await Navigation.PushAsync(new Register());
+            await helper.EnableButtonAfter2Sec(btn);
         }
     }
 }

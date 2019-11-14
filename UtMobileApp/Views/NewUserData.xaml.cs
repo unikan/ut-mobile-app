@@ -10,44 +10,59 @@ using XamarinFirebase.Model;
 using XamarinFirebase.Helper;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
 
 namespace UtMobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 
-    
-
     public partial class NewUserData : ContentPage
     {
 
-        FirebaseHelper firebaseHelper = new FirebaseHelper();
-        Interface auth;
-
+        readonly FirebaseHelper firebaseHelper = new FirebaseHelper();
+        readonly Interface auth;
+        readonly Extensions.Helper helper = new Extensions.Helper();
 
         public NewUserData()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
+
             auth = DependencyService.Get<Interface>();
+            string email = auth.GetCurrentUserEmail().ToString();
+            string indexNum = new string(email.Where(Char.IsDigit).ToArray());
 
-            string indexN = auth.GetCurrentUserEmail().ToString();
-
-            string indexNum = new string(indexN.Where(Char.IsDigit).ToArray());
-
-            indexnumber.Text = indexNum.ToString();
-
+            IndexNumberInput.Text = indexNum.ToString();
         }
 
-        protected async override void OnAppearing()
+        protected override void OnAppearing()
         {
-
             base.OnAppearing();
-            var allRegistrations = await firebaseHelper.GetAllRegistrations();
-            var Schedule = await firebaseHelper.GetAllSchedules();
-        
+
+            if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+            {
+                CompleteRegistrationContent.IsVisible = false;
+                NoInternetContent.IsVisible = true;
+            }
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            auth.SignOut();
+            Navigation.PopToRootAsync();
+
+            return true;
+        }
+
+        protected override void OnDisappearing()
+        {
+            //auth.SignOut();
+
+            base.OnDisappearing();
         }
 
 
-        private void SfComboBox_SelectionChanged(object sender, Syncfusion.XForms.ComboBox.SelectionChangedEventArgs e)
+        private void FacultyCombobox_SelectionChanged(object sender, Syncfusion.XForms.ComboBox.SelectionChangedEventArgs e)
         {
             
             List<String> programnames = new List<String>();
@@ -173,20 +188,42 @@ namespace UtMobileApp.Views
                 programnames.Add("Sport");
             }
             AutoCompleteProgram.DataSource = programnames;
-            InputProgram.InputView = AutoCompleteProgram;
+            ProgramInput.InputView = AutoCompleteProgram;
         }
 
-        private async void ComReg_Clicked(object sender, EventArgs e)
+        private void NameInput_Completed(object sender, EventArgs e)
         {
-
-            await firebaseHelper.AddStudent(email: auth.GetCurrentUserEmail(), name.Text, lastname.Text, indexnumber.Text, numericUpDown.Value.ToString(), comboboxS.SelectedItem.ToString(), comboboxf.SelectedItem.ToString(), AutoCompleteProgram.SelectedItem.ToString());
-            //name.Text = string.Empty;
-            //lastname.Text = string.Empty;
-            //numericUpDown.Value = 0;
-            //comboboxf.SelectedItem = string.Empty;
-            //await DisplayAlert("Success", "Person Added Successfully", "OK");
-            await Navigation.PushAsync(new Views.MainPageStudent());
+            LastNameInput.Focus();
         }
 
+        private void LastNameInput_Completed(object sender, EventArgs e)
+        {
+            SemesterCombobox.Focus();
+        }
+
+        private async void Btn_CompleteReg_Clicked(object sender, EventArgs e)
+        {
+            Syncfusion.XForms.Buttons.SfButton btn = sender as Syncfusion.XForms.Buttons.SfButton;
+            helper.DisableButton(btn);
+
+            await firebaseHelper.AddStudent(email: auth.GetCurrentUserEmail(), NameInput.Text, LastNameInput.Text, IndexNumberInput.Text, GroupsNumericUpDown.Value.ToString(), SemesterCombobox.SelectedItem.ToString(), FacultyCombobox.SelectedItem.ToString(), AutoCompleteProgram.SelectedItem.ToString());
+            await Navigation.PushAsync(new Views.MainPageStudent());
+
+            await helper.EnableButtonAfter2Sec(btn);
+        }
+
+        private void Reload_Clicked(object sender, EventArgs e)
+        {
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+                CompleteRegistrationContent.IsVisible = true;
+                NoInternetContent.IsVisible = false;
+            }
+            else
+            {
+                CompleteRegistrationContent.IsVisible = false;
+                NoInternetContent.IsVisible = true;
+            }
+        }
     }
 }

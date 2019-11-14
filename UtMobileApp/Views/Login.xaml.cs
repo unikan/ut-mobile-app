@@ -15,8 +15,9 @@ namespace UtMobileApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Login : ContentPage
     {
-        FirebaseHelper firebaseHelper = new FirebaseHelper();
-        Interface auth;
+        readonly FirebaseHelper firebaseHelper = new FirebaseHelper();
+        readonly Interface auth;
+        readonly Extensions.Helper helper = new Extensions.Helper();
 
         public Login()
         {
@@ -26,14 +27,9 @@ namespace UtMobileApp
             
         }
 
-        protected async override void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
-
-            if (auth.GetCurrentUserStatus())
-            {
-                await Navigation.PushAsync(new Views.MainPageStudent());
-            }
 
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
@@ -49,6 +45,9 @@ namespace UtMobileApp
 
         private async void Btn_Login_Clicked(object sender, EventArgs e)
         {
+            Syncfusion.XForms.Buttons.SfButton btn = sender as Syncfusion.XForms.Buttons.SfButton;
+            helper.DisableButton(btn);
+
             try
             {
                 if (Connectivity.NetworkAccess == NetworkAccess.Internet)
@@ -104,11 +103,17 @@ namespace UtMobileApp
             {
                 await DisplayAlert("Warning", ex.Message, "OK");
             }
+
+            await helper.EnableButtonAfter2Sec(btn);
         }
 
         private async void BtnBack_Clicked(object sender, EventArgs e)
         {
+            Syncfusion.XForms.Buttons.SfButton btn = sender as Syncfusion.XForms.Buttons.SfButton;
+
+            helper.DisableButton(btn);
             await Navigation.PopAsync();
+            await helper.EnableButtonAfter2Sec(btn);
         }
 
         private void Reload_Clicked(object sender, EventArgs e)
@@ -127,7 +132,11 @@ namespace UtMobileApp
 
         private async void Btn_ForgotPsw_Clicked(object sender, EventArgs e)
         {
+            Syncfusion.XForms.Buttons.SfButton btn = sender as Syncfusion.XForms.Buttons.SfButton;
+
+            helper.DisableButton(btn);
             await Navigation.PushAsync(new Views.ResetPass());
+            await helper.EnableButtonAfter2Sec(btn);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace UtMobileApp.Views
     public partial class MainPageStudent : ContentPage
     {
 
-        Interface auth;
+        readonly Interface auth;
 
         public MainPageStudent()
         {
@@ -25,13 +25,19 @@ namespace UtMobileApp.Views
 
         protected override async void OnAppearing()
         {
-            base.OnAppearing();
-
-            // We need to remove all pages from stack probably
-            if (!auth.GetCurrentUserStatus())
+            try
             {
-                await Navigation.PushAsync(new Login());
+                if (auth.GetCurrentUserEmail() == "")
+                {
+                    await Navigation.PopToRootAsync();
+                }
             }
+            catch
+            {
+                await Navigation.PopToRootAsync();
+            }
+
+            base.OnAppearing();
 
             label_date.Text = "\n\n" + DateTime.Now.ToString("dddd, dd MMMM");
 
@@ -130,7 +136,7 @@ namespace UtMobileApp.Views
         private async void SignUp_Clicked(object sender, EventArgs e)
         {
             auth.SignOut();
-            await Navigation.PushAsync(new Login());
+            await Navigation.PopToRootAsync();
         }
     }
 }
