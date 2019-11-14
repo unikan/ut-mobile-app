@@ -137,7 +137,7 @@
                                       HorizontalTextAlignment="Start"
                                       HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent"
-                                      Clicked="SignUp_Clicked"/>
+                                      Clicked="SignOut_Clicked"/>
                 </StackLayout>
             </navigationdrawer:SfNavigationDrawer.DrawerContentView>
             <!-- FOOTER CONTENT -->

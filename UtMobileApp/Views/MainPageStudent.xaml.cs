@@ -133,7 +133,7 @@ namespace UtMobileApp.Views
             }
         }
 
-        private async void SignUp_Clicked(object sender, EventArgs e)
+        private async void SignOut_Clicked(object sender, EventArgs e)
         {
             auth.SignOut();
             await Navigation.PopToRootAsync();

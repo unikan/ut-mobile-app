@@ -56,18 +56,16 @@ namespace UtMobileApp.Views
 
         protected override void OnDisappearing()
         {
-            //auth.SignOut();
-
             base.OnDisappearing();
         }
 
 
         private void FacultyCombobox_SelectionChanged(object sender, Syncfusion.XForms.ComboBox.SelectionChangedEventArgs e)
         {
-            
+
             List<String> programnames = new List<String>();
-            
-            
+
+
             if (e.Value.ToString() == "Faculty of Agriculture and Biotechnology")
             {
                 //n.ajruli3615111008@unite.edu.mk
@@ -75,7 +73,7 @@ namespace UtMobileApp.Views
                 programnames.Add("Manufacturing Plant");
                 programnames.Add("Animal Production");
                 programnames.Add("Agribusiness");
-                
+
             }
             else if (e.Value.ToString() == "Faculty of Applied Sciences")
             {
@@ -86,7 +84,7 @@ namespace UtMobileApp.Views
                 programnames.Add("Economics Engineering");
                 programnames.Add("Geodesy and Geoinformatics");
                 programnames.Add("Transportation and Traffic Engineering");
-               
+
 
             }
             else if (e.Value.ToString() == "Faculty of Arts")
@@ -95,7 +93,7 @@ namespace UtMobileApp.Views
                 programnames.Add("Figurative Art");
                 programnames.Add("Art of Music");
                 programnames.Add("Dramatic Arts");
-               
+
 
             }
             else if (e.Value.ToString() == "Faculty of Business Administration")
@@ -112,7 +110,7 @@ namespace UtMobileApp.Views
                 programnames.Add("Finance and Accounting");
                 programnames.Add("Tourism");
                 programnames.Add("International Business");
-               
+
             }
             else if (e.Value.ToString() == "Faculty of Food Technology and Nutrition")
             {
