@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using UtMobileApp.Extensions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -26,10 +26,16 @@ namespace UtMobileApp.Views
         {
             if (auth.GetCurrentUserStatus())
             {
-                await Navigation.PushAsync(new Views.MainPageStudent());
+                await Navigation.PushAsync(new MainPageStudent());
             }
 
             base.OnAppearing();
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            DependencyService.Get<ICloseApp>().CloseApplication();
+            return true;
         }
 
         private async void Btn_Login_Clicked(object sender, EventArgs e)

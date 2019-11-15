@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UtMobileApp.Extensions;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XamarinFirebase.Helper;
 
 namespace UtMobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPageStudent : ContentPage
     {
-
+        readonly FirebaseHelper firebaseHelper = new FirebaseHelper();
         readonly Interface auth;
 
         public MainPageStudent()
@@ -20,15 +22,16 @@ namespace UtMobileApp.Views
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             auth = DependencyService.Get<Interface>();
-
         }
 
         protected override async void OnAppearing()
         {
             // Check if he's good to go
-            if (!auth.GetCurrentUserStatus())
+            if (await firebaseHelper.GetPerson(auth.GetCurrentUserEmail()) == null)
             {
-                await Navigation.PopToRootAsync();
+                var previousPage = Navigation.NavigationStack.LastOrDefault();
+                await Navigation.PushAsync(new NewUserData());
+                Navigation.RemovePage(previousPage);
             }
 
             base.OnAppearing();
@@ -73,6 +76,7 @@ namespace UtMobileApp.Views
 
         protected override bool OnBackButtonPressed()
         {
+            DependencyService.Get<ICloseApp>().CloseApplication();
             return true;
         }
 
@@ -131,10 +135,9 @@ namespace UtMobileApp.Views
         {
             auth.SignOut();
 
-            if (Navigation.NavigationStack.Count > 0)
-            {
-                await Navigation.PopToRootAsync();
-            }
+            var previousPage = Navigation.NavigationStack.LastOrDefault();
+            await Navigation.PushAsync(new IntroPage());
+            Navigation.RemovePage(previousPage);
         }
     }
 }

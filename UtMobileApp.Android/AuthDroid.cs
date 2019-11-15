@@ -168,9 +168,7 @@ namespace UtMobileApp.Android
             {
 
                 Console.WriteLine(k);
-
             }
-
         }
 
 
