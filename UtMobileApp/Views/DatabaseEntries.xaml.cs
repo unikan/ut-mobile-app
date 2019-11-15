@@ -19,6 +19,7 @@ namespace DatabaseTest
         FirebaseHelper firebaseHelper = new FirebaseHelper();
         public MainPage()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
         }
         protected async override void OnAppearing()

@@ -38,6 +38,7 @@ namespace UtMobileApp.iOS
             Syncfusion.SfAutoComplete.XForms.iOS.SfAutoCompleteRenderer.Init();
             Syncfusion.XForms.iOS.ComboBox.SfComboBoxRenderer.Init();
             Syncfusion.SfNumericUpDown.XForms.iOS.SfNumericUpDownRenderer.Init();
+            Syncfusion.XForms.iOS.Graphics.SfGradientViewRenderer.Init();
 
             // Initialization of Animation for transitions
             FormsControls.Touch.Main.Init();

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,58 +12,109 @@ namespace UtMobileApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ResetPass : ContentPage
     {
-        Interface auth;
+        readonly Interface auth;
+        readonly Extensions.Helper helper = new Extensions.Helper();
 
         public ResetPass()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             auth = DependencyService.Get<Interface>();
         }
 
-        async void GotoLogin_Clicked(object sender, EventArgs e)
+        protected override void OnAppearing()
         {
-            await Navigation.PushAsync(new Login());
-        }
+            base.OnAppearing();
 
-
-        async private void ShowError()
-        {
-            await DisplayAlert("Authentication Failed", "E-mail or password are incorrect. Try again!", "OK");
-        }
-
-        async private void ShowErrorUnite()
-        {
-            await DisplayAlert("Authentication Failed", "E-mail needs to end in @unite.edu.mk, try again!", "OK");
-        }
-
-        async private void ResetPassword_Clicked(object sender, EventArgs e)
-        {
-            if (EmailInput.Text == null)
+            if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
-                await DisplayAlert("Alert", "Please enter the email of which account you want to reset the password to :) ", "OK");
+                LoginContent.IsVisible = false;
+                NoInternetContent.IsVisible = true;
             }
-            else
+        }
+
+        private async void Btn_ForgotPsw_Clicked(object sender, EventArgs e)
+        {
+            Syncfusion.XForms.Buttons.SfButton btn = sender as Syncfusion.XForms.Buttons.SfButton;
+            helper.DisableButton(btn);
+
+            try
             {
-
-                string emailvalue = EmailInput.Text.ToString();
-                string[] split = emailvalue.Split('@');
-                if (split[0].Any(char.IsDigit) && (split[1] == "unite.edu.mk"))
+                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
                 {
-
-                    string Token = await auth.ResetPassword(EmailInput.Text);
-                    if (Token != "")
+                    if (EmailInput.Text == null)
                     {
-                        await Navigation.PushAsync(new UtMobileApp.Views.ResetPass());
+                        await DisplayAlert("Alert", "Please enter the email of which account you want to reset the password to :) ", "OK");
                     }
                     else
                     {
-                        ShowError();
+
+                        string emailvalue = EmailInput.Text.ToString();
+                        string[] split = emailvalue.Split('@');
+                        if (split[0].Any(char.IsDigit) && (split[1] == "unite.edu.mk"))
+                        {
+
+                            string Token = await auth.ResetPassword(EmailInput.Text);
+                            if (Token != "")
+                            {
+                                await DisplayAlert("Success", "You have received a reset password link in your email", "OK");
+                            }
+                            else
+                            {
+                                await DisplayAlert("Authentication Failed", "E-mail doesn't exist. Try again!", "OK");
+                            }
+                        }
+                        else
+                        {
+                            await DisplayAlert("Authentication Failed", "E-mail needs to end in @unite.edu.mk, try again!", "OK");
+                        }
                     }
                 }
-                else ShowErrorUnite();
-
-                
+                else
+                {
+                    await DisplayAlert("Warning", "Check your internet connection", "OK");
+                }
             }
+
+            catch (NullReferenceException)
+            {
+                await DisplayAlert("Warning", "Please type your email and password!", "OK");
+            }
+
+            catch (Exception ex)
+            {
+                await DisplayAlert("Warning", ex.Message, "OK");
+            }
+
+            await helper.EnableButtonAfter2Sec(btn);
+        }
+
+        private async void BtnBack_Clicked(object sender, EventArgs e)
+        {
+            Syncfusion.XForms.Buttons.SfButton btn = sender as Syncfusion.XForms.Buttons.SfButton;
+
+            helper.DisableButton(btn);
+            await Navigation.PopAsync();
+            await helper.EnableButtonAfter2Sec(btn);
+        }
+
+        private async void Reload_Clicked(object sender, EventArgs e)
+        {
+            Syncfusion.XForms.Buttons.SfButton btn = sender as Syncfusion.XForms.Buttons.SfButton;
+            helper.DisableButton(btn);
+
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+                LoginContent.IsVisible = true;
+                NoInternetContent.IsVisible = false;
+            }
+            else
+            {
+                LoginContent.IsVisible = false;
+                NoInternetContent.IsVisible = true;
+            }
+
+            await helper.EnableButtonAfter2Sec(btn);
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,49 +12,65 @@ namespace UtMobileApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Unverified : ContentPage
     {
+        readonly Interface auth;
+        readonly Extensions.Helper helper = new Extensions.Helper();
 
-        Interface auth;
         public Unverified()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             auth = DependencyService.Get<Interface>();
 
         }
 
-       async private void GotoLogin(object sender, EventArgs e)
+        protected override void OnAppearing()
         {
-            await Navigation.PushAsync(new Login());
+            base.OnAppearing();
+
+            if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+            {
+                UnverifiedContent.IsVisible = false;
+                NoInternetContent.IsVisible = true;
+            }
         }
 
-        private void VerifyAgain_Clicked(object sender, EventArgs e)
+        protected override bool OnBackButtonPressed()
         {
+            return true;
+        }
 
+        private async void Btn_ResendVerification_Clicked(object sender, EventArgs e)
+        {
+            Syncfusion.XForms.Buttons.SfButton btn = sender as Syncfusion.XForms.Buttons.SfButton;
+            helper.DisableButton(btn);
 
             try
             {
-                //string Token = await auth.SignupWithEmailPassword(EmailInput.Text, PasswordInput.Text);
-                //if (Token != "")
-                //{
-                //    await Navigation.PushAsync(new Logged());
-                //}
-                //else
-                //{ k.huseini3615111010@unite.edu.mk
-                //    ShowError();
-                //}
-                auth.VerifyEmail();
+                await auth.VerifyEmail();
+                await DisplayAlert("Success", "You have received a verification email.", "OK");
+                await Navigation.PopToRootAsync();
 
             }
             catch (Exception)
             {
-                ShowError();
+                await DisplayAlert("Warning", "Cannot send email, please try again later", "OK");
+            }
+
+            await helper.EnableButtonAfter2Sec(btn);
+        }
+
+        private void Reload_Clicked(object sender, EventArgs e)
+        {
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+                UnverifiedContent.IsVisible = true;
+                NoInternetContent.IsVisible = false;
+            }
+            else
+            {
+                UnverifiedContent.IsVisible = false;
+                NoInternetContent.IsVisible = true;
             }
         }
-
-        async private void ShowError()
-        {
-            await DisplayAlert("Registration Failed", "E-mail already exists", "OK");
-        }
-
-    
     }
 }

@@ -3,35 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UtMobileApp.Extensions;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XamarinFirebase.Helper;
 
 namespace UtMobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPageStudent : ContentPage
     {
-
-        Interface auth;
+        readonly FirebaseHelper firebaseHelper = new FirebaseHelper();
+        readonly Interface auth;
 
         public MainPageStudent()
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             auth = DependencyService.Get<Interface>();
-
         }
 
         protected override async void OnAppearing()
         {
-            base.OnAppearing();
-
-            // We need to remove all pages from stack probably
-            if (!auth.GetCurrentUserStatus())
+            // Check if he's good to go
+            if (await firebaseHelper.GetPerson(auth.GetCurrentUserEmail()) == null)
             {
-                await Navigation.PushAsync(new Login());
+                var previousPage = Navigation.NavigationStack.LastOrDefault();
+                await Navigation.PushAsync(new NewUserData());
+                Navigation.RemovePage(previousPage);
             }
+
+            base.OnAppearing();
 
             label_date.Text = "\n\n" + DateTime.Now.ToString("dddd, dd MMMM");
 
@@ -69,6 +72,12 @@ namespace UtMobileApp.Views
             {
                 BtnConsultations.ScaleTo(0.52 + e.ScrollX / 1000, 150, Easing.Linear);
             }
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            DependencyService.Get<ICloseApp>().CloseApplication();
+            return true;
         }
 
         private void NavToggle_Clicked(object sender, EventArgs e)
@@ -122,10 +131,13 @@ namespace UtMobileApp.Views
             }
         }
 
-        private async void SignUp_Clicked(object sender, EventArgs e)
+        private async void SignOut_Clicked(object sender, EventArgs e)
         {
             auth.SignOut();
-            await Navigation.PushAsync(new Login());
+
+            var previousPage = Navigation.NavigationStack.LastOrDefault();
+            await Navigation.PushAsync(new IntroPage());
+            Navigation.RemovePage(previousPage);
         }
 
         private async void BtnMidterms_Clicked(object sender, EventArgs e)

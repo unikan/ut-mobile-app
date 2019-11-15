@@ -5,38 +5,101 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
     mc:Ignorable="d"
-    BackgroundColor="White">
+    BackgroundColor="#EEEEEE">
     <ContentPage.Content>
-        <StackLayout Margin="20" VerticalOptions="Center">
+        <AbsoluteLayout>
+            <!-- HEADER -->
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand"
+                         Margin="10, 0"
+                         AbsoluteLayout.LayoutBounds="0.05, 0.03, 1, 0.13"
+                         AbsoluteLayout.LayoutFlags="All">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <buttons:SfButton Grid.Row="0" 
+                                     Grid.Column="0" 
+                                     HorizontalOptions="Start"
+                                     VerticalOptions="Center"
+                                     ShowIcon="True" 
+                                     BackgroundColor="#242424"
+                                     CornerRadius="40"
+                                     WidthRequest="50"
+                                     HeightRequest="50"
+                                     Clicked="BtnBack_Clicked">
+                        <buttons:SfButton.Content>
+                            <Image Source="back.png"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   WidthRequest="20" 
+                                   HeightRequest="20" />
+                        </buttons:SfButton.Content>
+                    </buttons:SfButton>
+                </Grid>
+            </StackLayout>
 
-            <Label
-                x:Name="label1"
-                Margin="0,20"
-                FontSize="35"
-                HorizontalOptions="Center"
-                Text="Login Page"
-                TextColor="#4682B4" />
+            <StackLayout AbsoluteLayout.LayoutBounds="0, 1, 1, 1"
+                         AbsoluteLayout.LayoutFlags="All"
+                         Padding="20, 0"
+                         VerticalOptions="CenterAndExpand"
+                         x:Name="LoginContent">
+                <Label FontSize="35"
+                       HorizontalOptions="Center"
+                       Text="Welcome back"
+                       TextColor="#242424" />
+                <Label FontSize="35" />
 
+                <inputLayout:SfTextInputLayout Hint="Email" 
+                                               ContainerType="Outlined"
+                                               FocusedColor="#e68471">
+                    <Entry Placeholder="n.lastname3615111035@unite.edu.mk"
+                           x:Name="EmailInput"
+                           Completed="EmailInput_Completed"
+                           Keyboard="Email"
+                           Text="n.ajruli3615111008@unite.edu.mk"/>
+                </inputLayout:SfTextInputLayout>
 
-            <Entry
-                x:Name="EmailInput"
-                Keyboard="Email"
-                Placeholder="E-mail" />
-
-            <Entry
-                x:Name="PasswordInput"
-                IsPassword="true"
-                Placeholder="Password" />
-
-            <Button
-                Margin="60,40"
-                BackgroundColor="#4682B4"
-                Clicked="LoginClicked"
-                Text="Login"
-                TextColor="White" />
-
-
-        </StackLayout>
+                <inputLayout:SfTextInputLayout Hint="Password" 
+                                               ContainerType="Outlined"
+                                               EnablePasswordVisibilityToggle="True"
+                                               FocusedColor="#e68471">
+                    <Entry IsPassword="True"
+                           x:Name="PasswordInput"
+                           Text="neshat"/>
+                </inputLayout:SfTextInputLayout>
+                <buttons:SfButton x:Name="Btn_Login" 
+                                  Text="Log In" 
+                                  CornerRadius="100"
+                                  BackgroundColor="#e68471"
+                                  TextColor="#242424"
+                                  HeightRequest="60"
+                                  FontSize="20"
+                                  Clicked="Btn_Login_Clicked">
+                </buttons:SfButton>
+                <buttons:SfButton x:Name="Btn_ForgotPsw" 
+                                  Text="Forgot Password?" 
+                                  BackgroundColor="Transparent"
+                                  TextColor="#242424"
+                                  FontSize="16"
+                                  Clicked="Btn_ForgotPsw_Clicked">
+                </buttons:SfButton>
+            </StackLayout>
+            <StackLayout AbsoluteLayout.LayoutBounds="0, 1, 1, 1"
+                         AbsoluteLayout.LayoutFlags="All"
+                         Padding="20, 0"
+                         VerticalOptions="CenterAndExpand"
+                         x:Name="NoInternetContent"
+                         IsVisible="False">
+                <Label FontSize="32" Text="No internet, try again" HorizontalOptions="CenterAndExpand"></Label>
+                <Button Text="Retry" Clicked="Reload_Clicked"/>
+            </StackLayout>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

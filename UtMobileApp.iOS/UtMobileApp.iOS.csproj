@@ -97,6 +97,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AuthIOS.cs" />
+    <Compile Include="CloseAppiOS.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />

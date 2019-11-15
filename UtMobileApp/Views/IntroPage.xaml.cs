@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using UtMobileApp.Extensions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,24 +12,48 @@ namespace UtMobileApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class IntroPage : ContentPage
     {
+        readonly Extensions.Helper helper = new Extensions.Helper();
+        readonly Interface auth;
+
         public IntroPage()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
+            auth = DependencyService.Get<Interface>();
         }
 
-        async void Login(object sender, EventArgs e)
+        protected override async void OnAppearing()
         {
+            if (auth.GetCurrentUserStatus())
+            {
+                await Navigation.PushAsync(new MainPageStudent());
+            }
+
+            base.OnAppearing();
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            DependencyService.Get<ICloseApp>().CloseApplication();
+            return true;
+        }
+
+        private async void Btn_Login_Clicked(object sender, EventArgs e)
+        {
+            Syncfusion.XForms.Buttons.SfButton btn = sender as Syncfusion.XForms.Buttons.SfButton;
+
+            helper.DisableButton(btn);
             await Navigation.PushAsync(new Login());
+            await helper.EnableButtonAfter2Sec(btn);
         }
 
-        async void Reset(object sender, EventArgs e)
+        private async void Btn_SignUp_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ResetPass());
-        }
+            Syncfusion.XForms.Buttons.SfButton btn = sender as Syncfusion.XForms.Buttons.SfButton;
 
-        async void SignUp(object sender, EventArgs e)
-        {
+            helper.DisableButton(btn);
             await Navigation.PushAsync(new Register());
+            await helper.EnableButtonAfter2Sec(btn);
         }
     }
 }

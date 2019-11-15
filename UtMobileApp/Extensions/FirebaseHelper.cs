@@ -13,7 +13,7 @@ namespace XamarinFirebase.Helper
 {
     class FirebaseHelper
     {
-        FirebaseClient firebase = new FirebaseClient("https://utappdatabase.firebaseio.com/");
+        readonly FirebaseClient firebase = new FirebaseClient("https://utappdatabase.firebaseio.com/");
 
 
         public async Task<List<Registrations>> GetAllRegistrations()

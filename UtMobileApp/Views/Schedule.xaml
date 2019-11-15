@@ -10,15 +10,15 @@
              xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
              mc:Ignorable="d"
              x:Class="UtMobileApp.Views.Schedule"
-             BackgroundColor="Transparent">
+             BackgroundColor="#019967">
     <ContentPage.Content>
         <AbsoluteLayout>
             <gradient:SfGradientView>
                 <gradient:SfGradientView.BackgroundBrush>
                     <gradient:SfLinearGradientBrush>
                         <gradient:SfLinearGradientBrush.GradientStops>
-                            <gradient:SfGradientStop Color="#ef8976" Offset="0.0" />
-                            <gradient:SfGradientStop Color="#e68471" Offset="1.0" />
+                            <gradient:SfGradientStop Color="#01d28e" Offset="0.0" />
+                            <gradient:SfGradientStop Color="#019967" Offset="1.0" />
                         </gradient:SfLinearGradientBrush.GradientStops>
                     </gradient:SfLinearGradientBrush>
                 </gradient:SfGradientView.BackgroundBrush>

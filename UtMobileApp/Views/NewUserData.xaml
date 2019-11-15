@@ -10,22 +10,46 @@
     xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:numeric="clr-namespace:Syncfusion.SfNumericUpDown.XForms;assembly=Syncfusion.SfNumericUpDown.XForms"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
     mc:Ignorable="d"
-    BackgroundColor="White">
+    BackgroundColor="#EEEEEE">
     <ContentPage.Content>
-        <ScrollView Orientation="Vertical">
-            <StackLayout>
-                <inputLayout:SfTextInputLayout Hint="Index Number">
-                    <Entry x:Name="indexnumber" IsEnabled="False" />
+        <AbsoluteLayout Padding="10, 0">
+            <StackLayout AbsoluteLayout.LayoutBounds="0, 1, 1, 1"
+                         AbsoluteLayout.LayoutFlags="All"
+                         x:Name="CompleteRegistrationContent"
+                         HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand">
+                <Label Text="Personal information"
+                       HorizontalTextAlignment="Center"
+                       FontSize="30"
+                       TextColor="#242424"></Label>
+                <inputLayout:SfTextInputLayout Hint="Index Number" 
+                                               ContainerType="Outlined"
+                                               FocusedColor="#e68471">
+                    <Entry Placeholder="3615111035"
+                           x:Name="IndexNumberInput"
+                           IsEnabled="False" />
                 </inputLayout:SfTextInputLayout>
-                <inputLayout:SfTextInputLayout Hint="Name">
-                    <Entry x:Name="name" />
+                <inputLayout:SfTextInputLayout Hint="First Name" 
+                                               ContainerType="Outlined"
+                                               FocusedColor="#e68471">
+                    <Entry Placeholder="John"
+                           x:Name="NameInput"
+                           Keyboard="Text"
+                           Completed="NameInput_Completed"/>
                 </inputLayout:SfTextInputLayout>
-                <inputLayout:SfTextInputLayout Hint="LastName">
-                    <Entry x:Name="lastname" />
+                <inputLayout:SfTextInputLayout Hint="Last Name" 
+                                               ContainerType="Outlined"
+                                               FocusedColor="#e68471">
+                    <Entry Placeholder="Doe"
+                           Keyboard="Text"
+                           x:Name="LastNameInput"/>
                 </inputLayout:SfTextInputLayout>
-                <inputLayout:SfTextInputLayout Hint="Semester">
-                    <combobox:SfComboBox x:Name="comboboxS">
+                <inputLayout:SfTextInputLayout Hint="Semester"
+                                               ContainerType="Outlined"
+                                               FocusedColor="#e68471">
+                    <combobox:SfComboBox x:Name="SemesterCombobox">
                         <combobox:SfComboBox.ComboBoxSource>
                             <ListCollection:List x:TypeArguments="x:String">
                                 <x:String>I</x:String>
@@ -44,42 +68,23 @@
                         </combobox:SfComboBox.ComboBoxSource>
                     </combobox:SfComboBox>
                 </inputLayout:SfTextInputLayout>
-                <inputLayout:SfTextInputLayout HelperText="If you leave the group blank that means you don't have a group and it's totally fine :) " Hint="Group">
+                <inputLayout:SfTextInputLayout HelperText="If you leave the group '0' that means you don't have a group and it's totally fine :)"
+                                               Hint="Group"
+                                               ContainerType="Outlined"
+                                               FocusedColor="#e68471">
                     <numeric:SfNumericUpDown
-                        x:Name="numericUpDown"
+                        x:Name="GroupsNumericUpDown"
                         AllowNull="true"
                         Maximum="20"
                         MaximumDecimalDigits="0"
                         Minimum="0"
-                        Value="0" />
+                        Value="0"/>
                 </inputLayout:SfTextInputLayout>
-
-
-
-                <!--<inputLayout:SfTextInputLayout Hint="Faculty">
-                <autocomplete:SfAutoComplete AutoCompleteMode="SuggestAppend" SelectionChanged="SfAutoComplete_SelectionChanged">
-                    <autocomplete:SfAutoComplete.AutoCompleteSource>
-                        <ListCollection:List x:TypeArguments="x:String">
-                            <x:String>Faculty of Agriculture and Biotechnology</x:String>
-                            <x:String>Faculty of Applied Sciences</x:String>
-                            <x:String>Faculty of Arts</x:String>
-                            <x:String>Faculty of Business Administration</x:String>
-                            <x:String>Faculty of Economics</x:String>
-                            <x:String>Faculty of Food Technology and Nutrition</x:String>
-                            <x:String>Faculty of Law</x:String>
-                            <x:String>Faculty of Medical Sciences</x:String>
-                            <x:String>Faculty of Natural Sciences and Mathematics</x:String>
-                            <x:String>Faculty of Pedagogy</x:String>
-                            <x:String>Faculty of Philology</x:String>
-                            <x:String>Faculty of Philosophy</x:String>
-                            <x:String>Faculty of Physical Education</x:String>
-                        </ListCollection:List>
-                    </autocomplete:SfAutoComplete.AutoCompleteSource>
-                </autocomplete:SfAutoComplete>
-            </inputLayout:SfTextInputLayout>-->
-
-                <inputLayout:SfTextInputLayout Hint="Faculty">
-                    <combobox:SfComboBox x:Name="comboboxf" SelectionChanged="SfComboBox_SelectionChanged">
+                <inputLayout:SfTextInputLayout Hint="Faculty"
+                                               ContainerType="Outlined"
+                                               FocusedColor="#e68471">
+                    <combobox:SfComboBox x:Name="FacultyCombobox" 
+                                     SelectionChanged="FacultyCombobox_SelectionChanged">
                         <combobox:SfComboBox.ComboBoxSource>
                             <ListCollection:List x:TypeArguments="x:String">
                                 <x:String>Faculty of Agriculture and Biotechnology</x:String>
@@ -99,19 +104,32 @@
                         </combobox:SfComboBox.ComboBoxSource>
                     </combobox:SfComboBox>
                 </inputLayout:SfTextInputLayout>
-
-
-                <inputLayout:SfTextInputLayout x:Name="InputProgram" Hint="Program">
-                    <combobox:SfComboBox x:Name="AutoCompleteProgram" ComboBoxMode="SuggestAppend" />
+                <inputLayout:SfTextInputLayout x:Name="ProgramInput"
+                                               Hint="Program"
+                                               ContainerType="Outlined"
+                                               FocusedColor="#e68471">
+                    <combobox:SfComboBox x:Name="AutoCompleteProgram" 
+                                         ComboBoxMode="SuggestAppend" />
                 </inputLayout:SfTextInputLayout>
-
-                <Button
-                    x:Name="ComReg"
-                    Clicked="ComReg_Clicked"
-                    Text="Complete Registration"
-                    WidthRequest="200" />
-
+                <buttons:SfButton x:Name="Btn_CompleteReg" 
+                                  Text="Complete Registration" 
+                                  CornerRadius="100"
+                                  BackgroundColor="#e68471"
+                                  TextColor="#242424"
+                                  HeightRequest="60"
+                                  FontSize="20"
+                                  Clicked="Btn_CompleteReg_Clicked">
+                </buttons:SfButton>
             </StackLayout>
-        </ScrollView>
+            <StackLayout AbsoluteLayout.LayoutBounds="0, 1, 1, 1"
+                         AbsoluteLayout.LayoutFlags="All"
+                         Padding="20, 0"
+                         VerticalOptions="CenterAndExpand"
+                         x:Name="NoInternetContent"
+                         IsVisible="False">
+                <Label FontSize="32" Text="No internet, try again" HorizontalOptions="CenterAndExpand"></Label>
+                <Button Text="Retry" Clicked="Reload_Clicked"/>
+            </StackLayout>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

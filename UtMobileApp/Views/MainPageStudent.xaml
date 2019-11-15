@@ -131,6 +131,13 @@
                                       HorizontalTextAlignment="Start"
                                       HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent" />
+                    <buttons:SfButton Text="Sign Out" 
+                                      TextColor="Black"
+                                      FontSize="Medium"
+                                      HorizontalTextAlignment="Start"
+                                      HorizontalOptions="StartAndExpand"
+                                      BackgroundColor="Transparent"
+                                      Clicked="SignOut_Clicked"/>
                 </StackLayout>
             </navigationdrawer:SfNavigationDrawer.DrawerContentView>
             <!-- FOOTER CONTENT -->

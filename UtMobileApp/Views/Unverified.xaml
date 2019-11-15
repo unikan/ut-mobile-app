@@ -5,34 +5,43 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
     mc:Ignorable="d"
-    BackgroundColor="White">
+    BackgroundColor="#EEEEEE">
     <ContentPage.Content>
-        <StackLayout>
-            <Label
-                Margin="20,20,20,20"
-                FontSize="25"
-                HorizontalOptions="CenterAndExpand"
-                Text="You haven't verified your email address yet , please verify your email addres to login."
-                TextColor="#4682B4"
-                VerticalOptions="CenterAndExpand" />
+        <AbsoluteLayout>
+            <StackLayout AbsoluteLayout.LayoutBounds="0, 1, 1, 1"
+                         AbsoluteLayout.LayoutFlags="All"
+                         Padding="20, 0"
+                         VerticalOptions="CenterAndExpand"
+                         x:Name="UnverifiedContent">
+                <Label FontSize="25"
+                       HorizontalOptions="CenterAndExpand"
+                       HorizontalTextAlignment="Center"
+                       Text="You haven't verified your email address yet , please verify your email address to login."
+                       TextColor="#242424" />
+                <Label FontSize="25" />
 
-
-
-            <Button
-                Margin="60,40"
-                BackgroundColor="#4682B4"
-                Clicked="GotoLogin"
-                Text="Return to Login"
-                TextColor="White" />
-
-            <Button
-                Margin="60,40"
-                BackgroundColor="#4682B4"
-                Clicked="VerifyAgain_Clicked"
-                Text="Send Email Verification Again"
-                TextColor="White" />
-
-        </StackLayout>
+                <buttons:SfButton x:Name="Btn_ResendVerification" 
+                                  Text="Resend verification email" 
+                                  CornerRadius="100"
+                                  BackgroundColor="#e68471"
+                                  TextColor="#242424"
+                                  HeightRequest="60"
+                                  FontSize="20"
+                                  Clicked="Btn_ResendVerification_Clicked">
+                </buttons:SfButton>
+            </StackLayout>
+            <StackLayout AbsoluteLayout.LayoutBounds="0, 1, 1, 1"
+                         AbsoluteLayout.LayoutFlags="All"
+                         Padding="20, 0"
+                         VerticalOptions="CenterAndExpand"
+                         x:Name="NoInternetContent"
+                         IsVisible="False">
+                <Label FontSize="32" Text="No internet, try again" HorizontalOptions="CenterAndExpand"></Label>
+                <Button Text="Retry" Clicked="Reload_Clicked"/>
+            </StackLayout>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>
