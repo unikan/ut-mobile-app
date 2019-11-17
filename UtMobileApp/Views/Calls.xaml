@@ -8,9 +8,15 @@
              xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
              xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
              xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:converter="clr-namespace:UtMobileApp.Extensions"
              mc:Ignorable="d"
              x:Class="UtMobileApp.Views.Calls"
              BackgroundColor="#cc7564">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:PlainText x:Key="convertToPlainText" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <AbsoluteLayout>
             <gradient:SfGradientView>
@@ -107,9 +113,9 @@
                                                VerticalOptions="CenterAndExpand"
                                                FontSize="Medium"
                                                FontAttributes="Bold"
-                                               TextType="Html"
+                                               
                                                Padding="10, 0, 0, 0"
-                                               Text="{Binding Title.Rendered}"></Label>
+                                               Text="{Binding Title.Rendered, Converter={StaticResource convertToPlainText}}"></Label>
                                             <Grid Grid.Row="0"
                                               Grid.Column="1"
                                               HorizontalOptions="CenterAndExpand"

@@ -30,7 +30,7 @@ namespace UtMobileApp.Views
         {
             base.OnAppearing();
 
-            label_title.Text = currentPost.Title.Rendered;
+            label_title.Text = currentPost.Title.Rendered.Replace("&#8211;", "-");
             label_date.Text = "Posted: " + currentPost.Date.ToString("dddd, dd MMMM yyyy HH:mm");
 
             // Hide busy indicator indicator

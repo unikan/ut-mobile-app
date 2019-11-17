@@ -14,7 +14,7 @@ namespace UtMobileApp.Views
     {
         protected Models.WPFeaturedPost currentPost;
         protected string currentCategory;
-        Extensions.WordpressServices ws;
+        readonly Extensions.WordpressServices ws;
 
         public FeaturedPostDetailPage(Models.WPFeaturedPost SelectedPost, string category)
         {
@@ -30,7 +30,7 @@ namespace UtMobileApp.Views
         {
             base.OnAppearing();
 
-            label_title.Text = currentPost.Title;
+            label_title.Text = currentPost.Title.Replace("&#8211;", "-");
             label_date.Text = "Posted: " + currentPost.Date.ToString("dddd, dd MMMM yyyy HH:mm");
 
             // Hide busy indicator indicator

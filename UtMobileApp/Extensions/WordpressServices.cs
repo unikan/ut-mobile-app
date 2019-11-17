@@ -18,7 +18,7 @@ namespace UtMobileApp.Extensions
         {
             var posts = await _client.Posts.Query(new PostsQueryBuilder
             {
-                PerPage = 20,
+                PerPage = 5,
                 Embed = true,
                 Categories = new int[] { category }
             });

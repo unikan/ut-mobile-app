@@ -36,7 +36,7 @@ namespace UtMobileApp.Views
 
             base.OnAppearing();
 
-            label_date.Text = "\n\n" + DateTime.Now.ToString("dddd, dd MMMM");
+            label_date.Text = DateTime.Now.ToString("dddd,\ndd MMMM");
 
             await Task.Delay(1000); // Wait 1sec so the animation can be seen
             await BtnLectures.TranslateTo(0, 0, 700, Easing.SpringOut);

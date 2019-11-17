@@ -67,6 +67,7 @@
                     <Label Grid.Row="0" 
                            Grid.Column="2" 
                            HorizontalTextAlignment="End"
+                           HorizontalOptions="CenterAndExpand"
                            VerticalOptions="CenterAndExpand"
                            x:Name="label_monthYear"
                            TextColor="White"
@@ -75,21 +76,109 @@
                 </Grid>
             </StackLayout>
             <!-- DAYS -->
-            <StackLayout Orientation="Horizontal" 
-                         HorizontalOptions="FillAndExpand"
-                         VerticalOptions="Start"
-                         Margin="5, 0, 5, 0"
-                         AbsoluteLayout.LayoutBounds="0, .14, 1, .1"
-                         AbsoluteLayout.LayoutFlags="All">
-                <Button BackgroundColor="#d9eeec" CornerRadius="10" TextColor="#8E97A6" Text="M" HorizontalOptions="CenterAndExpand" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_monday" CommandParameter="0" Scale="0"></Button>
-                <Button BackgroundColor="#d9eeec" CornerRadius="10" TextColor="#8E97A6" Text="T" HorizontalOptions="CenterAndExpand" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_tuesday" CommandParameter="1" Scale="0"></Button>
-                <Button BackgroundColor="#d9eeec" CornerRadius="10" TextColor="#8E97A6" Text="W" HorizontalOptions="CenterAndExpand" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_wednesday" CommandParameter="2" Scale="0"></Button>
-                <Button BackgroundColor="#d9eeec" CornerRadius="10" TextColor="#8E97A6" Text="T" HorizontalOptions="CenterAndExpand" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_thursday" CommandParameter="3" Scale="0"></Button>
-                <Button BackgroundColor="#d9eeec" CornerRadius="10" TextColor="#8E97A6" Text="F" HorizontalOptions="CenterAndExpand" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_friday" CommandParameter="4" Scale="0"></Button>
-                <Button BackgroundColor="#d9eeec" CornerRadius="10" TextColor="#8E97A6" Text="S" HorizontalOptions="CenterAndExpand" WidthRequest="60" Clicked="Button_ChangeDay_Clicked" x:Name="btn_saturday" CommandParameter="5" Scale="0"></Button>
-            </StackLayout>
+            <ScrollView Orientation="Horizontal" 
+                        HorizontalScrollBarVisibility="Never"
+                        AbsoluteLayout.LayoutBounds="0, .14, 1, .1"
+                        AbsoluteLayout.LayoutFlags="All">
+                <StackLayout Orientation="Horizontal" 
+                             HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="CenterAndExpand"
+                             Margin="5"
+                             x:Name="StacklayoutButtons">
+                    <buttons:SfButton x:Name="btn_monday"
+                                      BackgroundColor="#d9eeec"
+                                      CornerRadius="10"
+                                      TextColor="#101010"
+                                      WidthRequest="60" HeightRequest="60"
+                                      Scale="0"
+                                      CommandParameter="0"
+                                      Clicked="Button_ChangeDay_Clicked">
+                        <buttons:SfButton.Content>
+                            <StackLayout VerticalOptions="CenterAndExpand">
+                                <Label Text="MON" HorizontalTextAlignment="Center" FontSize="11" FontAttributes="Bold"/>
+                                <Label x:Name="label_monday" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+                            </StackLayout>
+                        </buttons:SfButton.Content>
+                    </buttons:SfButton>
+                    <buttons:SfButton x:Name="btn_tuesday"
+                                      BackgroundColor="#d9eeec"
+                                      CornerRadius="10"
+                                      TextColor="#101010"
+                                      WidthRequest="60" HeightRequest="60"
+                                      Scale="0"
+                                      CommandParameter="1"
+                                      Clicked="Button_ChangeDay_Clicked">
+                        <buttons:SfButton.Content>
+                            <StackLayout VerticalOptions="CenterAndExpand">
+                                <Label Text="TUE" HorizontalTextAlignment="Center" FontSize="11" FontAttributes="Bold"/>
+                                <Label x:Name="label_tuesday" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+                            </StackLayout>
+                        </buttons:SfButton.Content>
+                    </buttons:SfButton>
+                    <buttons:SfButton x:Name="btn_wednesday"
+                                      BackgroundColor="#d9eeec"
+                                      CornerRadius="10"
+                                      TextColor="#101010"
+                                      WidthRequest="60" HeightRequest="60"
+                                      Scale="0"
+                                      CommandParameter="2"
+                                      Clicked="Button_ChangeDay_Clicked">
+                        <buttons:SfButton.Content>
+                            <StackLayout VerticalOptions="CenterAndExpand">
+                                <Label Text="WED" HorizontalTextAlignment="Center" FontSize="11" FontAttributes="Bold"/>
+                                <Label x:Name="label_wednesday" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+                            </StackLayout>
+                        </buttons:SfButton.Content>
+                    </buttons:SfButton>
+                    <buttons:SfButton x:Name="btn_thursday"
+                                      BackgroundColor="#d9eeec"
+                                      CornerRadius="10"
+                                      TextColor="#101010"
+                                      WidthRequest="60" HeightRequest="60"
+                                      Scale="0"
+                                      CommandParameter="3"
+                                      Clicked="Button_ChangeDay_Clicked">
+                        <buttons:SfButton.Content>
+                            <StackLayout VerticalOptions="CenterAndExpand">
+                                <Label Text="THU" HorizontalTextAlignment="Center" FontSize="11" FontAttributes="Bold"/>
+                                <Label x:Name="label_thursday" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+                            </StackLayout>
+                        </buttons:SfButton.Content>
+                    </buttons:SfButton>
+                    <buttons:SfButton x:Name="btn_friday"
+                                      BackgroundColor="#d9eeec"
+                                      CornerRadius="10"
+                                      TextColor="#101010"
+                                      WidthRequest="60" HeightRequest="60"
+                                      Scale="0"
+                                      CommandParameter="4"
+                                      Clicked="Button_ChangeDay_Clicked">
+                        <buttons:SfButton.Content>
+                            <StackLayout VerticalOptions="CenterAndExpand">
+                                <Label Text="FRI" HorizontalTextAlignment="Center" FontSize="11" FontAttributes="Bold"/>
+                                <Label x:Name="label_friday" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+                            </StackLayout>
+                        </buttons:SfButton.Content>
+                    </buttons:SfButton>
+                    <buttons:SfButton x:Name="btn_saturday"
+                                      BackgroundColor="#d9eeec"
+                                      CornerRadius="10"
+                                      TextColor="#101010"
+                                      WidthRequest="60" HeightRequest="60"
+                                      Scale="0"
+                                      CommandParameter="5"
+                                      Clicked="Button_ChangeDay_Clicked">
+                        <buttons:SfButton.Content>
+                            <StackLayout VerticalOptions="CenterAndExpand">
+                                <Label Text="SAT" HorizontalTextAlignment="Center" FontSize="11" FontAttributes="Bold"/>
+                                <Label x:Name="label_saturday" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+                            </StackLayout>
+                        </buttons:SfButton.Content>
+                    </buttons:SfButton>
+                </StackLayout>
+            </ScrollView>
             <!-- SCHEDULE -->
-            <border:SfBorder AbsoluteLayout.LayoutBounds="0, 1, 1, .8"
+            <border:SfBorder AbsoluteLayout.LayoutBounds="0, 1, 1, .76"
                              AbsoluteLayout.LayoutFlags="All"
                              CornerRadius="20, 20, 0, 0" 
                              BorderWidth="0"
@@ -115,13 +204,13 @@
                     </schedule:SfSchedule.DayViewSettings>
                     <schedule:SfSchedule.AppointmentStyle>
                         <schedule:AppointmentStyle
-				    BorderWidth="10"
-				    TextColor="#99000000"
-				    BorderCornerRadius="40"
-				    FontSize = "14"
-                    FontAttributes="Bold"
-                    SelectionBorderColor="FloralWhite"
-                    SelectionTextColor="#000000">
+				                    BorderWidth="10"
+				                    TextColor="#99000000"
+				                    BorderCornerRadius="20"
+				                    FontSize = "14"
+                                    FontAttributes="Bold"
+                                    SelectionBorderColor="FloralWhite"
+                                    SelectionTextColor="#000000">
                         </schedule:AppointmentStyle>
                     </schedule:SfSchedule.AppointmentStyle>
                 </schedule:SfSchedule>

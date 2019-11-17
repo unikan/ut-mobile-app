@@ -76,38 +76,32 @@ namespace UtMobileApp.Views
             schedule.MoveToDate = DateTime.Now;
 
             // Add date to every day button
-            btn_monday.Text = "MON\n" + dates[0, 2].ToString("00");
-            btn_tuesday.Text = "TUE\n" + dates[1, 2].ToString("00");
-            btn_wednesday.Text = "WED\n" + dates[2, 2].ToString("00");
-            btn_thursday.Text = "THU\n" + dates[3, 2].ToString("00");
-            btn_friday.Text = "FRI\n" + dates[4, 2].ToString("00");
-            btn_saturday.Text = "SAT\n" + dates[5, 2].ToString("00");
+            label_monday.Text = dates[0, 2].ToString("00");
+            label_tuesday.Text = dates[1, 2].ToString("00");
+            label_wednesday.Text = dates[2, 2].ToString("00");
+            label_thursday.Text = dates[3, 2].ToString("00");
+            label_friday.Text = dates[4, 2].ToString("00");
+            label_saturday.Text = dates[5, 2].ToString("00");
 
             switch (DateTime.Now.DayOfWeek.ToString())
             {
                 case "Monday":
-                    btn_monday.TextColor = Color.FromHex("#101010");
-                    btn_monday.FontAttributes = FontAttributes.Bold;
+                    btn_monday.BackgroundColor = Color.FromHex("#99D5D0");
                     break;
                 case "Tuesday":
-                    btn_tuesday.TextColor = Color.FromHex("#101010");
-                    btn_tuesday.FontAttributes = FontAttributes.Bold;
+                    btn_tuesday.BackgroundColor = Color.FromHex("#99D5D0");
                     break;
                 case "Wednesday":
-                    btn_wednesday.TextColor = Color.FromHex("#101010");
-                    btn_wednesday.FontAttributes = FontAttributes.Bold;
+                    btn_wednesday.BackgroundColor = Color.FromHex("#99D5D0");
                     break;
                 case "Thursday":
-                    btn_thursday.TextColor = Color.FromHex("#101010");
-                    btn_thursday.FontAttributes = FontAttributes.Bold;
+                    btn_thursday.BackgroundColor = Color.FromHex("#99D5D0");
                     break;
                 case "Friday":
-                    btn_friday.TextColor = Color.FromHex("#101010");
-                    btn_friday.FontAttributes = FontAttributes.Bold;
+                    btn_friday.BackgroundColor = Color.FromHex("#99D5D0");
                     break;
                 case "Saturday":
-                    btn_saturday.TextColor = Color.FromHex("#101010");
-                    btn_saturday.FontAttributes = FontAttributes.Bold;
+                    btn_saturday.BackgroundColor = Color.FromHex("#99D5D0");
                     break;
                 default:
                     break;
@@ -129,26 +123,19 @@ namespace UtMobileApp.Views
 
         private void Button_ChangeDay_Clicked(object sender, EventArgs e)
         {
-            Button clickedBtn = sender as Button;
+            Syncfusion.XForms.Buttons.SfButton clickedBtn = sender as Syncfusion.XForms.Buttons.SfButton;
             int addDays = int.Parse(clickedBtn.CommandParameter.ToString());
 
             schedule.MoveToDate = new DateTime(dates[0, 0], dates[0, 1], dates[0, 2]).AddDays(addDays);
 
-            btn_monday.TextColor = Color.FromHex("#8E97A6");
-            btn_monday.FontAttributes = FontAttributes.None;
-            btn_tuesday.TextColor = Color.FromHex("#8E97A6");
-            btn_tuesday.FontAttributes = FontAttributes.None;
-            btn_wednesday.TextColor = Color.FromHex("#8E97A6");
-            btn_wednesday.FontAttributes = FontAttributes.None;
-            btn_thursday.TextColor = Color.FromHex("#8E97A6");
-            btn_thursday.FontAttributes = FontAttributes.None;
-            btn_friday.TextColor = Color.FromHex("#8E97A6");
-            btn_friday.FontAttributes = FontAttributes.None;
-            btn_saturday.TextColor = Color.FromHex("#8E97A6");
-            btn_saturday.FontAttributes = FontAttributes.None;
+            btn_monday.BackgroundColor = Color.FromHex("#d9eeec");
+            btn_tuesday.BackgroundColor = Color.FromHex("#d9eeec");
+            btn_wednesday.BackgroundColor = Color.FromHex("#d9eeec");
+            btn_thursday.BackgroundColor = Color.FromHex("#d9eeec");
+            btn_friday.BackgroundColor = Color.FromHex("#d9eeec");
+            btn_saturday.BackgroundColor = Color.FromHex("#d9eeec");
 
-            clickedBtn.TextColor = Color.FromHex("#101010");
-            clickedBtn.FontAttributes = FontAttributes.Bold;
+            clickedBtn.BackgroundColor = Color.FromHex("#99D5D0");
         }
 
         private async void BtnBack_Clicked(object sender, EventArgs e)

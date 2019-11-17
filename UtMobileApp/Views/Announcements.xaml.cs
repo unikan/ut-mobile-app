@@ -26,7 +26,7 @@ namespace UtMobileApp.Views
                 {
                     Extensions.WordpressServices wordpressServices = new Extensions.WordpressServices();
                     announcementsList.ItemsSource = await wordpressServices.GetLatestPostsAsync(59);
-
+                    
                     // Hide busy indicator indicator
                     await busyindicator.FadeTo(0, 300, Easing.Linear);
                     busyindicator.IsVisible = false;

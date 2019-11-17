@@ -21,7 +21,7 @@
                                              VerticalOptions="FillAndExpand">
             <!-- DRAWER HEADER -->
             <navigationdrawer:SfNavigationDrawer.DrawerHeaderView>
-                <Grid BackgroundColor="#018c5e">
+                <Grid BackgroundColor="#cc7564">
                     <StackLayout VerticalOptions="CenterAndExpand" 
                                  HorizontalOptions="CenterAndExpand"
                                  Orientation="Horizontal">
@@ -48,12 +48,6 @@
             <navigationdrawer:SfNavigationDrawer.DrawerContentView>
                 <StackLayout BackgroundColor="#EEEEEE"
                              Padding="20">
-                    <buttons:SfButton Text="Profile" 
-                                      TextColor="Black"
-                                      FontSize="Medium"
-                                      HorizontalTextAlignment="Start"
-                                      HorizontalOptions="StartAndExpand"
-                                      BackgroundColor="Transparent" />
                     <buttons:SfButton Text="News" 
                                       TextColor="Black"
                                       FontSize="Medium"
@@ -131,21 +125,21 @@
                                       HorizontalTextAlignment="Start"
                                       HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent" />
-                    <buttons:SfButton Text="Sign Out" 
-                                      TextColor="Black"
-                                      FontSize="Medium"
-                                      HorizontalTextAlignment="Start"
-                                      HorizontalOptions="StartAndExpand"
-                                      BackgroundColor="Transparent"
-                                      Clicked="SignOut_Clicked"/>
                 </StackLayout>
             </navigationdrawer:SfNavigationDrawer.DrawerContentView>
             <!-- FOOTER CONTENT -->
             <navigationdrawer:SfNavigationDrawer.DrawerFooterView>
-                <Grid BackgroundColor="#01593c">
-                    <StackLayout VerticalOptions="Center" 
-                         HorizontalOptions="Center">
-                        <Label Text="Powered by UNIKAN&#x1F970;"/>
+                <Grid BackgroundColor="#cc7564">
+                    <StackLayout VerticalOptions="StartAndExpand" 
+                                 HorizontalOptions="CenterAndExpand>
+                        <buttons:SfButton Text="Sign Out" 
+                                          TextColor="Black"
+                                          FontSize="Medium"
+                                          HorizontalTextAlignment="Center"
+                                          VerticalTextAlignment="Center"
+                                          HorizontalOptions="StartAndExpand"
+                                          BackgroundColor="Transparent"
+                                          Clicked="SignOut_Clicked"/>
                     </StackLayout>
                 </Grid>
             </navigationdrawer:SfNavigationDrawer.DrawerFooterView>
@@ -156,7 +150,7 @@
                                      AbsoluteLayout.LayoutFlags="All"
                                      CornerRadius="0, 0, 150, 0" 
                                      BorderWidth="0">
-                        <AbsoluteLayout>
+                        <AbsoluteLayout BackgroundColor="#cc7564">
                             <gradient:SfGradientView>
                                 <gradient:SfGradientView.BackgroundBrush>
                                     <gradient:SfLinearGradientBrush>
@@ -185,27 +179,25 @@
                                 </buttons:SfButton.Content>
                             </buttons:SfButton>
 
-                            <Label AbsoluteLayout.LayoutBounds="0.1, 0.5, 0.5, 0.5"
-                                   AbsoluteLayout.LayoutFlags="All"
-                                   TextColor="White">
-                                <Label.FormattedText>
-                                    <FormattedString>
-                                        <Span FontSize="40" Text="Hello,&#x0a;" />
-                                        <Span FontSize="40" FontAttributes="Bold" x:Name="label_name" Text="Filani" />
-                                        <Span FontSize="20" x:Name="label_date" />
-                                    </FormattedString>
-                                </Label.FormattedText>
-                            </Label>
                             <Image Source="book.png"
                                    AbsoluteLayout.LayoutBounds="1, 0, 1, 1"
                                    AbsoluteLayout.LayoutFlags="All"
                                    TranslationX="50"
                                    TranslationY="-60" />
+                            <Label AbsoluteLayout.LayoutBounds="0, 0.5, 1, 0.5"
+                                   AbsoluteLayout.LayoutFlags="All"
+                                   TextColor="White"
+                                   Margin="35, 0, 0, 0">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span FontSize="40" Text="Hello,&#x0a;" />
+                                        <Span FontSize="40" FontAttributes="Bold" x:Name="label_name" Text="Filani&#x0a;" />
+                                        <Span FontSize="20" x:Name="label_date" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
                         </AbsoluteLayout>
                     </border:SfBorder>
-                    <!--<Button Text="Hey"
-                            AbsoluteLayout.LayoutBounds="0.4, 0.55, 100, 50"
-                            AbsoluteLayout.LayoutFlags="PositionProportional"></Button>-->
                     <StackLayout AbsoluteLayout.LayoutBounds="1, 1, 1, 0.45"
                                  AbsoluteLayout.LayoutFlags="All"
                                  HorizontalOptions="CenterAndExpand"

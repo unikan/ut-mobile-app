@@ -9,14 +9,24 @@ namespace UtMobileApp
 {
     public partial class App : Application
     {
+        readonly Interface auth;
+
         public App()
         {
             // Register Syncfusion license
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTUwODY0QDMxMzcyZTMzMmUzMFl5bDFGeGJPRDAwU3VhRW9wd2UrSUFpbk80bVZpMER6R0ljZ2RSdkdkdlU9");
+            auth = DependencyService.Get<Interface>();
 
             InitializeComponent();
 
-            MainPage = new FormsControls.Base.AnimationNavigationPage(new Views.IntroPage());
+            if (auth.GetCurrentUserStatus())
+            {
+                MainPage = new FormsControls.Base.AnimationNavigationPage(new Views.MainPageStudent());
+            }
+            else
+            {
+                MainPage = new FormsControls.Base.AnimationNavigationPage(new Views.IntroPage());
+            }
         }
 
         protected override void OnStart()
