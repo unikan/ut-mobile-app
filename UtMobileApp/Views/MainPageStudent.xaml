@@ -131,7 +131,7 @@
             <navigationdrawer:SfNavigationDrawer.DrawerFooterView>
                 <Grid BackgroundColor="#cc7564">
                     <StackLayout VerticalOptions="StartAndExpand" 
-                                 HorizontalOptions="CenterAndExpand>
+                                 HorizontalOptions="CenterAndExpand">
                         <buttons:SfButton Text="Sign Out" 
                                           TextColor="Black"
                                           FontSize="Medium"
