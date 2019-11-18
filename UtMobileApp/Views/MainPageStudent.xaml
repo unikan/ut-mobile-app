@@ -98,7 +98,8 @@
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
                                       HorizontalOptions="StartAndExpand"
-                                      BackgroundColor="Transparent" />
+                                      BackgroundColor="Transparent" 
+                                      Clicked="BtnForum_Clicked"/>
                     <buttons:SfButton Text="Student Parliament" 
                                       TextColor="Black"
                                       FontSize="Medium"

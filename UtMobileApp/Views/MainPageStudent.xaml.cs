@@ -133,5 +133,10 @@ namespace UtMobileApp.Views
             auth.SignOut();
             await Navigation.PushAsync(new IntroPage());
         }
+
+        private async void BtnForum_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ForumP());
+        }
     }
 }

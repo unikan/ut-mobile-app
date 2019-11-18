@@ -10,8 +10,8 @@
     xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:numeric="clr-namespace:Syncfusion.SfNumericUpDown.XForms;assembly=Syncfusion.SfNumericUpDown.XForms"
-    mc:Ignorable="d"
-    BackgroundColor="White">
+    BackgroundColor="White"
+    mc:Ignorable="d">
     <ContentPage.Content>
         <ScrollView Orientation="Vertical">
             <StackLayout>
