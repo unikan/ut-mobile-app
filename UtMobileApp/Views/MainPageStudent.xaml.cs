@@ -26,12 +26,15 @@ namespace UtMobileApp.Views
 
         protected override async void OnAppearing()
         {
-            // Check if he's good to go
-            if (await firebaseHelper.GetPerson(auth.GetCurrentUserEmail()) == null)
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
-                var previousPage = Navigation.NavigationStack.LastOrDefault();
-                await Navigation.PushAsync(new NewUserData());
-                Navigation.RemovePage(previousPage);
+                // Check if he's good to go
+                if (await firebaseHelper.GetPerson(auth.GetCurrentUserEmail()) == null)
+                {
+                    var previousPage = Navigation.NavigationStack.LastOrDefault();
+                    await Navigation.PushAsync(new NewUserData());
+                    Navigation.RemovePage(previousPage);
+                }
             }
 
             base.OnAppearing();
@@ -144,6 +147,27 @@ namespace UtMobileApp.Views
         {
             auth.SignOut();
             await Navigation.PushAsync(new IntroPage());
+        }
+
+        private async void Reload_Clicked(object sender, EventArgs e)
+        {
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+                if (await firebaseHelper.GetPerson(auth.GetCurrentUserEmail()) == null)
+                {
+                    var previousPage = Navigation.NavigationStack.LastOrDefault();
+                    await Navigation.PushAsync(new NewUserData());
+                    Navigation.RemovePage(previousPage);
+                }
+
+                scheduleContent.IsVisible = true;
+                NoInternetContent.IsVisible = false;
+            }
+            else
+            {
+                scheduleContent.IsVisible = false;
+                NoInternetContent.IsVisible = true;
+            }
         }
     }
 }

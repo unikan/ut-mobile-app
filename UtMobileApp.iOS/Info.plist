@@ -22,9 +22,9 @@
 	<key>MinimumOSVersion</key>
 	<string>11.3</string>
 	<key>CFBundleDisplayName</key>
-	<string>University of Tetova</string>
+	<string>UnitEd - University of Tetova</string>
 	<key>CFBundleIdentifier</key>
-	<string>Unikan.Utapp</string>
+	<string>com.unikan.utmobileapp</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>CFBundleIconFiles</key>

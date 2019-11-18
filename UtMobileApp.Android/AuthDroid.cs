@@ -143,7 +143,7 @@ namespace UtMobileApp.Android
         {
             try
             {
-                using (var actionCode = ActionCodeSettings.NewBuilder().SetAndroidPackageName("Unikan.Utapp", true, "0").Build())
+                using (var actionCode = ActionCodeSettings.NewBuilder().SetAndroidPackageName("com.unikan.utmobileapp", true, "0").Build())
                 {
                     await FirebaseAuth.Instance.CurrentUser.SendEmailVerificationAsync(actionCode);
                 }
@@ -180,7 +180,7 @@ namespace UtMobileApp.Android
                 var auth = FirebaseAuth.Instance;
                 using (var authResult = await auth.CreateUserWithEmailAndPasswordAsync(email, password))
                 using (var user = authResult.User)
-                using (var actionCode = ActionCodeSettings.NewBuilder().SetAndroidPackageName("Unikan.Utapp", true, "0").Build())
+                using (var actionCode = ActionCodeSettings.NewBuilder().SetAndroidPackageName("com.unikan.utmobileapp", true, "0").Build())
                 {
                     await user.SendEmailVerificationAsync(actionCode);
                     return Tuple.Create("success", false);

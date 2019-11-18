@@ -13,17 +13,25 @@ namespace UtMobileApp
 
         public App()
         {
-            // Register Syncfusion license
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTUwODY0QDMxMzcyZTMzMmUzMFl5bDFGeGJPRDAwU3VhRW9wd2UrSUFpbk80bVZpMER6R0ljZ2RSdkdkdlU9");
-            auth = DependencyService.Get<Interface>();
-
             InitializeComponent();
 
-            if (auth.GetCurrentUserStatus())
+            // Register Syncfusion license
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTUwODY0QDMxMzcyZTMzMmUzMFl5bDFGeGJPRDAwU3VhRW9wd2UrSUFpbk80bVZpMER6R0ljZ2RSdkdkdlU9");
+
+            try
             {
-                MainPage = new FormsControls.Base.AnimationNavigationPage(new Views.MainPageStudent());
+                auth = DependencyService.Get<Interface>();
+
+                if (auth.GetCurrentUserStatus())
+                {
+                    MainPage = new FormsControls.Base.AnimationNavigationPage(new Views.MainPageStudent());
+                }
+                else
+                {
+                    MainPage = new FormsControls.Base.AnimationNavigationPage(new Views.IntroPage());
+                }
             }
-            else
+            catch (Exception)
             {
                 MainPage = new FormsControls.Base.AnimationNavigationPage(new Views.IntroPage());
             }

@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>559523781574-nkvoamo9nlg482afct3v2mhfr4eibspf.apps.googleusercontent.com</string>
+	<string>559523781574-al5voljh5ldcd3a4i701k6vici235ju9.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.559523781574-nkvoamo9nlg482afct3v2mhfr4eibspf</string>
+	<string>com.googleusercontent.apps.559523781574-al5voljh5ldcd3a4i701k6vici235ju9</string>
 	<key>API_KEY</key>
 	<string>AIzaSyB0Uu4ZJssGpS_Pz1Q2jjaf3qzAwTRLoW4</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>Unikan.Utapp</string>
+	<string>com.unikan.utmobileapp</string>
 	<key>PROJECT_ID</key>
 	<string>utappdatabase</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:559523781574:ios:270071d77494ed6f8030c7</string>
+	<string>1:559523781574:ios:4cc2d1e168aaaf858030c7</string>
 	<key>DATABASE_URL</key>
 	<string>https://utappdatabase.firebaseio.com</string>
 </dict>

@@ -146,7 +146,7 @@ namespace UtMobileApp.iOS
             {
                 var action = new ActionCodeSettings
                 {
-                    IOSBundleId = "Unikan.Utapp"
+                    IOSBundleId = "com.unikan.utmobileapp"
                 };
                 using (var actionCode = action)
                 {
@@ -169,7 +169,7 @@ namespace UtMobileApp.iOS
                 //var user = await FirebaseAuth.Instance.CreateUserWithEmailAndPasswordAsync(email, password);
                 var action = new ActionCodeSettings
                 {
-                    IOSBundleId = "Unikan.Utapp"
+                    IOSBundleId = "com.unikan.utmobileapp"
                 };
                 var auth = Auth.DefaultInstance;
             using (var authResult = await auth.CreateUserAsync(email, password))

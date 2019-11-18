@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:559523781574:android:b90bcc0ee33da1138030c7",
+        "mobilesdk_app_id": "1:559523781574:android:37e77660da4de1be8030c7",
         "android_client_info": {
-          "package_name": "Unikan.Utapp"
+          "package_name": "com.unikan.utmobileapp"
         }
       },
       "oauth_client": [
@@ -32,10 +32,10 @@
               "client_type": 3
             },
             {
-              "client_id": "559523781574-nkvoamo9nlg482afct3v2mhfr4eibspf.apps.googleusercontent.com",
+              "client_id": "559523781574-al5voljh5ldcd3a4i701k6vici235ju9.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "Unikan.Utapp"
+                "bundle_id": "com.unikan.utmobileapp"
               }
             }
           ]

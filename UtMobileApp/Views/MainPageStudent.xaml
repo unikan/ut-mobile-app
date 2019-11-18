@@ -201,7 +201,8 @@
                     <StackLayout AbsoluteLayout.LayoutBounds="1, 1, 1, 0.45"
                                  AbsoluteLayout.LayoutFlags="All"
                                  HorizontalOptions="CenterAndExpand"
-                                 VerticalOptions="CenterAndExpand">
+                                 VerticalOptions="CenterAndExpand"
+                                 x:Name="scheduleContent">
                         <ScrollView Orientation="Horizontal" 
                                     HorizontalScrollBarVisibility="Never" Scrolled="ScrollView_Scrolled">
                             <StackLayout Orientation="Horizontal"
@@ -263,6 +264,15 @@
                                                   BackgroundImage="consultations.png"/>
                             </StackLayout>
                         </ScrollView>
+                    </StackLayout>
+                    <StackLayout AbsoluteLayout.LayoutBounds="1, 1, 1, 0.45"
+                         AbsoluteLayout.LayoutFlags="All"
+                         Padding="20, 0"
+                         VerticalOptions="CenterAndExpand"
+                         x:Name="NoInternetContent"
+                         IsVisible="False">
+                        <Label FontSize="32" Text="No internet, try again" HorizontalOptions="CenterAndExpand"></Label>
+                        <Button Text="Retry" Clicked="Reload_Clicked"/>
                     </StackLayout>
                 </AbsoluteLayout>
             </navigationdrawer:SfNavigationDrawer.ContentView>
