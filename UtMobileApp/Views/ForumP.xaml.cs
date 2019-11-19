@@ -17,7 +17,7 @@ namespace UtMobileApp.Views
 
         ForumStuffing forumhelper = new ForumStuffing();
         FirebaseHelper firebasehelper = new FirebaseHelper();
-        Interface auth;
+        Interface auth; 
         public ForumP()
         {
             InitializeComponent();
