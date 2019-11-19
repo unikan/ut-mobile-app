@@ -79,7 +79,8 @@
                              CornerRadius="20, 20, 0, 0" 
                              BorderWidth="0"
                              BackgroundColor="#EEEEEE"
-                             Padding="20, 0">
+                             Padding="20, 0"
+                             x:Name="NewsContent">
                 <StackLayout>
                     <busyindicator:SfBusyIndicator x:Name="busyindicator"
                                                ViewBoxHeight="70"
@@ -106,6 +107,19 @@
                             </DataTemplate>
                         </listviews:SfListView.ItemTemplate>
                     </listviews:SfListView>
+                </StackLayout>
+            </border:SfBorder>
+            <border:SfBorder AbsoluteLayout.LayoutBounds="0, 1, 1, .8"
+                             AbsoluteLayout.LayoutFlags="All"
+                             CornerRadius="20, 20, 0, 0" 
+                             BorderWidth="0"
+                             BackgroundColor="#EEEEEE"
+                             Padding="20, 0"
+                             x:Name="NoInternetContent">
+                <StackLayout HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="CenterAndExpand">
+                    <Label FontSize="32" Text="No internet, try again" HorizontalOptions="CenterAndExpand"></Label>
+                    <Button Text="Retry" Clicked="Reload_Clicked"/>
                 </StackLayout>
             </border:SfBorder>
         </AbsoluteLayout>

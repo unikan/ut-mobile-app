@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,7 +12,7 @@ namespace UtMobileApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class News : ContentPage
     {
-        Extensions.WordpressServices ws;
+        readonly Extensions.WordpressServices ws;
 
         public News()
         {
@@ -26,14 +26,22 @@ namespace UtMobileApp.Views
         {
             base.OnAppearing();
 
-            newsList.ItemsSource = await ws.GetFeaturedPost(31);
-
-            // Hide busy indicator indicator
-            await busyindicator.FadeTo(0, 300, Easing.Linear);
-            busyindicator.IsVisible = false;
-            busyindicator.IsBusy = false;
-
-            await newsList.FadeTo(1, 300, Easing.Linear);
+            try
+            {
+                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                {
+                    await LoadNews();
+                }
+                else
+                {
+                    NewsContent.IsVisible = false;
+                    NoInternetContent.IsVisible = true;
+                }
+            }
+            catch (Exception e)
+            {
+                await DisplayAlert("Warning", e.Message, "OK");
+            }
         }
 
         private async void newsList_ItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)
@@ -46,6 +54,39 @@ namespace UtMobileApp.Views
         private async void BtnBack_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
+        }
+
+        private async void Reload_Clicked(object sender, EventArgs e)
+        {
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+                await LoadNews();
+
+                NewsContent.IsVisible = true;
+                NoInternetContent.IsVisible = false;
+            }
+            else
+            {
+                NewsContent.IsVisible = false;
+                NoInternetContent.IsVisible = true;
+            }
+        }
+
+        private async Task LoadNews()
+        {
+            busyindicator.IsBusy = true;
+
+            NewsContent.IsVisible = true;
+            NoInternetContent.IsVisible = false;
+
+            newsList.ItemsSource = await ws.GetFeaturedPost(31);
+
+            // Hide busy indicator indicator
+            await busyindicator.FadeTo(0, 300, Easing.Linear);
+            busyindicator.IsVisible = false;
+            busyindicator.IsBusy = false;
+
+            await newsList.FadeTo(1, 300, Easing.Linear);
         }
     }
 }

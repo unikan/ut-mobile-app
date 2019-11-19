@@ -24,23 +24,14 @@ namespace UtMobileApp.Views
 
             try
             {
-                var current = Connectivity.NetworkAccess;
-
-                if (current == NetworkAccess.Internet)
+                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
                 {
-                    Extensions.WordpressServices wordpressServices = new Extensions.WordpressServices();
-                    callsList.ItemsSource = await wordpressServices.GetLatestPostsAsync(58);
-
-                    // Hide busy indicator indicator
-                    await busyindicator.FadeTo(0, 300, Easing.Linear);
-                    busyindicator.IsVisible = false;
-                    busyindicator.IsBusy = false;
-
-                    await callsList.FadeTo(1, 300, Easing.Linear);
+                    await LoadCalls();
                 }
                 else
                 {
-                    busyindicator.Title = "No internet, please check your connection";
+                    CallsContent.IsVisible = false;
+                    NoInternetContent.IsVisible = true;
                 }
             }
             catch (Exception e)
@@ -59,6 +50,40 @@ namespace UtMobileApp.Views
         private async void BtnBack_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
+        }
+
+        private async void Reload_Clicked(object sender, EventArgs e)
+        {
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+                await LoadCalls();
+
+                CallsContent.IsVisible = true;
+                NoInternetContent.IsVisible = false;
+            }
+            else
+            {
+                CallsContent.IsVisible = false;
+                NoInternetContent.IsVisible = true;
+            }
+        }
+
+        private async Task LoadCalls()
+        {
+            busyindicator.IsBusy = true;
+
+            CallsContent.IsVisible = true;
+            NoInternetContent.IsVisible = false;
+
+            Extensions.WordpressServices wordpressServices = new Extensions.WordpressServices();
+            callsList.ItemsSource = await wordpressServices.GetLatestPostsAsync(58);
+
+            // Hide busy indicator indicator
+            await busyindicator.FadeTo(0, 300, Easing.Linear);
+            busyindicator.IsVisible = false;
+            busyindicator.IsBusy = false;
+
+            await callsList.FadeTo(1, 300, Easing.Linear);
         }
     }
 }

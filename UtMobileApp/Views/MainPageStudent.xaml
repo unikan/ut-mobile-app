@@ -234,8 +234,7 @@
                                                   FontAttributes="Bold"
                                                   TranslationX="600"
                                                   Scale="0.95"
-                                                  BackgroundImage="midterms.png"
-                                                  Clicked="BtnMidterms_Clicked"/>
+                                                  BackgroundImage="midterms.png"/>
                                 <buttons:SfButton x:Name="BtnExams"
                                                   Text="Exams"  
                                                   CornerRadius="20" 

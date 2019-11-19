@@ -1,6 +1,8 @@
 ﻿using Syncfusion.SfSchedule.XForms;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,6 +11,8 @@ namespace UtMobileApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Schedule : ContentPage
     {
+        readonly Extensions.DateExtensions de = new Extensions.DateExtensions();
+
         public Schedule()
         {
             NavigationPage.SetHasNavigationBar(this, false);
@@ -27,50 +31,18 @@ namespace UtMobileApp.Views
             // Disable schedule swiping
             schedule.EnableNavigation = false;
 
-            string url = "https://spreadsheets.google.com/feeds/list/1SFGzFIq8K7va4HzT9PZUwRNxch_yqZItn80-Kwu-u6c/3/public/values?alt=json";
-            var LoadSchedule = new Extensions.LoadSchedule();
-            List<Models.ScheduleJSON.Entry> scheduleList = await LoadSchedule.DeserializeJsonAsync(url);
-
             // Get dates of every day of first week
-            Extensions.DateExtensions de = new Extensions.DateExtensions();
             dates = de.DatesOfWeek1(DateTime.Now);
 
-            // Creating an instance for schedule appointment collection
-            ScheduleAppointmentCollection scheduleAppointmentCollection = new ScheduleAppointmentCollection();
-
-            for (int i = 0; i < scheduleList.Count; i++)
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
-                if (scheduleList[i].Day != null && scheduleList[i].BeginningTime != null && scheduleList[i].EndingTime != null)
-                {
-                    if (scheduleList[i].Day.t == "e hënë")
-                    {
-                        de.AddAppointment(scheduleList, i, scheduleAppointmentCollection, dates, 0);
-                    }
-                    else if (scheduleList[i].Day.t == "e martë")
-                    {
-                        de.AddAppointment(scheduleList, i, scheduleAppointmentCollection, dates, 1);
-                    }
-                    else if (scheduleList[i].Day.t == "e mërkurë")
-                    {
-                        de.AddAppointment(scheduleList, i, scheduleAppointmentCollection, dates, 2);
-                    }
-                    else if (scheduleList[i].Day.t == "e enjte")
-                    {
-                        de.AddAppointment(scheduleList, i, scheduleAppointmentCollection, dates, 3);
-                    }
-                    else if (scheduleList[i].Day.t == "e premte")
-                    {
-                        de.AddAppointment(scheduleList, i, scheduleAppointmentCollection, dates, 4);
-                    }
-                    else if (scheduleList[i].Day.t == "e shtunë")
-                    {
-                        de.AddAppointment(scheduleList, i, scheduleAppointmentCollection, dates, 5);
-                    }
-                }
+                await LoadSchedule();
             }
-
-            // Adding schedule appointment collection to DataSource of SfSchedule
-            schedule.DataSource = scheduleAppointmentCollection;
+            else
+            {
+                LectureContent.IsVisible = false;
+                NoInternetContent.IsVisible = true;
+            }
 
             // Show todays schedule
             schedule.MoveToDate = DateTime.Now;
@@ -141,6 +113,72 @@ namespace UtMobileApp.Views
         private async void BtnBack_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
+        }
+
+        private async void Reload_Clicked(object sender, EventArgs e)
+        {
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+                await LoadSchedule();
+
+                LectureContent.IsVisible = true;
+                NoInternetContent.IsVisible = false;
+            }
+            else
+            {
+                LectureContent.IsVisible = false;
+                NoInternetContent.IsVisible = true;
+            }
+        }
+
+        private async Task LoadSchedule()
+        {
+            await busyindicator.FadeTo(1, 300, Easing.Linear);
+            busyindicator.IsBusy = true;
+
+            string url = "https://spreadsheets.google.com/feeds/list/1SFGzFIq8K7va4HzT9PZUwRNxch_yqZItn80-Kwu-u6c/3/public/values?alt=json";
+            var LoadSchedule = new Extensions.LoadSchedule();
+            List<Models.ScheduleJSON.Entry> scheduleList = await LoadSchedule.DeserializeJsonAsync(url);
+
+            // Creating an instance for schedule appointment collection
+            ScheduleAppointmentCollection scheduleAppointmentCollection = new ScheduleAppointmentCollection();
+
+            for (int i = 0; i < scheduleList.Count; i++)
+            {
+                if (scheduleList[i].Day != null && scheduleList[i].BeginningTime != null && scheduleList[i].EndingTime != null)
+                {
+                    if (scheduleList[i].Day.t == "e hënë")
+                    {
+                        de.AddAppointment(scheduleList, i, scheduleAppointmentCollection, dates, 0);
+                    }
+                    else if (scheduleList[i].Day.t == "e martë")
+                    {
+                        de.AddAppointment(scheduleList, i, scheduleAppointmentCollection, dates, 1);
+                    }
+                    else if (scheduleList[i].Day.t == "e mërkurë")
+                    {
+                        de.AddAppointment(scheduleList, i, scheduleAppointmentCollection, dates, 2);
+                    }
+                    else if (scheduleList[i].Day.t == "e enjte")
+                    {
+                        de.AddAppointment(scheduleList, i, scheduleAppointmentCollection, dates, 3);
+                    }
+                    else if (scheduleList[i].Day.t == "e premte")
+                    {
+                        de.AddAppointment(scheduleList, i, scheduleAppointmentCollection, dates, 4);
+                    }
+                    else if (scheduleList[i].Day.t == "e shtunë")
+                    {
+                        de.AddAppointment(scheduleList, i, scheduleAppointmentCollection, dates, 5);
+                    }
+                }
+            }
+
+            // Adding schedule appointment collection to DataSource of SfSchedule
+            schedule.DataSource = scheduleAppointmentCollection;
+
+            await busyindicator.FadeTo(0, 300, Easing.Linear);
+            busyindicator.IsBusy = false;
         }
     }
 }

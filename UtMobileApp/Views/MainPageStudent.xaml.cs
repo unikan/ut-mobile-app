@@ -15,26 +15,35 @@ namespace UtMobileApp.Views
     public partial class MainPageStudent : ContentPage
     {
         readonly FirebaseHelper firebaseHelper = new FirebaseHelper();
-        readonly Interface auth;
+        Interface auth;
 
         public MainPageStudent()
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-            auth = DependencyService.Get<Interface>();
         }
 
         protected override async void OnAppearing()
         {
-            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            try
             {
-                // Check if he's good to go
-                if (await firebaseHelper.GetPerson(auth.GetCurrentUserEmail()) == null)
+
+                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
                 {
-                    var previousPage = Navigation.NavigationStack.LastOrDefault();
-                    await Navigation.PushAsync(new NewUserData());
-                    Navigation.RemovePage(previousPage);
+                    auth = DependencyService.Get<Interface>();
+
+                    // Check if he's good to go
+                    if (await firebaseHelper.GetPerson(auth.GetCurrentUserEmail()) == null)
+                    {
+                        var previousPage = Navigation.NavigationStack.LastOrDefault();
+                        await Navigation.PushAsync(new NewUserData());
+                        Navigation.RemovePage(previousPage);
+                    }
                 }
+            }
+            catch (Exception)
+            {
+                await DisplayAlert("Warning", "Check your internet connection.", "OK");
             }
 
             base.OnAppearing();
@@ -95,13 +104,6 @@ namespace UtMobileApp.Views
             BtnLectures.Scale = 1;
         }
 
-        //private async void announcementList_ItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)
-        //{
-        //    var selectedPost = e.ItemData as WordPressPCL.Models.Post;
-
-        //    await Navigation.PushAsync(new PostDetailPage(selectedPost, "Announcement"));
-        //}
-
         private async void BtnNews_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Views.News());
@@ -143,16 +145,12 @@ namespace UtMobileApp.Views
             Navigation.RemovePage(previousPage);
         }
 
-        private async void BtnMidterms_Clicked(object sender, EventArgs e)
-        {
-            auth.SignOut();
-            await Navigation.PushAsync(new IntroPage());
-        }
-
         private async void Reload_Clicked(object sender, EventArgs e)
         {
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
+                auth = DependencyService.Get<Interface>();
+
                 if (await firebaseHelper.GetPerson(auth.GetCurrentUserEmail()) == null)
                 {
                     var previousPage = Navigation.NavigationStack.LastOrDefault();

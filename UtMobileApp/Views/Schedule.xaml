@@ -182,7 +182,8 @@
                              AbsoluteLayout.LayoutFlags="All"
                              CornerRadius="20, 20, 0, 0" 
                              BorderWidth="0"
-                             BackgroundColor="White">
+                             BackgroundColor="White"
+                             x:Name="LectureContent">
                 <schedule:SfSchedule x:Name="schedule" 
                                  ScheduleView="DayView" 
                                  TimeInterval="15"
@@ -214,6 +215,19 @@
                         </schedule:AppointmentStyle>
                     </schedule:SfSchedule.AppointmentStyle>
                 </schedule:SfSchedule>
+            </border:SfBorder>
+            <border:SfBorder AbsoluteLayout.LayoutBounds="0, 1, 1, .76"
+                             AbsoluteLayout.LayoutFlags="All"
+                             CornerRadius="20, 20, 0, 0" 
+                             BorderWidth="0"
+                             BackgroundColor="White"
+                             x:Name="NoInternetContent"
+                             IsVisible="False">
+                <StackLayout HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="CenterAndExpand">
+                    <Label FontSize="32" Text="No internet, try again" HorizontalOptions="CenterAndExpand"></Label>
+                    <Button Text="Retry" Clicked="Reload_Clicked"/>
+                </StackLayout>
             </border:SfBorder>
         </AbsoluteLayout>
     </ContentPage.Content>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -20,23 +21,14 @@ namespace UtMobileApp.Views
 
             try
             {
-                var current = Connectivity.NetworkAccess;
-
-                if (current == NetworkAccess.Internet)
+                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
                 {
-                    Extensions.WordpressServices wordpressServices = new Extensions.WordpressServices();
-                    announcementsList.ItemsSource = await wordpressServices.GetLatestPostsAsync(59);
-                    
-                    // Hide busy indicator indicator
-                    await busyindicator.FadeTo(0, 300, Easing.Linear);
-                    busyindicator.IsVisible = false;
-                    busyindicator.IsBusy = false;
-
-                    await announcementsList.FadeTo(1, 300, Easing.Linear);
+                    await LoadAnnouncements();
                 }
                 else
                 {
-                    busyindicator.Title = "No internet, please check your connection";
+                    AnnouncementsContent.IsVisible = false;
+                    NoInternetContent.IsVisible = true;
                 }
             }
             catch (Exception e)
@@ -55,6 +47,40 @@ namespace UtMobileApp.Views
         private async void BtnBack_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
+        }
+
+        private async void Reload_Clicked(object sender, EventArgs e)
+        {
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+                await LoadAnnouncements();
+
+                AnnouncementsContent.IsVisible = true;
+                NoInternetContent.IsVisible = false;
+            }
+            else
+            {
+                AnnouncementsContent.IsVisible = false;
+                NoInternetContent.IsVisible = true;
+            }
+        }
+
+        private async Task LoadAnnouncements()
+        {
+            busyindicator.IsBusy = true;
+
+            AnnouncementsContent.IsVisible = true;
+            NoInternetContent.IsVisible = false;
+
+            Extensions.WordpressServices wordpressServices = new Extensions.WordpressServices();
+            announcementsList.ItemsSource = await wordpressServices.GetLatestPostsAsync(59);
+
+            // Hide busy indicator indicator
+            await busyindicator.FadeTo(0, 300, Easing.Linear);
+            busyindicator.IsVisible = false;
+            busyindicator.IsBusy = false;
+
+            await announcementsList.FadeTo(1, 300, Easing.Linear);
         }
     }
 }
