@@ -1,277 +1,322 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:navigationdrawer="clr-namespace:Syncfusion.SfNavigationDrawer.XForms;assembly=Syncfusion.SfNavigationDrawer.XForms"
-             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
-             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
-             xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
-             mc:Ignorable="d"
-             x:Class="UtMobileApp.Views.MainPageStudent"
-             BackgroundColor="#EEEEEE">
+<ContentPage
+    x:Class="UtMobileApp.Views.MainPageStudent"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:navigationdrawer="clr-namespace:Syncfusion.SfNavigationDrawer.XForms;assembly=Syncfusion.SfNavigationDrawer.XForms"
+    BackgroundColor="#EEEEEE"
+    mc:Ignorable="d">
     <ContentPage.Content>
-        <navigationdrawer:SfNavigationDrawer x:Name="navigationDrawer" 
-                                             DrawerWidth ="300"
-                                             Transition="Push"
-                                             Duration="400"
-                                             TouchThreshold="200"
-                                             DrawerFooterHeight="30"
-                                             HorizontalOptions="FillAndExpand"
-                                             VerticalOptions="FillAndExpand">
-            <!-- DRAWER HEADER -->
+        <navigationdrawer:SfNavigationDrawer
+            x:Name="navigationDrawer"
+            DrawerFooterHeight="30"
+            DrawerWidth="300"
+            HorizontalOptions="FillAndExpand"
+            TouchThreshold="200"
+            Transition="Push"
+            VerticalOptions="FillAndExpand"
+            Duration="400">
+            <!--  DRAWER HEADER  -->
             <navigationdrawer:SfNavigationDrawer.DrawerHeaderView>
                 <Grid BackgroundColor="#cc7564">
-                    <StackLayout VerticalOptions="CenterAndExpand" 
-                                 HorizontalOptions="CenterAndExpand"
-                                 Orientation="Horizontal">
-                        <border:SfBorder BorderColor="Black" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="50" WidthRequest="50" HeightRequest="50" BorderWidth="1">
+                    <StackLayout
+                        HorizontalOptions="CenterAndExpand"
+                        Orientation="Horizontal"
+                        VerticalOptions="CenterAndExpand">
+                        <border:SfBorder
+                            BorderColor="Black"
+                            BorderWidth="1"
+                            CornerRadius="50"
+                            HeightRequest="50"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            WidthRequest="50">
                             <Image Source="https://i5.walmartimages.com/asr/e9c1e290-55cb-4608-8edd-06b01ea694d0_1.cd6956088a6814bf191640ab06739752.png" />
                         </border:SfBorder>
                         <StackLayout>
-                            <Label x:Name="label_flname" 
-                               HorizontalOptions="Start" 
-                               VerticalOptions="End"
-                               FontAttributes="Bold"
-                               FontSize="Medium"
-                               Text="Filan Fisteki" />
-                            <Label x:Name="label_email"
-                                   HorizontalOptions="Start"
-                                   VerticalOptions="Start"
-                                   FontSize="Small"
-                                   Text="f.filani3615111043" />
+                            <Label
+                                x:Name="label_flname"
+                                FontAttributes="Bold"
+                                FontSize="Medium"
+                                HorizontalOptions="Start"
+                                Text="Filan Fisteki"
+                                VerticalOptions="End" />
+                            <Label
+                                x:Name="label_email"
+                                FontSize="Small"
+                                HorizontalOptions="Start"
+                                Text="f.filani3615111043"
+                                VerticalOptions="Start" />
                         </StackLayout>
                     </StackLayout>
                 </Grid>
             </navigationdrawer:SfNavigationDrawer.DrawerHeaderView>
-            <!-- DRAWER CONTENT -->
+            <!--  DRAWER CONTENT  -->
             <navigationdrawer:SfNavigationDrawer.DrawerContentView>
-                <StackLayout BackgroundColor="#EEEEEE"
-                             Padding="20">
-                    <buttons:SfButton Text="News" 
-                                      TextColor="Black"
-                                      FontSize="Medium"
-                                      HorizontalTextAlignment="Start"
-                                      HorizontalOptions="StartAndExpand"
-                                      BackgroundColor="Transparent"
-                                      Clicked="BtnNews_Clicked" />
-                    <buttons:SfButton Text="Announcements" 
-                                      TextColor="Black"
-                                      FontSize="Medium"
-                                      HorizontalTextAlignment="Start"
-                                      HorizontalOptions="StartAndExpand"
-                                      BackgroundColor="Transparent" 
-                                      Clicked="BtnAnnouncements_Clicked"/>
-                    <buttons:SfButton Text="Calls" 
-                                      TextColor="Black"
-                                      FontSize="Medium"
-                                      HorizontalTextAlignment="Start"
-                                      HorizontalOptions="StartAndExpand"
-                                      BackgroundColor="Transparent" 
-                                      Clicked="BtnCalls_Clicked" />
-                    <buttons:SfButton Text="Library" 
-                                      TextColor="Black"
-                                      FontSize="Medium"
-                                      HorizontalTextAlignment="Start"
-                                      HorizontalOptions="StartAndExpand"
-                                      BackgroundColor="Transparent" />
-                    <buttons:SfButton Text="Administration Offices" 
-                                      TextColor="Black"
-                                      FontSize="Medium"
-                                      HorizontalTextAlignment="Start"
-                                      HorizontalOptions="StartAndExpand"
-                                      BackgroundColor="Transparent" />
-                    <buttons:SfButton Text="Documents" 
-                                      TextColor="Black"
-                                      FontSize="Medium"
-                                      HorizontalTextAlignment="Start"
-                                      HorizontalOptions="StartAndExpand"
-                                      BackgroundColor="Transparent" />
-                    <buttons:SfButton Text="Discussion Forum" 
-                                      TextColor="Black"
-                                      FontSize="Medium"
-                                      HorizontalTextAlignment="Start"
-                                      HorizontalOptions="StartAndExpand"
-                                      BackgroundColor="Transparent" />
-                    <buttons:SfButton Text="Student Parliament" 
-                                      TextColor="Black"
-                                      FontSize="Medium"
-                                      HorizontalTextAlignment="Start"
-                                      HorizontalOptions="StartAndExpand"
-                                      BackgroundColor="Transparent" />
-                    <buttons:SfButton Text="Erasmus+" 
-                                      TextColor="Black"
-                                      FontSize="Medium"
-                                      HorizontalTextAlignment="Start"
-                                      HorizontalOptions="StartAndExpand"
-                                      BackgroundColor="Transparent" />
-                    <buttons:SfButton Text="Kujdesi për ty" 
-                                      TextColor="Black"
-                                      FontSize="Medium"
-                                      HorizontalTextAlignment="Start"
-                                      HorizontalOptions="StartAndExpand"
-                                      BackgroundColor="Transparent"
-                                      Clicked="BtnKujdesi_Clicked" />
-                    <buttons:SfButton Text="Facebook" 
-                                      TextColor="Black"
-                                      FontSize="Medium"
-                                      HorizontalTextAlignment="Start"
-                                      HorizontalOptions="StartAndExpand"
-                                      BackgroundColor="Transparent"
-                                      Clicked="BtnFacebook_Clicked" />
-                    <buttons:SfButton Text="Contact Us" 
-                                      TextColor="Black"
-                                      FontSize="Medium"
-                                      HorizontalTextAlignment="Start"
-                                      HorizontalOptions="StartAndExpand"
-                                      BackgroundColor="Transparent" />
+                <StackLayout Padding="20" BackgroundColor="#EEEEEE">
+                    <buttons:SfButton
+                        BackgroundColor="Transparent"
+                        Clicked="BtnNews_Clicked"
+                        FontSize="Medium"
+                        HorizontalOptions="StartAndExpand"
+                        HorizontalTextAlignment="Start"
+                        Text="News"
+                        TextColor="Black" />
+                    <buttons:SfButton
+                        BackgroundColor="Transparent"
+                        Clicked="BtnAnnouncements_Clicked"
+                        FontSize="Medium"
+                        HorizontalOptions="StartAndExpand"
+                        HorizontalTextAlignment="Start"
+                        Text="Announcements"
+                        TextColor="Black" />
+                    <buttons:SfButton
+                        BackgroundColor="Transparent"
+                        Clicked="BtnCalls_Clicked"
+                        FontSize="Medium"
+                        HorizontalOptions="StartAndExpand"
+                        HorizontalTextAlignment="Start"
+                        Text="Calls"
+                        TextColor="Black" />
+                    <buttons:SfButton
+                        BackgroundColor="Transparent"
+                        FontSize="Medium"
+                        HorizontalOptions="StartAndExpand"
+                        HorizontalTextAlignment="Start"
+                        Text="Library"
+                        TextColor="Black" />
+                    <buttons:SfButton
+                        BackgroundColor="Transparent"
+                        FontSize="Medium"
+                        HorizontalOptions="StartAndExpand"
+                        HorizontalTextAlignment="Start"
+                        Text="Administration Offices"
+                        TextColor="Black" />
+                    <buttons:SfButton
+                        BackgroundColor="Transparent"
+                        FontSize="Medium"
+                        HorizontalOptions="StartAndExpand"
+                        HorizontalTextAlignment="Start"
+                        Text="Documents"
+                        TextColor="Black" />
+                    <buttons:SfButton
+                        BackgroundColor="Transparent"
+                        Clicked="BtnForum_Clicked"
+                        FontSize="Medium"
+                        HorizontalOptions="StartAndExpand"
+                        HorizontalTextAlignment="Start"
+                        Text="Discussion Forum"
+                        TextColor="Black" />
+                    <buttons:SfButton
+                        BackgroundColor="Transparent"
+                        FontSize="Medium"
+                        HorizontalOptions="StartAndExpand"
+                        HorizontalTextAlignment="Start"
+                        Text="Student Parliament"
+                        TextColor="Black" />
+                    <buttons:SfButton
+                        BackgroundColor="Transparent"
+                        FontSize="Medium"
+                        HorizontalOptions="StartAndExpand"
+                        HorizontalTextAlignment="Start"
+                        Text="Erasmus+"
+                        TextColor="Black" />
+                    <buttons:SfButton
+                        BackgroundColor="Transparent"
+                        Clicked="BtnKujdesi_Clicked"
+                        FontSize="Medium"
+                        HorizontalOptions="StartAndExpand"
+                        HorizontalTextAlignment="Start"
+                        Text="Kujdesi për ty"
+                        TextColor="Black" />
+                    <buttons:SfButton
+                        BackgroundColor="Transparent"
+                        Clicked="BtnFacebook_Clicked"
+                        FontSize="Medium"
+                        HorizontalOptions="StartAndExpand"
+                        HorizontalTextAlignment="Start"
+                        Text="Facebook"
+                        TextColor="Black" />
+                    <buttons:SfButton
+                        BackgroundColor="Transparent"
+                        FontSize="Medium"
+                        HorizontalOptions="StartAndExpand"
+                        HorizontalTextAlignment="Start"
+                        Text="Contact Us"
+                        TextColor="Black" />
                 </StackLayout>
             </navigationdrawer:SfNavigationDrawer.DrawerContentView>
-            <!-- FOOTER CONTENT -->
+            <!--  FOOTER CONTENT  -->
             <navigationdrawer:SfNavigationDrawer.DrawerFooterView>
                 <Grid BackgroundColor="#cc7564">
-                    <StackLayout VerticalOptions="StartAndExpand" 
-                                 HorizontalOptions="CenterAndExpand">
-                        <buttons:SfButton Text="Sign Out" 
-                                          TextColor="Black"
-                                          FontSize="Medium"
-                                          HorizontalTextAlignment="Center"
-                                          VerticalTextAlignment="Center"
-                                          HorizontalOptions="StartAndExpand"
-                                          BackgroundColor="Transparent"
-                                          Clicked="SignOut_Clicked"/>
+                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+                        <buttons:SfButton
+                            BackgroundColor="Transparent"
+                            Clicked="SignOut_Clicked"
+                            FontSize="Medium"
+                            HorizontalOptions="StartAndExpand"
+                            HorizontalTextAlignment="Center"
+                            Text="Sign Out"
+                            TextColor="Black"
+                            VerticalTextAlignment="Center" />
                     </StackLayout>
                 </Grid>
             </navigationdrawer:SfNavigationDrawer.DrawerFooterView>
             <navigationdrawer:SfNavigationDrawer.ContentView>
-                <!-- MAIN CONTENT VIEW -->
+                <!--  MAIN CONTENT VIEW  -->
                 <AbsoluteLayout>
-                    <border:SfBorder AbsoluteLayout.LayoutBounds="0, 0, 1, 0.55"
-                                     AbsoluteLayout.LayoutFlags="All"
-                                     CornerRadius="0, 0, 150, 0" 
-                                     BorderWidth="0">
+                    <border:SfBorder
+                        AbsoluteLayout.LayoutBounds="0, 0, 1, 0.55"
+                        AbsoluteLayout.LayoutFlags="All"
+                        BorderWidth="0"
+                        CornerRadius="0, 0, 150, 0">
                         <AbsoluteLayout BackgroundColor="#cc7564">
                             <gradient:SfGradientView>
                                 <gradient:SfGradientView.BackgroundBrush>
                                     <gradient:SfLinearGradientBrush>
                                         <gradient:SfLinearGradientBrush.GradientStops>
-                                            <gradient:SfGradientStop Color="#e68471" Offset="0.0" />
-                                            <gradient:SfGradientStop Color="#cc7564" Offset="1.0" />
+                                            <gradient:SfGradientStop Offset="0.0" Color="#e68471" />
+                                            <gradient:SfGradientStop Offset="1.0" Color="#cc7564" />
                                         </gradient:SfLinearGradientBrush.GradientStops>
                                     </gradient:SfLinearGradientBrush>
                                 </gradient:SfGradientView.BackgroundBrush>
                             </gradient:SfGradientView>
-                            <!-- Nav toggle -->
-                            <buttons:SfButton x:Name="NavToggle" 
-                                              ShowIcon="True" 
-                                              CornerRadius="100"
-                                              BackgroundColor="Transparent"
-                                              Clicked="NavToggle_Clicked"
-                                              Padding="0"
-                                              AbsoluteLayout.LayoutBounds="0.05, 0.13, 50, 50"
-                                              AbsoluteLayout.LayoutFlags="PositionProportional">
+                            <!--  Nav toggle  -->
+                            <buttons:SfButton
+                                x:Name="NavToggle"
+                                Padding="0"
+                                AbsoluteLayout.LayoutBounds="0.05, 0.13, 50, 50"
+                                AbsoluteLayout.LayoutFlags="PositionProportional"
+                                BackgroundColor="Transparent"
+                                Clicked="NavToggle_Clicked"
+                                CornerRadius="100"
+                                ShowIcon="True">
                                 <buttons:SfButton.Content>
-                                    <Image Source="menu.png"
-                                           HeightRequest="25"
-                                           WidthRequest="25"
-                                           HorizontalOptions="Center"
-                                           VerticalOptions="Center" />
+                                    <Image
+                                        HeightRequest="25"
+                                        HorizontalOptions="Center"
+                                        Source="menu.png"
+                                        VerticalOptions="Center"
+                                        WidthRequest="25" />
                                 </buttons:SfButton.Content>
                             </buttons:SfButton>
 
-                            <Image Source="book.png"
-                                   AbsoluteLayout.LayoutBounds="1, 0, 1, 1"
-                                   AbsoluteLayout.LayoutFlags="All"
-                                   TranslationX="50"
-                                   TranslationY="-60" />
-                            <Label AbsoluteLayout.LayoutBounds="0, 0.5, 1, 0.5"
-                                   AbsoluteLayout.LayoutFlags="All"
-                                   TextColor="White"
-                                   Margin="35, 0, 0, 0">
+                            <Image
+                                AbsoluteLayout.LayoutBounds="1, 0, 1, 1"
+                                AbsoluteLayout.LayoutFlags="All"
+                                Source="book.png"
+                                TranslationX="50"
+                                TranslationY="-60" />
+                            <Label
+                                Margin="35,0,0,0"
+                                AbsoluteLayout.LayoutBounds="0, 0.5, 1, 0.5"
+                                AbsoluteLayout.LayoutFlags="All"
+                                TextColor="White">
                                 <Label.FormattedText>
                                     <FormattedString>
                                         <Span FontSize="40" Text="Hello,&#x0a;" />
-                                        <Span FontSize="40" FontAttributes="Bold" x:Name="label_name" Text="Filani&#x0a;" />
-                                        <Span FontSize="20" x:Name="label_date" />
+                                        <Span
+                                            x:Name="label_name"
+                                            FontAttributes="Bold"
+                                            FontSize="40"
+                                            Text="Filani&#x0a;" />
+                                        <Span x:Name="label_date" FontSize="20" />
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>
                         </AbsoluteLayout>
                     </border:SfBorder>
-                    <StackLayout AbsoluteLayout.LayoutBounds="1, 1, 1, 0.45"
-                                 AbsoluteLayout.LayoutFlags="All"
-                                 HorizontalOptions="CenterAndExpand"
-                                 VerticalOptions="CenterAndExpand"
-                                 x:Name="scheduleContent">
-                        <ScrollView Orientation="Horizontal" 
-                                    HorizontalScrollBarVisibility="Never" Scrolled="ScrollView_Scrolled">
-                            <StackLayout Orientation="Horizontal"
-                                         Spacing="20"
-                                         Padding="20">
-                                <buttons:SfButton x:Name="BtnLectures"
-                                                  Text="Lectures"  
-                                                  CornerRadius="20" 
-                                                  WidthRequest="200"
-                                                  HeightRequest="300"
-                                                  HorizontalTextAlignment="Center"
-                                                  VerticalTextAlignment="Center"
-                                                  Padding="20"
-                                                  FontSize="24"
-                                                  FontAttributes="Bold"
-                                                  TranslationX="600"
-                                                  Scale="0.95"
-                                                  BackgroundImage="lectures.png"
-                                                  Clicked="BtnLectures_Clicked" />
-                                <buttons:SfButton x:Name="BtnMidterms"
-                                                  Text="Midterms"  
-                                                  CornerRadius="20" 
-                                                  WidthRequest="200"
-                                                  HeightRequest="300"
-                                                  HorizontalTextAlignment="Center"
-                                                  VerticalTextAlignment="Center"
-                                                  Padding="20"
-                                                  FontSize="24"
-                                                  FontAttributes="Bold"
-                                                  TranslationX="600"
-                                                  Scale="0.95"
-                                                  BackgroundImage="midterms.png"/>
-                                <buttons:SfButton x:Name="BtnExams"
-                                                  Text="Exams"  
-                                                  CornerRadius="20" 
-                                                  WidthRequest="200"
-                                                  HeightRequest="300"
-                                                  HorizontalTextAlignment="Center"
-                                                  VerticalTextAlignment="Center"
-                                                  Padding="20"
-                                                  FontSize="24"
-                                                  FontAttributes="Bold"
-                                                  TranslationX="600"
-                                                  Scale="0.95"
-                                                  BackgroundImage="exams.png"/>
-                                <buttons:SfButton x:Name="BtnConsultations"
-                                                  Text="Consultations"  
-                                                  CornerRadius="20" 
-                                                  WidthRequest="200"
-                                                  HeightRequest="300"
-                                                  HorizontalTextAlignment="Center"
-                                                  VerticalTextAlignment="Center"
-                                                  Padding="20"
-                                                  FontSize="24"
-                                                  FontAttributes="Bold"
-                                                  TranslationX="600"
-                                                  Scale="0.95"
-                                                  BackgroundImage="consultations.png"/>
+                    <StackLayout
+                        x:Name="scheduleContent"
+                        AbsoluteLayout.LayoutBounds="1, 1, 1, 0.45"
+                        AbsoluteLayout.LayoutFlags="All"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                        <ScrollView
+                            HorizontalScrollBarVisibility="Never"
+                            Orientation="Horizontal"
+                            Scrolled="ScrollView_Scrolled">
+                            <StackLayout
+                                Padding="20"
+                                Orientation="Horizontal"
+                                Spacing="20">
+                                <buttons:SfButton
+                                    x:Name="BtnLectures"
+                                    Padding="20"
+                                    BackgroundImage="lectures.png"
+                                    Clicked="BtnLectures_Clicked"
+                                    CornerRadius="20"
+                                    FontAttributes="Bold"
+                                    FontSize="24"
+                                    HeightRequest="300"
+                                    HorizontalTextAlignment="Center"
+                                    Scale="0.95"
+                                    Text="Lectures"
+                                    TranslationX="600"
+                                    VerticalTextAlignment="Center"
+                                    WidthRequest="200" />
+                                <buttons:SfButton
+                                    x:Name="BtnMidterms"
+                                    Padding="20"
+                                    BackgroundImage="midterms.png"
+                                    CornerRadius="20"
+                                    FontAttributes="Bold"
+                                    FontSize="24"
+                                    HeightRequest="300"
+                                    HorizontalTextAlignment="Center"
+                                    Scale="0.95"
+                                    Text="Midterms"
+                                    TranslationX="600"
+                                    VerticalTextAlignment="Center"
+                                    WidthRequest="200" />
+                                <buttons:SfButton
+                                    x:Name="BtnExams"
+                                    Padding="20"
+                                    BackgroundImage="exams.png"
+                                    CornerRadius="20"
+                                    FontAttributes="Bold"
+                                    FontSize="24"
+                                    HeightRequest="300"
+                                    HorizontalTextAlignment="Center"
+                                    Scale="0.95"
+                                    Text="Exams"
+                                    TranslationX="600"
+                                    VerticalTextAlignment="Center"
+                                    WidthRequest="200" />
+                                <buttons:SfButton
+                                    x:Name="BtnConsultations"
+                                    Padding="20"
+                                    BackgroundImage="consultations.png"
+                                    CornerRadius="20"
+                                    FontAttributes="Bold"
+                                    FontSize="24"
+                                    HeightRequest="300"
+                                    HorizontalTextAlignment="Center"
+                                    Scale="0.95"
+                                    Text="Consultations"
+                                    TranslationX="600"
+                                    VerticalTextAlignment="Center"
+                                    WidthRequest="200" />
                             </StackLayout>
                         </ScrollView>
                     </StackLayout>
-                    <StackLayout AbsoluteLayout.LayoutBounds="1, 1, 1, 0.45"
-                         AbsoluteLayout.LayoutFlags="All"
-                         Padding="20, 0"
-                         VerticalOptions="CenterAndExpand"
-                         x:Name="NoInternetContent"
-                         IsVisible="False">
-                        <Label FontSize="32" Text="No internet, try again" HorizontalOptions="CenterAndExpand"></Label>
-                        <Button Text="Retry" Clicked="Reload_Clicked"/>
+                    <StackLayout
+                        x:Name="NoInternetContent"
+                        Padding="20,0"
+                        AbsoluteLayout.LayoutBounds="1, 1, 1, 0.45"
+                        AbsoluteLayout.LayoutFlags="All"
+                        IsVisible="False"
+                        VerticalOptions="CenterAndExpand">
+                        <Label
+                            FontSize="32"
+                            HorizontalOptions="CenterAndExpand"
+                            Text="No internet, try again" />
+                        <Button Clicked="Reload_Clicked" Text="Retry" />
                     </StackLayout>
                 </AbsoluteLayout>
             </navigationdrawer:SfNavigationDrawer.ContentView>

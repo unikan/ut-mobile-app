@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="UtMobileApp.Views.ForumP"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label
+                HorizontalOptions="CenterAndExpand"
+                Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" />
+
+
+            <Entry x:Name="PostTitle" Placeholder="Enter Post Title Here" />
+            <Editor x:Name="TextEditor" />
+            <Button Clicked="Post_Clicked" Text="SUBMIT" />
+            <StackLayout>
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
+                    <Image x:Name="imgBanner" Source="banner.png" />
+                    <Image
+                        Margin="0,0,0,10"
+                        HeightRequest="100"
+                        Source="firebase.png" />
+                    <Label
+                        Margin="0,0,0,10"
+                        FontAttributes="Bold"
+                        FontSize="Large"
+                        HorizontalTextAlignment="Center"
+                        Text="Firebase Storage"
+                        TextColor="Gray" />
+                    <Image x:Name="imgChoosed" HeightRequest="150" />
+                    <Entry x:Name="txtFileName" Placeholder="Enter FileName" />
+                    <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                        <Button
+                            x:Name="btnPick"
+                            Clicked="btnPick_Clicked"
+                            Text="Pick"
+                            WidthRequest="200" />
+                        <Button
+                            x:Name="btnUpload"
+                            Clicked="btnUpload_Clicked"
+                            Text="Upload"
+                            WidthRequest="200" />
+                    </StackLayout>
+                    <Label x:Name="lblPath" />
+
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

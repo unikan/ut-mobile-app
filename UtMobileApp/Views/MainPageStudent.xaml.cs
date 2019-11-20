@@ -167,5 +167,10 @@ namespace UtMobileApp.Views
                 NoInternetContent.IsVisible = true;
             }
         }
+
+        private async void BtnForum_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ForumP());
+        }
     }
 }
