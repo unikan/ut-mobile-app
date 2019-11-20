@@ -14,7 +14,7 @@ namespace UtMobileApp.Views
     {
         protected WordPressPCL.Models.Post currentPost;
         protected string currentCategory;
-        Extensions.WordpressServices ws;
+        readonly Extensions.WordpressServices ws;
 
         public PostDetailPage(WordPressPCL.Models.Post SelectedPost, string category)
         {
