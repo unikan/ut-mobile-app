@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using Xamarin.Forms;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
@@ -10,9 +11,12 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("UtMobileApp.iOS")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
+[assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
+
+// Opt-in to using WkWebView instead of UIWebView.
+[assembly: ExportRenderer(typeof(WebView), typeof(Xamarin.Forms.Platform.iOS.WkWebViewRenderer))]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 
