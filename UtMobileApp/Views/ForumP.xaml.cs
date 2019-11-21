@@ -37,10 +37,21 @@ namespace UtMobileApp.Views
 
         private async void Post_Clicked(object sender, EventArgs e)
         {
-            Registrations currentuserinfo = await firebasehelper.GetPerson(auth.GetCurrentUserEmail());
-            await forumhelper.CreatePost(auth.GetCurrentUserEmail() + DateTime.Now.Ticks,currentuserinfo.FirstName,currentuserinfo.LastName,PostTitle.Text,TextEditor.Text,DateTime.Now,currentuserinfo.Program);
+            try
+            {
+                var postID = auth.GetCurrentUserEmail() + DateTime.Now.Ticks; 
+                Registrations currentuserinfo = await firebasehelper.GetPerson(auth.GetCurrentUserEmail());
+            await forumhelper.CreatePost(postID,currentuserinfo.FirstName,currentuserinfo.LastName,PostTitle.Text,TextEditor.Text,DateTime.Now,currentuserinfo.Program);
             await DisplayAlert("Success", "You have created a new post", "OK");
-                
+           
+                await firebaseStorageHelper.UploadFile(file.GetStream(),  postID , postID);
+            }
+
+            catch (Exception ex)
+            {
+                await DisplayAlert("Warning", ex.Message, "OK");
+            }
+
         }
 
         private async void btnPick_Clicked(object sender, EventArgs e)
@@ -68,9 +79,5 @@ namespace UtMobileApp.Views
 
         }
 
-        private async void btnUpload_Clicked(object sender, EventArgs e)
-        {
-            await firebaseStorageHelper.UploadFile(file.GetStream(), Path.GetFileName(file.Path));
-        }
     }
 }

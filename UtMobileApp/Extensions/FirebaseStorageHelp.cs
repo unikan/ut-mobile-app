@@ -10,13 +10,14 @@ namespace UtMobileApp.Extensions
     class FirebaseStorageHelp
     {
 
-        FirebaseStorage firebaseStorage = new FirebaseStorage("gs://utappdatabase.appspot.com");
+        FirebaseStorage firebaseStorage = new FirebaseStorage("utappdatabase.appspot.com");
 
-        public async Task<string> UploadFile(Stream fileStream, string fileName)
+        public async Task<string> UploadFile(Stream fileStream , string postorcommentid , string fileid)
         {
             var imageUrl = await firebaseStorage
-                .Child("XamarinMonkeys")
-                .Child(fileName)
+                .Child("ForumPictures")
+                .Child(postorcommentid)
+                .Child(fileid)
                 .PutAsync(fileStream);
             return imageUrl;
         }
@@ -24,14 +25,14 @@ namespace UtMobileApp.Extensions
         public async Task<string> GetFile(string fileName)
         {
             return await firebaseStorage
-                .Child("XamarinMonkeys")
+                .Child("ForumPictures")
                 .Child(fileName)
                 .GetDownloadUrlAsync();
         }
         public async Task DeleteFile(string fileName)
         {
             await firebaseStorage
-                 .Child("XamarinMonkeys")
+                 .Child("ForumPictures")
                  .Child(fileName)
                  .DeleteAsync();
 
