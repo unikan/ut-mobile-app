@@ -104,6 +104,13 @@ namespace UtMobileApp.Views
             BtnLectures.Scale = 1;
         }
 
+        private async void BtnMidterms_Clicked(object sender, EventArgs e)
+        {
+            await BtnMidterms.ScaleTo(1.1, 200, Easing.BounceOut);
+            await Navigation.PushAsync(new Views.Midterms());
+            BtnMidterms.Scale = 1;
+        }
+
         private async void BtnNews_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Views.News());

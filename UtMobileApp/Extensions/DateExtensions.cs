@@ -1,7 +1,9 @@
-﻿using Syncfusion.SfSchedule.XForms;
+﻿using Syncfusion.SfCalendar.XForms;
+using Syncfusion.SfSchedule.XForms;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using UtMobileApp.Models;
 using Xamarin.Forms;
 
@@ -46,15 +48,15 @@ namespace UtMobileApp.Extensions
         public void AddAppointment(List<Models.ScheduleJSON.Entry> scheduleList, int index, ScheduleAppointmentCollection scheduleAppointmentCollection, int[, ] dates, int day)
         {
             // We need hour in one variable, minutes in one variable, so we split the string and save it in an array
-            string[] startTime = scheduleList[index].BeginningTime.t.Split(':');
-            string[] endTime = scheduleList[index].EndingTime.t.Split(':');
+            string[] startTime = scheduleList[index].L_BeginningTime.t.Split(':');
+            string[] endTime = scheduleList[index].L_EndingTime.t.Split(':');
 
             Color color;
             string teacher, subject, lectureorexercises, venue, group;
 
-            if (scheduleList[index].LectureOrExercise != null)
+            if (scheduleList[index].L_LectureOrExercise != null)
             {
-                if (scheduleList[index].LectureOrExercise.t == "L") color = Color.FromHex("#F28883"); // #FFB5AC
+                if (scheduleList[index].L_LectureOrExercise.t == "L") color = Color.FromHex("#F28883"); // #FFB5AC
                 else color = Color.FromHex("#B9A6E0"); // #A2D5F2
             }
             else
@@ -62,11 +64,11 @@ namespace UtMobileApp.Extensions
                 color = Color.Transparent;
             }
 
-            teacher = (scheduleList[index].Teacher != null) ? scheduleList[index].Teacher.t : "";
-            subject = (scheduleList[index].Subjects != null) ? scheduleList[index].Subjects.t : "";
-            lectureorexercises = (scheduleList[index].LectureOrExercise != null) ? scheduleList[index].LectureOrExercise.t : "";
-            venue = (scheduleList[index].Venue != null) ? scheduleList[index].Venue.t : "";
-            group = (scheduleList[index].Groups != null) ? " | " + scheduleList[index].Groups.t : "";
+            teacher = (scheduleList[index].L_Teacher != null) ? scheduleList[index].L_Teacher.t : "";
+            subject = (scheduleList[index].L_Subjects != null) ? scheduleList[index].L_Subjects.t : "";
+            lectureorexercises = (scheduleList[index].L_LectureOrExercise != null) ? scheduleList[index].L_LectureOrExercise.t : "";
+            venue = (scheduleList[index].L_Venue != null) ? scheduleList[index].L_Venue.t : "";
+            group = (scheduleList[index].L_Groups != null) ? " | " + scheduleList[index].L_Groups.t : "";
 
             // Adding schedule appointment in schedule appointment collection 
             scheduleAppointmentCollection.Add(new ScheduleAppointment()
@@ -78,6 +80,46 @@ namespace UtMobileApp.Extensions
                             "Venue: " + venue,
                 Color = color
             });
+        }
+
+        public async Task<CalendarEventCollection> AddAppointemntMidterms(List<Models.MidtermsJSON.Entry> scheduleList)
+        {
+            // Creating an instance of calendar event collection
+            CalendarEventCollection calendarEventCollection = new CalendarEventCollection();
+
+            for (int i = 0; i < scheduleList.Count; i++)
+            {
+                if (scheduleList[i].M_Date1 != null && scheduleList[i].M_Time1 != null)
+                {
+                    // We need day in one variable, month in one variable, so we split the string and save it in an array
+                    string[] Date1 = scheduleList[i].M_Date1.t.Split('/'); // First term
+                    // We need hour in one variable, minutes in one variable, so we split the string and save it in an array
+                    string[] Time1 = scheduleList[i].M_Time1.t.Split(':');
+
+                    calendarEventCollection.Add(new CalendarInlineEvent()
+                    {
+                        StartTime = new DateTime(DateTime.Now.Year, int.Parse(Date1[1]), int.Parse(Date1[0]), int.Parse(Time1[0]), int.Parse(Time1[1]), 0),
+                        EndTime = new DateTime(DateTime.Now.Year, int.Parse(Date1[1]), int.Parse(Date1[0]), int.Parse(Time1[0]) + 1, int.Parse(Time1[1]), 0),
+                        Subject = scheduleList[i].M_Subjects.t
+                    });
+                }
+                if (scheduleList[i].M_Date2 != null && scheduleList[i].M_Time2 != null)
+                {
+                    // We need day in one variable, month in one variable, so we split the string and save it in an array
+                    string[] Date2 = scheduleList[i].M_Date2.t.Split('/'); // First term
+                    // We need hour in one variable, minutes in one variable, so we split the string and save it in an array
+                    string[] Time2 = scheduleList[i].M_Time2.t.Split(':');
+
+                    calendarEventCollection.Add(new CalendarInlineEvent()
+                    {
+                        StartTime = new DateTime(DateTime.Now.Year, int.Parse(Date2[1]), int.Parse(Date2[0]), int.Parse(Time2[0]), int.Parse(Time2[1]), 0),
+                        EndTime = new DateTime(DateTime.Now.Year, int.Parse(Date2[1]), int.Parse(Date2[0]), int.Parse(Time2[0]) + 1, int.Parse(Time2[1]), 0),
+                        Subject = scheduleList[i].M_Subjects.t
+                    });
+                }
+            }
+
+            return calendarEventCollection;
         }
     }
 }

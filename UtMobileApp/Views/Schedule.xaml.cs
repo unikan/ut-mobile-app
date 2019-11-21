@@ -136,7 +136,7 @@ namespace UtMobileApp.Views
             await busyindicator.FadeTo(1, 300, Easing.Linear);
             busyindicator.IsBusy = true;
 
-            string url = "https://spreadsheets.google.com/feeds/list/1SFGzFIq8K7va4HzT9PZUwRNxch_yqZItn80-Kwu-u6c/3/public/values?alt=json";
+            string url = "https://spreadsheets.google.com/feeds/list/1SFGzFIq8K7va4HzT9PZUwRNxch_yqZItn80-Kwu-u6c/2/public/values?alt=json";
             var LoadSchedule = new Extensions.LoadSchedule();
             List<Models.ScheduleJSON.Entry> scheduleList = await LoadSchedule.DeserializeJsonAsync(url);
 
@@ -145,29 +145,29 @@ namespace UtMobileApp.Views
 
             for (int i = 0; i < scheduleList.Count; i++)
             {
-                if (scheduleList[i].Day != null && scheduleList[i].BeginningTime != null && scheduleList[i].EndingTime != null)
+                if (scheduleList[i].L_Day != null && scheduleList[i].L_BeginningTime != null && scheduleList[i].L_EndingTime != null)
                 {
-                    if (scheduleList[i].Day.t == "e hënë")
+                    if (scheduleList[i].L_Day.t == "e hënë")
                     {
                         de.AddAppointment(scheduleList, i, scheduleAppointmentCollection, dates, 0);
                     }
-                    else if (scheduleList[i].Day.t == "e martë")
+                    else if (scheduleList[i].L_Day.t == "e martë")
                     {
                         de.AddAppointment(scheduleList, i, scheduleAppointmentCollection, dates, 1);
                     }
-                    else if (scheduleList[i].Day.t == "e mërkurë")
+                    else if (scheduleList[i].L_Day.t == "e mërkurë")
                     {
                         de.AddAppointment(scheduleList, i, scheduleAppointmentCollection, dates, 2);
                     }
-                    else if (scheduleList[i].Day.t == "e enjte")
+                    else if (scheduleList[i].L_Day.t == "e enjte")
                     {
                         de.AddAppointment(scheduleList, i, scheduleAppointmentCollection, dates, 3);
                     }
-                    else if (scheduleList[i].Day.t == "e premte")
+                    else if (scheduleList[i].L_Day.t == "e premte")
                     {
                         de.AddAppointment(scheduleList, i, scheduleAppointmentCollection, dates, 4);
                     }
-                    else if (scheduleList[i].Day.t == "e shtunë")
+                    else if (scheduleList[i].L_Day.t == "e shtunë")
                     {
                         de.AddAppointment(scheduleList, i, scheduleAppointmentCollection, dates, 5);
                     }

@@ -39,6 +39,7 @@ namespace UtMobileApp.iOS
             Syncfusion.XForms.iOS.ComboBox.SfComboBoxRenderer.Init();
             Syncfusion.SfNumericUpDown.XForms.iOS.SfNumericUpDownRenderer.Init();
             Syncfusion.XForms.iOS.Graphics.SfGradientViewRenderer.Init();
+            Syncfusion.SfCalendar.XForms.iOS.SfCalendarRenderer.Init();
 
             // Initialization of Animation for transitions
             FormsControls.Touch.Main.Init();

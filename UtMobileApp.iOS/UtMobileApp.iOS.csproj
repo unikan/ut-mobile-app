@@ -111,6 +111,7 @@
   <ItemGroup>
     <Compile Include="AuthIOS.cs" />
     <Compile Include="CloseAppiOS.cs" />
+    <Compile Include="CustomRendereriOS\WebViewRenderer.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
@@ -151,31 +152,34 @@
       <Version>2.6.1</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.Buttons">
-      <Version>17.3.0.27</Version>
+      <Version>17.3.0.28</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.Core">
-      <Version>17.3.0.27</Version>
+      <Version>17.3.0.28</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator">
-      <Version>17.3.0.27</Version>
+      <Version>17.3.0.28</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfAutoComplete">
-      <Version>17.3.0.27</Version>
+      <Version>17.3.0.28</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfCalendar">
+      <Version>17.3.0.28</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfComboBox">
-      <Version>17.3.0.27</Version>
+      <Version>17.3.0.28</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfListView">
-      <Version>17.3.0.27</Version>
+      <Version>17.3.0.28</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfNavigationDrawer">
-      <Version>17.3.0.27</Version>
+      <Version>17.3.0.28</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfNumericUpDown">
-      <Version>17.3.0.27</Version>
+      <Version>17.3.0.28</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfSchedule">
-      <Version>17.3.0.27</Version>
+      <Version>17.3.0.28</Version>
     </PackageReference>
     <PackageReference Include="WordPressPCL">
       <Version>1.6.2</Version>
@@ -291,6 +295,7 @@
       <Visible>false</Visible>
     </ImageAsset>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <AutoUnifyAssemblyReferences>true</AutoUnifyAssemblyReferences>
   </PropertyGroup>

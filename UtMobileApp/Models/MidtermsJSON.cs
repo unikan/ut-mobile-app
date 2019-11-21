@@ -1,10 +1,11 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace UtMobileApp.Models
 {
-    public class ScheduleJSON
+    public class MidtermsJSON
     {
         public class Id
         {
@@ -409,30 +410,33 @@ namespace UtMobileApp.Models
             public Title2 title { get; set; }
             public Content content { get; set; }
             public List<Link2> link { get; set; }
-            
 
 
 
             // --------------------------------------------------------------------------------
-            // LECTURES/EXERCISES 
+            // MIDTERMS
             [JsonProperty("gsx$_cn6ca")]
-            public GsxCn6ca L_Semester { get; set; }
+            public GsxCn6ca M_Semester { get; set; }
             [JsonProperty("gsx$universitetiitetovësуниверзитетвотетовоuniversityoftetovo")]
-            public GsxUniversitet L_Teacher { get; set; }
+            public GsxUniversitet M_Teacher { get; set; }
             [JsonProperty("gsx$_chk2m")]
-            public GsxChk2m L_Subjects { get; set; }
-            [JsonProperty("gsx$_cztg3")]
-            public GsxCztg3 L_LectureOrExercise { get; set; }
-            [JsonProperty("gsx$_d180g")]
-            public GsxD180g L_Groups { get; set; }
+            public GsxChk2m M_Subjects { get; set; }
             [JsonProperty("gsx$_d2mkx")]
-            public GsxD2mkx L_Day { get; set; }
+            public GsxD2mkx M_Date1 { get; set; }
             [JsonProperty("gsx$_cssly")]
-            public GsxCssly L_BeginningTime { get; set; }
+            public GsxCssly M_Time1 { get; set; }
             [JsonProperty("gsx$_cu76f")]
-            public GsxCu76f L_EndingTime { get; set; }
-            [JsonProperty("gsx$_cvlqs")]
-            public GsxCvlqs L_Venue { get; set; }
+            public GsxCu76f M_Venue1 { get; set; }
+            [JsonProperty("gsx$_d180g")]
+            public GsxDcgjs M_Group1 { get; set; }
+            [JsonProperty("gsx$_informimинфо")]
+            public GsxInformimинфо M_Date2 { get; set; }
+            [JsonProperty("gsx$_db1zf")]
+            public GsxDb1zf M_Time2 { get; set; }
+            [JsonProperty("gsx$_dcgjs")]
+            public GsxDcgjs M_Venue2 { get; set; }
+            [JsonProperty("gsx$_cx0b9")]
+            public GsxCx0b9 M_Group2 { get; set; }
         }
 
         public class Feed
