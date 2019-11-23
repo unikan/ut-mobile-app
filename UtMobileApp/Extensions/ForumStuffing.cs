@@ -31,6 +31,7 @@ namespace UtMobileApp.Extensions
                     PostContent = item.Object.PostContent,
                     PostTime = item.Object.PostTime,
                     PostProgram = item.Object.PostProgram,
+                    PostImage = item.Object.PostImage,
                 }).ToList();
         }
 
@@ -51,11 +52,11 @@ namespace UtMobileApp.Extensions
                 }).ToList();
         }
 
-        public async Task CreatePost(string postid, string postauthorname, string postauthorlastname, string posttitle, string postcontent , DateTime posttime, string postprogram)
+        public async Task CreatePost(string postid, string postauthorname, string postauthorlastname, string posttitle, string postcontent , DateTime posttime, string postprogram, string imageurl)
         {
             await firebase
                 .Child("ForumPosts")
-                .PostAsync(new ForumPosts() { PostID = postid, PostAuthorName = postauthorname, PostAuthorLastName = postauthorlastname, PostTitle = posttitle, PostContent = postcontent, PostTime = posttime, PostProgram = postprogram });
+                .PostAsync(new ForumPosts() { PostID = postid, PostAuthorName = postauthorname, PostAuthorLastName = postauthorlastname, PostTitle = posttitle, PostContent = postcontent, PostTime = posttime, PostProgram = postprogram , PostImage = imageurl});
         }
 
         public async Task CreateComment(string commentid, string postid, string commentauthorname, string commentauthorlastname, string commentcontent, DateTime commentime, string program)

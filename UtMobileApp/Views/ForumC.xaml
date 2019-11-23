@@ -3,7 +3,9 @@
     x:Class="UtMobileApp.Views.ForumC"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:listviews="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <ContentPage.Content>
@@ -12,7 +14,6 @@
             <Entry x:Name="PostTitle" Placeholder="Enter Post Title Here" />
             <Editor x:Name="TextEditor" />
             <Button Clicked="Comment_Clicked" Text="SUBMIT" />
-
 
         </StackLayout>
     </ContentPage.Content>

@@ -3,7 +3,9 @@
     x:Class="UtMobileApp.Views.ForumP"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:listviews="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <ContentPage.Content>
@@ -39,16 +41,46 @@
                             Clicked="btnPick_Clicked"
                             Text="Pick"
                             WidthRequest="200" />
-                        <Button
-                            x:Name="btnUpload"
-                            Clicked="btnUpload_Clicked"
-                            Text="Upload"
-                            WidthRequest="200" />
                     </StackLayout>
                     <Label x:Name="lblPath" />
 
                 </StackLayout>
             </StackLayout>
+            <listviews:SfListView
+                x:Name="newsList"
+                ItemSize="300"
+                Opacity="0"
+                SelectionBackgroundColor="Transparent">
+                <listviews:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <AbsoluteLayout>
+                            <border:SfBorder
+                                Margin="10,0"
+                                AbsoluteLayout.LayoutBounds="0, 0, 1, 0.6"
+                                AbsoluteLayout.LayoutFlags="All"
+                                BorderColor="Transparent"
+                                CornerRadius="10">
+                                <Image
+                                    Aspect="AspectFill"
+                                    Source="{Binding ImageUrl}"
+                                    VerticalOptions="End" />
+                            </border:SfBorder>
+                            <Frame
+                                Margin="20,0"
+                                AbsoluteLayout.LayoutBounds="0, 0.7, 1, 0.4"
+                                AbsoluteLayout.LayoutFlags="All"
+                                BackgroundColor="White"
+                                CornerRadius="10"
+                                HasShadow="True">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="16"
+                                    Text="{Binding Title, Converter={StaticResource convertToPlainText}}" />
+                            </Frame>
+                        </AbsoluteLayout>
+                    </DataTemplate>
+                </listviews:SfListView.ItemTemplate>
+            </listviews:SfListView>
         </StackLayout>
 
     </ContentPage.Content>

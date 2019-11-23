@@ -4,7 +4,7 @@ using System.Text;
 
 namespace UtMobileApp.Extensions
 {
-    class ForumPosts
+    public class ForumPosts
     {
 
         public string PostID { get; set; }
@@ -14,6 +14,7 @@ namespace UtMobileApp.Extensions
         public string PostContent { get; set; }
         public DateTime PostTime { get; set; }
         public string PostProgram { get; set; }
+        public string PostImage { get; set; }
 
     }
 }

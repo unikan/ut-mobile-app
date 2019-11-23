@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using XamarinFirebase.Helper;
 using XamarinFirebase.Model;
 using Xamarin.Forms;
+using Xamarin.Essentials;
 using Xamarin.Forms.Xaml;
 using UtMobileApp.Extensions;
 
@@ -14,15 +15,17 @@ namespace UtMobileApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ForumC : ContentPage
     {
-
+        
         ForumStuffing forumhelper = new ForumStuffing();
         FirebaseHelper firebasehelper = new FirebaseHelper();
         Interface auth;
-
-        public ForumC()
+        protected Extensions.ForumPosts currentpost;
+        public ForumC(Extensions.ForumPosts SelectedPost)
         {
             InitializeComponent();
             auth = DependencyService.Get<Interface>();
+            currentpost = SelectedPost;
+        
         }
 
         protected async override void OnAppearing()
@@ -32,6 +35,7 @@ namespace UtMobileApp.Views
             var allComments = await forumhelper.GetComments();
 
         }
+
 
         private async void Comment_Clicked(object sender, EventArgs e)
         {

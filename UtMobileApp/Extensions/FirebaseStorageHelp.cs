@@ -28,6 +28,7 @@ namespace UtMobileApp.Extensions
                 .Child("ForumPictures")
                 .Child(fileName)
                 .GetDownloadUrlAsync();
+
         }
         public async Task DeleteFile(string fileName)
         {
