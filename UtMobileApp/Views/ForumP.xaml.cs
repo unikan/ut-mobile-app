@@ -31,7 +31,7 @@ namespace UtMobileApp.Views
         {
 
             base.OnAppearing();
-            var allPosts = await forumhelper.GetPosts();
+            forumList.ItemsSource = await forumhelper.GetPosts();
 
         }
         private async void btnPick_Clicked(object sender, EventArgs e)
@@ -79,7 +79,13 @@ namespace UtMobileApp.Views
 
         }
 
-      
+        private async void forumList_ItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)
+        {
 
+            var selectedPost = e.ItemData as Extensions.ForumPosts;
+
+            await Navigation.PushAsync(new ForumC(selectedPost));
+
+        }
     }
 }

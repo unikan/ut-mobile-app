@@ -27,8 +27,8 @@
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignKey>iPhone Developer</CodesignKey>
-    <CodesignProvision>UnitEd_Development</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignProvision>UnitEd_Distribution</CodesignProvision>
     <CodesignExtraArgs />
     <CodesignResourceRules />
     <MtouchI18n>
@@ -43,8 +43,7 @@
     <MtouchLink>None</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignProvision>
-    </CodesignProvision>
+    <CodesignProvision>UnitEd_Distribution</CodesignProvision>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <CodesignKey>iPhone Distribution</CodesignKey>
   </PropertyGroup>
