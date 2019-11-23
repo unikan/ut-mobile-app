@@ -1,0 +1,86 @@
+﻿using Syncfusion.SfCalendar.XForms;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Xamarin.Essentials;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+namespace UtMobileApp.Views
+{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class Exams : ContentPage
+    {
+        readonly Extensions.DateExtensions de = new Extensions.DateExtensions();
+
+        public Exams()
+        {
+            InitializeComponent();
+
+            NavigationPage.SetHasNavigationBar(this, false);
+        }
+
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+                await LoadSchedule();
+            }
+            else
+            {
+                ExamsContent.IsVisible = false;
+                NoInternetContent.IsVisible = true;
+            }
+
+            // Move to exams date
+            //calendar.MoveToDate = new DateTime(2017, 5, 5);
+        }
+
+        private async Task LoadSchedule()
+        {
+            await busyindicator.FadeTo(1, 300, Easing.Linear);
+            busyindicator.IsBusy = true;
+
+            string url = "https://spreadsheets.google.com/feeds/list/1SFGzFIq8K7va4HzT9PZUwRNxch_yqZItn80-Kwu-u6c/5/public/values?alt=json";
+            var LoadSchedule = new Extensions.LoadSchedule();
+            List<Models.ExamsJSON.Entry> scheduleList = await LoadSchedule.DeserializeExamsJsonAsync(url);
+
+            // Adding calendar event collection to DataSource of Calendar
+            calendar.DataSource = de.AddAppointemntExams(scheduleList);
+
+            await busyindicator.FadeTo(0, 300, Easing.Linear);
+            busyindicator.IsBusy = false;
+        }
+
+        private void Calendar_InlineItemTapped(object sender, InlineItemTappedEventArgs e)
+        {
+            var appointment = e.InlineEvent;
+            DisplayAlert(appointment.StartTime.ToString("dddd, dd MMMM yyyy HH:mm"), appointment.Subject, "OK");
+        }
+
+        private async void Reload_Clicked(object sender, EventArgs e)
+        {
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+                await LoadSchedule();
+
+                ExamsContent.IsVisible = true;
+                NoInternetContent.IsVisible = false;
+            }
+            else
+            {
+                ExamsContent.IsVisible = false;
+                NoInternetContent.IsVisible = true;
+            }
+        }
+
+        private async void BtnBack_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
+    }
+}

@@ -411,8 +411,6 @@ namespace UtMobileApp.Models
             public Content content { get; set; }
             public List<Link2> link { get; set; }
 
-
-
             // --------------------------------------------------------------------------------
             // MIDTERMS
             [JsonProperty("gsx$_cn6ca")]

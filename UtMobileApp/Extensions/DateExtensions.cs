@@ -141,5 +141,99 @@ namespace UtMobileApp.Extensions
 
             return calendarEventCollection;
         }
+
+        public CalendarEventCollection AddAppointemntExams(List<Models.ExamsJSON.Entry> scheduleList)
+        {
+            // Creating an instance of calendar event collection
+            CalendarEventCollection calendarEventCollection = new CalendarEventCollection();
+
+            string semester, teacher, subject, venue1, venue2, venue3, venue4, group1, group2, group3, group4;
+
+            for (int i = 0; i < scheduleList.Count; i++)
+            {
+                semester = (scheduleList[i].E_Semester != null) ? scheduleList[i].E_Semester.t : "";
+                teacher = (scheduleList[i].E_Teacher != null) ? scheduleList[i].E_Teacher.t : "";
+                subject = (scheduleList[i].E_Subjects != null) ? scheduleList[i].E_Subjects.t : "";
+                venue1 = (scheduleList[i].E_Venue1 != null) ? scheduleList[i].E_Venue1.t : "";
+                venue2 = (scheduleList[i].E_Venue2 != null) ? scheduleList[i].E_Venue2.t : "";
+                venue3 = (scheduleList[i].E_Venue3 != null) ? scheduleList[i].E_Venue3.t : "";
+                venue4 = (scheduleList[i].E_Venue4 != null) ? scheduleList[i].E_Venue4.t : "";
+
+                if (scheduleList[i].E_Date1 != null && scheduleList[i].E_Time1 != null)
+                {
+                    // We need day in one variable, month in one variable, so we split the string and save it in an array
+                    string[] Date1 = scheduleList[i].E_Date1.t.Split('/'); // First term
+                    // We need hour in one variable, minutes in one variable, so we split the string and save it in an array
+                    string[] Time1 = scheduleList[i].E_Time1.t.Split(':');
+
+                    calendarEventCollection.Add(new CalendarInlineEvent()
+                    {
+                        StartTime = new DateTime(DateTime.Now.Year, int.Parse(Date1[1]), int.Parse(Date1[0]), int.Parse(Time1[0]), int.Parse(Time1[1]), 0),
+                        EndTime = new DateTime(DateTime.Now.Year, int.Parse(Date1[1]), int.Parse(Date1[0]), int.Parse(Time1[0]) + 1, int.Parse(Time1[1]), 0),
+                        Subject = "[" + semester + "] "
+                                    + subject + " - "
+                                    + teacher + "\n"
+                                    + "Venue: " + venue1,
+                        Color = Color.FromHex("#F28883")
+                    });
+                }
+                if (scheduleList[i].E_Date2 != null && scheduleList[i].E_Time2 != null)
+                {
+                    // We need day in one variable, month in one variable, so we split the string and save it in an array
+                    string[] Date2 = scheduleList[i].E_Date2.t.Split('/'); // First term
+                    // We need hour in one variable, minutes in one variable, so we split the string and save it in an array
+                    string[] Time2 = scheduleList[i].E_Time2.t.Split(':');
+
+                    calendarEventCollection.Add(new CalendarInlineEvent()
+                    {
+                        StartTime = new DateTime(DateTime.Now.Year, int.Parse(Date2[1]), int.Parse(Date2[0]), int.Parse(Time2[0]), int.Parse(Time2[1]), 0),
+                        EndTime = new DateTime(DateTime.Now.Year, int.Parse(Date2[1]), int.Parse(Date2[0]), int.Parse(Time2[0]) + 1, int.Parse(Time2[1]), 0),
+                        Subject = "[" + semester + "] "
+                                    + subject + " - "
+                                    + teacher + "\n"
+                                    + "Venue: " + venue2,
+                        Color = Color.FromHex("#B9A6E0")
+                    });
+                }
+                if (scheduleList[i].E_Date3 != null && scheduleList[i].E_Time3 != null)
+                {
+                    // We need day in one variable, month in one variable, so we split the string and save it in an array
+                    string[] Date1 = scheduleList[i].E_Date3.t.Split('/'); // First term
+                    // We need hour in one variable, minutes in one variable, so we split the string and save it in an array
+                    string[] Time1 = scheduleList[i].E_Time3.t.Split(':');
+
+                    calendarEventCollection.Add(new CalendarInlineEvent()
+                    {
+                        StartTime = new DateTime(DateTime.Now.Year, int.Parse(Date1[1]), int.Parse(Date1[0]), int.Parse(Time1[0]), int.Parse(Time1[1]), 0),
+                        EndTime = new DateTime(DateTime.Now.Year, int.Parse(Date1[1]), int.Parse(Date1[0]), int.Parse(Time1[0]) + 1, int.Parse(Time1[1]), 0),
+                        Subject = "[" + semester + "] "
+                                    + subject + " - "
+                                    + teacher + "\n"
+                                    + "Venue: " + venue1,
+                        Color = Color.FromHex("#F28883")
+                    });
+                }
+                if (scheduleList[i].E_Date4 != null && scheduleList[i].E_Time4 != null)
+                {
+                    // We need day in one variable, month in one variable, so we split the string and save it in an array
+                    string[] Date2 = scheduleList[i].E_Date4.t.Split('/'); // First term
+                    // We need hour in one variable, minutes in one variable, so we split the string and save it in an array
+                    string[] Time2 = scheduleList[i].E_Time4.t.Split(':');
+
+                    calendarEventCollection.Add(new CalendarInlineEvent()
+                    {
+                        StartTime = new DateTime(DateTime.Now.Year, int.Parse(Date2[1]), int.Parse(Date2[0]), int.Parse(Time2[0]), int.Parse(Time2[1]), 0),
+                        EndTime = new DateTime(DateTime.Now.Year, int.Parse(Date2[1]), int.Parse(Date2[0]), int.Parse(Time2[0]) + 1, int.Parse(Time2[1]), 0),
+                        Subject = "[" + semester + "] "
+                                    + subject + " - "
+                                    + teacher + "\n"
+                                    + "Venue: " + venue2,
+                        Color = Color.FromHex("#B9A6E0")
+                    });
+                }
+            }
+
+            return calendarEventCollection;
+        }
     }
 }

@@ -38,5 +38,19 @@ namespace UtMobileApp.Extensions
                 return root.feed.entry;
             }
         }
+
+        public async Task<List<Models.ExamsJSON.Entry>> DeserializeExamsJsonAsync(string url)
+        {
+            using (var client = new HttpClient())
+            {
+                var response = await client.GetAsync(string.Format(url));
+                string result = await response.Content.ReadAsStringAsync();
+                Models.ExamsJSON.RootObject root = JsonConvert.DeserializeObject<Models.ExamsJSON.RootObject>(result);
+
+                // Remove 5 rows of unnecessary content
+                root.feed.entry.RemoveRange(0, 5);
+                return root.feed.entry;
+            }
+        }
     }
 }
