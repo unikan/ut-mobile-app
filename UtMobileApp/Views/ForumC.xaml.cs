@@ -25,7 +25,6 @@ namespace UtMobileApp.Views
             InitializeComponent();
             auth = DependencyService.Get<Interface>();
             currentpost = SelectedPost;
-        
         }
 
         protected async override void OnAppearing()

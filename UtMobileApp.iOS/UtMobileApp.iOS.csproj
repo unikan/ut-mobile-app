@@ -43,8 +43,7 @@
     <MtouchLink>None</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignProvision>
-    </CodesignProvision>
+    <CodesignProvision>UnitEd_Distribution</CodesignProvision>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <CodesignKey>iPhone Distribution</CodesignKey>
   </PropertyGroup>
