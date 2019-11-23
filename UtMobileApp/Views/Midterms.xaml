@@ -74,13 +74,33 @@
                              BorderWidth="0"
                              BackgroundColor="White"
                              Padding="20, 0"
-                             x:Name="NewsContent">
+                             x:Name="MidtermsContent">
                 <calendar:SfCalendar  x:Name="calendar" 
                                       ViewMode="MonthView" 
+                                      ShowInlineEvents="True"
 						              ShowLeadingAndTrailingDays="False"
+                                      MaximumEventIndicatorCount="20"
                                       HorizontalOptions="CenterAndExpand"
-                                      VerticalOptions="CenterAndExpand">
+                                      VerticalOptions="CenterAndExpand"
+                                      InlineItemTapped="Calendar_InlineItemTapped">
+                    <calendar:SfCalendar.MonthViewSettings>
+                        <calendar:MonthViewSettings InlineTextColor="#99000000">
+                        </calendar:MonthViewSettings>
+                    </calendar:SfCalendar.MonthViewSettings>
                 </calendar:SfCalendar>
+            </border:SfBorder>
+            <border:SfBorder AbsoluteLayout.LayoutBounds="0, 1, 1, .8"
+                             AbsoluteLayout.LayoutFlags="All"
+                             CornerRadius="20, 20, 0, 0" 
+                             BorderWidth="0"
+                             BackgroundColor="White"
+                             x:Name="NoInternetContent"
+                             IsVisible="False">
+                <StackLayout HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="CenterAndExpand">
+                    <Label FontSize="32" Text="No internet, try again" HorizontalOptions="CenterAndExpand"></Label>
+                    <Button Text="Retry" Clicked="Reload_Clicked"/>
+                </StackLayout>
             </border:SfBorder>
         </AbsoluteLayout>
     </ContentPage.Content>

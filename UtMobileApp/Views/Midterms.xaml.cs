@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -23,7 +23,17 @@ namespace UtMobileApp.Views
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            await LoadSchedule();
+
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+                await LoadSchedule();
+            }
+            else
+            {
+                MidtermsContent.IsVisible = false;
+                NoInternetContent.IsVisible = true;
+            }
+
             // Move to midterms date
             //calendar.MoveToDate = new DateTime(2017, 5, 5);
         }
@@ -38,10 +48,32 @@ namespace UtMobileApp.Views
             List<Models.MidtermsJSON.Entry> scheduleList = await LoadSchedule.DeserializeMidtermsJsonAsync(url);
 
             // Adding calendar event collection to DataSource of Calendar
-            calendar.DataSource = await de.AddAppointemntMidterms(scheduleList);
+            calendar.DataSource = de.AddAppointemntMidterms(scheduleList);
 
             await busyindicator.FadeTo(0, 300, Easing.Linear);
             busyindicator.IsBusy = false;
+        }
+
+        private void Calendar_InlineItemTapped(object sender, InlineItemTappedEventArgs e)
+        {
+            var appointment = e.InlineEvent;
+            DisplayAlert(appointment.StartTime.ToString("dddd, dd MMMM yyyy HH:mm"), appointment.Subject, "OK");
+        }
+
+        private async void Reload_Clicked(object sender, EventArgs e)
+        {
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+                await LoadSchedule();
+
+                MidtermsContent.IsVisible = true;
+                NoInternetContent.IsVisible = false;
+            }
+            else
+            {
+                MidtermsContent.IsVisible = false;
+                NoInternetContent.IsVisible = true;
+            }
         }
 
 

@@ -82,13 +82,23 @@ namespace UtMobileApp.Extensions
             });
         }
 
-        public async Task<CalendarEventCollection> AddAppointemntMidterms(List<Models.MidtermsJSON.Entry> scheduleList)
+        public CalendarEventCollection AddAppointemntMidterms(List<Models.MidtermsJSON.Entry> scheduleList)
         {
             // Creating an instance of calendar event collection
             CalendarEventCollection calendarEventCollection = new CalendarEventCollection();
 
+            string semester, teacher, subject, venue1, venue2, group1, group2;
+
             for (int i = 0; i < scheduleList.Count; i++)
             {
+                semester = (scheduleList[i].M_Semester != null) ? scheduleList[i].M_Semester.t : "";
+                teacher = (scheduleList[i].M_Teacher != null) ? scheduleList[i].M_Teacher.t : "";
+                subject = (scheduleList[i].M_Subjects != null) ? scheduleList[i].M_Subjects.t : "";
+                venue1 = (scheduleList[i].M_Venue1 != null) ? scheduleList[i].M_Venue1.t : "";
+                venue2 = (scheduleList[i].M_Venue2 != null) ? scheduleList[i].M_Venue2.t : "";
+                group1 = (scheduleList[i].M_Group1 != null) ? "Gr: " + scheduleList[i].M_Group1.t : "";
+                group2 = (scheduleList[i].M_Group2 != null) ? "Gr: " + scheduleList[i].M_Group2.t : "";
+
                 if (scheduleList[i].M_Date1 != null && scheduleList[i].M_Time1 != null)
                 {
                     // We need day in one variable, month in one variable, so we split the string and save it in an array
@@ -97,10 +107,15 @@ namespace UtMobileApp.Extensions
                     string[] Time1 = scheduleList[i].M_Time1.t.Split(':');
 
                     calendarEventCollection.Add(new CalendarInlineEvent()
-                    {
+                    { 
                         StartTime = new DateTime(DateTime.Now.Year, int.Parse(Date1[1]), int.Parse(Date1[0]), int.Parse(Time1[0]), int.Parse(Time1[1]), 0),
                         EndTime = new DateTime(DateTime.Now.Year, int.Parse(Date1[1]), int.Parse(Date1[0]), int.Parse(Time1[0]) + 1, int.Parse(Time1[1]), 0),
-                        Subject = scheduleList[i].M_Subjects.t
+                        Subject = "[" + semester + "] "
+                                    + subject + " - "
+                                    + teacher + "\n"
+                                    + "Venue: " + venue1 + " "
+                                    + group1,
+                        Color = Color.FromHex("#F28883")
                     });
                 }
                 if (scheduleList[i].M_Date2 != null && scheduleList[i].M_Time2 != null)
@@ -114,7 +129,12 @@ namespace UtMobileApp.Extensions
                     {
                         StartTime = new DateTime(DateTime.Now.Year, int.Parse(Date2[1]), int.Parse(Date2[0]), int.Parse(Time2[0]), int.Parse(Time2[1]), 0),
                         EndTime = new DateTime(DateTime.Now.Year, int.Parse(Date2[1]), int.Parse(Date2[0]), int.Parse(Time2[0]) + 1, int.Parse(Time2[1]), 0),
-                        Subject = scheduleList[i].M_Subjects.t
+                        Subject = "[" + semester + "] "
+                                    + subject + " - "
+                                    + teacher + "\n"
+                                    + "Venue: " + venue2 + " "
+                                    + group2,
+                        Color = Color.FromHex("#B9A6E0")
                     });
                 }
             }

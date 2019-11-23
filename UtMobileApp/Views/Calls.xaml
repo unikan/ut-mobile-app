@@ -114,7 +114,6 @@
                                                VerticalOptions="CenterAndExpand"
                                                FontSize="Medium"
                                                FontAttributes="Bold"
-                                               
                                                Padding="10, 0, 0, 0"
                                                Text="{Binding Title.Rendered, Converter={StaticResource convertToPlainText}}"></Label>
                                             <Grid Grid.Row="0"

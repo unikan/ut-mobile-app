@@ -27,8 +27,8 @@
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignKey>iPhone Developer</CodesignKey>
-    <CodesignProvision>UnitEd_Development</CodesignProvision>
+    <CodesignKey>iPhone Developer: Krenar Huseini (S4MRRU3FU9)</CodesignKey>
+    <CodesignProvision>UnitEd_Distribution</CodesignProvision>
     <CodesignExtraArgs />
     <CodesignResourceRules />
     <MtouchI18n>
@@ -60,9 +60,8 @@
     <MtouchArch>ARM64</MtouchArch>
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
-    <CodesignEntitlements>
-    </CodesignEntitlements>
-    <CodesignProvision>UnitEd_Development</CodesignProvision>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>UnitEd_Distribution</CodesignProvision>
     <CodesignExtraArgs />
     <CodesignResourceRules />
   </PropertyGroup>
@@ -111,7 +110,6 @@
   <ItemGroup>
     <Compile Include="AuthIOS.cs" />
     <Compile Include="CloseAppiOS.cs" />
-    <Compile Include="CustomRendereriOS\WebViewRenderer.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
