@@ -193,33 +193,45 @@
                                      Opacity="0"
                                      ShowResourceView="True">
                     <schedule:SfSchedule.ScheduleResources>
-                        <schedule:ScheduleResource Name="I" 
+                        <schedule:ScheduleResource Name="Semester I" 
                                                    Id="I" 
-                                                   Color="Red" />
-                        <schedule:ScheduleResource Name="II" 
+                                                   Color="#D50000" />
+                        <schedule:ScheduleResource Name="Semester II" 
                                                    Id="II" 
-                                                   Color="Blue" />
-                        <schedule:ScheduleResource Name="III" 
+                                                   Color="#E67C73" />
+                        <schedule:ScheduleResource Name="Semester III" 
                                                    Id="III" 
-                                                   Color="Green" />
-                        <schedule:ScheduleResource Name="IV" 
+                                                   Color="#F4511E" />
+                        <schedule:ScheduleResource Name="Semester IV" 
                                                    Id="IV" 
-                                                   Color="#FF3399" />
-                        <schedule:ScheduleResource Name="V" 
+                                                   Color="#F6BF26" />
+                        <schedule:ScheduleResource Name="Semester V" 
                                                    Id="V" 
-                                                   Color="LightGreen" />
-                        <schedule:ScheduleResource Name="VI" 
+                                                   Color="#33B679" />
+                        <schedule:ScheduleResource Name="Semester VI" 
                                                    Id="VI" 
-                                                   Color="Gray" />
-                        <schedule:ScheduleResource Name="VII" 
+                                                   Color="#0B8043" />
+                        <schedule:ScheduleResource Name="Semester VII" 
                                                    Id="VII" 
-                                                   Color="Cyan" />
-                        <schedule:ScheduleResource Name="VIII" 
+                                                   Color="#039BE5" />
+                        <schedule:ScheduleResource Name="Semester VIII" 
                                                    Id="VIII" 
-                                                   Color="DarkOrange" />
+                                                   Color="#3F51B5" />
+                        <schedule:ScheduleResource Name="Semester IX" 
+                                                   Id="IX" 
+                                                   Color="#7986CB" />
+                        <schedule:ScheduleResource Name="Semester X" 
+                                                   Id="X" 
+                                                   Color="#8E24AA" />
+                        <schedule:ScheduleResource Name="Semester XI" 
+                                                   Id="XI" 
+                                                   Color="#a2a8d3" />
+                        <schedule:ScheduleResource Name="Semester XII" 
+                                                   Id="XII" 
+                                                   Color="#38598b" />
                     </schedule:SfSchedule.ScheduleResources>
                     <schedule:SfSchedule.ResourceViewSettings>
-                        <schedule:ResourceViewSettings SelectionMode="Multiple"/>
+                        <schedule:ResourceViewSettings SelectionMode="Multiple" VisibleResourceCount="5" />
                     </schedule:SfSchedule.ResourceViewSettings>
                     <schedule:SfSchedule.DayViewSettings>
                         <!--setting working hours properties -->
