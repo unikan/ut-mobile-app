@@ -14,11 +14,11 @@ namespace UtMobileApp.Extensions
         public string HtmlStart = "<!DOCTYPE html><html><head><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" /><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/><link href=\"https://unite.edu.mk/wp-content/themes/Avada/assets/css/style.min.css?ver=5.5.1\" type=\"text/css\" rel=\"stylesheet\"/><style>body { margin: 5%; background-color: #EEEEEE; } .fusion-carousel-holder { column-count: 2; column-gap: 10px; padding: 0; } .fusion-carousel-holder li { margin-bottom: 10px; }</style></head><body>";
         public string HtmlEnd = "</body></html>";
 
-        public async Task<IEnumerable<WordPressPCL.Models.Post>> GetLatestPostsAsync(int category)
+        public async Task<IEnumerable<WordPressPCL.Models.Post>> GetLatestPostsAsync(int category, int count)
         {
             var posts = await _client.Posts.Query(new PostsQueryBuilder
             {
-                PerPage = 5,
+                PerPage = count,
                 Embed = true,
                 Categories = new int[] { category }
             });
@@ -27,9 +27,9 @@ namespace UtMobileApp.Extensions
         }
 
         // Get posts with featured image
-        public async Task<List<Models.WPFeaturedPost>> GetFeaturedPost(int category)
+        public async Task<List<Models.WPFeaturedPost>> GetFeaturedPost(int category, int count)
         {
-            IEnumerable<WordPressPCL.Models.Post> news = await GetLatestPostsAsync(category);
+            IEnumerable<WordPressPCL.Models.Post> news = await GetLatestPostsAsync(category, count);
             List<WordPressPCL.Models.Post> newsList = news.ToList();
 
             List<WordPressPCL.Models.MediaItem> WpMedia;

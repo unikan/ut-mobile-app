@@ -80,7 +80,7 @@ namespace UtMobileApp.Views
             NoInternetContent.IsVisible = false;
 
             Extensions.WordpressServices wordpressServices = new Extensions.WordpressServices();
-            announcementsList.ItemsSource = await wordpressServices.GetLatestPostsAsync(59);
+            announcementsList.ItemsSource = await wordpressServices.GetLatestPostsAsync(59, 10);
 
             // Hide busy indicator indicator
             await busyindicator.FadeTo(0, 300, Easing.Linear);

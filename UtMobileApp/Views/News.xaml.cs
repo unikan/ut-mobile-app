@@ -86,7 +86,7 @@ namespace UtMobileApp.Views
             NewsContent.IsVisible = true;
             NoInternetContent.IsVisible = false;
 
-            newsList.ItemsSource = await ws.GetFeaturedPost(31);
+            newsList.ItemsSource = await ws.GetFeaturedPost(31, 5);
 
             // Hide busy indicator indicator
             await busyindicator.FadeTo(0, 300, Easing.Linear);
