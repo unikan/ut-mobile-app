@@ -14,104 +14,107 @@
     mc:Ignorable="d"
     BackgroundColor="#EEEEEE">
     <ContentPage.Content>
-        <AbsoluteLayout Padding="10, 0">
+        <ScrollView Orientation="Vertical">
+            <AbsoluteLayout Padding="10, 0">
             <StackLayout AbsoluteLayout.LayoutBounds="0, 1, 1, 1"
                          AbsoluteLayout.LayoutFlags="All"
                          x:Name="CompleteRegistrationContent"
                          HorizontalOptions="CenterAndExpand"
                          VerticalOptions="CenterAndExpand">
-                <Label Text="Personal information"
+                    <Label Text="Personal information"
                        HorizontalTextAlignment="Center"
                        FontSize="30"
                        TextColor="#242424"></Label>
-                <inputLayout:SfTextInputLayout Hint="Index Number" 
+                    <inputLayout:SfTextInputLayout Hint="Index Number" 
                                                ContainerType="Outlined"
                                                FocusedColor="#e68471">
-                    <Entry Placeholder="3615111035"
+                        <Entry Placeholder="3615111035"
                            x:Name="IndexNumberInput"
                            IsEnabled="False" />
-                </inputLayout:SfTextInputLayout>
-                <inputLayout:SfTextInputLayout Hint="First Name" 
+                    </inputLayout:SfTextInputLayout>
+                    <inputLayout:SfTextInputLayout Hint="First Name" 
                                                ContainerType="Outlined"
                                                FocusedColor="#e68471">
-                    <Entry Placeholder="John"
+                        <Entry Placeholder="John"
                            x:Name="NameInput"
                            Keyboard="Text"
+                           TextColor="#101010"
                            Completed="NameInput_Completed"/>
-                </inputLayout:SfTextInputLayout>
-                <inputLayout:SfTextInputLayout Hint="Last Name" 
+                    </inputLayout:SfTextInputLayout>
+                    <inputLayout:SfTextInputLayout Hint="Last Name" 
                                                ContainerType="Outlined"
                                                FocusedColor="#e68471">
-                    <Entry Placeholder="Doe"
+                        <Entry Placeholder="Doe"
                            Keyboard="Text"
-                           x:Name="LastNameInput"/>
-                </inputLayout:SfTextInputLayout>
-                <inputLayout:SfTextInputLayout Hint="Semester"
+                           x:Name="LastNameInput"
+                           TextColor="#101010"/>
+                    </inputLayout:SfTextInputLayout>
+                    <inputLayout:SfTextInputLayout Hint="Semester"
                                                ContainerType="Outlined"
                                                FocusedColor="#e68471">
-                    <combobox:SfComboBox x:Name="SemesterCombobox">
-                        <combobox:SfComboBox.ComboBoxSource>
-                            <ListCollection:List x:TypeArguments="x:String">
-                                <x:String>I</x:String>
-                                <x:String>II</x:String>
-                                <x:String>III</x:String>
-                                <x:String>IV</x:String>
-                                <x:String>V</x:String>
-                                <x:String>VI</x:String>
-                                <x:String>VII</x:String>
-                                <x:String>VIII</x:String>
-                                <x:String>IX</x:String>
-                                <x:String>X</x:String>
-                                <x:String>XI</x:String>
-                                <x:String>XII</x:String>
-                            </ListCollection:List>
-                        </combobox:SfComboBox.ComboBoxSource>
-                    </combobox:SfComboBox>
-                </inputLayout:SfTextInputLayout>
-                <inputLayout:SfTextInputLayout HelperText="If you leave the group '0' that means you don't have a group and it's totally fine :)"
+                        <combobox:SfComboBox x:Name="SemesterCombobox">
+                            <combobox:SfComboBox.ComboBoxSource>
+                                <ListCollection:List x:TypeArguments="x:String">
+                                    <x:String>I</x:String>
+                                    <x:String>II</x:String>
+                                    <x:String>III</x:String>
+                                    <x:String>IV</x:String>
+                                    <x:String>V</x:String>
+                                    <x:String>VI</x:String>
+                                    <x:String>VII</x:String>
+                                    <x:String>VIII</x:String>
+                                    <x:String>IX</x:String>
+                                    <x:String>X</x:String>
+                                    <x:String>XI</x:String>
+                                    <x:String>XII</x:String>
+                                </ListCollection:List>
+                            </combobox:SfComboBox.ComboBoxSource>
+                        </combobox:SfComboBox>
+                    </inputLayout:SfTextInputLayout>
+                    <inputLayout:SfTextInputLayout HelperText="If you leave the group '0' that means you don't have a group and it's totally fine :)"
                                                Hint="Group"
                                                ContainerType="Outlined"
                                                FocusedColor="#e68471">
-                    <numeric:SfNumericUpDown
+                        <numeric:SfNumericUpDown
                         x:Name="GroupsNumericUpDown"
                         AllowNull="true"
                         Maximum="20"
                         MaximumDecimalDigits="0"
                         Minimum="0"
                         Value="0"/>
-                </inputLayout:SfTextInputLayout>
-                <inputLayout:SfTextInputLayout Hint="Faculty"
+                    </inputLayout:SfTextInputLayout>
+                    <inputLayout:SfTextInputLayout Hint="Faculty"
                                                ContainerType="Outlined"
                                                FocusedColor="#e68471">
-                    <combobox:SfComboBox x:Name="FacultyCombobox" 
+                        <combobox:SfComboBox x:Name="FacultyCombobox" 
                                      SelectionChanged="FacultyCombobox_SelectionChanged">
-                        <combobox:SfComboBox.ComboBoxSource>
-                            <ListCollection:List x:TypeArguments="x:String">
-                                <x:String>Faculty of Agriculture and Biotechnology</x:String>
-                                <x:String>Faculty of Applied Sciences</x:String>
-                                <x:String>Faculty of Arts</x:String>
-                                <x:String>Faculty of Business Administration</x:String>
-                                <x:String>Faculty of Economics</x:String>
-                                <x:String>Faculty of Food Technology and Nutrition</x:String>
-                                <x:String>Faculty of Law</x:String>
-                                <x:String>Faculty of Medical Sciences</x:String>
-                                <x:String>Faculty of Natural Sciences and Mathematics</x:String>
-                                <x:String>Faculty of Pedagogy</x:String>
-                                <x:String>Faculty of Philology</x:String>
-                                <x:String>Faculty of Philosophy</x:String>
-                                <x:String>Faculty of Physical Education</x:String>
-                            </ListCollection:List>
-                        </combobox:SfComboBox.ComboBoxSource>
-                    </combobox:SfComboBox>
-                </inputLayout:SfTextInputLayout>
-                <inputLayout:SfTextInputLayout x:Name="ProgramInput"
+                            <combobox:SfComboBox.ComboBoxSource>
+                                <ListCollection:List x:TypeArguments="x:String">
+                                    <x:String>Faculty of Agriculture and Biotechnology</x:String>
+                                    <x:String>Faculty of Applied Sciences</x:String>
+                                    <x:String>Faculty of Arts</x:String>
+                                    <x:String>Faculty of Business Administration</x:String>
+                                    <x:String>Faculty of Economics</x:String>
+                                    <x:String>Faculty of Food Technology and Nutrition</x:String>
+                                    <x:String>Faculty of Law</x:String>
+                                    <x:String>Faculty of Medical Sciences</x:String>
+                                    <x:String>Faculty of Natural Sciences and Mathematics</x:String>
+                                    <x:String>Faculty of Pedagogy</x:String>
+                                    <x:String>Faculty of Philology</x:String>
+                                    <x:String>Faculty of Philosophy</x:String>
+                                    <x:String>Faculty of Physical Education</x:String>
+                                </ListCollection:List>
+                            </combobox:SfComboBox.ComboBoxSource>
+                        </combobox:SfComboBox>
+                    </inputLayout:SfTextInputLayout>
+                    <inputLayout:SfTextInputLayout x:Name="ProgramInput"
                                                Hint="Program"
                                                ContainerType="Outlined"
                                                FocusedColor="#e68471">
-                    <combobox:SfComboBox x:Name="AutoCompleteProgram" 
+                        <combobox:SfComboBox x:Name="AutoCompleteProgram" 
                                          ComboBoxMode="SuggestAppend" />
-                </inputLayout:SfTextInputLayout>
-                <buttons:SfButton x:Name="Btn_CompleteReg" 
+                    </inputLayout:SfTextInputLayout>
+                    <buttons:SfButton x:Name="Btn_CompleteReg" 
                                   Text="Complete Registration" 
                                   CornerRadius="100"
                                   BackgroundColor="#e68471"
@@ -119,17 +122,18 @@
                                   HeightRequest="60"
                                   FontSize="20"
                                   Clicked="Btn_CompleteReg_Clicked">
-                </buttons:SfButton>
-            </StackLayout>
-            <StackLayout AbsoluteLayout.LayoutBounds="0, 1, 1, 1"
+                    </buttons:SfButton>
+                </StackLayout>
+                <StackLayout AbsoluteLayout.LayoutBounds="0, 1, 1, 1"
                          AbsoluteLayout.LayoutFlags="All"
                          Padding="20, 0"
                          VerticalOptions="CenterAndExpand"
                          x:Name="NoInternetContent"
                          IsVisible="False">
-                <Label FontSize="32" Text="No internet, try again" HorizontalOptions="CenterAndExpand"></Label>
-                <Button Text="Retry" Clicked="Reload_Clicked"/>
-            </StackLayout>
-        </AbsoluteLayout>
+                    <Label FontSize="32" Text="No internet, try again" HorizontalOptions="CenterAndExpand"></Label>
+                    <Button Text="Retry" Clicked="Reload_Clicked"/>
+                </StackLayout>
+            </AbsoluteLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

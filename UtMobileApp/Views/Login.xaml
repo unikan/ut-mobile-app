@@ -62,8 +62,8 @@
                     <Entry Placeholder="n.lastname3615111035@unite.edu.mk"
                            x:Name="EmailInput"
                            Completed="EmailInput_Completed"
-                           Keyboard="Email"
-                           />
+                           TextColor="#101010"
+                           Keyboard="Email" />
                 </inputLayout:SfTextInputLayout>
 
                 <inputLayout:SfTextInputLayout Hint="Password" 
@@ -72,7 +72,7 @@
                                                FocusedColor="#e68471">
                     <Entry IsPassword="True"
                            x:Name="PasswordInput"
-                           />
+                           TextColor="#101010" />
                 </inputLayout:SfTextInputLayout>
                 <buttons:SfButton x:Name="Btn_Login" 
                                   Text="Log In" 

@@ -64,7 +64,7 @@
                            x:Name="EmailInput"
                            Completed="EmailInput_Completed"
                            Keyboard="Email"
-                           />
+                           TextColor="#101010" />
                 </inputLayout:SfTextInputLayout>
 
                 <inputLayout:SfTextInputLayout Hint="Password" 
@@ -73,7 +73,7 @@
                                            FocusedColor="#e68471">
                     <Entry IsPassword="True"
                            x:Name="PasswordInput"
-                           />
+                           TextColor="#101010" />
                 </inputLayout:SfTextInputLayout>
                 <Label Text="Password should at least contain 6 characters"
                        FontSize="Small"
