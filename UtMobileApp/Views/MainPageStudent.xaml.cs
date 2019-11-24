@@ -99,23 +99,34 @@ namespace UtMobileApp.Views
 
         private async void BtnLectures_Clicked(object sender, EventArgs e)
         {
+            var currentSize = BtnLectures.Scale;
             await BtnLectures.ScaleTo(1.1, 200, Easing.BounceOut);
             await Navigation.PushAsync(new Views.Schedule());
-            BtnLectures.Scale = 1;
+            BtnLectures.Scale = currentSize;
         }
 
         private async void BtnMidterms_Clicked(object sender, EventArgs e)
         {
+            var currentSize = BtnMidterms.Scale;
             await BtnMidterms.ScaleTo(1.1, 200, Easing.BounceOut);
             await Navigation.PushAsync(new Views.Midterms());
-            BtnMidterms.Scale = 1;
+            BtnMidterms.Scale = currentSize;
         }
 
         private async void BtnExams_Clicked(object sender, EventArgs e)
         {
+            var currentSize = BtnExams.Scale;
             await BtnExams.ScaleTo(1.1, 200, Easing.BounceOut);
             await Navigation.PushAsync(new Views.Exams());
-            BtnMidterms.Scale = 1;
+            BtnExams.Scale = 1;
+        }
+
+        private async void BtnConsultations_Clicked(object sender, EventArgs e)
+        {
+            var currentSize = BtnConsultations.Scale;
+            await BtnConsultations.ScaleTo(1.1, 200, Easing.BounceOut);
+            await Navigation.PushAsync(new Views.Consultations());
+            BtnConsultations.Scale = currentSize;
         }
 
         private async void BtnNews_Clicked(object sender, EventArgs e)

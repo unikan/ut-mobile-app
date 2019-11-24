@@ -1,6 +1,8 @@
 ﻿using Syncfusion.SfSchedule.XForms;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -9,15 +11,16 @@ using Xamarin.Forms.Xaml;
 namespace UtMobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Schedule : ContentPage
+    public partial class Consultations : ContentPage
     {
         readonly Extensions.DateExtensions de = new Extensions.DateExtensions();
         int[,] dates = new int[6, 3];
 
-        public Schedule()
+        public Consultations()
         {
-            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
+
+            NavigationPage.SetHasNavigationBar(this, false);
         }
 
         protected override async void OnAppearing()
