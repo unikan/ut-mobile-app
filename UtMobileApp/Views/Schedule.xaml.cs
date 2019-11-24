@@ -34,14 +34,21 @@ namespace UtMobileApp.Views
             // Get dates of every day of first week
             dates = de.DatesOfWeek1(DateTime.Now);
 
-            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            try
             {
-                await LoadSchedule();
+                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                {
+                    await LoadSchedule();
+                }
+                else
+                {
+                    LectureContent.IsVisible = false;
+                    NoInternetContent.IsVisible = true;
+                }
             }
-            else
+            catch (Exception e)
             {
-                LectureContent.IsVisible = false;
-                NoInternetContent.IsVisible = true;
+                await DisplayAlert("Warning", e.Message, "OK");
             }
 
             // Show todays schedule
@@ -117,17 +124,24 @@ namespace UtMobileApp.Views
 
         private async void Reload_Clicked(object sender, EventArgs e)
         {
-            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            try
             {
-                await LoadSchedule();
+                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                {
+                    await LoadSchedule();
 
-                LectureContent.IsVisible = true;
-                NoInternetContent.IsVisible = false;
+                    LectureContent.IsVisible = true;
+                    NoInternetContent.IsVisible = false;
+                }
+                else
+                {
+                    LectureContent.IsVisible = false;
+                    NoInternetContent.IsVisible = true;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                LectureContent.IsVisible = false;
-                NoInternetContent.IsVisible = true;
+                await DisplayAlert("Warning", ex.Message, "OK");
             }
         }
 

@@ -54,17 +54,24 @@ namespace UtMobileApp.Views
 
         private async void Reload_Clicked(object sender, EventArgs e)
         {
-            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            try
             {
-                await LoadCalls();
+                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                {
+                    await LoadCalls();
 
-                CallsContent.IsVisible = true;
-                NoInternetContent.IsVisible = false;
+                    CallsContent.IsVisible = true;
+                    NoInternetContent.IsVisible = false;
+                }
+                else
+                {
+                    CallsContent.IsVisible = false;
+                    NoInternetContent.IsVisible = true;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                CallsContent.IsVisible = false;
-                NoInternetContent.IsVisible = true;
+                await DisplayAlert("Warning", ex.Message, "OK");
             }
         }
 

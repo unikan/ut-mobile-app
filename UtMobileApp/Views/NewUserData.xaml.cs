@@ -198,14 +198,21 @@ namespace UtMobileApp.Views
             Syncfusion.XForms.Buttons.SfButton btn = sender as Syncfusion.XForms.Buttons.SfButton;
             helper.DisableButton(btn);
 
-            if (helper.ValidateEntry(NameInput.Text) && helper.ValidateEntry(LastNameInput.Text) && helper.ValidateEntry(SemesterCombobox.Text) && helper.ValidateEntry(FacultyCombobox.Text) && helper.ValidateEntry(AutoCompleteProgram.Text))
+            try
             {
-                await firebaseHelper.AddStudent(email: auth.GetCurrentUserEmail(), NameInput.Text, LastNameInput.Text, IndexNumberInput.Text, GroupsNumericUpDown.Value.ToString(), SemesterCombobox.SelectedItem.ToString(), FacultyCombobox.SelectedItem.ToString(), AutoCompleteProgram.SelectedItem.ToString());
-                await Navigation.PushAsync(new Views.MainPageStudent());
+                if (helper.ValidateEntry(NameInput.Text) && helper.ValidateEntry(LastNameInput.Text) && helper.ValidateEntry(SemesterCombobox.Text) && helper.ValidateEntry(FacultyCombobox.Text) && helper.ValidateEntry(AutoCompleteProgram.Text))
+                {
+                    await firebaseHelper.AddStudent(email: auth.GetCurrentUserEmail(), NameInput.Text, LastNameInput.Text, IndexNumberInput.Text, GroupsNumericUpDown.Value.ToString(), SemesterCombobox.SelectedItem.ToString(), FacultyCombobox.SelectedItem.ToString(), AutoCompleteProgram.SelectedItem.ToString());
+                    await Navigation.PushAsync(new Views.MainPageStudent());
+                }
+                else
+                {
+                    await DisplayAlert("Warning", "Please fill all the entries to continue.", "OK");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                await DisplayAlert("Warning", "Please fill all the entries to continue.", "OK");
+                await DisplayAlert("Warning", ex.Message, "OK");
             }
 
             await helper.EnableButtonAfter2Sec(btn);

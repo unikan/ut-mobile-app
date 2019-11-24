@@ -47,14 +47,21 @@ namespace UtMobileApp.Views
 
         private async void Reload_Clicked(object sender, EventArgs e)
         {
-            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            try
             {
-                await LoadKujdesiPerTy();
+                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                {
+                    await LoadKujdesiPerTy();
+                }
+                else
+                {
+                    KujdesiPerTyContent.IsVisible = false;
+                    NoInternetContent.IsVisible = true;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                KujdesiPerTyContent.IsVisible = false;
-                NoInternetContent.IsVisible = true;
+                await DisplayAlert("Warning", ex.Message, "OK");
             }
         }
 

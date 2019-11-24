@@ -24,14 +24,21 @@ namespace UtMobileApp.Views
         {
             base.OnAppearing();
 
-            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            try
             {
-                await LoadSchedule();
+                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                {
+                    await LoadSchedule();
+                }
+                else
+                {
+                    MidtermsContent.IsVisible = false;
+                    NoInternetContent.IsVisible = true;
+                }
             }
-            else
+            catch (Exception e)
             {
-                MidtermsContent.IsVisible = false;
-                NoInternetContent.IsVisible = true;
+                await DisplayAlert("Warning", e.Message, "OK");
             }
 
             // Move to midterms date
@@ -62,17 +69,24 @@ namespace UtMobileApp.Views
 
         private async void Reload_Clicked(object sender, EventArgs e)
         {
-            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            try
             {
-                await LoadSchedule();
+                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                {
+                    await LoadSchedule();
 
-                MidtermsContent.IsVisible = true;
-                NoInternetContent.IsVisible = false;
+                    MidtermsContent.IsVisible = true;
+                    NoInternetContent.IsVisible = false;
+                }
+                else
+                {
+                    MidtermsContent.IsVisible = false;
+                    NoInternetContent.IsVisible = true;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MidtermsContent.IsVisible = false;
-                NoInternetContent.IsVisible = true;
+                await DisplayAlert("Warning", ex.Message, "OK");
             }
         }
 
