@@ -66,7 +66,7 @@ namespace UtMobileApp.Views
                 AutoCompleteProgram.Text = " ";
                 programnames.Add("Manufacturing Plant");
                 programnames.Add("Animal Production");
-                programnames.Add("Agribusiness");
+                programnames.Add("Agrobusiness");
 
             }
             else if (e.Value.ToString() == "Faculty of Applied Sciences")
