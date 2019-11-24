@@ -88,7 +88,14 @@ namespace UtMobileApp.Views
 
         protected override bool OnBackButtonPressed()
         {
-            DependencyService.Get<ICloseApp>().CloseApplication();
+            if (navigationDrawer.IsOpen)
+            {
+                navigationDrawer.ToggleDrawer();
+            }
+            else
+            {
+                DependencyService.Get<ICloseApp>().CloseApplication();
+            }
             return true;
         }
 

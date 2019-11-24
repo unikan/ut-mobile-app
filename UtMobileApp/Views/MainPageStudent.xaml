@@ -39,93 +39,95 @@
                                    HorizontalOptions="Start"
                                    VerticalOptions="Start"
                                    FontSize="Small"
-                                   Text="f.filani3615111043" />
+                                   Text="f.filani3615111043@unite.edu.mk" />
                         </StackLayout>
                     </StackLayout>
                 </Grid>
             </navigationdrawer:SfNavigationDrawer.DrawerHeaderView>
             <!-- DRAWER CONTENT -->
             <navigationdrawer:SfNavigationDrawer.DrawerContentView>
-                <StackLayout BackgroundColor="#EEEEEE"
+                <ScrollView Orientation="Vertical">
+                    <StackLayout BackgroundColor="#EEEEEE"
                              Padding="20">
-                    <buttons:SfButton Text="News" 
+                        <buttons:SfButton Text="News" 
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
                                       HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent"
                                       Clicked="BtnNews_Clicked" />
-                    <buttons:SfButton Text="Announcements" 
+                        <buttons:SfButton Text="Announcements" 
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
                                       HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent" 
                                       Clicked="BtnAnnouncements_Clicked"/>
-                    <buttons:SfButton Text="Calls" 
+                        <buttons:SfButton Text="Calls" 
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
                                       HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent" 
                                       Clicked="BtnCalls_Clicked" />
-                    <buttons:SfButton Text="Library" 
+                        <buttons:SfButton Text="Library" 
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
                                       HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent" />
-                    <buttons:SfButton Text="Administration Offices" 
+                        <buttons:SfButton Text="Administration Offices" 
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
                                       HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent" />
-                    <buttons:SfButton Text="Documents" 
+                        <buttons:SfButton Text="Documents" 
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
                                       HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent" />
-                    <buttons:SfButton Text="Discussion Forum" 
+                        <buttons:SfButton Text="Discussion Forum" 
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
                                       HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent" />
-                    <buttons:SfButton Text="Student Parliament" 
+                        <buttons:SfButton Text="Student Parliament" 
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
                                       HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent" />
-                    <buttons:SfButton Text="Erasmus+" 
+                        <buttons:SfButton Text="Erasmus+" 
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
                                       HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent" />
-                    <buttons:SfButton Text="Kujdesi për ty" 
+                        <buttons:SfButton Text="Kujdesi për ty" 
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
                                       HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent"
                                       Clicked="BtnKujdesi_Clicked" />
-                    <buttons:SfButton Text="Facebook" 
+                        <buttons:SfButton Text="Facebook" 
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
                                       HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent"
                                       Clicked="BtnFacebook_Clicked" />
-                    <buttons:SfButton Text="Contact Us" 
+                        <buttons:SfButton Text="Contact Us" 
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
                                       HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent" />
-                </StackLayout>
+                    </StackLayout>
+                </ScrollView>
             </navigationdrawer:SfNavigationDrawer.DrawerContentView>
             <!-- FOOTER CONTENT -->
             <navigationdrawer:SfNavigationDrawer.DrawerFooterView>

@@ -24,7 +24,7 @@ namespace UtMobileApp
 
                 if (auth.GetCurrentUserStatus())
                 {
-                    MainPage = new FormsControls.Base.AnimationNavigationPage(new Views.NewUserData());
+                    MainPage = new FormsControls.Base.AnimationNavigationPage(new Views.MainPageStudent());
                 }
                 else
                 {
