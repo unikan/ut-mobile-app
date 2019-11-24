@@ -2,6 +2,7 @@
 using Syncfusion.SfSchedule.XForms;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
 using UtMobileApp.Models;
@@ -51,8 +52,9 @@ namespace UtMobileApp.Extensions
             string[] startTime = scheduleList[index].L_BeginningTime.t.Split(':');
             string[] endTime = scheduleList[index].L_EndingTime.t.Split(':');
 
-            Color color;
             string teacher, subject, lectureorexercises, venue, group;
+            Color color;
+            ObservableCollection<object> resourceId;
 
             if (scheduleList[index].L_LectureOrExercise != null)
             {
@@ -61,7 +63,16 @@ namespace UtMobileApp.Extensions
             }
             else
             {
-                color = Color.Transparent;
+                color = Color.LightGreen;
+            }
+
+            if (scheduleList[index].L_Semester != null) 
+            {
+                resourceId = new ObservableCollection<object> { scheduleList[index].L_Semester.t };
+            }
+            else
+            {
+                resourceId = new ObservableCollection<object> { 0 };
             }
 
             teacher = (scheduleList[index].L_Teacher != null) ? scheduleList[index].L_Teacher.t : "";
@@ -78,7 +89,8 @@ namespace UtMobileApp.Extensions
                 Subject = "\n" + teacher + "\n" +
                             subject + " (" + lectureorexercises + ")" + group + "\n" +
                             "Venue: " + venue,
-                Color = color
+                Color = color,
+                ResourceIds = resourceId
             });
         }
 

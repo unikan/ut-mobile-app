@@ -185,12 +185,42 @@
                              BackgroundColor="White"
                              x:Name="LectureContent">
                 <schedule:SfSchedule x:Name="schedule" 
-                                 ScheduleView="DayView" 
-                                 TimeInterval="15"
-                                 TimeIntervalHeight="60"
-                                 ViewHeaderHeight="0"
-                                 HeaderHeight="0"
-                                 Opacity="0">
+                                     ScheduleView="DayView" 
+                                     TimeInterval="15"
+                                     TimeIntervalHeight="60"
+                                     ViewHeaderHeight="0"
+                                     HeaderHeight="0"
+                                     Opacity="0"
+                                     ShowResourceView="True">
+                    <schedule:SfSchedule.ScheduleResources>
+                        <schedule:ScheduleResource Name="I" 
+                                                   Id="I" 
+                                                   Color="Red" />
+                        <schedule:ScheduleResource Name="II" 
+                                                   Id="II" 
+                                                   Color="Blue" />
+                        <schedule:ScheduleResource Name="III" 
+                                                   Id="III" 
+                                                   Color="Green" />
+                        <schedule:ScheduleResource Name="IV" 
+                                                   Id="IV" 
+                                                   Color="#FF3399" />
+                        <schedule:ScheduleResource Name="V" 
+                                                   Id="V" 
+                                                   Color="LightGreen" />
+                        <schedule:ScheduleResource Name="VI" 
+                                                   Id="VI" 
+                                                   Color="Gray" />
+                        <schedule:ScheduleResource Name="VII" 
+                                                   Id="VII" 
+                                                   Color="Cyan" />
+                        <schedule:ScheduleResource Name="VIII" 
+                                                   Id="VIII" 
+                                                   Color="DarkOrange" />
+                    </schedule:SfSchedule.ScheduleResources>
+                    <schedule:SfSchedule.ResourceViewSettings>
+                        <schedule:ResourceViewSettings SelectionMode="Multiple"/>
+                    </schedule:SfSchedule.ResourceViewSettings>
                     <schedule:SfSchedule.DayViewSettings>
                         <!--setting working hours properties -->
                         <schedule:DayViewSettings
@@ -205,12 +235,11 @@
                     </schedule:SfSchedule.DayViewSettings>
                     <schedule:SfSchedule.AppointmentStyle>
                         <schedule:AppointmentStyle
-				                    BorderWidth="10"
+				                    BorderWidth="0"
 				                    TextColor="#99000000"
 				                    BorderCornerRadius="20"
 				                    FontSize = "14"
                                     FontAttributes="Bold"
-                                    SelectionBorderColor="FloralWhite"
                                     SelectionTextColor="#000000">
                         </schedule:AppointmentStyle>
                     </schedule:SfSchedule.AppointmentStyle>

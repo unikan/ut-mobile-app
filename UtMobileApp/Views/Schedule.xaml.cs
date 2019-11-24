@@ -1,6 +1,8 @@
 ﻿using Syncfusion.SfSchedule.XForms;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -190,6 +192,19 @@ namespace UtMobileApp.Views
 
             // Adding schedule appointment collection to DataSource of SfSchedule
             schedule.DataSource = scheduleAppointmentCollection;
+
+            // Creating an instance for collection of selected resources.
+            ObservableCollection<object> selectedResources = new ObservableCollection<object>();
+
+            var resources = schedule.ScheduleResources;
+
+            // Adding selected resource in resource collection from the resources.
+            selectedResources.Add(resources.FirstOrDefault(resource => (resource as ScheduleResource).Id.ToString() == "I"));
+            selectedResources.Add(resources.FirstOrDefault(resource => (resource as ScheduleResource).Id.ToString() == "II"));
+            selectedResources.Add(resources.FirstOrDefault(resource => (resource as ScheduleResource).Id.ToString() == "III"));
+
+            // Adding selected resource collection to the selected resources of SfSchedule.
+            schedule.SelectedResources = selectedResources;
 
             await busyindicator.FadeTo(0, 300, Easing.Linear);
             busyindicator.IsBusy = false;
