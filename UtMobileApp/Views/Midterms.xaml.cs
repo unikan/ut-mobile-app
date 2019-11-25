@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XamarinFirebase.Helper;
 
 namespace UtMobileApp.Views
 {
@@ -12,6 +13,8 @@ namespace UtMobileApp.Views
     public partial class Midterms : ContentPage
     {
         readonly Extensions.DateExtensions de = new Extensions.DateExtensions();
+        readonly FirebaseHelper firebaseHelper = new FirebaseHelper();
+        Interface auth;
 
         public Midterms()
         {
@@ -50,9 +53,13 @@ namespace UtMobileApp.Views
             await busyindicator.FadeTo(1, 300, Easing.Linear);
             busyindicator.IsBusy = true;
 
-            string url = "https://spreadsheets.google.com/feeds/list/1SFGzFIq8K7va4HzT9PZUwRNxch_yqZItn80-Kwu-u6c/3/public/values?alt=json";
+            // Get current user correct program spreadsheet
+            auth = DependencyService.Get<Interface>();
+            var currentUser = await firebaseHelper.GetPerson(auth.GetCurrentUserEmail());
+            var spreadsheetUrls = await firebaseHelper.GetSchedule(currentUser.Program);
+
             var LoadSchedule = new Extensions.LoadSchedule();
-            List<Models.MidtermsJSON.Entry> scheduleList = await LoadSchedule.DeserializeMidtermsJsonAsync(url);
+            List<Models.MidtermsJSON.Entry> scheduleList = await LoadSchedule.DeserializeMidtermsJsonAsync(spreadsheetUrls.Midterms);
 
             // Adding calendar event collection to DataSource of Calendar
             calendar.DataSource = de.AddAppointemntMidterms(scheduleList);

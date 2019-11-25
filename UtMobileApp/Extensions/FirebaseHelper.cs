@@ -34,20 +34,6 @@ namespace XamarinFirebase.Helper
               }).ToList();
         }
 
-        public async Task<List<Schedule>> GetAllSchedules()
-        {
-            return (await firebase
-              .Child("Schedule")
-              .OnceAsync<Schedule>()).Select(item => new Schedule
-              {
-                  OrariDimrorID = item.Object.OrariDimrorID,
-                  OrariVerorID = item.Object.OrariVerorID,
-                  KonsulltimeID = item.Object.KonsulltimeID,
-                  ProvimeID = item.Object.ProvimeID,
-                  KonllokfiumeID = item.Object.KonllokfiumeID
-              }).ToList();
-        }
-
         public async Task AddPerson(string email, string firstname, string lastname, string indexnumber, string semestri)
         {
             
@@ -101,6 +87,14 @@ namespace XamarinFirebase.Helper
               .OnceAsync<Registrations>()).Where(a => a.Object.Email == email).FirstOrDefault();
             await firebase.Child("Registrations").Child(toDeletePerson.Key).DeleteAsync();
 
+        }
+
+        public async Task<UtMobileApp.Models.SpreadsheetUrls> GetSchedule(string program)
+        {
+            return (await firebase
+              .Child("SpreadsheetIDs")
+              .Child(program)
+              .OnceSingleAsync<UtMobileApp.Models.SpreadsheetUrls>());
         }
     }
 }

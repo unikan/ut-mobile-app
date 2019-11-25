@@ -39,6 +39,8 @@ namespace UtMobileApp.Views
                         await Navigation.PushAsync(new NewUserData());
                         Navigation.RemovePage(previousPage);
                     }
+
+                    await GetCurrentUserInfo();
                 }
             }
             catch (Exception)
@@ -179,6 +181,8 @@ namespace UtMobileApp.Views
                     Navigation.RemovePage(previousPage);
                 }
 
+                await GetCurrentUserInfo();
+
                 scheduleContent.IsVisible = true;
                 NoInternetContent.IsVisible = false;
             }
@@ -187,6 +191,15 @@ namespace UtMobileApp.Views
                 scheduleContent.IsVisible = false;
                 NoInternetContent.IsVisible = true;
             }
+        }
+
+        private async Task GetCurrentUserInfo()
+        {
+            var currentUser = await firebaseHelper.GetPerson(auth.GetCurrentUserEmail());
+
+            label_name.Text = currentUser.FirstName + "\n";
+            label_flname.Text = currentUser.FirstName + " " + currentUser.LastName;
+            label_email.Text = currentUser.Email;
         }
     }
 }

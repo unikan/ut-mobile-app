@@ -27,7 +27,6 @@ namespace DatabaseTest
 
             base.OnAppearing();
             var allRegistrations = await firebaseHelper.GetAllRegistrations();
-            var Schedule = await firebaseHelper.GetAllSchedules();
             lstRegistrations.ItemsSource = allRegistrations;
         }
 
