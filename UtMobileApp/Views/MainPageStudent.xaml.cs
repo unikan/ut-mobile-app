@@ -200,6 +200,8 @@ namespace UtMobileApp.Views
             label_name.Text = currentUser.FirstName + "\n";
             label_flname.Text = currentUser.FirstName + " " + currentUser.LastName;
             label_email.Text = currentUser.Email;
+
+            await LandingText.FadeTo(1, 200, Easing.BounceIn);
         }
     }
 }

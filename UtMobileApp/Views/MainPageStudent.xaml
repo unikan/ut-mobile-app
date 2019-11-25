@@ -189,7 +189,9 @@
                             <Label AbsoluteLayout.LayoutBounds="0, 0.5, 1, 0.5"
                                    AbsoluteLayout.LayoutFlags="All"
                                    TextColor="White"
-                                   Margin="35, 0, 0, 0">
+                                   Margin="35, 0, 0, 0"
+                                   x:Name="LandingText"
+                                   Opacity="0">
                                 <Label.FormattedText>
                                     <FormattedString>
                                         <Span FontSize="40" Text="Hello,&#x0a;" />
