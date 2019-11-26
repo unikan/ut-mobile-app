@@ -161,7 +161,8 @@ namespace UtMobileApp.Views
                 programnames.Add("English Language and Literature");
                 programnames.Add("German Language and Literature");
                 programnames.Add("Macedonian Language and Literature");
-                programnames.Add("Romanian Philology");
+                programnames.Add("Italian Language and Literature");
+                programnames.Add("French Language and Literature");
             }
             else if (e.Value.ToString() == "Faculty of Philosophy")
             {
