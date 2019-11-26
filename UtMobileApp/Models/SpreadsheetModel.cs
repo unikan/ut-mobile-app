@@ -5,5 +5,6 @@
             public string Lectures { get; set; }
             public string Midterms { get; set; }
             public string Exams { get; set; }
+            public string Library { get; set; }
         }
 }

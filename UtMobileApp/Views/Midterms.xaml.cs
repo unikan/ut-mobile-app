@@ -56,7 +56,7 @@ namespace UtMobileApp.Views
             // Get current user correct program spreadsheet
             auth = DependencyService.Get<Interface>();
             var currentUser = await firebaseHelper.GetPerson(auth.GetCurrentUserEmail());
-            var spreadsheetUrls = await firebaseHelper.GetSchedule(currentUser.Program);
+            var spreadsheetUrls = await firebaseHelper.GetUrls(currentUser.Program);
 
             var LoadSchedule = new Extensions.LoadSchedule();
             List<Models.MidtermsJSON.Entry> scheduleList = await LoadSchedule.DeserializeMidtermsJsonAsync(spreadsheetUrls.Midterms);

@@ -89,7 +89,7 @@ namespace XamarinFirebase.Helper
 
         }
 
-        public async Task<UtMobileApp.Models.SpreadsheetUrls> GetSchedule(string program)
+        public async Task<UtMobileApp.Models.SpreadsheetUrls> GetUrls(string program)
         {
             return (await firebase
               .Child("SpreadsheetIDs")
