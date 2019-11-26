@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +18,12 @@ namespace UtMobileApp.Extensions
                 string result = await response.Content.ReadAsStringAsync();
                 Models.LibraryJSON.RootObject root = JsonConvert.DeserializeObject<Models.LibraryJSON.RootObject>(result);
 
-                return root.feed.entry;
+                var allEntries = root.feed.entry;
+                var filledEntries = allEntries
+                    .Where(x => x.Author != null && x.BookTitle != null && x.Year != null)
+                    .ToList();
+
+                return filledEntries;
             }
         }
     }
