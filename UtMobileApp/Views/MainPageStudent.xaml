@@ -75,7 +75,8 @@
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
                                       HorizontalOptions="StartAndExpand"
-                                      BackgroundColor="Transparent" />
+                                      BackgroundColor="Transparent"
+                                      Clicked="BtnLibrary_Clicked"/>
                         <buttons:SfButton Text="Administration Offices" 
                                       TextColor="Black"
                                       FontSize="Medium"
