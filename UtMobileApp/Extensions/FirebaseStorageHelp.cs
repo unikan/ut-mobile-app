@@ -22,13 +22,13 @@ namespace UtMobileApp.Extensions
             return imageUrl;
         }
 
-        public async Task<string> GetFile(string fileName)
+        public async Task<string> GetFile(string filename, string postorcommentid)
         {
             return await firebaseStorage
                 .Child("ForumPictures")
-                .Child(fileName)
+                .Child(filename)
+                .Child(postorcommentid)
                 .GetDownloadUrlAsync();
-
         }
         public async Task DeleteFile(string fileName)
         {

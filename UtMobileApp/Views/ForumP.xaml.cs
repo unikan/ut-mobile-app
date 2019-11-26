@@ -7,7 +7,7 @@ using UtMobileApp.Extensions;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
 using System.IO;
-
+using System.Threading.Tasks;
 
 namespace UtMobileApp.Views
 {
@@ -63,13 +63,25 @@ namespace UtMobileApp.Views
         {
             try
             {
+                
+                string nopicture = "No image file";
                 var postID = auth.GetCurrentUserEmail() + DateTime.Now.Ticks;
-                await firebaseStorageHelper.UploadFile(file.GetStream(), postID, postID);
                 Registrations currentuserinfo = await firebasehelper.GetPerson(auth.GetCurrentUserEmail());
-            await forumhelper.CreatePost(postID,currentuserinfo.FirstName,currentuserinfo.LastName,PostTitle.Text,TextEditor.Text,DateTime.Now,currentuserinfo.Program,postID);
-            await DisplayAlert("Success", "You have created a new post", "OK");
-           
-              
+                if(file != null) { 
+                await firebaseStorageHelper.UploadFile(file.GetStream(), postID, postID);
+    
+                    await Task.Delay(3000);
+                    await forumhelper.CreatePost(postID, currentuserinfo.FirstName, currentuserinfo.LastName, PostTitle.Text, TextEditor.Text, DateTime.Now, currentuserinfo.Program, await firebaseStorageHelper.UploadFile(file.GetStream(), postID, postID));
+
+                    await DisplayAlert("Success", "You have created a new image post", "OK");
+                }
+                else
+                {
+                    await forumhelper.CreatePost(postID, currentuserinfo.FirstName, currentuserinfo.LastName, PostTitle.Text, TextEditor.Text, DateTime.Now, currentuserinfo.Program, nopicture);
+
+                    await DisplayAlert("Success", "You have created a new post", "OK");
+                }
+
             }
 
             catch (Exception ex)
@@ -81,11 +93,15 @@ namespace UtMobileApp.Views
 
         private async void forumList_ItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)
         {
-
+            try {  
             var selectedPost = e.ItemData as Extensions.ForumPosts;
 
             await Navigation.PushAsync(new ForumC(selectedPost));
-
+            }
+            catch (Exception except)
+            {
+                await DisplayAlert("Warning", except.Message, "OK");
+            }
         }
     }
 }

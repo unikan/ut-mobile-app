@@ -56,12 +56,18 @@
                     <listviews:SfListView.ItemTemplate>
                         <DataTemplate>
                             <AbsoluteLayout>
+
                                 <border:SfBorder
                                     Margin="10,0"
                                     AbsoluteLayout.LayoutBounds="0, 0, 1, 0.6"
                                     AbsoluteLayout.LayoutFlags="All"
                                     BorderColor="Transparent"
-                                    CornerRadius="10" />
+                                    CornerRadius="10">
+                                    <Image
+                                        Aspect="AspectFill"
+                                        Source="{Binding PostImage}"
+                                        VerticalOptions="End" />
+                                </border:SfBorder>
                                 <Frame
                                     Margin="20,0"
                                     AbsoluteLayout.LayoutBounds="0, 0.7, 1, 0.4"

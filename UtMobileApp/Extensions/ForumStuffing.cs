@@ -35,7 +35,7 @@ namespace UtMobileApp.Extensions
                 }).ToList();
         }
 
-        public async Task<List<ForumComments>> GetComments()
+        public async Task<List<ForumComments>> GetComments(string currentPostID)
         {
 
             return (await firebase
@@ -43,11 +43,12 @@ namespace UtMobileApp.Extensions
                 .OnceAsync<ForumComments>()).Select(item => new ForumComments
                 {
                     CommentID = item.Object.CommentID,
-                    PostID = item.Object.PostID,
+                    PostID = currentPostID,
                     CommentAuthorName = item.Object.CommentAuthorName,
                     CommentAuthorLastName = item.Object.CommentAuthorLastName,
                     CommentContent = item.Object.CommentContent,
                     CommentTime = item.Object.CommentTime,
+                    CommentImage = item.Object.CommentImage
                     
                 }).ToList();
         }
@@ -59,11 +60,11 @@ namespace UtMobileApp.Extensions
                 .PostAsync(new ForumPosts() { PostID = postid, PostAuthorName = postauthorname, PostAuthorLastName = postauthorlastname, PostTitle = posttitle, PostContent = postcontent, PostTime = posttime, PostProgram = postprogram , PostImage = imageurl});
         }
 
-        public async Task CreateComment(string commentid, string postid, string commentauthorname, string commentauthorlastname, string commentcontent, DateTime commentime, string program)
+        public async Task CreateComment(string commentid, string postid, string commentauthorname, string commentauthorlastname, string commentcontent, DateTime commentime, string commentimage)
         {
             await firebase
                 .Child("ForumComments")
-                .PostAsync(new ForumComments() { CommentID = commentid, PostID = postid, CommentAuthorName = commentauthorname, CommentAuthorLastName = commentauthorlastname, CommentContent = commentcontent, CommentTime = commentime });
+                .PostAsync(new ForumComments() { CommentID = commentid, PostID = postid, CommentAuthorName = commentauthorname, CommentAuthorLastName = commentauthorlastname, CommentContent = commentcontent, CommentTime = commentime,CommentImage = commentimage });
         }
 
     }

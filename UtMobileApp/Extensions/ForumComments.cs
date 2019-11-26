@@ -13,6 +13,6 @@ namespace UtMobileApp.Extensions
         public string CommentAuthorLastName { get; set; }
         public string CommentContent { get; set; } 
         public DateTime CommentTime { get; set; }
-
+        public string CommentImage { get; set; }
     }
 }
