@@ -63,7 +63,10 @@
                                         Source="{Binding CommentImage}"
                                         VerticalOptions="End" />
                                 </border:SfBorder>
-                                <Button Clicked="GetPic_Clicked" Text="getpic" CommandParameter="{Binding CommentImage}" />
+                                <Button
+                                    Clicked="GetPic_Clicked"
+                                    CommandParameter="{Binding CommentImage}"
+                                    Text="getpic" />
                                 <Frame
                                     Margin="20,0"
                                     AbsoluteLayout.LayoutBounds="0, 0.7, 1, 0.4"

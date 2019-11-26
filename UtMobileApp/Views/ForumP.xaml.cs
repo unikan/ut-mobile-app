@@ -70,7 +70,7 @@ namespace UtMobileApp.Views
                 if(file != null) { 
                 await firebaseStorageHelper.UploadFile(file.GetStream(), postID, postID);
     
-                    await Task.Delay(3000);
+                    
                     await forumhelper.CreatePost(postID, currentuserinfo.FirstName, currentuserinfo.LastName, PostTitle.Text, TextEditor.Text, DateTime.Now, currentuserinfo.Program, await firebaseStorageHelper.UploadFile(file.GetStream(), postID, postID));
 
                     await DisplayAlert("Success", "You have created a new image post", "OK");

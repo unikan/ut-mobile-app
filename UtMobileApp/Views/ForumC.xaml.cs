@@ -77,7 +77,7 @@ namespace UtMobileApp.Views
                 if(file != null) {  
 
                 await firebaseStorageHelper.UploadFile(file.GetStream(), currentpost.PostID, commentids);
-                await Task.Delay(3000);
+               
                 await forumhelper.CreateComment(commentids, currentpost.PostID, currentuserinfo.FirstName, currentuserinfo.LastName, TextEditor.Text, DateTime.Now, await firebaseStorageHelper.GetFile(currentpost.PostID,commentids));
                 await DisplayAlert("Warning", "Comment created with uploaded image", "OK");
                 }

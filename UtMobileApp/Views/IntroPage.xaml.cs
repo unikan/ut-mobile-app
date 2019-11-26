@@ -55,5 +55,10 @@ namespace UtMobileApp.Views
             await Navigation.PushAsync(new Register());
             await helper.EnableButtonAfter2Sec(btn);
         }
+
+        private void Btn_SignUp_Focused(object sender, FocusEventArgs e)
+        {
+
+        }
     }
 }
