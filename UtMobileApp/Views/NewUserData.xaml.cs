@@ -66,7 +66,7 @@ namespace UtMobileApp.Views
                 AutoCompleteProgram.Text = " ";
                 programnames.Add("Manufacturing Plant");
                 programnames.Add("Animal Production");
-                programnames.Add("Agribusiness");
+                programnames.Add("Agrobusiness");
 
             }
             else if (e.Value.ToString() == "Faculty of Applied Sciences")
@@ -162,7 +162,7 @@ namespace UtMobileApp.Views
                 programnames.Add("German Language and Literature");
                 programnames.Add("Macedonian Language and Literature");
                 programnames.Add("Italian Language and Literature");
-                programnames.Add("French Language and Literature");
+                programnames.Add("French Language and Literaturecdcd so");
             }
             else if (e.Value.ToString() == "Faculty of Philosophy")
             {
