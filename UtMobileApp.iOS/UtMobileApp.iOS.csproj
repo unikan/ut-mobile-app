@@ -27,7 +27,7 @@
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignKey>iPhone Developer: Krenar Huseini (S4MRRU3FU9)</CodesignKey>
     <CodesignProvision>UnitEd_Distribution</CodesignProvision>
     <CodesignExtraArgs />
     <CodesignResourceRules />
