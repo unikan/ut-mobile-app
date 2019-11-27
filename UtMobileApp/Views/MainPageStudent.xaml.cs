@@ -59,8 +59,8 @@ namespace UtMobileApp.Views
             await BtnMidterms.ScaleTo(1, 150, Easing.Linear);
             await BtnExams.TranslateTo(0, 0, 700, Easing.SpringOut);
             await BtnExams.ScaleTo(1, 150, Easing.Linear);
-            await BtnConsultations.TranslateTo(0, 0, 700, Easing.SpringOut);
-            await BtnConsultations.ScaleTo(0.88, 150, Easing.Linear);
+            //await BtnConsultations.TranslateTo(0, 0, 700, Easing.SpringOut);
+            //await BtnConsultations.ScaleTo(0.88, 150, Easing.Linear);
         }
 
         private void ScrollView_Scrolled(object sender, ScrolledEventArgs e)
@@ -82,10 +82,10 @@ namespace UtMobileApp.Views
 
             }
 
-            else if (e.ScrollX >= 360.1 && e.ScrollX <= 479.0)
-            {
-                BtnConsultations.ScaleTo(0.52 + e.ScrollX / 1000, 150, Easing.Linear);
-            }
+            //else if (e.ScrollX >= 360.1 && e.ScrollX <= 479.0)
+            //{
+            //    BtnConsultations.ScaleTo(0.52 + e.ScrollX / 1000, 150, Easing.Linear);
+            //}
         }
 
         protected override bool OnBackButtonPressed()
