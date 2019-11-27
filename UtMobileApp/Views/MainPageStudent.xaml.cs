@@ -152,6 +152,11 @@ namespace UtMobileApp.Views
             await Navigation.PushAsync(new Views.Library());
         }
 
+        private async void BtnStudentParliament_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Views.StudentParliament());
+        }
+
         private async void BtnFacebook_Clicked(object sender, EventArgs e)
         {
             try

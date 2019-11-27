@@ -14,6 +14,7 @@ namespace UtMobileApp.Extensions
         public string HtmlStart = "<!DOCTYPE html><html><head><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" /><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/><link href=\"https://unite.edu.mk/wp-content/themes/Avada/assets/css/style.min.css?ver=5.5.1\" type=\"text/css\" rel=\"stylesheet\"/><style>body { margin: 5%; background-color: #EEEEEE; } .fusion-carousel-holder { column-count: 2; column-gap: 10px; padding: 0; } .fusion-carousel-holder li { margin-bottom: 10px; }</style></head><body>";
         public string HtmlEnd = "</body></html>";
 
+        // Get posts by category
         public async Task<IEnumerable<WordPressPCL.Models.Post>> GetLatestPostsAsync(int category, int count)
         {
             var posts = await _client.Posts.Query(new PostsQueryBuilder
@@ -26,7 +27,7 @@ namespace UtMobileApp.Extensions
             return posts;
         }
 
-        // Get posts with featured image
+        // Get posts with featured image by category
         public async Task<List<Models.WPFeaturedPost>> GetFeaturedPost(int category, int count)
         {
             IEnumerable<WordPressPCL.Models.Post> news = await GetLatestPostsAsync(category, count);
@@ -45,6 +46,44 @@ namespace UtMobileApp.Extensions
                     Title = newsList[i].Title.Rendered,
                     Content = newsList[i].Content.Rendered,
                     Date = newsList[i].Date
+                });
+            }
+
+            return FeaturedPost;
+        }
+
+        // Get posts by tags
+        public async Task<IEnumerable<WordPressPCL.Models.Post>> GetLatestPostsTagAsync(int tag, int count)
+        {
+            var posts = await _client.Posts.Query(new PostsQueryBuilder
+            {
+                PerPage = count,
+                Embed = true,
+                Tags = new int[] { tag }
+            });
+
+            return posts;
+        }
+
+        // Get posts with featured image by tags
+        public async Task<List<Models.WPFeaturedPost>> GetFeaturedPostTag(int tag, int count)
+        {
+            IEnumerable<WordPressPCL.Models.Post> news = await GetLatestPostsTagAsync(tag, count);
+            List<WordPressPCL.Models.Post> postList = news.ToList();
+
+            List<WordPressPCL.Models.MediaItem> WpMedia;
+            List<Models.WPFeaturedPost> FeaturedPost = new List<Models.WPFeaturedPost>();
+
+            for (int i = 0; i < postList.Count; i++)
+            {
+                if (postList[i] == null) break;
+                WpMedia = postList[i].Embedded.WpFeaturedmedia.ToList();
+                FeaturedPost.Add(new Models.WPFeaturedPost
+                {
+                    ImageUrl = WpMedia[0].SourceUrl,
+                    Title = postList[i].Title.Rendered,
+                    Content = postList[i].Content.Rendered,
+                    Date = postList[i].Date
                 });
             }
 

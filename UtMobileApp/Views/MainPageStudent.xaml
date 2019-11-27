@@ -100,7 +100,8 @@
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
                                       HorizontalOptions="StartAndExpand"
-                                      BackgroundColor="Transparent" />
+                                      BackgroundColor="Transparent" 
+                                      Clicked="BtnStudentParliament_Clicked"/>
                         <buttons:SfButton Text="Erasmus+" 
                                       TextColor="Black"
                                       FontSize="Medium"
