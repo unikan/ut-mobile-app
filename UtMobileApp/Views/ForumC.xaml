@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="UtMobileApp.Views.ForumC"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Converter="clr-namespace:UtMobileApp.Extensions"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:listviews="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Converter:ButtonVisibility x:Key="ConvertButtonVisibility" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView Orientation="Vertical">
+            <StackLayout>
+                <Label Text="Hello Xamarin.Forms!" />
+                <Entry x:Name="CommentTitle" Placeholder="Enter Comment Title Here" />
+                <Editor x:Name="TextEditor" />
+                <Button Clicked="Comment_Clicked" Text="SUBMIT" />
+
+                <Entry x:Name="txtFileName" Placeholder="Enter FileName" />
+                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal" />
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
+                    <Image x:Name="imgBanner" Source="banner.png" />
+                    <Image
+                        Margin="0,0,0,10"
+                        HeightRequest="100"
+                        Source="firebase.png" />
+                    <Label
+                        Margin="0,0,0,10"
+                        FontAttributes="Bold"
+                        FontSize="Large"
+                        HorizontalTextAlignment="Center"
+                        Text="Firebase Storage"
+                        TextColor="Gray" />
+                    <Image x:Name="imgChoosed" HeightRequest="150" />
+
+                    <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                        <Button
+                            x:Name="btnPick"
+                            Clicked="btnPick_Clicked"
+                            Text="Pick"
+                            WidthRequest="200" />
+                    </StackLayout>
+
+                </StackLayout>
+
+                <Label x:Name="lblPath" />
+                <listviews:SfListView
+                    x:Name="commentList"
+                    ItemSize="300"
+                    Opacity="1"
+                    SelectionBackgroundColor="Transparent">
+                    <listviews:SfListView.ItemTemplate>
+                        <DataTemplate>
+                            <AbsoluteLayout>
+                                <border:SfBorder
+                                    Margin="10,0"
+                                    AbsoluteLayout.LayoutBounds="0, 0, 1, 0.6"
+                                    AbsoluteLayout.LayoutFlags="All"
+                                    BorderColor="Transparent"
+                                    CornerRadius="10">
+                                    <Image
+                                        Aspect="AspectFill"
+                                        IsVisible="{Binding CommentImage, Converter={StaticResource ConvertButtonVisibility}}"
+                                        Source="{Binding CommentImage}"
+                                        VerticalOptions="End" />
+                                </border:SfBorder>
+                                <Button
+                                    Clicked="GetPic_Clicked"
+                                    CommandParameter="{Binding CommentImage}"
+                                    IsVisible="{Binding CommentImage, Converter={StaticResource ConvertButtonVisibility}}"
+                                    Text="getpic" />
+
+                                <Frame
+                                    Margin="20,0"
+                                    AbsoluteLayout.LayoutBounds="0, 0.7, 1, 0.4"
+                                    AbsoluteLayout.LayoutFlags="All"
+                                    BackgroundColor="White"
+                                    CornerRadius="10"
+                                    HasShadow="True">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="16"
+                                        Text="{Binding CommentContent}" />
+                                </Frame>
+                            </AbsoluteLayout>
+                        </DataTemplate>
+                    </listviews:SfListView.ItemTemplate>
+                </listviews:SfListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

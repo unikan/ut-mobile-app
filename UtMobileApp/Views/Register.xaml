@@ -3,111 +3,124 @@
     x:Class="UtMobileApp.Register"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
-    xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
     xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
-    mc:Ignorable="d"
-    BackgroundColor="#EEEEEE">
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    BackgroundImageSource="backgroundimg5.png"
+    mc:Ignorable="d">
     <ContentPage.Content>
         <AbsoluteLayout>
-            <!-- HEADER -->
-            <StackLayout Orientation="Horizontal"
-                         HorizontalOptions="FillAndExpand"
-                         VerticalOptions="FillAndExpand"
-                         Margin="10, 0"
-                         AbsoluteLayout.LayoutBounds="0.05, 0.03, 1, 0.13"
-                         AbsoluteLayout.LayoutFlags="All">
+            <!--  HEADER  -->
+            <StackLayout
+                Margin="10,0"
+                AbsoluteLayout.LayoutBounds="0.05, 0.03, 1, 0.13"
+                AbsoluteLayout.LayoutFlags="All"
+                HorizontalOptions="FillAndExpand"
+                Orientation="Horizontal"
+                VerticalOptions="FillAndExpand">
                 <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <buttons:SfButton Grid.Row="0" 
-                                      Grid.Column="0" 
-                                      HorizontalOptions="Start"
-                                      VerticalOptions="Center"
-                                      ShowIcon="True" 
-                                      BackgroundColor="#242424"
-                                      CornerRadius="40"
-                                      WidthRequest="50"
-                                      HeightRequest="50"
-                                      Clicked="BtnBack_Clicked">
+                    <buttons:SfButton
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        BackgroundColor="Transparent"
+                        Clicked="BtnBack_Clicked"
+                        CornerRadius="40"
+                        HeightRequest="50"
+                        HorizontalOptions="Start"
+                        ShowIcon="True"
+                        VerticalOptions="Center"
+                        WidthRequest="50">
                         <buttons:SfButton.Content>
-                            <Image Source="back.png"
-                                   HorizontalOptions="Center"
-                                   VerticalOptions="Center"
-                                   WidthRequest="20" 
-                                   HeightRequest="20" />
+                            <Image
+                                HeightRequest="20"
+                                HorizontalOptions="Center"
+                                Source="back.png"
+                                VerticalOptions="Center"
+                                WidthRequest="20" />
                         </buttons:SfButton.Content>
                     </buttons:SfButton>
                 </Grid>
             </StackLayout>
 
-            <StackLayout AbsoluteLayout.LayoutBounds="0, 1, 1, 1"
-                         AbsoluteLayout.LayoutFlags="All"
-                         Padding="20, 0"
-                         VerticalOptions="CenterAndExpand"
-                         x:Name="RegisterContent">
-                <Label FontSize="35"
-                       HorizontalOptions="Center"
-                       Text="Create account"
-                       TextColor="#242424" />
+            <StackLayout
+                x:Name="RegisterContent"
+                Padding="20,0"
+                AbsoluteLayout.LayoutBounds="0, 1, 1, 1"
+                AbsoluteLayout.LayoutFlags="All"
+                VerticalOptions="CenterAndExpand">
+                <Label
+                    FontSize="35"
+                    HorizontalOptions="Center"
+                    Text="Create account"
+                    TextColor="#eeeeee" />
                 <Label FontSize="35" />
-                
-                <inputLayout:SfTextInputLayout Hint="Email" 
-                                           ContainerType="Outlined"
-                                           FocusedColor="#e68471">
-                    <Entry Placeholder="n.lastname3615111035@unite.edu.mk"
-                           x:Name="EmailInput"
-                           Completed="EmailInput_Completed"
-                           Keyboard="Email"
-                           TextColor="#101010" />
+
+                <inputLayout:SfTextInputLayout
+                    ContainerType="Outlined"
+                    FocusedColor="#3e00bc"
+                    Hint="Email"
+                    UnfocusedColor="#eeeeee">
+                    <Entry
+                        x:Name="EmailInput"
+                        Completed="EmailInput_Completed"
+                        Keyboard="Email"
+                        Placeholder="n.lastname3615111035@unite.edu.mk" />
                 </inputLayout:SfTextInputLayout>
 
-                <inputLayout:SfTextInputLayout Hint="Password" 
-                                           ContainerType="Outlined"
-                                           EnablePasswordVisibilityToggle="True"
-                                           FocusedColor="#e68471">
-                    <Entry IsPassword="True"
-                           x:Name="PasswordInput"
-                           TextColor="#101010" />
+                <inputLayout:SfTextInputLayout
+                    ContainerType="Outlined"
+                    EnablePasswordVisibilityToggle="True"
+                    FocusedColor="#3e00bc"
+                    Hint="Password"
+                    UnfocusedColor="#eeeeee">
+                    <Entry x:Name="PasswordInput" IsPassword="True" />
                 </inputLayout:SfTextInputLayout>
-                <Label Text="Password should at least contain 6 characters"
-                       FontSize="Small"
-                       TextColor="Gray"
-                       Margin="0, 0, 0, 10"
-                       Padding="0"
-                       HorizontalOptions="CenterAndExpand"></Label>
-                <buttons:SfButton x:Name="Btn_SignUp" 
-                                 Text="Sign Up" 
-                                 CornerRadius="100"
-                                 BackgroundColor="#e68471"
-                                 TextColor="#242424"
-                                 HeightRequest="60"
-                                 FontSize="20"
-                                 Clicked="Btn_SignUp_Clicked">
-                </buttons:SfButton>
+                <Label
+                    Margin="0,0,0,10"
+                    Padding="0"
+                    FontSize="Small"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="Password should at least contain 6 characters"
+                    TextColor="#eeeeee" />
+                <buttons:SfButton
+                    x:Name="Btn_SignUp"
+                    BackgroundColor="#3e00bc"
+                    Clicked="Btn_SignUp_Clicked"
+                    CornerRadius="100"
+                    FontSize="20"
+                    HeightRequest="60"
+                    Text="Sign Up"
+                    TextColor="#eeeeee" />
             </StackLayout>
-            <busyindicator:SfBusyIndicator AbsoluteLayout.LayoutBounds="0, 1, 1, 0.3"
-                                           AbsoluteLayout.LayoutFlags="All"
-                                           x:Name="busyindicator"
-                                           ViewBoxHeight="70"
-                                           ViewBoxWidth="70"
-                                           Title="Please wait..."
-                                           TextColor="Salmon"
-                                           TextSize="15"
-                                           IsBusy="False" />
-            <StackLayout AbsoluteLayout.LayoutBounds="0, 1, 1, 1"
-                         AbsoluteLayout.LayoutFlags="All"
-                         Padding="20, 0"
-                         VerticalOptions="CenterAndExpand"
-                         x:Name="NoInternetContent"
-                         IsVisible="False">
-                <Label FontSize="32" Text="No internet, try again" HorizontalOptions="CenterAndExpand"></Label>
-                <Button Text="Retry" Clicked="Reload_Clicked"/>
+            <busyindicator:SfBusyIndicator
+                x:Name="busyindicator"
+                Title="Please wait..."
+                AbsoluteLayout.LayoutBounds="0, 1, 1, 0.3"
+                AbsoluteLayout.LayoutFlags="All"
+                IsBusy="False"
+                TextColor="Salmon"
+                TextSize="15"
+                ViewBoxHeight="70"
+                ViewBoxWidth="70" />
+            <StackLayout
+                x:Name="NoInternetContent"
+                Padding="20,0"
+                AbsoluteLayout.LayoutBounds="0, 1, 1, 1"
+                AbsoluteLayout.LayoutFlags="All"
+                IsVisible="False"
+                VerticalOptions="CenterAndExpand">
+                <Label
+                    FontSize="32"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="No internet, try again" />
+                <Button Clicked="Reload_Clicked" Text="Retry" />
             </StackLayout>
         </AbsoluteLayout>
     </ContentPage.Content>

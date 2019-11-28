@@ -213,5 +213,9 @@ namespace UtMobileApp.Views
 
             await LandingText.FadeTo(1, 200, Easing.BounceIn);
         }
+        private async void BtnForum_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ForumP());
+        }
     }
 }

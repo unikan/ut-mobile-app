@@ -1,31 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:navigationdrawer="clr-namespace:Syncfusion.SfNavigationDrawer.XForms;assembly=Syncfusion.SfNavigationDrawer.XForms"
-             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
-             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
-             xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
-             mc:Ignorable="d"
-             x:Class="UtMobileApp.Views.MainPageStudent"
-             BackgroundColor="#EEEEEE">
+<ContentPage
+    x:Class="UtMobileApp.Views.MainPageStudent"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:navigationdrawer="clr-namespace:Syncfusion.SfNavigationDrawer.XForms;assembly=Syncfusion.SfNavigationDrawer.XForms"
+    BackgroundColor="#EEEEEE"
+    mc:Ignorable="d">
     <ContentPage.Content>
-        <navigationdrawer:SfNavigationDrawer x:Name="navigationDrawer" 
-                                             DrawerWidth ="300"
-                                             Transition="Push"
-                                             Duration="400"
-                                             TouchThreshold="200"
-                                             DrawerFooterHeight="30"
-                                             HorizontalOptions="FillAndExpand"
-                                             VerticalOptions="FillAndExpand">
-            <!-- DRAWER HEADER -->
+        <navigationdrawer:SfNavigationDrawer
+            x:Name="navigationDrawer"
+            DrawerFooterHeight="30"
+            DrawerWidth="300"
+            HorizontalOptions="FillAndExpand"
+            TouchThreshold="200"
+            Transition="Push"
+            VerticalOptions="FillAndExpand"
+            Duration="400">
+            <!--  DRAWER HEADER  -->
             <navigationdrawer:SfNavigationDrawer.DrawerHeaderView>
                 <Grid BackgroundColor="#cc7564">
-                    <StackLayout VerticalOptions="CenterAndExpand" 
-                                 HorizontalOptions="CenterAndExpand"
-                                 Orientation="Horizontal">
-                        <border:SfBorder BorderColor="Black" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="50" WidthRequest="50" HeightRequest="50" BorderWidth="1">
+                    <StackLayout
+                        HorizontalOptions="CenterAndExpand"
+                        Orientation="Horizontal"
+                        VerticalOptions="CenterAndExpand">
+                        <border:SfBorder
+                            BorderColor="Black"
+                            BorderWidth="1"
+                            CornerRadius="50"
+                            HeightRequest="50"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            WidthRequest="50">
                             <Image Source="https://i5.walmartimages.com/asr/e9c1e290-55cb-4608-8edd-06b01ea694d0_1.cd6956088a6814bf191640ab06739752.png" />
                         </border:SfBorder>
                         <StackLayout>
@@ -44,7 +54,7 @@
                     </StackLayout>
                 </Grid>
             </navigationdrawer:SfNavigationDrawer.DrawerHeaderView>
-            <!-- DRAWER CONTENT -->
+            <!--  DRAWER CONTENT  -->
             <navigationdrawer:SfNavigationDrawer.DrawerContentView>
                 <ScrollView Orientation="Vertical">
                     <StackLayout BackgroundColor="#EEEEEE"
@@ -131,55 +141,58 @@
                     </StackLayout>
                 </ScrollView>
             </navigationdrawer:SfNavigationDrawer.DrawerContentView>
-            <!-- FOOTER CONTENT -->
+            <!--  FOOTER CONTENT  -->
             <navigationdrawer:SfNavigationDrawer.DrawerFooterView>
                 <Grid BackgroundColor="#cc7564">
-                    <StackLayout VerticalOptions="StartAndExpand" 
-                                 HorizontalOptions="CenterAndExpand">
-                        <buttons:SfButton Text="Sign Out" 
-                                          TextColor="Black"
-                                          FontSize="Medium"
-                                          HorizontalTextAlignment="Center"
-                                          VerticalTextAlignment="Center"
-                                          HorizontalOptions="StartAndExpand"
-                                          BackgroundColor="Transparent"
-                                          Clicked="SignOut_Clicked"/>
+                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+                        <buttons:SfButton
+                            BackgroundColor="Transparent"
+                            Clicked="SignOut_Clicked"
+                            FontSize="Medium"
+                            HorizontalOptions="StartAndExpand"
+                            HorizontalTextAlignment="Center"
+                            Text="Sign Out"
+                            TextColor="Black"
+                            VerticalTextAlignment="Center" />
                     </StackLayout>
                 </Grid>
             </navigationdrawer:SfNavigationDrawer.DrawerFooterView>
             <navigationdrawer:SfNavigationDrawer.ContentView>
-                <!-- MAIN CONTENT VIEW -->
+                <!--  MAIN CONTENT VIEW  -->
                 <AbsoluteLayout>
-                    <border:SfBorder AbsoluteLayout.LayoutBounds="0, 0, 1, 0.55"
-                                     AbsoluteLayout.LayoutFlags="All"
-                                     CornerRadius="0, 0, 150, 0" 
-                                     BorderWidth="0">
+                    <border:SfBorder
+                        AbsoluteLayout.LayoutBounds="0, 0, 1, 0.55"
+                        AbsoluteLayout.LayoutFlags="All"
+                        BorderWidth="0"
+                        CornerRadius="0, 0, 150, 0">
                         <AbsoluteLayout BackgroundColor="#cc7564">
                             <gradient:SfGradientView>
                                 <gradient:SfGradientView.BackgroundBrush>
                                     <gradient:SfLinearGradientBrush>
                                         <gradient:SfLinearGradientBrush.GradientStops>
-                                            <gradient:SfGradientStop Color="#e68471" Offset="0.0" />
-                                            <gradient:SfGradientStop Color="#cc7564" Offset="1.0" />
+                                            <gradient:SfGradientStop Offset="0.0" Color="#e68471" />
+                                            <gradient:SfGradientStop Offset="1.0" Color="#cc7564" />
                                         </gradient:SfLinearGradientBrush.GradientStops>
                                     </gradient:SfLinearGradientBrush>
                                 </gradient:SfGradientView.BackgroundBrush>
                             </gradient:SfGradientView>
-                            <!-- Nav toggle -->
-                            <buttons:SfButton x:Name="NavToggle" 
-                                              ShowIcon="True" 
-                                              CornerRadius="100"
-                                              BackgroundColor="Transparent"
-                                              Clicked="NavToggle_Clicked"
-                                              Padding="0"
-                                              AbsoluteLayout.LayoutBounds="0.05, 0.13, 50, 50"
-                                              AbsoluteLayout.LayoutFlags="PositionProportional">
+                            <!--  Nav toggle  -->
+                            <buttons:SfButton
+                                x:Name="NavToggle"
+                                Padding="0"
+                                AbsoluteLayout.LayoutBounds="0.05, 0.13, 50, 50"
+                                AbsoluteLayout.LayoutFlags="PositionProportional"
+                                BackgroundColor="Transparent"
+                                Clicked="NavToggle_Clicked"
+                                CornerRadius="100"
+                                ShowIcon="True">
                                 <buttons:SfButton.Content>
-                                    <Image Source="menu.png"
-                                           HeightRequest="25"
-                                           WidthRequest="25"
-                                           HorizontalOptions="Center"
-                                           VerticalOptions="Center" />
+                                    <Image
+                                        HeightRequest="25"
+                                        HorizontalOptions="Center"
+                                        Source="menu.png"
+                                        VerticalOptions="Center"
+                                        WidthRequest="25" />
                                 </buttons:SfButton.Content>
                             </buttons:SfButton>
 
@@ -272,14 +285,18 @@
                             </StackLayout>
                         </ScrollView>
                     </StackLayout>
-                    <StackLayout AbsoluteLayout.LayoutBounds="1, 1, 1, 0.45"
-                         AbsoluteLayout.LayoutFlags="All"
-                         Padding="20, 0"
-                         VerticalOptions="CenterAndExpand"
-                         x:Name="NoInternetContent"
-                         IsVisible="False">
-                        <Label FontSize="32" Text="No internet, try again" HorizontalOptions="CenterAndExpand"></Label>
-                        <Button Text="Retry" Clicked="Reload_Clicked"/>
+                    <StackLayout
+                        x:Name="NoInternetContent"
+                        Padding="20,0"
+                        AbsoluteLayout.LayoutBounds="1, 1, 1, 0.45"
+                        AbsoluteLayout.LayoutFlags="All"
+                        IsVisible="False"
+                        VerticalOptions="CenterAndExpand">
+                        <Label
+                            FontSize="32"
+                            HorizontalOptions="CenterAndExpand"
+                            Text="No internet, try again" />
+                        <Button Clicked="Reload_Clicked" Text="Retry" />
                     </StackLayout>
                 </AbsoluteLayout>
             </navigationdrawer:SfNavigationDrawer.ContentView>
