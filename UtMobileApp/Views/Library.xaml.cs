@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -25,22 +26,7 @@ namespace UtMobileApp.Views
 
             try
             {
-                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
-                {
-                    // Get current user correct program spreadsheet
-                    auth = DependencyService.Get<Interface>();
-                    var currentUser = await firebaseHelper.GetPerson(auth.GetCurrentUserEmail());
-                    var spreadsheetUrls = await firebaseHelper.GetUrls(currentUser.Program);
-
-                    LibraryList.ItemsSource = await libraryHelper.DeserializeLibraryJsonAsync(spreadsheetUrls.Library);
-                    LibraryContent.IsVisible = true;
-                    NoInternetContent.IsVisible = false;
-                }
-                else
-                {
-                    LibraryContent.IsVisible = false;
-                    NoInternetContent.IsVisible = true;
-                }
+                await LoadLibrary();
             }
             catch (Exception e)
             {
@@ -49,6 +35,40 @@ namespace UtMobileApp.Views
 
             busyindicator.IsVisible = false;
             busyindicator.IsBusy = false;
+        }
+
+        private async Task LoadLibrary()
+        {
+            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+            sw.Start();
+
+            if (Application.Current.Properties.ContainsKey("LibraryData"))
+            {
+                LibraryList.ItemsSource = await libraryHelper.DeserializeLibraryJsonAsync("local");
+            }
+            else
+            {
+                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                {
+                    // Get current user correct program spreadsheet
+                    auth = DependencyService.Get<Interface>();
+                    var currentUser = await firebaseHelper.GetPerson(auth.GetCurrentUserEmail());
+                    var spreadsheetUrls = await firebaseHelper.GetUrls(currentUser.Program);
+
+                    LibraryList.ItemsSource = await libraryHelper.DeserializeLibraryJsonAsync("internet", spreadsheetUrls.Library);
+                }
+                else
+                {
+                    LibraryContent.IsVisible = false;
+                    NoInternetContent.IsVisible = true;
+                }
+            }
+
+            await busyindicator.FadeTo(0, 300, Easing.Linear);
+            busyindicator.IsBusy = false;
+
+            sw.Stop();
+            await DisplayAlert("Time elapsed", sw.ElapsedMilliseconds.ToString(), "OK");
         }
 
 

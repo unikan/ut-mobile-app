@@ -43,18 +43,6 @@ namespace UtMobileApp.Extensions
             }
         }
 
-        public string GetLocalJsonAsync(string key)
-        {
-            if (Application.Current.Properties.ContainsKey(key))
-            {
-                return GetLocalData(key);
-            }
-            else
-            {
-                return "";
-            }
-        }
-
         public async Task SaveLocallyAsync(string json, string key)
         {
             var app = (App)Application.Current;

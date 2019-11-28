@@ -29,15 +29,7 @@ namespace UtMobileApp.Views
 
             try
             {
-                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
-                {
-                    await LoadSchedule();
-                }
-                else
-                {
-                    MidtermsContent.IsVisible = false;
-                    NoInternetContent.IsVisible = true;
-                }
+                await LoadSchedule();
             }
             catch (Exception e)
             {
@@ -50,22 +42,45 @@ namespace UtMobileApp.Views
 
         private async Task LoadSchedule()
         {
+            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+            sw.Start();
+
             await busyindicator.FadeTo(1, 300, Easing.Linear);
             busyindicator.IsBusy = true;
 
-            // Get current user correct program spreadsheet
-            auth = DependencyService.Get<Interface>();
-            var currentUser = await firebaseHelper.GetPerson(auth.GetCurrentUserEmail());
-            var spreadsheetUrls = await firebaseHelper.GetUrls(currentUser.Program);
-
             var LoadSchedule = new Extensions.LoadSchedule();
-            //List<Models.MidtermsJSON.Entry> scheduleList = await LoadSchedule.DeserializeMidtermsJsonAsync(spreadsheetUrls.Midterms);
+            List<Models.MidtermsJSON.Entry> scheduleList = null;
+
+            if (Application.Current.Properties.ContainsKey("MidtermsData"))
+            {
+                scheduleList = await LoadSchedule.DeserializeMidtermsJsonAsync("local");
+            }
+            else
+            {
+                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                {
+                    // Get current user correct program spreadsheet
+                    auth = DependencyService.Get<Interface>();
+                    var currentUser = await firebaseHelper.GetPerson(auth.GetCurrentUserEmail());
+                    var spreadsheetUrls = await firebaseHelper.GetUrls(currentUser.Program);
+
+                    scheduleList = await LoadSchedule.DeserializeMidtermsJsonAsync("internet", spreadsheetUrls.Midterms);
+                }
+                else
+                {
+                    MidtermsContent.IsVisible = false;
+                    NoInternetContent.IsVisible = true;
+                }
+            }
 
             // Adding calendar event collection to DataSource of Calendar
-            //calendar.DataSource = de.AddAppointemntMidterms(scheduleList);
+            calendar.DataSource = de.AddAppointemntMidterms(scheduleList);
 
             await busyindicator.FadeTo(0, 300, Easing.Linear);
             busyindicator.IsBusy = false;
+
+            sw.Stop();
+            await DisplayAlert("Time elapsed", sw.ElapsedMilliseconds.ToString(), "OK");
         }
 
         private void Calendar_InlineItemTapped(object sender, InlineItemTappedEventArgs e)
@@ -78,18 +93,7 @@ namespace UtMobileApp.Views
         {
             try
             {
-                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
-                {
-                    await LoadSchedule();
-
-                    MidtermsContent.IsVisible = true;
-                    NoInternetContent.IsVisible = false;
-                }
-                else
-                {
-                    MidtermsContent.IsVisible = false;
-                    NoInternetContent.IsVisible = true;
-                }
+                await LoadSchedule();
             }
             catch (Exception ex)
             {

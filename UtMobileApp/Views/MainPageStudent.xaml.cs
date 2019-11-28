@@ -52,7 +52,7 @@ namespace UtMobileApp.Views
 
             label_date.Text = DateTime.Now.ToString("dddd,\ndd MMMM");
 
-            await Task.Delay(500); // Wait .5sec so the animation can be seen
+            //await Task.Delay(500); // Wait .5sec so the animation can be seen
             await BtnLectures.TranslateTo(0, 0, 700, Easing.SpringOut);
             await BtnLectures.ScaleTo(1, 150, Easing.Linear);
             await BtnMidterms.TranslateTo(0, 0, 700, Easing.SpringOut);
