@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace UtMobileApp.Extensions
 {
@@ -27,6 +30,45 @@ namespace UtMobileApp.Extensions
             }
 
             return true;
+        }
+
+        public async Task<string> GetLatestJsonAsync(string url)
+        {
+            using (var client = new HttpClient())
+            {
+                var response = await client.GetAsync(string.Format(url));
+                string result = await response.Content.ReadAsStringAsync();
+
+                return result;
+            }
+        }
+
+        public async Task<string> GetJsonAsync(string url)
+        {
+            string result = "";
+            if (Application.Current.Properties.ContainsKey("LecturesData"))
+            {
+                result = GetLocalData("LecturesData");
+            }
+            else
+            {
+                result = await GetJsonAsync(url);
+                await SaveLocallyAsync(result, "LecturesData");
+            }
+
+            return result;
+        }
+
+        public async Task SaveLocallyAsync(string json, string key)
+        {
+            var app = (App)Application.Current;
+            app.Properties[key] = json;
+            await app.SavePropertiesAsync();
+        }
+
+        public string GetLocalData(string key)
+        {
+            return Application.Current.Properties[key].ToString();
         }
     }
 }
