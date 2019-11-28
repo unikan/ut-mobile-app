@@ -14,7 +14,7 @@ namespace UtMobileApp.Extensions
             // Try to get data from phone if it exists
             if (loadType == "local")
             {
-                result = await helper.GetJsonAsync(url);
+                result = helper.GetLocalJsonAsync(url, "LecturesData");
             }
             // Try to get data from internet
             else if (loadType == "internet")
@@ -22,11 +22,19 @@ namespace UtMobileApp.Extensions
                 result = await helper.GetLatestJsonAsync(url);
             }
 
-            Models.ScheduleJSON.RootObject root = JsonConvert.DeserializeObject<Models.ScheduleJSON.RootObject>(result);
+            // Check if result has json
+            if (string.IsNullOrEmpty(result) || string.IsNullOrWhiteSpace(result))
+            {
+                return null;
+            }
+            else
+            {
+                Models.ScheduleJSON.RootObject root = JsonConvert.DeserializeObject<Models.ScheduleJSON.RootObject>(result);
 
-            // Remove 5 rows of unnecessary content
-            root.feed.entry.RemoveRange(0, 5);
-            return root.feed.entry;
+                // Remove 5 rows of unnecessary content
+                root.feed.entry.RemoveRange(0, 5);
+                return root.feed.entry;
+            }
         }
 
         public async Task<List<Models.MidtermsJSON.Entry>> DeserializeMidtermsJsonAsync(string url, string loadType)
@@ -35,7 +43,7 @@ namespace UtMobileApp.Extensions
             // Try to get data from phone if it exists
             if (loadType == "local")
             {
-                result = await helper.GetJsonAsync(url);
+                result = helper.GetLocalJsonAsync(url, "MidtermsData");
             }
             // Try to get data from internet
             else if (loadType == "internet")
@@ -43,11 +51,19 @@ namespace UtMobileApp.Extensions
                 result = await helper.GetLatestJsonAsync(url);
             }
 
-            Models.MidtermsJSON.RootObject root = JsonConvert.DeserializeObject<Models.MidtermsJSON.RootObject>(result);
+            // Check if result has json
+            if (string.IsNullOrEmpty(result) || string.IsNullOrWhiteSpace(result))
+            {
+                return null;
+            }
+            else
+            {
+                Models.MidtermsJSON.RootObject root = JsonConvert.DeserializeObject<Models.MidtermsJSON.RootObject>(result);
 
-            // Remove 5 rows of unnecessary content
-            root.feed.entry.RemoveRange(0, 5);
-            return root.feed.entry;
+                // Remove 5 rows of unnecessary content
+                root.feed.entry.RemoveRange(0, 5);
+                return root.feed.entry;
+            }
         }
 
         public async Task<List<Models.ExamsJSON.Entry>> DeserializeExamsJsonAsync(string url, string loadType)
@@ -57,19 +73,27 @@ namespace UtMobileApp.Extensions
             // Try to get data from phone if it exists
             if (loadType == "local")
             {
-                result = await helper.GetJsonAsync(url);
+                result = helper.GetLocalJsonAsync(url, "ExamsData");
             }
             // Try to get data from internet
             else if (loadType == "internet")
             {
                 result = await helper.GetLatestJsonAsync(url);
             }
-            Models.ExamsJSON.RootObject root = JsonConvert.DeserializeObject<Models.ExamsJSON.RootObject>(result);
 
-            // Remove 5 rows of unnecessary content
-            root.feed.entry.RemoveRange(0, 5);
-            return root.feed.entry;
+            // Check if result has json
+            if (string.IsNullOrEmpty(result) || string.IsNullOrWhiteSpace(result))
+            {
+                return null;
+            }
+            else
+            {
+                Models.ExamsJSON.RootObject root = JsonConvert.DeserializeObject<Models.ExamsJSON.RootObject>(result);
 
+                // Remove 5 rows of unnecessary content
+                root.feed.entry.RemoveRange(0, 5);
+                return root.feed.entry;
+            }
         }
     }
 }

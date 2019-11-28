@@ -160,12 +160,8 @@ namespace UtMobileApp.Views
             var currentUser = await firebaseHelper.GetPerson(auth.GetCurrentUserEmail());
             var spreadsheetUrls = await firebaseHelper.GetUrls(currentUser.Program);
 
-            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
-            sw.Start();
-
-
             var LoadSchedule = new Extensions.LoadSchedule();
-            List<Models.ScheduleJSON.Entry> scheduleList = await LoadSchedule.DeserializeJsonAsync(spreadsheetUrls.Lectures);
+            List<Models.ScheduleJSON.Entry> scheduleList = await LoadSchedule.DeserializeJsonAsync(spreadsheetUrls.Lectures, "local");
 
             // Creating an instance for schedule appointment collection
             ScheduleAppointmentCollection scheduleAppointmentCollection = new ScheduleAppointmentCollection();
@@ -219,9 +215,6 @@ namespace UtMobileApp.Views
 
             await busyindicator.FadeTo(0, 300, Easing.Linear);
             busyindicator.IsBusy = false;
-
-            sw.Stop();
-            await DisplayAlert("OK", sw.ElapsedMilliseconds.ToString(), "OK");
         }
     }
 }
