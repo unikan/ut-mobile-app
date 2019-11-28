@@ -3,11 +3,17 @@
     x:Class="UtMobileApp.Views.ForumC"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Converter="clr-namespace:UtMobileApp.Extensions"
     xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:listviews="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Converter:ButtonVisibility x:Key="ConvertButtonVisibility" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView Orientation="Vertical">
             <StackLayout>
@@ -60,13 +66,16 @@
                                     CornerRadius="10">
                                     <Image
                                         Aspect="AspectFill"
+                                        IsVisible="{Binding CommentImage, Converter={StaticResource ConvertButtonVisibility}}"
                                         Source="{Binding CommentImage}"
                                         VerticalOptions="End" />
                                 </border:SfBorder>
                                 <Button
                                     Clicked="GetPic_Clicked"
                                     CommandParameter="{Binding CommentImage}"
+                                    IsVisible="{Binding CommentImage, Converter={StaticResource ConvertButtonVisibility}}"
                                     Text="getpic" />
+
                                 <Frame
                                     Margin="20,0"
                                     AbsoluteLayout.LayoutBounds="0, 0.7, 1, 0.4"

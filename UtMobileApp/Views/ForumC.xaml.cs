@@ -98,27 +98,39 @@ namespace UtMobileApp.Views
             
             }
 
-        private async void GetPic_Clicked(object sender, EventArgs es)
+        [Obsolete]
+        private void GetPic_Clicked(object sender, EventArgs es)
         {
-            Button btn = sender as Button;
-
-            try { 
-            var webClient = new WebClient();
-                webClient.DownloadDataCompleted += (s, e) => {
-                    var bytes = e.Result; // get the downloaded data
-                    string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-                    string localFilename = "downloaded.png";
-                    string localPath = Path.Combine(documentsPath, localFilename);
-                    File.WriteAllBytes(localPath, bytes); // writes to local storage
-                };
-                var url = new Uri(btn.CommandParameter.ToString());
-            webClient.DownloadDataAsync(url);
-            }
-            catch (Exception exs)
+            try
             {
-                await DisplayAlert("Warning", exs.Message, "OK");
+                Button btn = sender as Button;
 
+                //try { 
+                //var webClient = new WebClient();
+                //    webClient.DownloadDataCompleted += (s, e) => {
+                //        var bytes = e.Result; // get the downloaded data
+                //        string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+                //        string localFilename = "downloaded.png";
+                //        string localPath = Path.Combine(documentsPath, localFilename);
+                //        File.WriteAllBytes(localPath, bytes); // writes to local storage
+                //    };
+                //    var url = new Uri(btn.CommandParameter.ToString());
+                //webClient.DownloadDataAsync(url);
+                //}
+                //catch (Exception exs)
+                //{
+                //    await DisplayAlert("Warning", exs.Message, "OK");
+
+                //}
+
+                Device.OpenUri(new Uri(btn.CommandParameter.ToString()));
             }
+            catch (Exception)
+            {
+                DisplayAlert("Warning", "A problem occured", "OK");
+            }
+
         }
+    
     }
 }
