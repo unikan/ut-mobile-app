@@ -43,7 +43,7 @@ namespace UtMobileApp.Extensions
             }
         }
 
-        public string GetLocalJsonAsync(string url, string key)
+        public string GetLocalJsonAsync(string key)
         {
             if (Application.Current.Properties.ContainsKey(key))
             {

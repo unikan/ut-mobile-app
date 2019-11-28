@@ -8,18 +8,19 @@ namespace UtMobileApp.Extensions
     {
         Extensions.Helper helper = new Extensions.Helper();
 
-        public async Task<List<Models.ScheduleJSON.Entry>> DeserializeJsonAsync(string url, string loadType)
+        public async Task<List<Models.ScheduleJSON.Entry>> DeserializeJsonAsync(string loadType, string url = "")
         {
             string result = "";
             // Try to get data from phone if it exists
             if (loadType == "local")
             {
-                result = helper.GetLocalJsonAsync(url, "LecturesData");
+                result = helper.GetLocalJsonAsync("LecturesData");
             }
             // Try to get data from internet
             else if (loadType == "internet")
             {
                 result = await helper.GetLatestJsonAsync(url);
+                await helper.SaveLocallyAsync(result, "LecturesData");
             }
 
             // Check if result has json
@@ -43,12 +44,13 @@ namespace UtMobileApp.Extensions
             // Try to get data from phone if it exists
             if (loadType == "local")
             {
-                result = helper.GetLocalJsonAsync(url, "MidtermsData");
+                result = helper.GetLocalJsonAsync("MidtermsData");
             }
             // Try to get data from internet
             else if (loadType == "internet")
             {
                 result = await helper.GetLatestJsonAsync(url);
+                await helper.SaveLocallyAsync(result, "MidtermsData");
             }
 
             // Check if result has json
@@ -73,12 +75,13 @@ namespace UtMobileApp.Extensions
             // Try to get data from phone if it exists
             if (loadType == "local")
             {
-                result = helper.GetLocalJsonAsync(url, "ExamsData");
+                result = helper.GetLocalJsonAsync("ExamsData");
             }
             // Try to get data from internet
             else if (loadType == "internet")
             {
                 result = await helper.GetLatestJsonAsync(url);
+                await helper.SaveLocallyAsync(result, "ExamsData");
             }
 
             // Check if result has json

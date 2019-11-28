@@ -41,15 +41,7 @@ namespace UtMobileApp.Views
 
             try
             {
-                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
-                {
-                    await LoadSchedule();
-                }
-                else
-                {
-                    LectureContent.IsVisible = false;
-                    NoInternetContent.IsVisible = true;
-                }
+                await LoadSchedule();
             }
             catch (Exception e)
             {
@@ -131,18 +123,7 @@ namespace UtMobileApp.Views
         {
             try
             {
-                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
-                {
-                    await LoadSchedule();
-
-                    LectureContent.IsVisible = true;
-                    NoInternetContent.IsVisible = false;
-                }
-                else
-                {
-                    LectureContent.IsVisible = false;
-                    NoInternetContent.IsVisible = true;
-                }
+                await LoadSchedule();
             }
             catch (Exception ex)
             {
@@ -152,16 +133,36 @@ namespace UtMobileApp.Views
 
         private async Task LoadSchedule()
         {
+            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+            sw.Start();
+
             await busyindicator.FadeTo(1, 300, Easing.Linear);
             busyindicator.IsBusy = true;
 
-            // Get current user correct program spreadsheet
-            auth = DependencyService.Get<Interface>();
-            var currentUser = await firebaseHelper.GetPerson(auth.GetCurrentUserEmail());
-            var spreadsheetUrls = await firebaseHelper.GetUrls(currentUser.Program);
-
             var LoadSchedule = new Extensions.LoadSchedule();
-            List<Models.ScheduleJSON.Entry> scheduleList = await LoadSchedule.DeserializeJsonAsync(spreadsheetUrls.Lectures, "local");
+            List<Models.ScheduleJSON.Entry> scheduleList = null;
+
+            if (Application.Current.Properties.ContainsKey("LecturesData"))
+            {
+                scheduleList = await LoadSchedule.DeserializeJsonAsync("local");
+            }
+            else
+            {
+                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                {
+                    // Get current user correct program spreadsheet
+                    auth = DependencyService.Get<Interface>();
+                    var currentUser = await firebaseHelper.GetPerson(auth.GetCurrentUserEmail());
+                    var spreadsheetUrls = await firebaseHelper.GetUrls(currentUser.Program);
+
+                    scheduleList = await LoadSchedule.DeserializeJsonAsync("internet", spreadsheetUrls.Lectures);
+                }
+                else
+                {
+                    LectureContent.IsVisible = false;
+                    NoInternetContent.IsVisible = true;
+                }
+            }
 
             // Creating an instance for schedule appointment collection
             ScheduleAppointmentCollection scheduleAppointmentCollection = new ScheduleAppointmentCollection();
@@ -215,6 +216,9 @@ namespace UtMobileApp.Views
 
             await busyindicator.FadeTo(0, 300, Easing.Linear);
             busyindicator.IsBusy = false;
+
+            sw.Stop();
+            await DisplayAlert("Time elapsed", sw.ElapsedMilliseconds.ToString(), "OK");
         }
     }
 }

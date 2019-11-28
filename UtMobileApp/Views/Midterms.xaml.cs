@@ -59,10 +59,10 @@ namespace UtMobileApp.Views
             var spreadsheetUrls = await firebaseHelper.GetUrls(currentUser.Program);
 
             var LoadSchedule = new Extensions.LoadSchedule();
-            List<Models.MidtermsJSON.Entry> scheduleList = await LoadSchedule.DeserializeMidtermsJsonAsync(spreadsheetUrls.Midterms);
+            //List<Models.MidtermsJSON.Entry> scheduleList = await LoadSchedule.DeserializeMidtermsJsonAsync(spreadsheetUrls.Midterms);
 
             // Adding calendar event collection to DataSource of Calendar
-            calendar.DataSource = de.AddAppointemntMidterms(scheduleList);
+            //calendar.DataSource = de.AddAppointemntMidterms(scheduleList);
 
             await busyindicator.FadeTo(0, 300, Easing.Linear);
             busyindicator.IsBusy = false;
