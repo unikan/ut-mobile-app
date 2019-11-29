@@ -3,44 +3,51 @@
     x:Class="UtMobileApp.Views.Unverified"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
     xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
-    mc:Ignorable="d"
-    BackgroundColor="#EEEEEE">
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    BackgroundColor="#EEEEEE"
+    BackgroundImageSource="backgroundimg7.png"
+    mc:Ignorable="d">
     <ContentPage.Content>
         <AbsoluteLayout>
-            <StackLayout AbsoluteLayout.LayoutBounds="0, 1, 1, 1"
-                         AbsoluteLayout.LayoutFlags="All"
-                         Padding="20, 0"
-                         VerticalOptions="CenterAndExpand"
-                         x:Name="UnverifiedContent">
-                <Label FontSize="25"
-                       HorizontalOptions="CenterAndExpand"
-                       HorizontalTextAlignment="Center"
-                       Text="You haven't verified your email address yet , please verify your email address to login."
-                       TextColor="#242424" />
+            <StackLayout
+                x:Name="UnverifiedContent"
+                Padding="20,0"
+                AbsoluteLayout.LayoutBounds="0, 1, 1, 1"
+                AbsoluteLayout.LayoutFlags="All"
+                VerticalOptions="CenterAndExpand">
+                <Label
+                    FontSize="25"
+                    HorizontalOptions="CenterAndExpand"
+                    HorizontalTextAlignment="Center"
+                    Text="You haven't verified your email address yet , please verify your email address to login."
+                    TextColor="#eeeeee" />
                 <Label FontSize="25" />
 
-                <buttons:SfButton x:Name="Btn_ResendVerification" 
-                                  Text="Resend verification email" 
-                                  CornerRadius="100"
-                                  BackgroundColor="#e68471"
-                                  TextColor="#242424"
-                                  HeightRequest="60"
-                                  FontSize="20"
-                                  Clicked="Btn_ResendVerification_Clicked">
-                </buttons:SfButton>
+                <buttons:SfButton
+                    x:Name="Btn_ResendVerification"
+                    BackgroundColor="#3e00bc"
+                    Clicked="Btn_ResendVerification_Clicked"
+                    CornerRadius="100"
+                    FontSize="20"
+                    HeightRequest="60"
+                    Text="Resend verification email"
+                    TextColor="#eeeeee" />
             </StackLayout>
-            <StackLayout AbsoluteLayout.LayoutBounds="0, 1, 1, 1"
-                         AbsoluteLayout.LayoutFlags="All"
-                         Padding="20, 0"
-                         VerticalOptions="CenterAndExpand"
-                         x:Name="NoInternetContent"
-                         IsVisible="False">
-                <Label FontSize="32" Text="No internet, try again" HorizontalOptions="CenterAndExpand"></Label>
-                <Button Text="Retry" Clicked="Reload_Clicked"/>
+            <StackLayout
+                x:Name="NoInternetContent"
+                Padding="20,0"
+                AbsoluteLayout.LayoutBounds="0, 1, 1, 1"
+                AbsoluteLayout.LayoutFlags="All"
+                IsVisible="False"
+                VerticalOptions="CenterAndExpand">
+                <Label
+                    FontSize="32"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="No internet, try again" />
+                <Button Clicked="Reload_Clicked" Text="Retry" />
             </StackLayout>
         </AbsoluteLayout>
     </ContentPage.Content>
