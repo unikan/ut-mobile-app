@@ -3,14 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
-             xmlns:listviews="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:listviews="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
              xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
              xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
              xmlns:converter="clr-namespace:UtMobileApp.Extensions"
              mc:Ignorable="d"
-             x:Class="UtMobileApp.Views.StudentParliament"
+             x:Class="UtMobileApp.Views.CareerCenter"
              BackgroundColor="#cc7564">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -66,10 +66,10 @@
                            HorizontalOptions="Center"
                            VerticalOptions="Center"
                            HorizontalTextAlignment="Start"
-                           FontSize="Medium"
+                           FontSize="Large"
                            FontAttributes="Bold"
                            MaxLines="1"
-                           Text="Student Parliament"
+                           Text="Career Center"
                            TextColor="White"></Label>
                 </Grid>
             </StackLayout>
@@ -80,30 +80,74 @@
                              BorderWidth="0"
                              BackgroundColor="#EEEEEE"
                              Padding="20, 0"
-                             x:Name="PostsContent">
+                             x:Name="CallsContent">
                 <StackLayout>
                     <busyindicator:SfBusyIndicator x:Name="busyindicator"
                                                ViewBoxHeight="70"
                                                ViewBoxWidth="70"
-                                               Title="Loading posts..."
+                                               Title="Loading calls..."
                                                TextColor="Salmon"
                                                TextSize="15" />
 
-                    <listviews:SfListView x:Name="postsList" 
-                                  ItemTapped="postsList_ItemTapped"
-                                  ItemSize="300"
-                                  SelectionBackgroundColor="Transparent"
-                                  Opacity="0">
+                    <listviews:SfListView x:Name="callsList" 
+                                      ItemTapped="callsList_ItemTapped"
+                                      ItemSize="100"
+                                      SelectionBackgroundColor="Transparent"
+                                      Opacity="0">
                         <listviews:SfListView.ItemTemplate>
                             <DataTemplate>
-                                <AbsoluteLayout>
-                                    <border:SfBorder CornerRadius="10" BorderColor="Transparent" AbsoluteLayout.LayoutBounds="0, 0, 1, 0.6" AbsoluteLayout.LayoutFlags="All" Margin="10, 0">
-                                        <Image Source="{Binding ImageUrl}" Aspect="AspectFill" VerticalOptions="End" />
-                                    </border:SfBorder>
-                                    <Frame CornerRadius="10" HasShadow="True" BackgroundColor="White"  AbsoluteLayout.LayoutBounds="0, 0.7, 1, 0.4" AbsoluteLayout.LayoutFlags="All" Margin="20, 0">
-                                        <Label FontAttributes="Bold" FontSize="16"  Text="{Binding Title, Converter={StaticResource convertToPlainText}}" />
+                                <Grid Padding="1" Margin="1">
+                                    <Frame x:Name="frame" 
+                                       HasShadow="True" 
+                                       Padding="2" 
+                                       Margin="2" 
+                                       CornerRadius="10"
+                                       BackgroundColor="White">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="2.5*"></ColumnDefinition>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Row="0"
+                                               Grid.Column="0"
+                                               HorizontalOptions="FillAndExpand"
+                                               VerticalOptions="CenterAndExpand"
+                                               FontSize="Medium"
+                                               FontAttributes="Bold"
+                                               Padding="10, 0, 0, 0"
+                                               Text="{Binding Title.Rendered, Converter={StaticResource convertToPlainText}}"></Label>
+                                            <Grid Grid.Row="0"
+                                              Grid.Column="1"
+                                              HorizontalOptions="CenterAndExpand"
+                                              VerticalOptions="CenterAndExpand">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*"></RowDefinition>
+                                                    <RowDefinition Height="*"></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <Label Grid.Row="0" 
+                                                   HorizontalOptions="CenterAndExpand"
+                                                   VerticalOptions="EndAndExpand"
+                                                   HorizontalTextAlignment="Center"
+                                                   VerticalTextAlignment="End"
+                                                   Padding="0, 10, 0, 0"
+                                                   Margin="0"
+                                                   FontSize="Medium"
+                                                   FontAttributes="Bold"
+                                                   Text="{Binding Date, StringFormat='{0:dd}'}"></Label>
+                                                <Label Grid.Row="1" 
+                                                   HorizontalOptions="CenterAndExpand"
+                                                   VerticalOptions="Start"
+                                                   HorizontalTextAlignment="Center"
+                                                   VerticalTextAlignment="Start"
+                                                   Padding="0, 0, 0, 10"
+                                                   Margin="0"
+                                                   FontSize="Small"
+                                                   FontAttributes="Italic"
+                                                   Text="{Binding Date, StringFormat='{0:MMMM}'}"></Label>
+                                            </Grid>
+                                        </Grid>
                                     </Frame>
-                                </AbsoluteLayout>
+                                </Grid>
                             </DataTemplate>
                         </listviews:SfListView.ItemTemplate>
                     </listviews:SfListView>

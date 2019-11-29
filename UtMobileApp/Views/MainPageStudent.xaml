@@ -106,13 +106,13 @@
                                       HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent"
                                       Clicked="BtnForum_Clicked"/>
-                        <buttons:SfButton Text="Student Parliament" 
+                        <buttons:SfButton Text="Career Center" 
                                       TextColor="Black"
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
                                       HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent" 
-                                      Clicked="BtnStudentParliament_Clicked"/>
+                                      Clicked="BtnCareerCenter_Clicked"/>
                         <buttons:SfButton Text="Erasmus+" 
                                       TextColor="Black"
                                       FontSize="Medium"

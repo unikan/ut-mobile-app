@@ -10,36 +10,34 @@ using Xamarin.Forms.Xaml;
 namespace UtMobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class StudentParliament : ContentPage
+    public partial class CareerCenter : ContentPage
     {
-        readonly Extensions.WordpressServices ws;
-        private bool _firstAppearance = true;
+        private bool _firstAppeareance = true;
 
-        public StudentParliament()
+        public CareerCenter()
         {
             InitializeComponent();
 
             NavigationPage.SetHasNavigationBar(this, false);
-            ws = new Extensions.WordpressServices();
         }
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
 
-            if (_firstAppearance)
+            if (_firstAppeareance)
             {
-                _firstAppearance = false;
+                _firstAppeareance = false;
 
                 try
                 {
                     if (Connectivity.NetworkAccess == NetworkAccess.Internet)
                     {
-                        await LoadPosts();
+                        await LoadCalls();
                     }
                     else
                     {
-                        PostsContent.IsVisible = false;
+                        CallsContent.IsVisible = false;
                         NoInternetContent.IsVisible = true;
                     }
                 }
@@ -50,11 +48,11 @@ namespace UtMobileApp.Views
             }
         }
 
-        private async void postsList_ItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)
+        private async void callsList_ItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)
         {
-            var selectedPost = e.ItemData as Models.WPFeaturedPost;
+            var selectedPost = e.ItemData as WordPressPCL.Models.Post;
 
-            await Navigation.PushAsync(new FeaturedPostDetailPage(selectedPost, "Posts"));
+            await Navigation.PushAsync(new PostDetailPage(selectedPost, "Calls"));
         }
 
         private async void BtnBack_Clicked(object sender, EventArgs e)
@@ -68,14 +66,14 @@ namespace UtMobileApp.Views
             {
                 if (Connectivity.NetworkAccess == NetworkAccess.Internet)
                 {
-                    await LoadPosts();
+                    await LoadCalls();
 
-                    PostsContent.IsVisible = true;
+                    CallsContent.IsVisible = true;
                     NoInternetContent.IsVisible = false;
                 }
                 else
                 {
-                    PostsContent.IsVisible = false;
+                    CallsContent.IsVisible = false;
                     NoInternetContent.IsVisible = true;
                 }
             }
@@ -85,21 +83,22 @@ namespace UtMobileApp.Views
             }
         }
 
-        private async Task LoadPosts()
+        private async Task LoadCalls()
         {
             busyindicator.IsBusy = true;
 
-            PostsContent.IsVisible = true;
+            CallsContent.IsVisible = true;
             NoInternetContent.IsVisible = false;
 
-            postsList.ItemsSource = await ws.GetFeaturedPostTag(70, 5);
+            Extensions.WordpressServices wordpressServices = new Extensions.WordpressServices();
+            callsList.ItemsSource = await wordpressServices.GetLatestPostsAsync(64, 10);
 
             // Hide busy indicator indicator
             await busyindicator.FadeTo(0, 300, Easing.Linear);
             busyindicator.IsVisible = false;
             busyindicator.IsBusy = false;
 
-            await postsList.FadeTo(1, 300, Easing.Linear);
+            await callsList.FadeTo(1, 300, Easing.Linear);
         }
     }
 }

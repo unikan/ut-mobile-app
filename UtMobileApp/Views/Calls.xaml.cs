@@ -16,8 +16,9 @@ namespace UtMobileApp.Views
 
         public Calls()
         {
-            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
+
+            NavigationPage.SetHasNavigationBar(this, false);
         }
 
         protected override async void OnAppearing()
