@@ -9,6 +9,8 @@ namespace UtMobileApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Announcements : ContentPage
     {
+        private bool _firstAppeareance = true;
+
         public Announcements()
         {
             NavigationPage.SetHasNavigationBar(this, false);
@@ -19,21 +21,26 @@ namespace UtMobileApp.Views
         {
             base.OnAppearing();
 
-            try
+            if (_firstAppeareance)
             {
-                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                _firstAppeareance = false;
+
+                try
                 {
-                    await LoadAnnouncements();
+                    if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                    {
+                        await LoadAnnouncements();
+                    }
+                    else
+                    {
+                        AnnouncementsContent.IsVisible = false;
+                        NoInternetContent.IsVisible = true;
+                    }
                 }
-                else
+                catch (Exception e)
                 {
-                    AnnouncementsContent.IsVisible = false;
-                    NoInternetContent.IsVisible = true;
+                    await DisplayAlert("Warning", e.Message, "OK");
                 }
-            }
-            catch (Exception e)
-            {
-                await DisplayAlert("Warning", e.Message, "OK");
             }
         }
 

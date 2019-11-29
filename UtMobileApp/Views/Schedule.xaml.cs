@@ -17,6 +17,7 @@ namespace UtMobileApp.Views
         readonly Extensions.DateExtensions de = new Extensions.DateExtensions();
         readonly FirebaseHelper firebaseHelper = new FirebaseHelper();
         Interface auth;
+        private bool _firstAppeareance = true;
 
         public Schedule()
         {
@@ -30,71 +31,75 @@ namespace UtMobileApp.Views
         {
             base.OnAppearing();
 
-            // Write current month and year in label
-            label_monthYear.Text = DateTime.Now.Year + "\n" + DateTime.Now.ToString("MMMM");
-
-            // Disable schedule swiping
-            schedule.EnableNavigation = false;
-
-            // Get dates of every day of first week
-            dates = de.DatesOfWeek1(DateTime.Now);
-
-            try
+            if (_firstAppeareance)
             {
-                await LoadSchedule();
+                _firstAppeareance = false;
+                // Write current month and year in label
+                label_monthYear.Text = DateTime.Now.Year + "\n" + DateTime.Now.ToString("MMMM");
+
+                // Disable schedule swiping
+                schedule.EnableNavigation = false;
+
+                // Get dates of every day of first week
+                dates = de.DatesOfWeek1(DateTime.Now);
+
+                try
+                {
+                    await LoadSchedule();
+                }
+                catch (Exception e)
+                {
+                    await DisplayAlert("Warning", e.Message, "OK");
+                }
+
+                // Show todays schedule
+                schedule.MoveToDate = DateTime.Now;
+
+                // Add date to every day button
+                label_monday.Text = dates[0, 2].ToString("00");
+                label_tuesday.Text = dates[1, 2].ToString("00");
+                label_wednesday.Text = dates[2, 2].ToString("00");
+                label_thursday.Text = dates[3, 2].ToString("00");
+                label_friday.Text = dates[4, 2].ToString("00");
+                label_saturday.Text = dates[5, 2].ToString("00");
+
+                switch (DateTime.Now.DayOfWeek.ToString())
+                {
+                    case "Monday":
+                        btn_monday.BackgroundColor = Color.FromHex("#99D5D0");
+                        break;
+                    case "Tuesday":
+                        btn_tuesday.BackgroundColor = Color.FromHex("#99D5D0");
+                        break;
+                    case "Wednesday":
+                        btn_wednesday.BackgroundColor = Color.FromHex("#99D5D0");
+                        break;
+                    case "Thursday":
+                        btn_thursday.BackgroundColor = Color.FromHex("#99D5D0");
+                        break;
+                    case "Friday":
+                        btn_friday.BackgroundColor = Color.FromHex("#99D5D0");
+                        break;
+                    case "Saturday":
+                        btn_saturday.BackgroundColor = Color.FromHex("#99D5D0");
+                        break;
+                    default:
+                        break;
+                }
+
+                // Hide busy indicator indicator
+                await busyindicator.FadeTo(0, 300, Easing.Linear);
+                busyindicator.IsBusy = false;
+
+                // Show buttons
+                await btn_monday.ScaleTo(1, 100, Easing.Linear);
+                await btn_tuesday.ScaleTo(1, 100, Easing.Linear);
+                await btn_wednesday.ScaleTo(1, 100, Easing.Linear);
+                await btn_thursday.ScaleTo(1, 100, Easing.Linear);
+                await btn_friday.ScaleTo(1, 100, Easing.Linear);
+                await btn_saturday.ScaleTo(1, 100, Easing.Linear);
+                await schedule.FadeTo(1, 150, Easing.Linear);
             }
-            catch (Exception e)
-            {
-                await DisplayAlert("Warning", e.Message, "OK");
-            }
-
-            // Show todays schedule
-            schedule.MoveToDate = DateTime.Now;
-
-            // Add date to every day button
-            label_monday.Text = dates[0, 2].ToString("00");
-            label_tuesday.Text = dates[1, 2].ToString("00");
-            label_wednesday.Text = dates[2, 2].ToString("00");
-            label_thursday.Text = dates[3, 2].ToString("00");
-            label_friday.Text = dates[4, 2].ToString("00");
-            label_saturday.Text = dates[5, 2].ToString("00");
-
-            switch (DateTime.Now.DayOfWeek.ToString())
-            {
-                case "Monday":
-                    btn_monday.BackgroundColor = Color.FromHex("#99D5D0");
-                    break;
-                case "Tuesday":
-                    btn_tuesday.BackgroundColor = Color.FromHex("#99D5D0");
-                    break;
-                case "Wednesday":
-                    btn_wednesday.BackgroundColor = Color.FromHex("#99D5D0");
-                    break;
-                case "Thursday":
-                    btn_thursday.BackgroundColor = Color.FromHex("#99D5D0");
-                    break;
-                case "Friday":
-                    btn_friday.BackgroundColor = Color.FromHex("#99D5D0");
-                    break;
-                case "Saturday":
-                    btn_saturday.BackgroundColor = Color.FromHex("#99D5D0");
-                    break;
-                default:
-                    break;
-            }
-
-            // Hide busy indicator indicator
-            await busyindicator.FadeTo(0, 300, Easing.Linear);
-            busyindicator.IsBusy = false;
-
-            // Show buttons
-            await btn_monday.ScaleTo(1, 100, Easing.Linear);
-            await btn_tuesday.ScaleTo(1, 100, Easing.Linear);
-            await btn_wednesday.ScaleTo(1, 100, Easing.Linear);
-            await btn_thursday.ScaleTo(1, 100, Easing.Linear);
-            await btn_friday.ScaleTo(1, 100, Easing.Linear);
-            await btn_saturday.ScaleTo(1, 100, Easing.Linear);
-            await schedule.FadeTo(1, 150, Easing.Linear);
         }
 
         private void Button_ChangeDay_Clicked(object sender, EventArgs e)

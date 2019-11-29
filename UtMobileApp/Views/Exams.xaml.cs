@@ -17,6 +17,8 @@ namespace UtMobileApp.Views
         readonly Extensions.DateExtensions de = new Extensions.DateExtensions();
         readonly FirebaseHelper firebaseHelper = new FirebaseHelper();
         Interface auth;
+        private bool _firstAppeareance = true;
+
         public Exams()
         {
             InitializeComponent();
@@ -28,17 +30,22 @@ namespace UtMobileApp.Views
         {
             base.OnAppearing();
 
-            try
+            if (_firstAppeareance)
             {
-                await LoadSchedule();
-            }
-            catch (Exception e)
-            {
-                await DisplayAlert("Warning", e.Message, "OK");
-            }
+                _firstAppeareance = false;
 
-            // Move to exams date
-            //calendar.MoveToDate = new DateTime(2017, 5, 5);
+                try
+                {
+                    await LoadSchedule();
+                }
+                catch (Exception e)
+                {
+                    await DisplayAlert("Warning", e.Message, "OK");
+                }
+
+                // Move to exams date
+                //calendar.MoveToDate = new DateTime(2017, 5, 5);
+            }
         }
 
         private async Task LoadSchedule()

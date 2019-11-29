@@ -13,6 +13,7 @@ namespace UtMobileApp.Views
     public partial class News : ContentPage
     {
         readonly Extensions.WordpressServices ws;
+        private bool _firstAppearance = true;
 
         public News()
         {
@@ -26,21 +27,26 @@ namespace UtMobileApp.Views
         {
             base.OnAppearing();
 
-            try
+            if (_firstAppearance)
             {
-                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                _firstAppearance = false;
+
+                try
                 {
-                    await LoadNews();
+                    if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                    {
+                        await LoadNews();
+                    }
+                    else
+                    {
+                        NewsContent.IsVisible = false;
+                        NoInternetContent.IsVisible = true;
+                    }
                 }
-                else
+                catch (Exception e)
                 {
-                    NewsContent.IsVisible = false;
-                    NoInternetContent.IsVisible = true;
+                    await DisplayAlert("Warning", e.Message, "OK");
                 }
-            }
-            catch (Exception e)
-            {
-                await DisplayAlert("Warning", e.Message, "OK");
             }
         }
 

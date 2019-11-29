@@ -13,6 +13,8 @@ namespace UtMobileApp.Views
         readonly FirebaseHelper firebaseHelper = new FirebaseHelper();
         readonly Extensions.LoadLibrary libraryHelper = new Extensions.LoadLibrary();
         Interface auth;
+        private bool _firstAppeareance = true;
+
         public Library()
         {
             InitializeComponent();
@@ -24,17 +26,22 @@ namespace UtMobileApp.Views
         {
             base.OnAppearing();
 
-            try
+            if (_firstAppeareance)
             {
-                await LoadLibrary();
-            }
-            catch (Exception e)
-            {
-                await DisplayAlert("Warning", e.Message, "OK");
-            }
+                _firstAppeareance = false;
 
-            busyindicator.IsVisible = false;
-            busyindicator.IsBusy = false;
+                try
+                {
+                    await LoadLibrary();
+                }
+                catch (Exception e)
+                {
+                    await DisplayAlert("Warning", e.Message, "OK");
+                }
+
+                busyindicator.IsVisible = false;
+                busyindicator.IsBusy = false;
+            }
         }
 
         private async Task LoadLibrary()
