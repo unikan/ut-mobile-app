@@ -36,7 +36,17 @@ namespace UtMobileApp.Views
 
                 try
                 {
-                    await LoadSchedule();
+                    await LoadSchedule("local").ContinueWith(async updatebutton =>
+                    {
+                        await Task.Delay(3000);
+                        if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                        {
+                            await UpdateContent.TranslateTo(0, 0, 500, Easing.BounceIn);
+
+                            await Task.Delay(5000);
+                            await UpdateContent.TranslateTo(0, 500, 500, Easing.Linear);
+                        }
+                    });
                 }
                 catch (Exception e)
                 {
@@ -48,18 +58,15 @@ namespace UtMobileApp.Views
             }
         }
 
-        private async Task LoadSchedule()
+        private async Task LoadSchedule(string loadType = "")
         {
-            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
-            sw.Start();
-
             await busyindicator.FadeTo(1, 300, Easing.Linear);
             busyindicator.IsBusy = true;
 
             var LoadSchedule = new Extensions.LoadSchedule();
             List<Models.ExamsJSON.Entry> scheduleList = null;
 
-            if (Application.Current.Properties.ContainsKey("ExamsData"))
+            if (Application.Current.Properties.ContainsKey("ExamsData") && loadType == "local")
             {
                 scheduleList = await LoadSchedule.DeserializeExamsJsonAsync("local");
             }
@@ -86,9 +93,6 @@ namespace UtMobileApp.Views
 
             await busyindicator.FadeTo(0, 300, Easing.Linear);
             busyindicator.IsBusy = false;
-
-            sw.Stop();
-            await DisplayAlert("Time elapsed", sw.ElapsedMilliseconds.ToString(), "OK");
         }
 
         private void Calendar_InlineItemTapped(object sender, InlineItemTappedEventArgs e)
@@ -107,6 +111,11 @@ namespace UtMobileApp.Views
             {
                 await DisplayAlert("Warning", ex.Message, "OK");
             }
+        }
+
+        private async void Btn_UpdateSchedule_Clicked(object sender, EventArgs e)
+        {
+            await LoadSchedule("internet");
         }
 
         private async void BtnBack_Clicked(object sender, EventArgs e)

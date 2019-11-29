@@ -46,9 +46,6 @@ namespace UtMobileApp.Views
 
         private async Task LoadLibrary()
         {
-            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
-            sw.Start();
-
             if (Application.Current.Properties.ContainsKey("LibraryData"))
             {
                 LibraryList.ItemsSource = await libraryHelper.DeserializeLibraryJsonAsync("local");
@@ -73,9 +70,6 @@ namespace UtMobileApp.Views
 
             await busyindicator.FadeTo(0, 300, Easing.Linear);
             busyindicator.IsBusy = false;
-
-            sw.Stop();
-            await DisplayAlert("Time elapsed", sw.ElapsedMilliseconds.ToString(), "OK");
         }
 
 

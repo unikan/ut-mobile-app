@@ -15,6 +15,7 @@ namespace UtMobileApp.Views
     public partial class MainPageStudent : ContentPage
     {
         readonly FirebaseHelper firebaseHelper = new FirebaseHelper();
+        readonly Helper helper = new Helper();
         Interface auth;
         private bool _firstAppeareance = true;
 
@@ -211,13 +212,26 @@ namespace UtMobileApp.Views
 
         private async Task GetCurrentUserInfo()
         {
-            var currentUser = await firebaseHelper.GetPerson(auth.GetCurrentUserEmail());
+            if (Application.Current.Properties.ContainsKey("firstname") && Application.Current.Properties.ContainsKey("flname") && Application.Current.Properties.ContainsKey("email"))
+            {
+                label_name.Text = helper.GetLocalData("firstname") + "\n";
+                label_flname.Text = helper.GetLocalData("flname");
+                label_email.Text = helper.GetLocalData("email");
+            }
+            else
+            {
+                var currentUser = await firebaseHelper.GetPerson(auth.GetCurrentUserEmail());
 
-            label_name.Text = currentUser.FirstName + "\n";
-            label_flname.Text = currentUser.FirstName + " " + currentUser.LastName;
-            label_email.Text = currentUser.Email;
+                label_name.Text = currentUser.FirstName + "\n";
+                label_flname.Text = currentUser.FirstName + " " + currentUser.LastName;
+                label_email.Text = currentUser.Email;
 
-            await LandingText.FadeTo(1, 200, Easing.BounceIn);
+                await helper.SaveLocallyAsync(currentUser.FirstName, "firstname");
+                await helper.SaveLocallyAsync(currentUser.FirstName + " " + currentUser.LastName, "flname");
+                await helper.SaveLocallyAsync(currentUser.Email, "email");
+            }
+
+            await LandingText.FadeTo(1, 200, Easing.SinIn);
         }
     }
 }
