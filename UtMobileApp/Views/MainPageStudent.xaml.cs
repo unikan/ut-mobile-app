@@ -33,7 +33,6 @@ namespace UtMobileApp.Views
 
                 try
                 {
-
                     if (Connectivity.NetworkAccess == NetworkAccess.Internet)
                     {
                         auth = DependencyService.Get<Interface>();
@@ -45,9 +44,8 @@ namespace UtMobileApp.Views
                             await Navigation.PushAsync(new NewUserData());
                             Navigation.RemovePage(previousPage);
                         }
-
-                        await GetCurrentUserInfo();
                     }
+                    await GetCurrentUserInfo();
                 }
                 catch (Exception)
                 {
@@ -164,6 +162,11 @@ namespace UtMobileApp.Views
             await Navigation.PushAsync(new Views.StudentParliament());
         }
 
+        private async void BtnForum_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ForumP());
+        }
+
         private async void BtnFacebook_Clicked(object sender, EventArgs e)
         {
             try
@@ -232,10 +235,6 @@ namespace UtMobileApp.Views
             }
 
             await LandingText.FadeTo(1, 200, Easing.SinIn);
-        }
-        private async void BtnForum_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new ForumP());
         }
     }
 }

@@ -43,10 +43,10 @@ namespace UtMobileApp.Extensions
             }
         }
 
-        public async Task SaveLocallyAsync(string json, string key)
+        public async Task SaveLocallyAsync(string data, string key)
         {
             var app = (App)Application.Current;
-            app.Properties[key] = json;
+            app.Properties[key] = data;
             await app.SavePropertiesAsync();
         }
 
