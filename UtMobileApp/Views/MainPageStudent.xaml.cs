@@ -15,7 +15,9 @@ namespace UtMobileApp.Views
     public partial class MainPageStudent : ContentPage
     {
         readonly FirebaseHelper firebaseHelper = new FirebaseHelper();
+        readonly Helper helper = new Helper();
         Interface auth;
+        private bool _firstAppeareance = true;
 
         public MainPageStudent()
         {
@@ -25,42 +27,47 @@ namespace UtMobileApp.Views
 
         protected override async void OnAppearing()
         {
-            try
+            if (_firstAppeareance)
             {
+                _firstAppeareance = false;
 
-                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                try
                 {
-                    auth = DependencyService.Get<Interface>();
 
-                    // Check if he's good to go
-                    if (await firebaseHelper.GetPerson(auth.GetCurrentUserEmail()) == null)
+                    if (Connectivity.NetworkAccess == NetworkAccess.Internet)
                     {
-                        var previousPage = Navigation.NavigationStack.LastOrDefault();
-                        await Navigation.PushAsync(new NewUserData());
-                        Navigation.RemovePage(previousPage);
+                        auth = DependencyService.Get<Interface>();
+
+                        // Check if he's good to go
+                        if (await firebaseHelper.GetPerson(auth.GetCurrentUserEmail()) == null)
+                        {
+                            var previousPage = Navigation.NavigationStack.LastOrDefault();
+                            await Navigation.PushAsync(new NewUserData());
+                            Navigation.RemovePage(previousPage);
+                        }
+
+                        await GetCurrentUserInfo();
                     }
-
-                    await GetCurrentUserInfo();
                 }
+                catch (Exception)
+                {
+                    await DisplayAlert("Warning", "Check your internet connection.", "OK");
+                }
+
+                base.OnAppearing();
+
+                label_date.Text = DateTime.Now.ToString("dddd,\ndd MMMM");
+
+                //await Task.Delay(500); // Wait .5sec so the animation can be seen
+                await BtnLectures.TranslateTo(0, 0, 700, Easing.SpringOut);
+                await BtnLectures.ScaleTo(1, 150, Easing.Linear);
+                await BtnMidterms.TranslateTo(0, 0, 700, Easing.SpringOut);
+                await BtnMidterms.ScaleTo(1, 150, Easing.Linear);
+                await BtnExams.TranslateTo(0, 0, 700, Easing.SpringOut);
+                await BtnExams.ScaleTo(1, 150, Easing.Linear);
+                //await BtnConsultations.TranslateTo(0, 0, 700, Easing.SpringOut);
+                //await BtnConsultations.ScaleTo(0.88, 150, Easing.Linear);
             }
-            catch (Exception)
-            {
-                await DisplayAlert("Warning", "Check your internet connection.", "OK");
-            }
-
-            base.OnAppearing();
-
-            label_date.Text = DateTime.Now.ToString("dddd,\ndd MMMM");
-
-            await Task.Delay(500); // Wait .5sec so the animation can be seen
-            await BtnLectures.TranslateTo(0, 0, 700, Easing.SpringOut);
-            await BtnLectures.ScaleTo(1, 150, Easing.Linear);
-            await BtnMidterms.TranslateTo(0, 0, 700, Easing.SpringOut);
-            await BtnMidterms.ScaleTo(1, 150, Easing.Linear);
-            await BtnExams.TranslateTo(0, 0, 700, Easing.SpringOut);
-            await BtnExams.ScaleTo(1, 150, Easing.Linear);
-            //await BtnConsultations.TranslateTo(0, 0, 700, Easing.SpringOut);
-            //await BtnConsultations.ScaleTo(0.88, 150, Easing.Linear);
         }
 
         private void ScrollView_Scrolled(object sender, ScrolledEventArgs e)
@@ -205,13 +212,26 @@ namespace UtMobileApp.Views
 
         private async Task GetCurrentUserInfo()
         {
-            var currentUser = await firebaseHelper.GetPerson(auth.GetCurrentUserEmail());
+            if (Application.Current.Properties.ContainsKey("firstname") && Application.Current.Properties.ContainsKey("flname") && Application.Current.Properties.ContainsKey("email"))
+            {
+                label_name.Text = helper.GetLocalData("firstname") + "\n";
+                label_flname.Text = helper.GetLocalData("flname");
+                label_email.Text = helper.GetLocalData("email");
+            }
+            else
+            {
+                var currentUser = await firebaseHelper.GetPerson(auth.GetCurrentUserEmail());
 
-            label_name.Text = currentUser.FirstName + "\n";
-            label_flname.Text = currentUser.FirstName + " " + currentUser.LastName;
-            label_email.Text = currentUser.Email;
+                label_name.Text = currentUser.FirstName + "\n";
+                label_flname.Text = currentUser.FirstName + " " + currentUser.LastName;
+                label_email.Text = currentUser.Email;
 
-            await LandingText.FadeTo(1, 200, Easing.BounceIn);
+                await helper.SaveLocallyAsync(currentUser.FirstName, "firstname");
+                await helper.SaveLocallyAsync(currentUser.FirstName + " " + currentUser.LastName, "flname");
+                await helper.SaveLocallyAsync(currentUser.Email, "email");
+            }
+
+            await LandingText.FadeTo(1, 200, Easing.SinIn);
         }
         private async void BtnForum_Clicked(object sender, EventArgs e)
         {

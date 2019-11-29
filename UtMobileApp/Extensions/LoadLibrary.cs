@@ -10,21 +10,30 @@ namespace UtMobileApp.Extensions
 {
     public class LoadLibrary
     {
-        public async Task<List<Models.LibraryJSON.Entry>> DeserializeLibraryJsonAsync(string url)
+        Helper helper = new Helper();
+
+        public async Task<List<Models.LibraryJSON.Entry>> DeserializeLibraryJsonAsync(string loadType, string url = "")
         {
-            using (var client = new HttpClient())
+            string result = "";
+            // Try to get data from phone if it exists
+            if (loadType == "local")
             {
-                var response = await client.GetAsync(string.Format(url));
-                string result = await response.Content.ReadAsStringAsync();
-                Models.LibraryJSON.RootObject root = JsonConvert.DeserializeObject<Models.LibraryJSON.RootObject>(result);
-
-                var allEntries = root.feed.entry;
-                var filledEntries = allEntries
-                    .Where(x => x.Author != null && x.BookTitle != null && x.Year != null)
-                    .ToList();
-
-                return filledEntries;
+                result = helper.GetLocalData("LibraryData");
             }
+            // Try to get data from internet
+            else if (loadType == "internet")
+            {
+                result = await helper.GetLatestJsonAsync(url);
+                await helper.SaveLocallyAsync(result, "LibraryData");
+            }
+
+            Models.LibraryJSON.RootObject root = JsonConvert.DeserializeObject<Models.LibraryJSON.RootObject>(result);
+            var allEntries = root.feed.entry;
+            var filledEntries = allEntries
+                .Where(x => x.Author != null && x.BookTitle != null && x.Year != null)
+                .ToList();
+
+            return filledEntries;
         }
     }
 }

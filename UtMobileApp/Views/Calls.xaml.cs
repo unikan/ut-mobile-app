@@ -12,6 +12,8 @@ namespace UtMobileApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Calls : ContentPage
     {
+        private bool _firstAppeareance = true;
+
         public Calls()
         {
             NavigationPage.SetHasNavigationBar(this, false);
@@ -22,21 +24,26 @@ namespace UtMobileApp.Views
         {
             base.OnAppearing();
 
-            try
+            if (_firstAppeareance)
             {
-                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                _firstAppeareance = false;
+
+                try
                 {
-                    await LoadCalls();
+                    if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                    {
+                        await LoadCalls();
+                    }
+                    else
+                    {
+                        CallsContent.IsVisible = false;
+                        NoInternetContent.IsVisible = true;
+                    }
                 }
-                else
+                catch (Exception e)
                 {
-                    CallsContent.IsVisible = false;
-                    NoInternetContent.IsVisible = true;
+                    await DisplayAlert("Warning", e.Message, "OK");
                 }
-            }
-            catch (Exception e)
-            {
-                await DisplayAlert("Warning", e.Message, "OK");
             }
         }
 

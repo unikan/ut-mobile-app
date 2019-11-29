@@ -89,40 +89,43 @@
       <Version>1.0.3</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
-      <Version>2.6.1</Version>
+      <Version>2.6.2</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Crashes">
-      <Version>2.6.1</Version>
+      <Version>2.6.2</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.Buttons">
-      <Version>17.3.0.28</Version>
+      <Version>17.3.0.29</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.Core">
-      <Version>17.3.0.28</Version>
+      <Version>17.3.0.29</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator">
-      <Version>17.3.0.28</Version>
+      <Version>17.3.0.29</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfAutoComplete">
-      <Version>17.3.0.28</Version>
+      <Version>17.3.0.29</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfCalendar">
-      <Version>17.3.0.28</Version>
+      <Version>17.3.0.29</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfComboBox">
-      <Version>17.3.0.28</Version>
+      <Version>17.3.0.29</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfListView">
-      <Version>17.3.0.28</Version>
+      <Version>17.3.0.29</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfNavigationDrawer">
-      <Version>17.3.0.28</Version>
+      <Version>17.3.0.29</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfNumericUpDown">
-      <Version>17.3.0.28</Version>
+      <Version>17.3.0.29</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfPullToRefresh">
+      <Version>17.3.0.29</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfSchedule">
-      <Version>17.3.0.28</Version>
+      <Version>17.3.0.29</Version>
     </PackageReference>
     <PackageReference Include="WordPressPCL">
       <Version>1.6.2</Version>
@@ -145,7 +148,7 @@
       <Version>60.1142.1</Version>
     </PackageReference>
     <PackageReference Include="XForms.Plugin.AnimationNavigationPage">
-      <Version>1.0.7</Version>
+      <Version>1.0.8</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

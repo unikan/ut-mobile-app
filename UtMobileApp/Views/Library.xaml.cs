@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -12,6 +13,8 @@ namespace UtMobileApp.Views
         readonly FirebaseHelper firebaseHelper = new FirebaseHelper();
         readonly Extensions.LoadLibrary libraryHelper = new Extensions.LoadLibrary();
         Interface auth;
+        private bool _firstAppeareance = true;
+
         public Library()
         {
             InitializeComponent();
@@ -23,7 +26,31 @@ namespace UtMobileApp.Views
         {
             base.OnAppearing();
 
-            try
+            if (_firstAppeareance)
+            {
+                _firstAppeareance = false;
+
+                try
+                {
+                    await LoadLibrary();
+                }
+                catch (Exception e)
+                {
+                    await DisplayAlert("Warning", e.Message, "OK");
+                }
+
+                busyindicator.IsVisible = false;
+                busyindicator.IsBusy = false;
+            }
+        }
+
+        private async Task LoadLibrary()
+        {
+            if (Application.Current.Properties.ContainsKey("LibraryData"))
+            {
+                LibraryList.ItemsSource = await libraryHelper.DeserializeLibraryJsonAsync("local");
+            }
+            else
             {
                 if (Connectivity.NetworkAccess == NetworkAccess.Internet)
                 {
@@ -32,9 +59,7 @@ namespace UtMobileApp.Views
                     var currentUser = await firebaseHelper.GetPerson(auth.GetCurrentUserEmail());
                     var spreadsheetUrls = await firebaseHelper.GetUrls(currentUser.Program);
 
-                    LibraryList.ItemsSource = await libraryHelper.DeserializeLibraryJsonAsync(spreadsheetUrls.Library);
-                    LibraryContent.IsVisible = true;
-                    NoInternetContent.IsVisible = false;
+                    LibraryList.ItemsSource = await libraryHelper.DeserializeLibraryJsonAsync("internet", spreadsheetUrls.Library);
                 }
                 else
                 {
@@ -42,12 +67,8 @@ namespace UtMobileApp.Views
                     NoInternetContent.IsVisible = true;
                 }
             }
-            catch (Exception e)
-            {
-                await DisplayAlert("Warning", e.Message, "OK");
-            }
 
-            busyindicator.IsVisible = false;
+            await busyindicator.FadeTo(0, 300, Easing.Linear);
             busyindicator.IsBusy = false;
         }
 
