@@ -12,7 +12,8 @@
     xmlns:numeric="clr-namespace:Syncfusion.SfNumericUpDown.XForms;assembly=Syncfusion.SfNumericUpDown.XForms"
     xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
     mc:Ignorable="d"
-    BackgroundColor="#EEEEEE">
+    BackgroundColor="#EEEEEE"
+    BackgroundImageSource="backgroundimg8.png">
     <ContentPage.Content>
         <ScrollView Orientation="Vertical">
             <AbsoluteLayout Padding="10, 0">
@@ -24,35 +25,43 @@
                     <Label Text="Personal information"
                        HorizontalTextAlignment="Center"
                        FontSize="30"
-                       TextColor="#242424"></Label>
+                       TextColor="#eeeeee"></Label>
                     <inputLayout:SfTextInputLayout Hint="Index Number" 
                                                ContainerType="Outlined"
-                                               FocusedColor="#e68471">
+                                               FocusedColor="#3e00bc"
+                                                   UnfocusedColor="#eeeeee">
                         <Entry Placeholder="3615111035"
+                               PlaceholderColor="#3e00bc"
                            x:Name="IndexNumberInput"
-                           IsEnabled="False" />
+                           IsEnabled="False" 
+                               TextColor="#3e00bc"/>
                     </inputLayout:SfTextInputLayout>
                     <inputLayout:SfTextInputLayout Hint="First Name" 
                                                ContainerType="Outlined"
-                                               FocusedColor="#e68471">
+                                               FocusedColor="#3e00bc"
+                                                   UnfocusedColor="#eeeeee">
                         <Entry Placeholder="John"
                            x:Name="NameInput"
+                               PlaceholderColor="#3e00bc"
                            Keyboard="Text"
-                           TextColor="#101010"
+                           TextColor="#eeeeee"
                            Completed="NameInput_Completed"/>
                     </inputLayout:SfTextInputLayout>
                     <inputLayout:SfTextInputLayout Hint="Last Name" 
                                                ContainerType="Outlined"
-                                               FocusedColor="#e68471">
+                                               FocusedColor="#3e00bc"
+                                                   UnfocusedColor="#eeeeee">
                         <Entry Placeholder="Doe"
+                               PlaceholderColor="#3e00bc"
                            Keyboard="Text"
                            x:Name="LastNameInput"
-                           TextColor="#101010"/>
+                           TextColor="#eeeeee"/>
                     </inputLayout:SfTextInputLayout>
                     <inputLayout:SfTextInputLayout Hint="Semester"
                                                ContainerType="Outlined"
-                                               FocusedColor="#e68471">
-                        <combobox:SfComboBox x:Name="SemesterCombobox">
+                                               FocusedColor="#3e00bc" 
+                                                   UnfocusedColor="#eeeeee">
+                        <combobox:SfComboBox x:Name="SemesterCombobox" DropDownTextColor="#3e00bc" TextColor="#eeeeee">
                             <combobox:SfComboBox.ComboBoxSource>
                                 <ListCollection:List x:TypeArguments="x:String">
                                     <x:String>I</x:String>
@@ -71,23 +80,26 @@
                             </combobox:SfComboBox.ComboBoxSource>
                         </combobox:SfComboBox>
                     </inputLayout:SfTextInputLayout>
-                    <inputLayout:SfTextInputLayout HelperText="If you leave the group '0' that means you don't have a group and it's totally fine :)"
+                    <inputLayout:SfTextInputLayout
                                                Hint="Group"
                                                ContainerType="Outlined"
-                                               FocusedColor="#e68471">
+                                               FocusedColor="#eeeeee" UnfocusedColor="#eeeeee" ErrorText="If you leave the group '0' that means you don't have a group and it's totally fine :)" ErrorColor="#eeeeee" >
                         <numeric:SfNumericUpDown
+                            TextColor="#eeeeee"
                         x:Name="GroupsNumericUpDown"
                         AllowNull="true"
                         Maximum="20"
                         MaximumDecimalDigits="0"
+                            BorderColor="#3e00bc"
                         Minimum="0"
-                        Value="0"/>
+                        Value="0" UpDownButtonColor="#3e00bc"/>
                     </inputLayout:SfTextInputLayout>
                     <inputLayout:SfTextInputLayout Hint="Faculty"
                                                ContainerType="Outlined"
-                                               FocusedColor="#e68471">
+                                               FocusedColor="#3e00bc"
+                                                   UnfocusedColor="#eeeeee">
                         <combobox:SfComboBox x:Name="FacultyCombobox" 
-                                     SelectionChanged="FacultyCombobox_SelectionChanged">
+                                     SelectionChanged="FacultyCombobox_SelectionChanged" DropDownTextColor="#3e00bc" TextColor="#eeeeee">
                             <combobox:SfComboBox.ComboBoxSource>
                                 <ListCollection:List x:TypeArguments="x:String">
                                     <x:String>Faculty of Agriculture and Biotechnology</x:String>
@@ -110,15 +122,15 @@
                     <inputLayout:SfTextInputLayout x:Name="ProgramInput"
                                                Hint="Program"
                                                ContainerType="Outlined"
-                                               FocusedColor="#e68471">
+                                               FocusedColor="#3e00bc" UnfocusedColor="#eeeeee">
                         <combobox:SfComboBox x:Name="AutoCompleteProgram" 
-                                         ComboBoxMode="SuggestAppend" />
+                                         ComboBoxMode="SuggestAppend"  DropDownTextColor="#3e00bc" TextColor="#eeeeee" />
                     </inputLayout:SfTextInputLayout>
                     <buttons:SfButton x:Name="Btn_CompleteReg" 
                                   Text="Complete Registration" 
                                   CornerRadius="100"
-                                  BackgroundColor="#e68471"
-                                  TextColor="#242424"
+                                  BackgroundColor="#3e00bc"
+                                  TextColor="#eeeeee"
                                   HeightRequest="60"
                                   FontSize="20"
                                   Clicked="Btn_CompleteReg_Clicked">
