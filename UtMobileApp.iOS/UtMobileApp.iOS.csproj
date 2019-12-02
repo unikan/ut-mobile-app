@@ -321,9 +321,6 @@
     <BundleResource Include="Resources\backgroundimg7.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\backgroundimg.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\backgroundimg1.png" />
   </ItemGroup>
   <ItemGroup>

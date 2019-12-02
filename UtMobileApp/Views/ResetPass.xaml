@@ -12,6 +12,8 @@
     mc:Ignorable="d">
     <ContentPage.Content>
         <AbsoluteLayout>
+            <Image Source="backgroundimg6.png"
+            Aspect="AspectFill"/>
             <!--  HEADER  -->
             <StackLayout
                 Margin="10,0"

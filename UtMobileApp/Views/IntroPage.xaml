@@ -7,11 +7,12 @@
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    BackgroundColor="#EEEEEE"
     BackgroundImageSource="backgroundimg3.png"
     mc:Ignorable="d">
     <ContentPage.Content>
         <AbsoluteLayout HorizontalOptions="CenterAndExpand">
+            <Image Source="backgroundimg3.png"
+            Aspect="AspectFill"/>
             <StackLayout
                 AbsoluteLayout.LayoutBounds="0, 0.15, 1, 0.5"
                 AbsoluteLayout.LayoutFlags="All"

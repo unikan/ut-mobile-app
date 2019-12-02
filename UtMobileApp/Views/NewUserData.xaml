@@ -17,7 +17,9 @@
     <ContentPage.Content>
         <ScrollView Orientation="Vertical">
             <AbsoluteLayout Padding="10, 0">
-            <StackLayout AbsoluteLayout.LayoutBounds="0, 1, 1, 1"
+                <Image Source="backgroundimg8.png"
+            Aspect="AspectFill"/>
+                <StackLayout AbsoluteLayout.LayoutBounds="0, 1, 1, 1"
                          AbsoluteLayout.LayoutFlags="All"
                          x:Name="CompleteRegistrationContent"
                          HorizontalOptions="CenterAndExpand"
