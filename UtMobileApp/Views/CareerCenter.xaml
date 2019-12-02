@@ -69,7 +69,7 @@
                            FontSize="Large"
                            FontAttributes="Bold"
                            MaxLines="1"
-                           Text="Career Center"
+                           Text="Career"
                            TextColor="White"></Label>
                 </Grid>
             </StackLayout>
