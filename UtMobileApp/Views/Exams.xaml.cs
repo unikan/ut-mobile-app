@@ -17,6 +17,8 @@ namespace UtMobileApp.Views
         readonly Extensions.DateExtensions de = new Extensions.DateExtensions();
         readonly FirebaseHelper firebaseHelper = new FirebaseHelper();
         Interface auth;
+        private bool _firstAppeareance = true;
+
         public Exams()
         {
             InitializeComponent();
@@ -28,11 +30,56 @@ namespace UtMobileApp.Views
         {
             base.OnAppearing();
 
-            try
+            if (_firstAppeareance)
+            {
+                _firstAppeareance = false;
+
+                try
+                {
+                    await LoadSchedule("local").ContinueWith(async updatebutton =>
+                    {
+                        await Task.Delay(3000);
+                        if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                        {
+                            await UpdateContent.TranslateTo(0, 0, 500, Easing.BounceIn);
+
+                            await Task.Delay(5000);
+                            await UpdateContent.TranslateTo(0, 500, 500, Easing.Linear);
+                        }
+                    });
+                }
+                catch (Exception e)
+                {
+                    await DisplayAlert("Warning", e.Message, "OK");
+                }
+
+                // Move to exams date
+                //calendar.MoveToDate = new DateTime(2017, 5, 5);
+            }
+        }
+
+        private async Task LoadSchedule(string loadType = "")
+        {
+            await busyindicator.FadeTo(1, 300, Easing.Linear);
+            busyindicator.IsBusy = true;
+
+            var LoadSchedule = new Extensions.LoadSchedule();
+            List<Models.ExamsJSON.Entry> scheduleList = null;
+
+            if (Application.Current.Properties.ContainsKey("ExamsData") && loadType == "local")
+            {
+                scheduleList = await LoadSchedule.DeserializeExamsJsonAsync("local");
+            }
+            else
             {
                 if (Connectivity.NetworkAccess == NetworkAccess.Internet)
                 {
-                    await LoadSchedule();
+                    // Get current user correct program spreadsheet
+                    auth = DependencyService.Get<Interface>();
+                    var currentUser = await firebaseHelper.GetPerson(auth.GetCurrentUserEmail());
+                    var spreadsheetUrls = await firebaseHelper.GetUrls(currentUser.Program);
+
+                    scheduleList = await LoadSchedule.DeserializeExamsJsonAsync("internet", spreadsheetUrls.Exams);
                 }
                 else
                 {
@@ -40,27 +87,6 @@ namespace UtMobileApp.Views
                     NoInternetContent.IsVisible = true;
                 }
             }
-            catch (Exception e)
-            {
-                await DisplayAlert("Warning", e.Message, "OK");
-            }
-
-            // Move to exams date
-            //calendar.MoveToDate = new DateTime(2017, 5, 5);
-        }
-
-        private async Task LoadSchedule()
-        {
-            await busyindicator.FadeTo(1, 300, Easing.Linear);
-            busyindicator.IsBusy = true;
-
-            // Get current user correct program spreadsheet
-            auth = DependencyService.Get<Interface>();
-            var currentUser = await firebaseHelper.GetPerson(auth.GetCurrentUserEmail());
-            var spreadsheetUrls = await firebaseHelper.GetUrls(currentUser.Program);
-
-            var LoadSchedule = new Extensions.LoadSchedule();
-            List<Models.ExamsJSON.Entry> scheduleList = await LoadSchedule.DeserializeExamsJsonAsync(spreadsheetUrls.Exams);
 
             // Adding calendar event collection to DataSource of Calendar
             calendar.DataSource = de.AddAppointemntExams(scheduleList);
@@ -79,23 +105,17 @@ namespace UtMobileApp.Views
         {
             try
             {
-                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
-                {
-                    await LoadSchedule();
-
-                    ExamsContent.IsVisible = true;
-                    NoInternetContent.IsVisible = false;
-                }
-                else
-                {
-                    ExamsContent.IsVisible = false;
-                    NoInternetContent.IsVisible = true;
-                }
+                await LoadSchedule();
             }
             catch (Exception ex)
             {
                 await DisplayAlert("Warning", ex.Message, "OK");
             }
+        }
+
+        private async void Btn_UpdateSchedule_Clicked(object sender, EventArgs e)
+        {
+            await LoadSchedule("internet");
         }
 
         private async void BtnBack_Clicked(object sender, EventArgs e)

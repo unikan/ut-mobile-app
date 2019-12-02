@@ -102,6 +102,20 @@
                     <Button Text="Retry" Clicked="Reload_Clicked"/>
                 </StackLayout>
             </border:SfBorder>
+            <StackLayout AbsoluteLayout.LayoutBounds="1, 1, 1, 0.05"
+                         AbsoluteLayout.LayoutFlags="All"
+                         x:Name="UpdateContent"
+                         BackgroundColor="Red"
+                         TranslationY="500">
+                <buttons:SfButton x:Name="Btn_UpdateSchedule"
+                                  Text="Click here to check for updated schedule"
+                                  BackgroundColor="Transparent"
+                                  FontAttributes="Bold"
+                                  VerticalOptions="CenterAndExpand"
+                                  VerticalTextAlignment="Center"
+                                  Clicked="Btn_UpdateSchedule_Clicked">
+                </buttons:SfButton>
+            </StackLayout>
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

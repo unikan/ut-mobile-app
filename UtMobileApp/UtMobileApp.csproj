@@ -5,6 +5,7 @@
   </PropertyGroup>
 
 <ItemGroup>
+
 <PackageReference Include="FirebaseStorage.net" Version="1.0.3" />
 <PackageReference Include="Microsoft.AppCenter.Analytics" Version="2.6.2" />
 <PackageReference Include="Microsoft.AppCenter.Crashes" Version="2.6.2" />
@@ -15,6 +16,7 @@
 <PackageReference Include="Syncfusion.Xamarin.SfCalendar" Version="17.3.0.29" />
 <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="17.3.0.29" />
 <PackageReference Include="Syncfusion.Xamarin.SfNavigationDrawer" Version="17.3.0.29" />
+<PackageReference Include="Syncfusion.Xamarin.SfPullToRefresh" Version="17.3.0.29" />
 <PackageReference Include="Syncfusion.Xamarin.SfSchedule" Version="17.3.0.29" />
 <PackageReference Include="WordPressPCL" Version="1.6.2" />
 <PackageReference Include="Xam.Plugin.Media" Version="4.4.8-beta" />
@@ -41,6 +43,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Calls.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\CareerCenter.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Exams.xaml">
@@ -76,9 +81,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Schedule.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\StudentParliament.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Unverified.xaml">
