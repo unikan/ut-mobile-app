@@ -157,6 +157,11 @@ namespace UtMobileApp.Views
             await Navigation.PushAsync(new Views.Library());
         }
 
+        private async void BtnEvents_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Views.Events());
+        }
+
         private async void BtnCareerCenter_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Views.CareerCenter());

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace UtMobileApp.Models
 {
-    class EventsJSON
+    public class EventsJSON
     {
         public class StartDateDetails
         {
