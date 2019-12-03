@@ -55,10 +55,21 @@
                                                    HorizontalOptions="CenterAndExpand"
                                                    VerticalOptions="CenterAndExpand">
                     </busyindicator:SfBusyIndicator>
+                    <Label Grid.Row="0" 
+                           Grid.Column="1" 
+                           x:Name="label_exams"
+                           HorizontalTextAlignment="End"
+                           HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                           Text="Exams"
+                           TextColor="White"
+                           FontAttributes="Bold"
+                           FontSize="Large"
+                           Opacity="0"></Label>
                 </Grid>
             </StackLayout>
 
-            <border:SfBorder AbsoluteLayout.LayoutBounds="0, 1, 1, .8"
+            <border:SfBorder AbsoluteLayout.LayoutBounds="0, 1, 1, .85"
                              AbsoluteLayout.LayoutFlags="All"
                              CornerRadius="20, 20, 0, 0" 
                              BorderWidth="0"

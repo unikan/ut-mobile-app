@@ -55,14 +55,16 @@
                                                    HorizontalOptions="CenterAndExpand"
                                                    VerticalOptions="CenterAndExpand"></busyindicator:SfBusyIndicator>
                     <Label Grid.Row="0" 
-                           Grid.Column="2" 
+                           Grid.Column="1" 
+                           x:Name="label_lectures"
                            HorizontalTextAlignment="End"
                            HorizontalOptions="CenterAndExpand"
                            VerticalOptions="CenterAndExpand"
-                           x:Name="label_monthYear"
+                           Text="Lectures"
                            TextColor="White"
                            FontAttributes="Bold"
-                           FontSize="16"></Label>
+                           FontSize="Large"
+                           Opacity="0"></Label>
                 </Grid>
             </StackLayout>
             <!-- DAYS -->

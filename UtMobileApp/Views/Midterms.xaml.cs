@@ -88,9 +88,12 @@ namespace UtMobileApp.Views
 
             // Adding calendar event collection to DataSource of Calendar
             calendar.DataSource = de.AddAppointemntMidterms(scheduleList);
-
+            
+            // Hide busy indicator
             await busyindicator.FadeTo(0, 300, Easing.Linear);
             busyindicator.IsBusy = false;
+            // Show label
+            await label_midterms.FadeTo(1, 300, Easing.Linear);
         }
 
         private void Calendar_InlineItemTapped(object sender, InlineItemTappedEventArgs e)

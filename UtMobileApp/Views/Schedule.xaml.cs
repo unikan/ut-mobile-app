@@ -34,8 +34,6 @@ namespace UtMobileApp.Views
             if (_firstAppeareance)
             {
                 _firstAppeareance = false;
-                // Write current month and year in label
-                label_monthYear.Text = DateTime.Now.Year + "\n" + DateTime.Now.ToString("MMMM");
 
                 // Disable schedule swiping
                 schedule.EnableNavigation = false;
@@ -100,6 +98,9 @@ namespace UtMobileApp.Views
                 // Hide busy indicator indicator
                 await busyindicator.FadeTo(0, 300, Easing.Linear);
                 busyindicator.IsBusy = false;
+
+                // Show label
+                await label_lectures.FadeTo(1, 300, Easing.Linear);
 
                 // Show buttons
                 await btn_monday.ScaleTo(1, 100, Easing.Linear);
