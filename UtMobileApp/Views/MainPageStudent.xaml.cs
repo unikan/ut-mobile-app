@@ -172,18 +172,6 @@ namespace UtMobileApp.Views
             await Navigation.PushAsync(new Views.ContactUs());
         }
 
-        private async void BtnFacebook_Clicked(object sender, EventArgs e)
-        {
-            try
-            {
-                var uri = new Uri("fb://page/338685373241583");
-                await Launcher.OpenAsync(uri);
-            }
-            catch (Exception)
-            {
-            }
-        }
-
         private async void SignOut_Clicked(object sender, EventArgs e)
         {
             auth.SignOut();

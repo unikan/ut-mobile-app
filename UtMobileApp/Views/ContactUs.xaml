@@ -82,6 +82,8 @@
                                 Clicked="BtnCall_Clicked"/>
                         <Button Text="Facebook"
                                 Clicked="BtnFacebook_Clicked"/>
+                        <Button Text="Website"
+                                Clicked="BtnWebsite_Clicked"/>
                     </StackLayout>
                 </border:SfBorder>
             </border:SfBorder>

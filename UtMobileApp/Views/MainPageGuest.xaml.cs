@@ -50,7 +50,7 @@ namespace UtMobileApp.Views
 
         private async void BtnContact_Clicked(object sender, EventArgs e)
         {
-            //await Navigation.PushAsync(new Views.News());
+            await Navigation.PushAsync(new Views.ContactUs());
         }
 
         private async void BtnKujdesi_Clicked(object sender, EventArgs e)

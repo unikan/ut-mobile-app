@@ -38,8 +38,12 @@ namespace UtMobileApp.Views
                     break;
             }
 
-            var uri = new Uri(url);
-            Launcher.OpenAsync(uri);
+            try
+            {
+                var uri = new Uri(url);
+                Launcher.OpenAsync(uri);
+            }
+            catch (Exception) { }
         }
 
         private void BtnEmail_Clicked(object sender, EventArgs e)
@@ -49,9 +53,13 @@ namespace UtMobileApp.Views
 
         private void BtnCall_Clicked(object sender, EventArgs e)
         {
-            var phoneDialer = CrossMessaging.Current.PhoneDialer;
-            if (phoneDialer.CanMakePhoneCall)
-                phoneDialer.MakePhoneCall("0038944356500");
+            try
+            {
+                var phoneDialer = CrossMessaging.Current.PhoneDialer;
+                if (phoneDialer.CanMakePhoneCall)
+                    phoneDialer.MakePhoneCall("0038944356500");
+            }
+            catch (Exception) { }
         }
 
         private async void BtnFacebook_Clicked(object sender, EventArgs e)
@@ -66,6 +74,16 @@ namespace UtMobileApp.Views
                 var uri = new Uri("https://www.facebook.com/Universiteti-i-Tetov%C3%ABs-UT-338685373241583/");
                 await Launcher.OpenAsync(uri);
             }
+        }
+
+        private async void BtnWebsite_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                var uri = new Uri("https://www.unite.edu.mk/");
+                await Launcher.OpenAsync(uri);
+            }
+            catch (Exception) { }
         }
     }
 }

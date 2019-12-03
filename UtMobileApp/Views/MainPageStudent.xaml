@@ -126,13 +126,6 @@
                                       HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent"
                                       Clicked="BtnKujdesi_Clicked" />
-                        <buttons:SfButton Text="Facebook" 
-                                      TextColor="Black"
-                                      FontSize="Medium"
-                                      HorizontalTextAlignment="Start"
-                                      HorizontalOptions="StartAndExpand"
-                                      BackgroundColor="Transparent"
-                                      Clicked="BtnFacebook_Clicked" />
                         <buttons:SfButton Text="Contact Us" 
                                       TextColor="Black"
                                       FontSize="Medium"
