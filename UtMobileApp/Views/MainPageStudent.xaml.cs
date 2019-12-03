@@ -167,6 +167,11 @@ namespace UtMobileApp.Views
             await Navigation.PushAsync(new ForumP());
         }
 
+        private async void BtnContactUs_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Views.ContactUs());
+        }
+
         private async void BtnFacebook_Clicked(object sender, EventArgs e)
         {
             try

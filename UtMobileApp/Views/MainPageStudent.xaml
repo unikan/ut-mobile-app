@@ -138,7 +138,8 @@
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
                                       HorizontalOptions="StartAndExpand"
-                                      BackgroundColor="Transparent" />
+                                      BackgroundColor="Transparent"
+                                      Clicked="BtnContactUs_Clicked"/>
                     </StackLayout>
                 </ScrollView>
             </navigationdrawer:SfNavigationDrawer.DrawerContentView>
