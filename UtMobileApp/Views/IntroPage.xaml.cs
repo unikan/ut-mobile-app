@@ -56,9 +56,13 @@ namespace UtMobileApp.Views
             await helper.EnableButtonAfter2Sec(btn);
         }
 
-        private void Btn_SignUp_Focused(object sender, FocusEventArgs e)
+        private async void Btn_Guest_Clicked(object sender, EventArgs e)
         {
+            Syncfusion.XForms.Buttons.SfButton btn = sender as Syncfusion.XForms.Buttons.SfButton;
 
+            helper.DisableButton(btn);
+            await Navigation.PushAsync(new MainPageGuest());
+            await helper.EnableButtonAfter2Sec(btn);
         }
     }
 }

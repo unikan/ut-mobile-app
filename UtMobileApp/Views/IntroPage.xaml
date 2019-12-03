@@ -11,7 +11,7 @@
     <ContentPage.Content>
         <AbsoluteLayout HorizontalOptions="CenterAndExpand">
             <Image Source="backgroundimg3.png"
-            Aspect="AspectFill"/>
+                   Aspect="Fill"/>
             <StackLayout
                 AbsoluteLayout.LayoutBounds="0, 0.15, 1, 0.5"
                 AbsoluteLayout.LayoutFlags="All"
@@ -53,6 +53,18 @@
                     HeightRequest="60"
                     PressedBackgroundColor="#5a0aff"
                     Text="Sign Up"
+                    TextColor="#eeeeee" />
+                <button:SfButton
+                    x:Name="Btn_Guest"
+                    BackgroundColor="#3e00bc"
+                    BorderColor="#3e00bc"
+                    BorderWidth="3"
+                    Clicked="Btn_Guest_Clicked"
+                    CornerRadius="100"
+                    FontSize="20"
+                    HeightRequest="60"
+                    PressedBackgroundColor="#5a0aff"
+                    Text="Guest Login"
                     TextColor="#eeeeee" />
             </StackLayout>
         </AbsoluteLayout>

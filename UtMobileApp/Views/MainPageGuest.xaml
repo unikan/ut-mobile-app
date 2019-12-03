@@ -3,50 +3,129 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:navigationdrawer="clr-namespace:Syncfusion.SfNavigationDrawer.XForms;assembly=Syncfusion.SfNavigationDrawer.XForms"
+             xmlns:button="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              mc:Ignorable="d"
-             x:Class="UtMobileApp.Views.MainPageGuest">
+             x:Class="UtMobileApp.Views.MainPageGuest"
+             BackgroundColor="#EEEEEE">
     <ContentPage.Content>
-
-        <navigationdrawer:SfNavigationDrawer x:Name="navigationDrawer" 
-                                         DrawerWidth ="200"
-                                         Transition="Push"
-                                         Duration="300"
-                                         TouchThreshold="1000">
-            <navigationdrawer:SfNavigationDrawer.ContentView>
-                <Grid x:Name="mainContentView" 
-                  BackgroundColor="White">
+        <StackLayout Padding="10, 50, 10, 0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <button:SfButton Grid.Column="0"
+                                 HorizontalOptions="Start"
+                                 VerticalOptions="Center"
+                                 ShowIcon="True" 
+                                 BackgroundColor="#32407b"
+                                 CornerRadius="40"
+                                 WidthRequest="50"
+                                 HeightRequest="50"
+                                 Margin="20, 0, 0, 0"
+                                 Clicked="BtnBack_Clicked">
+                    <button:SfButton.Content>
+                        <Image Source="back.png"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               WidthRequest="20" 
+                               HeightRequest="20" />
+                    </button:SfButton.Content>
+                </button:SfButton>
+                <Image Source="utlogo.png" 
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand"
+                       HeightRequest="150"
+                       WidthRequest="150"
+                       Grid.Column="1" />
+            </Grid>
+            <ScrollView Orientation="Vertical">
+                <Grid RowSpacing="20" ColumnSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition/>
+                        <RowDefinition Height="150"/>
+                        <RowDefinition Height="150"/>
+                        <RowDefinition Height="150"/>
+                        <RowDefinition Height="150"/>
                     </Grid.RowDefinitions>
-                    <StackLayout BackgroundColor="#ffffff" 
-                               Orientation="Horizontal">
-                        <Button x:Name="hamburgerButton" 
-                            HeightRequest="50" 
-                            WidthRequest="50" 
-                            HorizontalOptions="Start" 
-                            FontSize="20" 
-                            BackgroundColor="#ffffff" 
-                            Clicked="HamburgerButton_Clicked"/>
-                        <Label x:Name="headerLabel" 
-                           HeightRequest="50" 
-                           HorizontalTextAlignment="Center" 
-                           VerticalTextAlignment="Center" 
-                           Text="Home" FontSize="16" 
-                           TextColor="Black" 
-                           BackgroundColor="#ffffff"/>
-                    </StackLayout>
-                    <Label Grid.Row="1" 
-                      x:Name="contentLabel" 
-                      VerticalOptions="Center" 
-                      HorizontalOptions="Center" 
-                      Text="Content View" 
-                      FontSize="14" 
-                      TextColor="Black"/>
+                    <button:SfButton x:Name="BtnNews" 
+                                 Text="News" 
+                                 CornerRadius="10" 
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="FillAndExpand"
+                                 FontSize="20"
+                                 BackgroundColor="#32407b"
+                                 Grid.Row="0" Grid.Column="0"
+                                 Clicked="BtnNews_Clicked"/>
+                    <button:SfButton x:Name="BtnAnnouncements" 
+                                 Text="Announcements" 
+                                 CornerRadius="10" 
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="FillAndExpand"
+                                 FontSize="20"
+                                 BackgroundColor="#32407b"
+                                 Grid.Row="0" Grid.Column="1"
+                                 Clicked="BtnAnnouncements_Clicked"/>
+                    <button:SfButton x:Name="BtnCalls" 
+                                 Text="Calls" 
+                                 CornerRadius="10" 
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="FillAndExpand"
+                                 FontSize="20"
+                                 BackgroundColor="#32407b"
+                                 Grid.Row="1" Grid.Column="0"
+                                 Clicked="BtnCalls_Clicked"/>
+                    <button:SfButton x:Name="BtnCareerCenter" 
+                                 Text="Career Center" 
+                                 CornerRadius="10" 
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="FillAndExpand"
+                                 FontSize="20"
+                                 BackgroundColor="#32407b"
+                                 Grid.Row="1" Grid.Column="1"
+                                 Clicked="BtnCareerCenter_Clicked"/>
+                    <button:SfButton x:Name="BtnEvents" 
+                                 Text="Events" 
+                                 CornerRadius="10" 
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="FillAndExpand"
+                                 FontSize="20"
+                                 BackgroundColor="#32407b"
+                                 Grid.Row="2" Grid.Column="0"
+                                 Clicked="BtnEvents_Clicked"/>
+                    <button:SfButton x:Name="BtnOffices" 
+                                 Text="Administration Offices" 
+                                 CornerRadius="10" 
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="FillAndExpand"
+                                 FontSize="20"
+                                 BackgroundColor="#32407b"
+                                 Grid.Row="2" Grid.Column="1"
+                                 Clicked="BtnOffices_Clicked"/>
+                    <button:SfButton x:Name="BtnKujdesi" 
+                                 Text="Kujdesi Për Ty" 
+                                 CornerRadius="10" 
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="FillAndExpand"
+                                 FontSize="20"
+                                 BackgroundColor="#32407b"
+                                 Grid.Row="3" Grid.Column="0"
+                                 Clicked="BtnKujdesi_Clicked"/>
+                    <button:SfButton x:Name="BtnContact" 
+                                 Text="Contact Us" 
+                                 CornerRadius="10" 
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="FillAndExpand"
+                                 FontSize="20"
+                                 BackgroundColor="#32407b"
+                                 Grid.Row="3" Grid.Column="1"
+                                 Clicked="BtnContact_Clicked"/>
                 </Grid>
-            </navigationdrawer:SfNavigationDrawer.ContentView>
-        </navigationdrawer:SfNavigationDrawer>
-
+            </ScrollView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

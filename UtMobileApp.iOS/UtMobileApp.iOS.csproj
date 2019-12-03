@@ -344,6 +344,9 @@
   <ItemGroup>
     <BundleResource Include="Resources\backgroundimg8.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\utlogo.png" />
+  </ItemGroup>
   <PropertyGroup>
     <AutoUnifyAssemblyReferences>true</AutoUnifyAssemblyReferences>
   </PropertyGroup>

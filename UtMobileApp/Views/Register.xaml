@@ -12,7 +12,7 @@
     <ContentPage.Content>
         <AbsoluteLayout>
             <Image Source="backgroundimg5.png"
-            Aspect="AspectFill"/>
+                   Aspect="Fill"/>
             <!--  HEADER  -->
             <StackLayout
                 Margin="10,0"
