@@ -66,10 +66,10 @@
                     <StackLayout BackgroundColor="#5750f5"
                                  Padding="20"
                                  Spacing="0">
-                        <buttons:SfButton Text="&#xf2b9;  News" 
+                        <buttons:SfButton Text="&#xf1ea; News" 
                                           FontFamily="{StaticResource FontAwesomeRegular}"
                                           TextColor="White"
-                                          FontSize="Medium"
+                                          FontSize="23"
                                           HorizontalTextAlignment="Start"
                                           HorizontalOptions="StartAndExpand"
                                           BackgroundColor="Transparent"
@@ -81,10 +81,10 @@
                                  WidthRequest="250"  
                                  Color="#80FFFFFF"></BoxView>
 
-                        <buttons:SfButton Text="&#xf2b9;  Announcements" 
+                        <buttons:SfButton Text="&#xf0f3; Announcements" 
                                           FontFamily="{StaticResource FontAwesomeRegular}"
                                           TextColor="White"
-                                          FontSize="Medium"
+                                          FontSize="23"
                                           HorizontalTextAlignment="Start"
                                           HorizontalOptions="StartAndExpand"
                                           BackgroundColor="Transparent" 
@@ -96,10 +96,10 @@
                                    WidthRequest="250"  
                                    Color="#80FFFFFF"></BoxView>
 
-                        <buttons:SfButton Text="&#xf2b9;  Calls" 
+                        <buttons:SfButton Text="&#xf0eb; Calls" 
                                           FontFamily="{StaticResource FontAwesomeRegular}"
                                           TextColor="White"
-                                          FontSize="Medium"
+                                          FontSize="23"
                                           HorizontalTextAlignment="Start"
                                           HorizontalOptions="StartAndExpand"
                                           BackgroundColor="Transparent" 
@@ -111,10 +111,10 @@
                                    WidthRequest="250"  
                                    Color="#80FFFFFF"></BoxView>
 
-                        <buttons:SfButton Text="&#xf2b9;  Career Center" 
+                        <buttons:SfButton Text="&#xf2b5; Career Center" 
                                           FontFamily="{StaticResource FontAwesomeRegular}"
                                           TextColor="White"
-                                          FontSize="Medium"
+                                          FontSize="23"
                                           HorizontalTextAlignment="Start"
                                           HorizontalOptions="StartAndExpand"
                                           BackgroundColor="Transparent" 
@@ -126,10 +126,25 @@
                                    WidthRequest="250"  
                                    Color="#80FFFFFF"></BoxView>
 
-                        <buttons:SfButton Text="&#xf2b9;  Administration Offices" 
+                        <buttons:SfButton Text="&#xf129; Offices" 
+                                          FontFamily="{StaticResource FontAwesomeSolid}"
+                                          TextColor="White"
+                                          FontSize="23"
+                                          HorizontalTextAlignment="Start"
+                                          HorizontalOptions="StartAndExpand"
+                                          BackgroundColor="Transparent">
+                        </buttons:SfButton>
+
+                        <BoxView   VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                   HeightRequest="1"
+                                   WidthRequest="250"  
+                                   Color="#80FFFFFF"></BoxView>
+
+                        <buttons:SfButton Text="&#xf15c; Documents" 
                                           FontFamily="{StaticResource FontAwesomeRegular}"
                                           TextColor="White"
-                                          FontSize="Medium"
+                                          FontSize="23"
                                           HorizontalTextAlignment="Start"
                                           HorizontalOptions="StartAndExpand"
                                           BackgroundColor="Transparent" />
@@ -140,24 +155,10 @@
                                    WidthRequest="250"  
                                    Color="#80FFFFFF"></BoxView>
 
-                        <buttons:SfButton Text="&#xf2b9;  Documents" 
-                                          FontFamily="{StaticResource FontAwesomeRegular}"
+                        <buttons:SfButton Text="&#xf02d; Library" 
+                                          FontFamily="{StaticResource FontAwesomeSolid}" 
                                           TextColor="White"
-                                          FontSize="Medium"
-                                          HorizontalTextAlignment="Start"
-                                          HorizontalOptions="StartAndExpand"
-                                          BackgroundColor="Transparent" />
-
-                        <BoxView   VerticalOptions="Center"
-                                   HorizontalOptions="Center"
-                                   HeightRequest="1"
-                                   WidthRequest="250"  
-                                   Color="#80FFFFFF"></BoxView>
-
-                        <buttons:SfButton Text="&#xf2b9;  Library" 
-                                          FontFamily="{StaticResource FontAwesomeRegular}" 
-                                          TextColor="White"
-                                          FontSize="Medium"
+                                          FontSize="23"
                                           HorizontalTextAlignment="Start"
                                           HorizontalOptions="StartAndExpand"
                                           BackgroundColor="Transparent"
@@ -169,10 +170,10 @@
                                    WidthRequest="250"  
                                    Color="#80FFFFFF"></BoxView>
 
-                        <buttons:SfButton Text="&#xf2b9;  Discussion Forum" 
+                        <buttons:SfButton Text="&#xf086; Discussion Forum" 
                                           FontFamily="{StaticResource FontAwesomeRegular}"
                                           TextColor="White"
-                                          FontSize="Medium"
+                                          FontSize="23"
                                           HorizontalTextAlignment="Start"
                                           HorizontalOptions="StartAndExpand"
                                           BackgroundColor="Transparent"
@@ -184,10 +185,10 @@
                                    WidthRequest="250"  
                                    Color="#80FFFFFF"></BoxView>
 
-                        <buttons:SfButton Text="&#xf2b9;  Erasmus+" 
-                                          FontFamily="{StaticResource FontAwesomeRegular}"
+                        <buttons:SfButton Text="&#xf362; Erasmus+" 
+                                          FontFamily="{StaticResource FontAwesomeSolid}"
                                           TextColor="White"
-                                          FontSize="Medium"
+                                          FontSize="23"
                                           HorizontalTextAlignment="Start"
                                           HorizontalOptions="StartAndExpand"
                                           BackgroundColor="Transparent" />
@@ -198,10 +199,10 @@
                                    WidthRequest="250"  
                                    Color="#80FFFFFF"></BoxView>
 
-                        <buttons:SfButton Text="&#xf2b9;  Kujdesi Për Ty" 
+                        <buttons:SfButton Text="&#xf044; Kujdesi Për Ty" 
                                           FontFamily="{StaticResource FontAwesomeRegular}"
                                           TextColor="White"
-                                          FontSize="Medium"
+                                          FontSize="23"
                                           HorizontalTextAlignment="Start"
                                           HorizontalOptions="StartAndExpand"
                                           BackgroundColor="Transparent"
@@ -213,10 +214,10 @@
                                    WidthRequest="250"  
                                    Color="#80FFFFFF"></BoxView>
 
-                        <buttons:SfButton Text="&#xf2b9;  Contact Us" 
-                                          FontFamily="{StaticResource FontAwesomeRegular}"
+                        <buttons:SfButton Text="&#xf87b; Contact Us" 
+                                          FontFamily="{StaticResource FontAwesomeSolid}"
                                           TextColor="White"
-                                          FontSize="Medium"
+                                          FontSize="23"
                                           HorizontalTextAlignment="Start"
                                           HorizontalOptions="StartAndExpand"
                                           BackgroundColor="Transparent"
@@ -228,10 +229,10 @@
                                    WidthRequest="250"  
                                    Color="#80FFFFFF"></BoxView>
 
-                        <buttons:SfButton Text="&#xf2b9;  Support" 
+                        <buttons:SfButton Text="&#xf2b6; Support" 
                                           FontFamily="{StaticResource FontAwesomeRegular}"
                                           TextColor="White"
-                                          FontSize="Medium"
+                                          FontSize="23"
                                           HorizontalTextAlignment="Start"
                                           HorizontalOptions="StartAndExpand"
                                           BackgroundColor="Transparent"
@@ -242,16 +243,15 @@
             <!--  FOOTER CONTENT  -->
             <navigationdrawer:SfNavigationDrawer.DrawerFooterView>
                 <StackLayout BackgroundColor="#5750f5" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
-                    <buttons:SfButton
-                            BackgroundColor="Transparent"
-                            Clicked="SignOut_Clicked"
-                            FontSize="Medium"
-                            HorizontalOptions="StartAndExpand"
-                            HorizontalTextAlignment="Center"
-                            Text="&#xf2b9;  Sign Out" 
-                            FontFamily="{StaticResource FontAwesomeRegular}"
-                            TextColor="White"
-                            VerticalTextAlignment="Center" />
+                    <buttons:SfButton BackgroundColor="Transparent"
+                                      Clicked="SignOut_Clicked"
+                                      FontSize="Medium"
+                                      HorizontalOptions="StartAndExpand"
+                                      HorizontalTextAlignment="Center"
+                                      Text="&#xf2f5; Log Out" 
+                                      FontFamily="{StaticResource FontAwesomeSolid}"
+                                      TextColor="White"
+                                      VerticalTextAlignment="Center" />
                 </StackLayout>
             </navigationdrawer:SfNavigationDrawer.DrawerFooterView>
             <navigationdrawer:SfNavigationDrawer.ContentView>
