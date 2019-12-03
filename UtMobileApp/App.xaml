@@ -4,7 +4,23 @@
              x:Class="UtMobileApp.App">
 	<Application.Resources>
 
-		<!-- Application resource dictionary -->
+        <ResourceDictionary>
+            <OnPlatform x:TypeArguments="x:String" 
+                        x:Key="FontAwesomeRegular">
+                <On Platform="Android" 
+                    Value="FontAwesomeRegular.otf#Regular" />
+                <On Platform="iOS" 
+                    Value="FontAwesomeRegular-Regular" />
+            </OnPlatform>
 
-	</Application.Resources>
+            <OnPlatform x:TypeArguments="x:String" 
+                        x:Key="FontAwesomeSolid">
+                <On Platform="Android" 
+                    Value="FontAwesomeSolid.otf#Solid" />
+                <On Platform="iOS" 
+                    Value="FontAwesomeSolid-Solid" />
+            </OnPlatform>
+        </ResourceDictionary>
+
+    </Application.Resources>
 </Application>
