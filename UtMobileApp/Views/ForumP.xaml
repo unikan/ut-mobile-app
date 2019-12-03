@@ -17,12 +17,6 @@
     <ContentPage.Content>
         <ScrollView Orientation="Vertical">
             <StackLayout>
-                <Label
-                    HorizontalOptions="CenterAndExpand"
-                    Text="Welcome to Xamarin.Forms!"
-                    VerticalOptions="CenterAndExpand" />
-
-
                 <Entry x:Name="PostTitle" Placeholder="Enter Post Title Here" />
                 <Editor x:Name="TextEditor" />
                 <Button Clicked="Post_Clicked" Text="SUBMIT" />

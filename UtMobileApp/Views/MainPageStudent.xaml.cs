@@ -236,5 +236,12 @@ namespace UtMobileApp.Views
 
             await LandingText.FadeTo(1, 200, Easing.SinIn);
         }
+
+        private async void BtnDokumente_Clicked(object sender, EventArgs e)
+        {
+
+            await Navigation.PushAsync(new Docs());
+
+        }
     }
 }

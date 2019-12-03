@@ -34,6 +34,19 @@ namespace XamarinFirebase.Helper
               }).ToList();
         }
 
+        public async Task<List<Dokumente>> GetAllDocs()
+        {
+
+         return (await firebase
+                .Child("Dokumentet")
+                .OnceAsync<Dokumente>()).Select(item => new Dokumente {
+                    FileName = item.Object.FileName,
+                    FileUrl = item.Object.FileUrl,
+            }).ToList();
+        }
+
+     
+
         public async Task AddPerson(string email, string firstname, string lastname, string indexnumber, string semestri)
         {
             
@@ -67,6 +80,7 @@ namespace XamarinFirebase.Helper
               .OnceAsync<Registrations>();
             return allRegistrations.Where(a => a.Email == email).FirstOrDefault();
         }
+
 
         public async Task UpdatePerson(string email, string indexnumber)
         {
