@@ -3,26 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
              xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
              xmlns:listview="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
              mc:Ignorable="d"
              x:Class="UtMobileApp.Views.Library"
-             BackgroundColor="#cc7564">
+             BackgroundColor="#5750f5">
     <ContentPage.Content>
         <AbsoluteLayout>
-            <gradient:SfGradientView>
-                <gradient:SfGradientView.BackgroundBrush>
-                    <gradient:SfLinearGradientBrush>
-                        <gradient:SfLinearGradientBrush.GradientStops>
-                            <gradient:SfGradientStop Color="#e68471" Offset="0.0" />
-                            <gradient:SfGradientStop Color="#cc7564" Offset="1.0" />
-                        </gradient:SfLinearGradientBrush.GradientStops>
-                    </gradient:SfLinearGradientBrush>
-                </gradient:SfGradientView.BackgroundBrush>
-            </gradient:SfGradientView>
             <!-- HEADER -->
             <StackLayout Orientation="Horizontal"
                          HorizontalOptions="FillAndExpand"
@@ -68,7 +57,7 @@
                 </Grid>
             </StackLayout>
 
-            <border:SfBorder AbsoluteLayout.LayoutBounds="0, 1, 1, .8"
+            <border:SfBorder AbsoluteLayout.LayoutBounds="0, 1, 1, .85"
                              AbsoluteLayout.LayoutFlags="All"
                              CornerRadius="20, 20, 0, 0" 
                              BorderWidth="0"
@@ -85,7 +74,7 @@
                                                ViewBoxHeight="70"
                                                ViewBoxWidth="70"
                                                Title="Loading..."
-                                               TextColor="Salmon"
+                                               TextColor="#5750f5"
                                                TextSize="15" />
 
                     <listview:SfListView x:Name="LibraryList" Grid.Row="1" ItemSize="100">
