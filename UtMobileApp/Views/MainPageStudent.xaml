@@ -13,8 +13,8 @@
     <ContentPage.Content>
         <navigationdrawer:SfNavigationDrawer
             x:Name="navigationDrawer"
-            DrawerFooterHeight="200"
-            DrawerHeaderHeight="200"
+            DrawerFooterHeight="150"
+            DrawerHeaderHeight="100"
             DrawerWidth="300"
             HorizontalOptions="FillAndExpand"
             TouchThreshold="200"
@@ -415,10 +415,11 @@
                                       FontSize="Medium"
                                       HorizontalOptions="StartAndExpand"
                                       HorizontalTextAlignment="Center"
+                                      VerticalOptions="EndAndExpand"
+                                      VerticalTextAlignment="End"
                                       Text="&#xf2f5; Log Out" 
                                       FontFamily="{StaticResource FontAwesomeSolid}"
-                                      TextColor="White"
-                                      VerticalTextAlignment="Center" />
+                                      TextColor="White" />
                 </StackLayout>
             </navigationdrawer:SfNavigationDrawer.DrawerFooterView>
             <navigationdrawer:SfNavigationDrawer.ContentView>
