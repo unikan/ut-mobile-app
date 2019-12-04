@@ -56,7 +56,7 @@
                 </Grid>
             </StackLayout>
 
-            <border:SfBorder AbsoluteLayout.LayoutBounds="0, 1, 1, .8"
+            <border:SfBorder AbsoluteLayout.LayoutBounds="0, 1, 1, .85"
                              AbsoluteLayout.LayoutFlags="All"
                              CornerRadius="20, 20, 0, 0" 
                              BorderWidth="0"
@@ -71,18 +71,19 @@
                                                TextColor="#5750f5"
                                                TextSize="15" />
                     <WebView x:Name="webView"
-                         VerticalOptions="FillAndExpand" 
-                         HorizontalOptions="FillAndExpand"
-                         Scale="1"
-                         Opacity="0">
+                             VerticalOptions="FillAndExpand" 
+                             HorizontalOptions="FillAndExpand"
+                             Margin="10, 5, 10, 0"
+                             Scale="1"
+                             Opacity="0">
                     </WebView>
                 </StackLayout>
             </border:SfBorder>
-            <border:SfBorder AbsoluteLayout.LayoutBounds="0, 1, 1, .8"
+            <border:SfBorder AbsoluteLayout.LayoutBounds="0, 1, 1, .85"
                              AbsoluteLayout.LayoutFlags="All"
                              CornerRadius="20, 20, 0, 0" 
                              BorderWidth="0"
-                             BackgroundColor="#EEEEEE"
+                             BackgroundColor="White"
                              Padding="20, 0"
                              x:Name="NoInternetContent">
                 <StackLayout HorizontalOptions="CenterAndExpand"
