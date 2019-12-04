@@ -350,6 +350,9 @@
   <ItemGroup>
     <BundleResource Include="Resources\utlogo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\erasmusdoc.jpg" />
+  </ItemGroup>
   <PropertyGroup>
     <AutoUnifyAssemblyReferences>true</AutoUnifyAssemblyReferences>
   </PropertyGroup>

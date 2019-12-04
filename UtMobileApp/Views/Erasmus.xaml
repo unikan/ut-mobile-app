@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             mc:Ignorable="d"
+             x:Class="UtMobileApp.Views.Erasmus"
+             BackgroundColor="#5750f5">
+    <ContentPage.Content>
+
+        <AbsoluteLayout>
+            <!-- HEADER -->
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand"
+                         Margin="10, 0"
+                         AbsoluteLayout.LayoutBounds="0.05, 0.03, 1, 0.13"
+                         AbsoluteLayout.LayoutFlags="All">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <buttons:SfButton 
+                            Grid.Row="0" 
+                            Grid.Column="0" 
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"
+                            ShowIcon="True" 
+                            BackgroundColor="Transparent"
+                            CornerRadius="40"
+                            WidthRequest="50"
+                            HeightRequest="50"
+                            Clicked="BtnBack_Clicked">
+                        <buttons:SfButton.Content>
+                            <Image Source="back.png"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   WidthRequest="20" 
+                                   HeightRequest="20" />
+                        </buttons:SfButton.Content>
+                    </buttons:SfButton>
+                    <Label Grid.Row="0"
+                           Grid.Column="1"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           HorizontalTextAlignment="Start"
+                           FontSize="Large"
+                           FontAttributes="Bold"
+                           MaxLines="1"
+                           Text="Contact Us"
+                           TextColor="White"
+                           ></Label>
+                </Grid>
+            </StackLayout>
+
+            <border:SfBorder AbsoluteLayout.LayoutBounds="0, 1, 1, .85"
+                             AbsoluteLayout.LayoutFlags="All"
+                             CornerRadius="20, 20, 0, 0" 
+                             BorderWidth="0"
+                             BackgroundColor="White"
+                             Padding="20, 0"
+                             x:Name="CallsContent">
+                <border:SfBorder CornerRadius="20" BorderWidth="0">
+
+                    <ScrollView>
+                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+                            <buttons:SfButton 
+                                          HorizontalOptions="CenterAndExpand"
+                                          VerticalOptions="CenterAndExpand"
+                                          BackgroundColor="#fbfbfe"
+                                          CornerRadius="10"
+                                          Padding="10"
+                                          Clicked="Image_Clicked"
+                                          >
+                                <buttons:SfButton.Content>
+
+                                    <Image Source="erasmusdoc.jpg" 
+                               HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand"/>
+                                </buttons:SfButton.Content>
+                            </buttons:SfButton>
+                            <Label Text="For more detailed information, please contact International Relations Office (Rectorate, Office 224) Coordinator for ERASMUS + program"
+                                           VerticalTextAlignment="Center"
+                                           FontSize="19"
+                                           Grid.Column="1"
+                               HorizontalTextAlignment="Center"/>
+
+                            <buttons:SfButton HorizontalTextAlignment="Start"
+                                          HorizontalOptions="StartAndExpand"
+                                          BackgroundColor="#fbfbfe"
+                                          CornerRadius="10"
+                                          Padding="10"
+                                          Clicked="BtnEmail_Clicked">
+                                <buttons:SfButton.Content>
+                                    <Grid Margin="10, 0, 0, 0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <!--<Label Text="&#xf0e0;"
+                                           FontFamily="{StaticResource FontAwesomeSolid}"
+                                           VerticalTextAlignment="Center"
+                                           FontSize="19"
+                                           Grid.Column="0" />-->
+                                        <Label Text="Shpresa Ademi | shpresa.ademi@unite.edu.mk"
+                                           VerticalTextAlignment="Center"
+                                           FontSize="19"
+                                           Grid.Column="1" />
+                                    </Grid>
+                                </buttons:SfButton.Content>
+                            </buttons:SfButton>
+
+
+                            <buttons:SfButton HorizontalTextAlignment="Start"
+                                          HorizontalOptions="StartAndExpand"
+                                          BackgroundColor="#fbfbfe"
+                                          CornerRadius="10"
+                                          Padding="10"
+                                          Clicked="BtnCall_Clicked">
+                                <buttons:SfButton.Content>
+                                    <Grid Margin="10, 0, 0, 0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <!--<Label Text="&#xf87b;"
+                                           FontFamily="{StaticResource FontAwesomeSolid}"
+                                           VerticalTextAlignment="Center"
+                                           FontSize="19"
+                                           Grid.Column="0" />-->
+                                        <Label Text="+ 389 44 356 514"
+                                           VerticalTextAlignment="Center"
+                                           FontSize="19"
+                                           Grid.Column="1" />
+                                    </Grid>
+                                </buttons:SfButton.Content>
+                            </buttons:SfButton>
+
+                            <buttons:SfButton HorizontalTextAlignment="Start"
+                                          HorizontalOptions="StartAndExpand"
+                                          BackgroundColor="#fbfbfe"
+                                          CornerRadius="10"
+                                          Padding="10"
+                                          Clicked="FacultiesRelations_Clicked">
+                                <buttons:SfButton.Content>
+                                    <Grid Margin="10, 0, 0, 0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <!--<Label Text="&#xf0ac;"
+                                           FontFamily="{StaticResource FontAwesomeSolid}"
+                                           VerticalTextAlignment="Center"
+                                           FontSize="19"
+                                           Grid.Column="0" />-->
+                                        <Label Text="Application Erasmus 2019"
+                                           VerticalTextAlignment="Center"
+                                           FontSize="19"
+                                           Grid.Column="1" />
+                                    </Grid>
+                                </buttons:SfButton.Content>
+                            </buttons:SfButton>
+
+                            <buttons:SfButton HorizontalTextAlignment="Start"
+                                          HorizontalOptions="StartAndExpand"
+                                          BackgroundColor="#fbfbfe"
+                                          CornerRadius="10"
+                                          Padding="10"
+                                          Clicked="BtnDoc0_Clicked">
+                                <buttons:SfButton.Content>
+                                    <Grid Margin="10, 0, 0, 0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <!--<Label Text="&#xf15c;"
+                                           FontFamily="{StaticResource FontAwesomeSolid}"
+                                           VerticalTextAlignment="Center"
+                                           FontSize="19"
+                                           Grid.Column="0" />-->
+                                        <Label Text="Application Erasmus 2019"
+                                           VerticalTextAlignment="Center"
+                                           FontSize="19"
+                                           Grid.Column="1" />
+                                    </Grid>
+                                </buttons:SfButton.Content>
+                            </buttons:SfButton>
+
+                            <buttons:SfButton HorizontalTextAlignment="Start"
+                                          HorizontalOptions="StartAndExpand"
+                                          BackgroundColor="#fbfbfe"
+                                          CornerRadius="10"
+                                          Padding="10"
+                                          Clicked="BtnDoc1_Clicked">
+                                <buttons:SfButton.Content>
+                                    <Grid Margin="10, 0, 0, 0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <!--<Label Text="&#xf15c;"
+                                           FontFamily="{StaticResource FontAwesomeSolid}"
+                                           VerticalTextAlignment="Center"
+                                           FontSize="19"
+                                           Grid.Column="0" />-->
+                                        <Label Text="Erasmus Guidelines"
+                                           VerticalTextAlignment="Center"
+                                           FontSize="19"
+                                           Grid.Column="1" />
+                                    </Grid>
+                                </buttons:SfButton.Content>
+                            </buttons:SfButton>
+
+                            <buttons:SfButton HorizontalTextAlignment="Start"
+                                          HorizontalOptions="StartAndExpand"
+                                          BackgroundColor="#fbfbfe"
+                                          CornerRadius="10"
+                                          Padding="10"
+                                          Clicked="BtnDoc2_Clicked">
+                                <buttons:SfButton.Content>
+                                    <Grid Margin="10, 0, 0, 0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <!--<Label Text="&#xf15c;"
+                                           FontFamily="{StaticResource FontAwesomeSolid}"
+                                           VerticalTextAlignment="Center"
+                                           FontSize="19"
+                                           Grid.Column="0" />-->
+                                        <Label Text="Erasmus Policy Statement"
+                                           VerticalTextAlignment="Center"
+                                           FontSize="19"
+                                           Grid.Column="1" />
+                                    </Grid>
+                                </buttons:SfButton.Content>
+                            </buttons:SfButton>
+                            <buttons:SfButton HorizontalTextAlignment="Start"
+                                          HorizontalOptions="StartAndExpand"
+                                          BackgroundColor="#fbfbfe"
+                                          CornerRadius="10"
+                                          Padding="10"
+                                          Clicked="Apply_Clicked">
+                                <buttons:SfButton.Content>
+                                    <Grid Margin="10, 0, 0, 0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <!--<Label Text="&#xf362;"
+                                           FontFamily="{StaticResource FontAwesomeSolid}"
+                                           VerticalTextAlignment="Center"
+                                           FontSize="19"
+                                           Grid.Column="0" />-->
+                                        <Label Text="Apply Now"
+                                           VerticalTextAlignment="Center"
+                                           FontSize="19"
+                                           Grid.Column="1" />
+                                    </Grid>
+                                </buttons:SfButton.Content>
+                            </buttons:SfButton>
+                        </StackLayout>
+                    </ScrollView>
+                </border:SfBorder>
+            </border:SfBorder>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

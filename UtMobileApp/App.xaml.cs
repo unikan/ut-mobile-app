@@ -18,23 +18,25 @@ namespace UtMobileApp
             // Register Syncfusion license
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTUwODY0QDMxMzcyZTMzMmUzMFl5bDFGeGJPRDAwU3VhRW9wd2UrSUFpbk80bVZpMER6R0ljZ2RSdkdkdlU9");
 
-            try
-            {
-                auth = DependencyService.Get<Interface>();
+            MainPage = new FormsControls.Base.AnimationNavigationPage(new Views.Erasmus());
 
-                if (auth.GetCurrentUserStatus())
-                {
-                    MainPage = new FormsControls.Base.AnimationNavigationPage(new Views.MainPageStudent());
-                }
-                else
-                {
-                    MainPage = new FormsControls.Base.AnimationNavigationPage(new Views.IntroPage());
-                }
-            }
-            catch (Exception)
-            {
-                MainPage = new FormsControls.Base.AnimationNavigationPage(new Views.IntroPage());
-            }
+            //try
+            //{
+            //    auth = DependencyService.Get<Interface>();
+
+            //    if (auth.GetCurrentUserStatus())
+            //    {
+            //        MainPage = new FormsControls.Base.AnimationNavigationPage(new Views.MainPageStudent());
+            //    }
+            //    else
+            //    {
+            //        MainPage = new FormsControls.Base.AnimationNavigationPage(new Views.IntroPage());
+            //    }
+            //}
+            //catch (Exception)
+            //{
+            //    MainPage = new FormsControls.Base.AnimationNavigationPage(new Views.IntroPage());
+            //}
         }
 
         protected override void OnStart()
