@@ -74,11 +74,6 @@ namespace UtMobileApp.Views
             {
                 if (Connectivity.NetworkAccess == NetworkAccess.Internet)
                 {
-                    // Get current user correct program spreadsheet
-                    auth = DependencyService.Get<Interface>();
-                    var currentUser = await firebaseHelper.GetPerson(auth.GetCurrentUserEmail());
-                    var spreadsheetUrls = await firebaseHelper.GetUrls(currentUser.Program);
-
                     eventsList = await LoadSchedule.DeserializeEventsJsonAsync("internet");
                 }
                 else
@@ -89,7 +84,8 @@ namespace UtMobileApp.Views
             }
 
             // Adding calendar event collection to DataSource of Calendar
-            calendar.DataSource = de.AddAppointemntEvents(eventsList);
+            var datasource = de.AddAppointemntEvents(eventsList);
+            events.DataSource = datasource;
 
             await busyindicator.FadeTo(0, 300, Easing.Linear);
             busyindicator.IsBusy = false;

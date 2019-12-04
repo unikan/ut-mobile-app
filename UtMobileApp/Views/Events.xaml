@@ -75,7 +75,7 @@
                              BackgroundColor="White"
                              Padding="20, 0"
                              x:Name="EventsContent">
-                <calendar:SfCalendar  x:Name="calendar" 
+                <calendar:SfCalendar  x:Name="events" 
                                       ViewMode="MonthView" 
                                       ShowInlineEvents="True"
 						              ShowLeadingAndTrailingDays="False"

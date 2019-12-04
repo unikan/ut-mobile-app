@@ -260,26 +260,22 @@ namespace UtMobileApp.Extensions
 
             for (int i = 0; i < eventsList.Count; i++)
             {
-                try
-                {
-                    title = eventsList[i].title;
-                    start_date = Convert.ToDateTime(eventsList[i].start_date);
-                    end_date = Convert.ToDateTime(eventsList[i].end_date);
-                    venue = eventsList[i].venue.ToString();
-                    organizer = eventsList[i].organizer[8].ToString();
-                    all_day = eventsList[i].all_day;
+                title = eventsList[i].title;
+                start_date = Convert.ToDateTime(eventsList[i].start_date);
+                end_date = Convert.ToDateTime(eventsList[i].end_date);
+                //venue = eventsList[i].venue.ToString();
+                //organizer = eventsList[i].organizer[8].ToString();
+                all_day = eventsList[i].all_day;
 
-                    calendarEventCollection.Add(new CalendarInlineEvent()
-                    {
-                        StartTime = new DateTime(start_date.Year, start_date.Month, start_date.Day, start_date.Hour, start_date.Minute, 0),
-                        EndTime = new DateTime(end_date.Year, end_date.Month, end_date.Day, end_date.Hour, end_date.Minute, 0),
-                        Subject = title + " \n"
-                                    + organizer + " - "
-                                    + venue,
-                        Color = Color.FromHex("#F28883")
-                    });
-                }
-                catch(Exception) { continue; }
+                calendarEventCollection.Add(new CalendarInlineEvent()
+                {
+                    StartTime = new DateTime(start_date.Year, start_date.Month, start_date.Day, start_date.Hour, start_date.Minute, 0),
+                    EndTime = new DateTime(end_date.Year, end_date.Month, end_date.Day, end_date.Hour, end_date.Minute, 0),
+                    Subject = title + " \n",
+                                //+ organizer + " - "
+                                //+ venue,
+                    Color = Color.FromHex("#F28883")
+                });
             }
 
             return calendarEventCollection;
