@@ -52,7 +52,6 @@
     <EmbeddedResource Update="Views\ContactUs.xaml">
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Docs.xaml">
-    </EmbeddedResource>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Exams.xaml">
