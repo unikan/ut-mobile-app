@@ -6,7 +6,6 @@
     xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
     xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-    xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:navigationdrawer="clr-namespace:Syncfusion.SfNavigationDrawer.XForms;assembly=Syncfusion.SfNavigationDrawer.XForms"
     BackgroundColor="#cdd5e0"
@@ -14,7 +13,8 @@
     <ContentPage.Content>
         <navigationdrawer:SfNavigationDrawer
             x:Name="navigationDrawer"
-            DrawerFooterHeight="50"
+            DrawerFooterHeight="200"
+            DrawerHeaderHeight="200"
             DrawerWidth="300"
             HorizontalOptions="FillAndExpand"
             TouchThreshold="200"
@@ -65,15 +65,29 @@
                 <ScrollView Orientation="Vertical">
                     <StackLayout BackgroundColor="#5750f5"
                                  Padding="20"
-                                 Spacing="0">
-                        <buttons:SfButton Text="&#xf1ea; News" 
-                                          FontFamily="{StaticResource FontAwesomeRegular}"
-                                          TextColor="White"
-                                          FontSize="21"
-                                          HorizontalTextAlignment="Start"
+                                 Spacing="10">
+                        <buttons:SfButton HorizontalTextAlignment="Start"
                                           HorizontalOptions="StartAndExpand"
                                           BackgroundColor="Transparent"
-                                          Clicked="BtnNews_Clicked" />
+                                          Clicked="BtnNews_Clicked">
+                            <buttons:SfButton.Content>
+                                <Grid Margin="10, 0, 0, 0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="&#xf1ea;"
+                                           FontFamily="{StaticResource FontAwesomeRegular}"
+                                           TextColor="White"
+                                           FontSize="19"
+                                           Grid.Column="0" />
+                                    <Label Text="News"
+                                           TextColor="White"
+                                           FontSize="19"
+                                           Grid.Column="1" />
+                                </Grid>
+                            </buttons:SfButton.Content>
+                        </buttons:SfButton>
 
                         <BoxView VerticalOptions="Center"
                                  HorizontalOptions="Center"
@@ -81,58 +95,27 @@
                                  WidthRequest="250"  
                                  Color="#80FFFFFF"></BoxView>
 
-                        <buttons:SfButton Text="&#xf0f3; Announcements" 
-                                          FontFamily="{StaticResource FontAwesomeRegular}"
-                                          TextColor="White"
-                                          FontSize="21"
-                                          HorizontalTextAlignment="Start"
+                        <buttons:SfButton HorizontalTextAlignment="Start"
                                           HorizontalOptions="StartAndExpand"
                                           BackgroundColor="Transparent" 
-                                          Clicked="BtnAnnouncements_Clicked"/>
-
-                        <BoxView   VerticalOptions="Center"
-                                   HorizontalOptions="Center"
-                                   HeightRequest="1"
-                                   WidthRequest="250"  
-                                   Color="#80FFFFFF"></BoxView>
-
-                        <buttons:SfButton Text="&#xf0eb; Calls" 
-                                          FontFamily="{StaticResource FontAwesomeRegular}"
-                                          TextColor="White"
-                                          FontSize="21"
-                                          HorizontalTextAlignment="Start"
-                                          HorizontalOptions="StartAndExpand"
-                                          BackgroundColor="Transparent" 
-                                          Clicked="BtnCalls_Clicked" />
-
-                        <BoxView   VerticalOptions="Center"
-                                   HorizontalOptions="Center"
-                                   HeightRequest="1"
-                                   WidthRequest="250"  
-                                   Color="#80FFFFFF"></BoxView>
-
-                        <buttons:SfButton Text="&#xf2b5; Career Center" 
-                                          FontFamily="{StaticResource FontAwesomeRegular}"
-                                          TextColor="White"
-                                          FontSize="21"
-                                          HorizontalTextAlignment="Start"
-                                          HorizontalOptions="StartAndExpand"
-                                          BackgroundColor="Transparent" 
-                                          Clicked="BtnCareerCenter_Clicked"/>
-
-                        <BoxView   VerticalOptions="Center"
-                                   HorizontalOptions="Center"
-                                   HeightRequest="1"
-                                   WidthRequest="250"  
-                                   Color="#80FFFFFF"></BoxView>
-
-                        <buttons:SfButton Text="&#xf129; Offices" 
-                                          FontFamily="{StaticResource FontAwesomeSolid}"
-                                          TextColor="White"
-                                          FontSize="21"
-                                          HorizontalTextAlignment="Start"
-                                          HorizontalOptions="StartAndExpand"
-                                          BackgroundColor="Transparent">
+                                          Clicked="BtnAnnouncements_Clicked">
+                            <buttons:SfButton.Content>
+                                <Grid Margin="10, 0, 0, 0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="&#xf0f3;"
+                                           FontFamily="{StaticResource FontAwesomeRegular}"
+                                           TextColor="White"
+                                           FontSize="19"
+                                           Grid.Column="0" />
+                                    <Label Text="Announcements"
+                                           TextColor="White"
+                                           FontSize="19"
+                                           Grid.Column="1" />
+                                </Grid>
+                            </buttons:SfButton.Content>
                         </buttons:SfButton>
 
                         <BoxView   VerticalOptions="Center"
@@ -140,103 +123,287 @@
                                    HeightRequest="1"
                                    WidthRequest="250"  
                                    Color="#80FFFFFF"></BoxView>
-
-                        <buttons:SfButton Text="&#xf15c; Documents" 
-                                          FontFamily="{StaticResource FontAwesomeRegular}"
-                                          TextColor="White"
-                                          FontSize="21"
-                                          HorizontalTextAlignment="Start"
+                        
+                        <buttons:SfButton HorizontalTextAlignment="Start"
                                           HorizontalOptions="StartAndExpand"
-                                          BackgroundColor="Transparent" />
+                                          BackgroundColor="Transparent" 
+                                          Clicked="BtnCalls_Clicked">
+                            <buttons:SfButton.Content>
+                                <Grid Margin="10, 0, 0, 0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="&#xf0eb;"
+                                           FontFamily="{StaticResource FontAwesomeRegular}"
+                                           TextColor="White"
+                                           FontSize="19"
+                                           Grid.Column="0" />
+                                    <Label Text="Calls"
+                                           TextColor="White"
+                                           FontSize="19"
+                                           Grid.Column="1" />
+                                </Grid>
+                            </buttons:SfButton.Content>
+                        </buttons:SfButton>
 
                         <BoxView   VerticalOptions="Center"
                                    HorizontalOptions="Center"
                                    HeightRequest="1"
                                    WidthRequest="250"  
                                    Color="#80FFFFFF"></BoxView>
+                        
+                        <buttons:SfButton HorizontalTextAlignment="Start"
+                                          HorizontalOptions="StartAndExpand"
+                                          BackgroundColor="Transparent" 
+                                          Clicked="BtnCareerCenter_Clicked">
+                            <buttons:SfButton.Content>
+                                <Grid Margin="10, 0, 0, 0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="&#xf2b5;"
+                                           FontFamily="{StaticResource FontAwesomeRegular}"
+                                           TextColor="White"
+                                           FontSize="19"
+                                           Grid.Column="0" />
+                                    <Label Text="Career Center"
+                                           TextColor="White"
+                                           FontSize="19"
+                                           Grid.Column="1" />
+                                </Grid>
+                            </buttons:SfButton.Content>
+                        </buttons:SfButton>
 
-                        <buttons:SfButton Text="&#xf02d; Library" 
-                                          FontFamily="{StaticResource FontAwesomeSolid}" 
-                                          TextColor="White"
-                                          FontSize="21"
-                                          HorizontalTextAlignment="Start"
+                        <BoxView   VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                   HeightRequest="1"
+                                   WidthRequest="250"  
+                                   Color="#80FFFFFF"></BoxView>
+                        
+                        <buttons:SfButton HorizontalTextAlignment="Start"
+                                          HorizontalOptions="StartAndExpand"
+                                          BackgroundColor="Transparent">
+                            <buttons:SfButton.Content>
+                                <Grid Margin="10, 0, 0, 0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="&#xf129;"
+                                           FontFamily="{StaticResource FontAwesomeSolid}"
+                                           TextColor="White"
+                                           FontSize="19"
+                                           Grid.Column="0" />
+                                    <Label Text="Offices"
+                                           TextColor="White"
+                                           FontSize="19"
+                                           Grid.Column="1" />
+                                </Grid>
+                            </buttons:SfButton.Content>
+                        </buttons:SfButton>
+
+                        <BoxView   VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                   HeightRequest="1"
+                                   WidthRequest="250"  
+                                   Color="#80FFFFFF"></BoxView>
+                         
+                        <buttons:SfButton HorizontalTextAlignment="Start"
+                                          HorizontalOptions="StartAndExpand"
+                                          BackgroundColor="Transparent">
+                            <buttons:SfButton.Content>
+                                <Grid Margin="10, 0, 0, 0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="&#xf15c;"
+                                           FontFamily="{StaticResource FontAwesomeRegular}"
+                                           TextColor="White"
+                                           FontSize="19"
+                                           Grid.Column="0" />
+                                    <Label Text="Documents"
+                                           TextColor="White"
+                                           FontSize="19"
+                                           Grid.Column="1" />
+                                </Grid>
+                            </buttons:SfButton.Content>
+                        </buttons:SfButton>
+
+                        <BoxView   VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                   HeightRequest="1"
+                                   WidthRequest="250"  
+                                   Color="#80FFFFFF"></BoxView>
+                        
+                        <buttons:SfButton HorizontalTextAlignment="Start"
                                           HorizontalOptions="StartAndExpand"
                                           BackgroundColor="Transparent"
-                                          Clicked="BtnLibrary_Clicked"/>
+                                          Clicked="BtnLibrary_Clicked">
+                            <buttons:SfButton.Content>
+                                <Grid Margin="10, 0, 0, 0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="&#xf02d;"
+                                           FontFamily="{StaticResource FontAwesomeSolid}"
+                                           TextColor="White"
+                                           FontSize="19"
+                                           Grid.Column="0" />
+                                    <Label Text="Library"
+                                           TextColor="White"
+                                           FontSize="19"
+                                           Grid.Column="1" />
+                                </Grid>
+                            </buttons:SfButton.Content>
+                        </buttons:SfButton>
 
                         <BoxView   VerticalOptions="Center"
                                    HorizontalOptions="Center"
                                    HeightRequest="1"
                                    WidthRequest="250"  
                                    Color="#80FFFFFF"></BoxView>
-
-                        <buttons:SfButton Text="&#xf086; Discussion Forum" 
-                                          FontFamily="{StaticResource FontAwesomeRegular}"
-                                          TextColor="White"
-                                          FontSize="21"
-                                          HorizontalTextAlignment="Start"
+ 
+                        <buttons:SfButton HorizontalTextAlignment="Start"
                                           HorizontalOptions="StartAndExpand"
                                           BackgroundColor="Transparent"
-                                          Clicked="BtnForum_Clicked"/>
+                                          Clicked="BtnForum_Clicked">
+                            <buttons:SfButton.Content>
+                                <Grid Margin="10, 0, 0, 0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="&#xf086;"
+                                           FontFamily="{StaticResource FontAwesomeRegular}"
+                                           TextColor="White"
+                                           FontSize="19"
+                                           Grid.Column="0" />
+                                    <Label Text="Discussion Forum"
+                                           TextColor="White"
+                                           FontSize="19"
+                                           Grid.Column="1" />
+                                </Grid>
+                            </buttons:SfButton.Content>
+                        </buttons:SfButton>
 
                         <BoxView   VerticalOptions="Center"
                                    HorizontalOptions="Center"
                                    HeightRequest="1"
                                    WidthRequest="250"  
                                    Color="#80FFFFFF"></BoxView>
-
-                        <buttons:SfButton Text="&#xf362; Erasmus+" 
-                                          FontFamily="{StaticResource FontAwesomeSolid}"
-                                          TextColor="White"
-                                          FontSize="21"
-                                          HorizontalTextAlignment="Start"
+                        
+                        <buttons:SfButton HorizontalTextAlignment="Start"
                                           HorizontalOptions="StartAndExpand"
-                                          BackgroundColor="Transparent" />
+                                          BackgroundColor="Transparent">
+                            <buttons:SfButton.Content>
+                                <Grid Margin="10, 0, 0, 0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="&#xf362;"
+                                           FontFamily="{StaticResource FontAwesomeSolid}"
+                                           TextColor="White"
+                                           FontSize="19"
+                                           Grid.Column="0" />
+                                    <Label Text="Erasmus+"
+                                           TextColor="White"
+                                           FontSize="19"
+                                           Grid.Column="1" />
+                                </Grid>
+                            </buttons:SfButton.Content>
+                        </buttons:SfButton>
 
                         <BoxView   VerticalOptions="Center"
                                    HorizontalOptions="Center"
                                    HeightRequest="1"
                                    WidthRequest="250"  
                                    Color="#80FFFFFF"></BoxView>
-
-                        <buttons:SfButton Text="&#xf044; Kujdesi Për Ty" 
-                                          FontFamily="{StaticResource FontAwesomeRegular}"
-                                          TextColor="White"
-                                          FontSize="21"
-                                          HorizontalTextAlignment="Start"
-                                          HorizontalOptions="StartAndExpand"
-                                          BackgroundColor="Transparent"
-                                          Clicked="BtnKujdesi_Clicked" />
-
-                        <BoxView   VerticalOptions="Center"
-                                   HorizontalOptions="Center"
-                                   HeightRequest="1"
-                                   WidthRequest="250"  
-                                   Color="#80FFFFFF"></BoxView>
-
-                        <buttons:SfButton Text="&#xf87b; Contact Us" 
-                                          FontFamily="{StaticResource FontAwesomeSolid}"
-                                          TextColor="White"
-                                          FontSize="21"
-                                          HorizontalTextAlignment="Start"
-                                          HorizontalOptions="StartAndExpand"
-                                          BackgroundColor="Transparent"
-                                          Clicked="BtnContactUs_Clicked"/>
-
-                        <BoxView   VerticalOptions="Center"
-                                   HorizontalOptions="Center"
-                                   HeightRequest="1"
-                                   WidthRequest="250"  
-                                   Color="#80FFFFFF"></BoxView>
-
-                        <buttons:SfButton Text="&#xf2b6; Support" 
-                                          FontFamily="{StaticResource FontAwesomeRegular}"
-                                          TextColor="White"
-                                          FontSize="21"
-                                          HorizontalTextAlignment="Start"
+                        
+                        <buttons:SfButton HorizontalTextAlignment="Start"
                                           HorizontalOptions="StartAndExpand"
                                           BackgroundColor="Transparent"
-                                          Clicked="BtnSupport_Clicked"/>
+                                          Clicked="BtnKujdesi_Clicked">
+                            <buttons:SfButton.Content>
+                                <Grid Margin="10, 0, 0, 0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="&#xf044;"
+                                           FontFamily="{StaticResource FontAwesomeRegular}"
+                                           TextColor="White"
+                                           FontSize="19"
+                                           Grid.Column="0" />
+                                    <Label Text="Kujdesi Për Ty"
+                                           TextColor="White"
+                                           FontSize="19"
+                                           Grid.Column="1" />
+                                </Grid>
+                            </buttons:SfButton.Content>
+                        </buttons:SfButton>
+
+                        <BoxView   VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                   HeightRequest="1"
+                                   WidthRequest="250"  
+                                   Color="#80FFFFFF"></BoxView>
+                         
+                        <buttons:SfButton HorizontalTextAlignment="Start"
+                                          HorizontalOptions="StartAndExpand"
+                                          BackgroundColor="Transparent"
+                                          Clicked="BtnContactUs_Clicked">
+                            <buttons:SfButton.Content>
+                                <Grid Margin="10, 0, 0, 0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="&#xf87b;"
+                                           FontFamily="{StaticResource FontAwesomeSolid}"
+                                           TextColor="White"
+                                           FontSize="19"
+                                           Grid.Column="0" />
+                                    <Label Text="Contact Us"
+                                           TextColor="White"
+                                           FontSize="19"
+                                           Grid.Column="1" />
+                                </Grid>
+                            </buttons:SfButton.Content>
+                        </buttons:SfButton>
+
+                        <BoxView   VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                   HeightRequest="1"
+                                   WidthRequest="250"  
+                                   Color="#80FFFFFF"></BoxView>
+                         
+                        <buttons:SfButton HorizontalTextAlignment="Start"
+                                          HorizontalOptions="StartAndExpand"
+                                          BackgroundColor="Transparent"
+                                          Clicked="BtnSupport_Clicked">
+                            <buttons:SfButton.Content>
+                                <Grid Margin="10, 0, 0, 0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="&#xf2b6;"
+                                           FontFamily="{StaticResource FontAwesomeRegular}"
+                                           TextColor="White"
+                                           FontSize="19"
+                                           Grid.Column="0" />
+                                    <Label Text="Support"
+                                           TextColor="White"
+                                           FontSize="19"
+                                           Grid.Column="1" />
+                                </Grid>
+                            </buttons:SfButton.Content>
+                        </buttons:SfButton>
                     </StackLayout>
                 </ScrollView>
             </navigationdrawer:SfNavigationDrawer.DrawerContentView>

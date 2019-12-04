@@ -4,22 +4,12 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
-             xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              mc:Ignorable="d"
-             x:Class="UtMobileApp.Views.ContactUs">
+             x:Class="UtMobileApp.Views.ContactUs"
+             BackgroundColor="#5750f5">
     <ContentPage.Content>
         <AbsoluteLayout>
-            <gradient:SfGradientView>
-                <gradient:SfGradientView.BackgroundBrush>
-                    <gradient:SfLinearGradientBrush>
-                        <gradient:SfLinearGradientBrush.GradientStops>
-                            <gradient:SfGradientStop Color="#e68471" Offset="0.0" />
-                            <gradient:SfGradientStop Color="#cc7564" Offset="1.0" />
-                        </gradient:SfLinearGradientBrush.GradientStops>
-                    </gradient:SfLinearGradientBrush>
-                </gradient:SfGradientView.BackgroundBrush>
-            </gradient:SfGradientView>
             <!-- HEADER -->
             <StackLayout Orientation="Horizontal"
                          HorizontalOptions="FillAndExpand"
@@ -65,20 +55,20 @@
                 </Grid>
             </StackLayout>
 
-            <border:SfBorder AbsoluteLayout.LayoutBounds="0, 1, 1, .8"
+            <border:SfBorder AbsoluteLayout.LayoutBounds="0, 1, 1, .85"
                              AbsoluteLayout.LayoutFlags="All"
                              CornerRadius="20, 20, 0, 0" 
                              BorderWidth="0"
-                             BackgroundColor="#EEEEEE"
+                             BackgroundColor="White"
                              Padding="20, 0"
                              x:Name="CallsContent">
                 <border:SfBorder CornerRadius="20" BorderWidth="0">
-                    <StackLayout>
+                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                         <Button Text="Str. Ilinden, nn. 1200 Tetova Republic of Macedonia"
                                 Clicked="BtnMap_Clicked"/>
                         <Button Text="international@unite.edu.mk"
                                 Clicked="BtnEmail_Clicked"/>
-                        <Button Text="00389 44 356 500"
+                        <Button Text="+389 44 356 500"
                                 Clicked="BtnCall_Clicked"/>
                         <Button Text="Facebook"
                                 Clicked="BtnFacebook_Clicked"/>
