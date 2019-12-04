@@ -98,7 +98,8 @@
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
                                       HorizontalOptions="StartAndExpand"
-                                      BackgroundColor="Transparent" />
+                                      BackgroundColor="Transparent" 
+                                          Clicked="BtnDokumente_Clicked"/>
                         <buttons:SfButton Text="Discussion Forum" 
                                       TextColor="Black"
                                       FontSize="Medium"
