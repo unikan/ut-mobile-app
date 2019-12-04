@@ -40,7 +40,7 @@ namespace UtMobileApp.Views
 
         private async void BtnEvents_Clicked(object sender, EventArgs e)
         {
-            //await Navigation.PushAsync(new Views.Events());
+            await Navigation.PushAsync(new Views.Events());
         }
 
         private async void BtnOffices_Clicked(object sender, EventArgs e)

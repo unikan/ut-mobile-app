@@ -149,6 +149,10 @@ namespace UtMobileApp.Views
 
         private async Task LoadSchedule(string loadType = "")
         {
+            // Hide label
+            await label_lectures.FadeTo(0, 300, Easing.Linear);
+
+            // Show busy indicator
             await busyindicator.FadeTo(1, 300, Easing.Linear);
             busyindicator.IsBusy = true;
 

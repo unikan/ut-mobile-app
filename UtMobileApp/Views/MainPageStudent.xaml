@@ -265,7 +265,36 @@
                                    HeightRequest="1"
                                    WidthRequest="250"  
                                    Color="#80FFFFFF"></BoxView>
- 
+
+                        <buttons:SfButton HorizontalTextAlignment="Start"
+                                          HorizontalOptions="StartAndExpand"
+                                          BackgroundColor="Transparent"
+                                          Clicked="BtnEvents_Clicked">
+                            <buttons:SfButton.Content>
+                                <Grid Margin="10, 0, 0, 0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="&#xf073;"
+                                           FontFamily="{StaticResource FontAwesomeRegular}"
+                                           TextColor="White"
+                                           FontSize="19"
+                                           Grid.Column="0" />
+                                    <Label Text="Events"
+                                           TextColor="White"
+                                           FontSize="19"
+                                           Grid.Column="1" />
+                                </Grid>
+                            </buttons:SfButton.Content>
+                        </buttons:SfButton>
+
+                        <BoxView   VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                   HeightRequest="1"
+                                   WidthRequest="250"  
+                                   Color="#80FFFFFF"></BoxView>
+
                         <buttons:SfButton HorizontalTextAlignment="Start"
                                           HorizontalOptions="StartAndExpand"
                                           BackgroundColor="Transparent"
