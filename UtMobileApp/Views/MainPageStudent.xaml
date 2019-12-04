@@ -92,7 +92,8 @@
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
                                       HorizontalOptions="StartAndExpand"
-                                      BackgroundColor="Transparent" />
+                                      BackgroundColor="Transparent"
+                                          Clicked="BtnOffices_Clicked"/>
                         <buttons:SfButton Text="Documents" 
                                       TextColor="Black"
                                       FontSize="Medium"
@@ -119,7 +120,8 @@
                                       FontSize="Medium"
                                       HorizontalTextAlignment="Start"
                                       HorizontalOptions="StartAndExpand"
-                                      BackgroundColor="Transparent" />
+                                      BackgroundColor="Transparent" 
+                                          Clicked="BtnErasmus_Clicked"/>
                         <buttons:SfButton Text="Kujdesi për ty" 
                                       TextColor="Black"
                                       FontSize="Medium"
@@ -134,6 +136,13 @@
                                       HorizontalOptions="StartAndExpand"
                                       BackgroundColor="Transparent"
                                       Clicked="BtnContactUs_Clicked"/>
+                        <buttons:SfButton Text="Support" 
+                                      TextColor="Black"
+                                      FontSize="Medium"
+                                      HorizontalTextAlignment="Start"
+                                      HorizontalOptions="StartAndExpand"
+                                      BackgroundColor="Transparent"
+                                      Clicked="BtnSupport_Clicked"/>
                     </StackLayout>
                 </ScrollView>
             </navigationdrawer:SfNavigationDrawer.DrawerContentView>

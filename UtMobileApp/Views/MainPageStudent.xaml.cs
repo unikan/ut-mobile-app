@@ -172,6 +172,21 @@ namespace UtMobileApp.Views
             await Navigation.PushAsync(new Views.ContactUs());
         }
 
+        private async void BtnOffices_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Views.Offices());
+        }
+
+        private async void BtnErasmus_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Views.Erasmus());
+        }
+
+        private async void BtnSupport_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Views.Support());
+        }
+
         private async void SignOut_Clicked(object sender, EventArgs e)
         {
             auth.SignOut();
