@@ -13,8 +13,7 @@
     <ContentPage.Content>
         <navigationdrawer:SfNavigationDrawer
             x:Name="navigationDrawer"
-            DrawerFooterHeight="150"
-            DrawerHeaderHeight="100"
+            DrawerFooterHeight="100"
             DrawerWidth="300"
             HorizontalOptions="FillAndExpand"
             TouchThreshold="200"
