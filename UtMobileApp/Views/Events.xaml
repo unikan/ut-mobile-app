@@ -108,7 +108,7 @@
                          BackgroundColor="Red"
                          TranslationY="500">
                 <buttons:SfButton x:Name="Btn_UpdateEvents"
-                                  Text="Click here to check for updated events"
+                                  Text="Click here to check for updates"
                                   BackgroundColor="Transparent"
                                   FontAttributes="Bold"
                                   VerticalOptions="CenterAndExpand"

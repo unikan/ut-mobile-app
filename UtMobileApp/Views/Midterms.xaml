@@ -109,7 +109,7 @@
                          BackgroundColor="Red"
                          TranslationY="500">
                 <buttons:SfButton x:Name="Btn_UpdateSchedule"
-                                  Text="Click here to check for updated schedule"
+                                  Text="Click here to check for updates"
                                   BackgroundColor="Transparent"
                                   FontAttributes="Bold"
                                   VerticalOptions="CenterAndExpand"

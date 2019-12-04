@@ -20,6 +20,14 @@
                 <On Platform="iOS" 
                     Value="FontAwesomeSolid-Solid" />
             </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:String" 
+                        x:Key="FontAwesomeBrands">
+                <On Platform="Android" 
+                    Value="FontAwesomeBrands.otf#Brands" />
+                <On Platform="iOS" 
+                    Value="FontAwesomeBrands-Brands" />
+            </OnPlatform>
         </ResourceDictionary>
 
     </Application.Resources>

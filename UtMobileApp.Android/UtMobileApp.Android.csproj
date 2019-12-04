@@ -75,6 +75,7 @@
     <GoogleServicesJson Include="google-services.json" />
     <AndroidAsset Include="Assets\FontAwesomeRegular.otf" />
     <AndroidAsset Include="Assets\FontAwesomeSolid.otf" />
+    <AndroidAsset Include="Assets\FontAwesomeBrands.otf" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>
