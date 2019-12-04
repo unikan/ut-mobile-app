@@ -51,7 +51,7 @@
                            FontSize="Large"
                            FontAttributes="Bold"
                            MaxLines="1"
-                           Text="Contact Us"
+                           Text="Erasmus"
                            TextColor="White"
                            ></Label>
                 </Grid>
