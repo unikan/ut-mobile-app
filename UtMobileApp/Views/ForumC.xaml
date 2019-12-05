@@ -89,7 +89,7 @@
                                       CornerRadius="5"
                                       FontSize="20"
                                       PressedBackgroundColor="#5a0aff"
-                                      Text="Create Post"
+                                      Text="Add Comment"
                                       TextColor="White"
                                       HorizontalOptions="CenterAndExpand"
                                       VerticalOptions="Center" />
