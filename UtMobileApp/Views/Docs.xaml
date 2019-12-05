@@ -80,7 +80,7 @@
                                        CornerRadius="10"
                                        BackgroundColor="#fbfbfe">
                                     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                                        <Label
+                                        <Label HorizontalTextAlignment="Center"
                                         FontAttributes="Bold"
                                         FontSize="16"
                                         Text="{Binding FileName}" />

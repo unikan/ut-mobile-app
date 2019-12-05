@@ -234,7 +234,7 @@
                                            FontSize="20"
                                            Grid.Column="1"
                                HorizontalTextAlignment="Center"/>
-                            <Label Text="Head: Asst. Prof. Dr. Shefik Shehu"
+                            <Label Text="Mr. Sc. Gjeraqina Leka"
                                            VerticalTextAlignment="Center"
                                            FontSize="19"
                                            Grid.Column="1"
@@ -288,7 +288,7 @@
                                            FontSize="20"
                                            Grid.Column="1"
                                HorizontalTextAlignment="Center"/>
-                            <Label Text="Head: Mr.Sc. Sheruze Osmani Ballazhi"
+                            <Label Text="Head: Dr.Sc. Sheruze Osmani Ballazhi"
                                            VerticalTextAlignment="Center"
                                            FontSize="19"
                                            Grid.Column="1"

@@ -83,7 +83,7 @@
                                VerticalOptions="CenterAndExpand"/>
                                 </buttons:SfButton.Content>
                             </buttons:SfButton>
-                            <Label Text="For more detailed information, please contact International Relations Office (Rectorate, Office 224) Coordinator for ERASMUS + program"
+                            <Label Text="For more detailed information, please contact International Relations Office (Rectorate, Office 224) &#x0a;Coordinator for ERASMUS + program"
                                            VerticalTextAlignment="Center"
                                            FontSize="19"
                                            Grid.Column="1"

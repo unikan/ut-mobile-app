@@ -52,7 +52,7 @@ namespace UtMobileApp.Views
         {
             try
             {
-                var uri = new Uri("http://unite.edu.mk/wp-content/uploads/2018/05/erasmus_udhezues.pdf");
+                var uri = new Uri("http://unite.edu.mk/wp-content/uploads/2018/05/ErasmusPolicyStatement.docx");
                 await Launcher.OpenAsync(uri);
             }
             catch (Exception) { }

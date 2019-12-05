@@ -88,7 +88,7 @@
                                            VerticalTextAlignment="Center"
                                            FontSize="19"
                                            Grid.Column="0" />
-                                    <Label Text="Str. Ilinden, nn. 1200 Tetova Republic of Macedonia"
+                                    <Label Text="Str. Ilinden, nn. 1200 Tetova Republic of North Macedonia"
                                            VerticalTextAlignment="Center"
                                            FontSize="19"
                                            Grid.Column="1" />
