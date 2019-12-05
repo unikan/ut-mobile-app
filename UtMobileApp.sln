@@ -104,8 +104,8 @@ Global
 		{84C5D48D-C5A5-4106-A3EC-15615872DE2B}.Release|Any CPU.ActiveCfg = Release|iPhone
 		{84C5D48D-C5A5-4106-A3EC-15615872DE2B}.Release|iPhone.ActiveCfg = Release|iPhone
 		{84C5D48D-C5A5-4106-A3EC-15615872DE2B}.Release|iPhone.Build.0 = Release|iPhone
-		{84C5D48D-C5A5-4106-A3EC-15615872DE2B}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
-		{84C5D48D-C5A5-4106-A3EC-15615872DE2B}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{84C5D48D-C5A5-4106-A3EC-15615872DE2B}.Release|iPhoneSimulator.ActiveCfg = Release|iPhone
+		{84C5D48D-C5A5-4106-A3EC-15615872DE2B}.Release|iPhoneSimulator.Build.0 = Release|iPhone
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
