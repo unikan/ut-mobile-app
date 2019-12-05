@@ -75,11 +75,6 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf1ea;"
-                                           FontFamily="{StaticResource FontAwesomeRegular}"
-                                           TextColor="White"
-                                           FontSize="19"
-                                           Grid.Column="0" />
                                     <Label Text="News"
                                            TextColor="White"
                                            FontSize="19"
@@ -104,11 +99,6 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf0f3;"
-                                           FontFamily="{StaticResource FontAwesomeRegular}"
-                                           TextColor="White"
-                                           FontSize="19"
-                                           Grid.Column="0" />
                                     <Label Text="Announcements"
                                            TextColor="White"
                                            FontSize="19"
@@ -133,11 +123,6 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf0eb;"
-                                           FontFamily="{StaticResource FontAwesomeRegular}"
-                                           TextColor="White"
-                                           FontSize="19"
-                                           Grid.Column="0" />
                                     <Label Text="Calls"
                                            TextColor="White"
                                            FontSize="19"
@@ -162,11 +147,6 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf2b5;"
-                                           FontFamily="{StaticResource FontAwesomeRegular}"
-                                           TextColor="White"
-                                           FontSize="19"
-                                           Grid.Column="0" />
                                     <Label Text="Career Center"
                                            TextColor="White"
                                            FontSize="19"
@@ -191,11 +171,6 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf129;"
-                                           FontFamily="{StaticResource FontAwesomeSolid}"
-                                           TextColor="White"
-                                           FontSize="19"
-                                           Grid.Column="0" />
                                     <Label Text="Offices"
                                            TextColor="White"
                                            FontSize="19"
@@ -220,11 +195,6 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf15c;"
-                                           FontFamily="{StaticResource FontAwesomeRegular}"
-                                           TextColor="White"
-                                           FontSize="19"
-                                           Grid.Column="0" />
                                     <Label Text="Documents"
                                            TextColor="White"
                                            FontSize="19"
@@ -249,11 +219,6 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf02d;"
-                                           FontFamily="{StaticResource FontAwesomeSolid}"
-                                           TextColor="White"
-                                           FontSize="19"
-                                           Grid.Column="0" />
                                     <Label Text="Library"
                                            TextColor="White"
                                            FontSize="19"
@@ -278,11 +243,6 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf073;"
-                                           FontFamily="{StaticResource FontAwesomeRegular}"
-                                           TextColor="White"
-                                           FontSize="19"
-                                           Grid.Column="0" />
                                     <Label Text="Events"
                                            TextColor="White"
                                            FontSize="19"
@@ -307,11 +267,6 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf086;"
-                                           FontFamily="{StaticResource FontAwesomeRegular}"
-                                           TextColor="White"
-                                           FontSize="19"
-                                           Grid.Column="0" />
                                     <Label Text="Discussion Forum"
                                            TextColor="White"
                                            FontSize="19"
@@ -336,11 +291,6 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf362;"
-                                           FontFamily="{StaticResource FontAwesomeSolid}"
-                                           TextColor="White"
-                                           FontSize="19"
-                                           Grid.Column="0" />
                                     <Label Text="Erasmus+"
                                            TextColor="White"
                                            FontSize="19"
@@ -365,11 +315,6 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf044;"
-                                           FontFamily="{StaticResource FontAwesomeRegular}"
-                                           TextColor="White"
-                                           FontSize="19"
-                                           Grid.Column="0" />
                                     <Label Text="Kujdesi Për Ty"
                                            TextColor="White"
                                            FontSize="19"
@@ -394,11 +339,6 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf87b;"
-                                           FontFamily="{StaticResource FontAwesomeSolid}"
-                                           TextColor="White"
-                                           FontSize="19"
-                                           Grid.Column="0" />
                                     <Label Text="Contact Us"
                                            TextColor="White"
                                            FontSize="19"
@@ -423,11 +363,6 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf2b6;"
-                                           FontFamily="{StaticResource FontAwesomeRegular}"
-                                           TextColor="White"
-                                           FontSize="19"
-                                           Grid.Column="0" />
                                     <Label Text="Support"
                                            TextColor="White"
                                            FontSize="19"
@@ -448,8 +383,7 @@
                                       HorizontalTextAlignment="Center"
                                       VerticalOptions="EndAndExpand"
                                       VerticalTextAlignment="End"
-                                      Text="&#xf2f5; Log Out" 
-                                      FontFamily="{StaticResource FontAwesomeSolid}"
+                                      Text="Log Out" 
                                       TextColor="White" />
                 </StackLayout>
             </navigationdrawer:SfNavigationDrawer.DrawerFooterView>
