@@ -256,58 +256,58 @@
     <ImageAsset Include="Media.xcassets\AppIcons.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\united icon-120x120.png">
+    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\icon-1024.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\united icon-120x1201.png">
+    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\icon-120.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\united icon-180x180.png">
+    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\icon-1201.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\united icon-20x20.png">
+    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\icon-152.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\united icon-40x40.png">
+    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\icon-167.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\united icon-40x401.png">
+    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\icon-180.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\united icon-40x402.png">
+    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\icon-20.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\united icon-60x60.png">
+    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\icon-29.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\united icon-80x80.png">
+    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\icon-40.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\united icon-80x801.png">
+    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\icon-401.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\united-152x152.png">
+    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\icon-402.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\united-167x167.png">
+    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\icon-58.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\united-29x29.png">
+    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\icon-581.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\united-58x58.png">
+    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\icon-60.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\united-58x581.png">
+    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\icon-76.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\united-76x76.png">
+    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\icon-80.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\united-87x87.png">
+    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\icon-801.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\united-ios@2x.png">
+    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\icon-87.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Media.xcassets\LaunchImages.imageset\Contents.json">
