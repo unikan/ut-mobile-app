@@ -8,91 +8,297 @@
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:listviews="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+    xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+    mc:Ignorable="d"
+    BackgroundColor="#5750f5">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Converter:ButtonVisibility x:Key="ConvertButtonVisibility" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <ScrollView Orientation="Vertical">
-            <StackLayout>
-                <Label Text="Hello Xamarin.Forms!" />
-                <Entry x:Name="CommentTitle" Placeholder="Enter Comment Title Here" />
-                <Editor x:Name="TextEditor" />
-                <Button Clicked="Comment_Clicked" Text="SUBMIT" />
+        <AbsoluteLayout>
+            <!-- HEADER -->
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand"
+                         Margin="10, 0"
+                         AbsoluteLayout.LayoutBounds="0.05, 0.03, 1, 0.13"
+                         AbsoluteLayout.LayoutFlags="All">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <buttons:SfButton 
+                            Grid.Row="0" 
+                            Grid.Column="0" 
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"
+                            ShowIcon="True" 
+                            BackgroundColor="Transparent"
+                            CornerRadius="40"
+                            WidthRequest="50"
+                            HeightRequest="50"
+                            Clicked="BtnBack_Clicked">
+                        <buttons:SfButton.Content>
+                            <Image Source="back.png"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   WidthRequest="20" 
+                                   HeightRequest="20" />
+                        </buttons:SfButton.Content>
+                    </buttons:SfButton>
+                    <busyindicator:SfBusyIndicator Grid.Column="1" 
+                                                   Grid.Row="0"
+                                                   x:Name="busyindicator"
+                                                   ViewBoxHeight="70"
+                                                   ViewBoxWidth="70"
+                                                   TextColor="White"
+                                                   TextSize="15"  
+                                                   HorizontalOptions="CenterAndExpand"
+                                                   VerticalOptions="CenterAndExpand">
+                    </busyindicator:SfBusyIndicator>
+                    <Label Grid.Row="0"
+                           Grid.Column="1"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalTextAlignment="Start"
+                           FontSize="Medium"
+                           FontAttributes="Bold"
+                           LineBreakMode="TailTruncation"
+                           Text="Forum"
+                           TextColor="White"
+                           Opacity="0"
+                           x:Name="label_forum"></Label>
+                </Grid>
+            </StackLayout>
+            <border:SfBorder AbsoluteLayout.LayoutBounds="0, 1, 1, .85"
+                             AbsoluteLayout.LayoutFlags="All"
+                             CornerRadius="20, 20, 0, 0" 
+                             BorderWidth="0"
+                             BackgroundColor="White"
+                             Padding="20"
+                             x:Name="ForumContent">
+                <StackLayout>
+                    <buttons:SfButton BackgroundColor="#00bc67"
+                                      Clicked="BtnExpand_Clicked"
+                                      CornerRadius="5"
+                                      FontSize="20"
+                                      PressedBackgroundColor="#5a0aff"
+                                      Text="Add Comment"
+                                      TextColor="White"
+                                      HorizontalOptions="CenterAndExpand"
+                                      VerticalOptions="Center" />
+                    <StackLayout x:Name="CommentInputs" Scale="0" IsVisible="False">
+                        <inputLayout:SfTextInputLayout Hint="Content"
+                                                   ContainerType="Outlined"
+                                                   FocusedColor="#3e00bc" 
+                                                   UnfocusedColor="#545454">
+                            <Editor x:Name="TextEditor"
+                                AutoSize="TextChanges"/>
+                        </inputLayout:SfTextInputLayout>
 
-                <Entry x:Name="txtFileName" Placeholder="Enter FileName" />
-                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal" />
-                <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
-                    <Image x:Name="imgBanner" Source="banner.png" />
-                    <Image
-                        Margin="0,0,0,10"
-                        HeightRequest="100"
-                        Source="firebase.png" />
-                    <Label
-                        Margin="0,0,0,10"
-                        FontAttributes="Bold"
-                        FontSize="Large"
-                        HorizontalTextAlignment="Center"
-                        Text="Firebase Storage"
-                        TextColor="Gray" />
-                    <Image x:Name="imgChoosed" HeightRequest="150" />
+                        <StackLayout Orientation="Horizontal">
+                            <buttons:SfButton BackgroundColor="#3e00bc"
+                                      BorderColor="#3e00bc"
+                                      BorderWidth="3"
+                                      Clicked="btnPick_Clicked"
+                                      CornerRadius="100"
+                                      FontSize="20"
+                                      PressedBackgroundColor="#5a0aff"
+                                      Text="Upload Photo"
+                                      TextColor="#eeeeee"
+                                      HorizontalOptions="Start"
+                                      VerticalOptions="Center"
+                                      HeightRequest="50"
+                                      WidthRequest="160" />
 
-                    <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-                        <Button
-                            x:Name="btnPick"
-                            Clicked="btnPick_Clicked"
-                            Text="Pick"
-                            WidthRequest="200" />
+                            <buttons:SfButton BackgroundColor="#3e00bc"
+                                      BorderColor="#3e00bc"
+                                      BorderWidth="3"
+                                      Clicked="Comment_Clicked"
+                                      CornerRadius="100"
+                                      FontSize="20"
+                                      PressedBackgroundColor="#5a0aff"
+                                      Text="Post"
+                                      TextColor="#eeeeee"
+                                      HorizontalOptions="Start"
+                                      VerticalOptions="Center"
+                                      HeightRequest="50"
+                                      WidthRequest="120" />
+
+                            <Image x:Name="imgChoosed" Margin="10, 0, 0, 0" HeightRequest="50" WidthRequest="30" />
+                        </StackLayout>
                     </StackLayout>
 
-                </StackLayout>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Frame x:Name="framePost" 
+                                   HasShadow="False" 
+                                   Padding="10" 
+                                   Margin="2" 
+                                   CornerRadius="5"
+                                   BackgroundColor="#f0f0f7"
+                               Grid.Row="0">
+                            <StackLayout>
+                                <Grid Margin="0, 0, 0, 20">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <border:SfBorder BorderColor="#4b36a6"
+                                                     BorderWidth="1"
+                                                     CornerRadius="50"
+                                                     HeightRequest="50"
+                                                     WidthRequest="50"
+                                                     HorizontalOptions="Center"
+                                                     VerticalOptions="Center"
+                                                     Grid.Column="0"
+                                                     Grid.Row="0"
+                                                     Grid.RowSpan="2">
+                                        <Image Source="avatar.png" />
+                                    </border:SfBorder>
+                                    <Label HorizontalOptions="Start" 
+                                       VerticalOptions="End"
+                                       FontAttributes="Bold"
+                                       FontSize="Medium"
+                                       Grid.Column="1"
+                                       Grid.Row="0"
+                                       x:Name="label_author" />
+                                    <Label HorizontalOptions="Start"
+                                       VerticalOptions="Start"
+                                       FontSize="Small"
+                                       Grid.Column="1"
+                                       Grid.Row="1"
+                                       x:Name="label_date"/>
+                                </Grid>
+                                <Label x:Name="label_content"
+                                   FontSize="16" />
+                                <buttons:SfButton HorizontalOptions="Start"
+                                                  VerticalOptions="Center"
+                                                  BorderWidth="0"
+                                                  WidthRequest="100"
+                                                  x:Name="BtnImage"
+                                                  Clicked="GetPic_Clicked">
+                                    <buttons:SfButton.Content>
+                                        <Image WidthRequest="100"
+                                           VerticalOptions="End"
+                                           HorizontalOptions="Start"
+                                           x:Name="image_post"/>
+                                    </buttons:SfButton.Content>
+                                </buttons:SfButton>
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
 
-                <Label x:Name="lblPath" />
-                <listviews:SfListView
-                    x:Name="commentList"
-                    ItemSize="300"
-                    Opacity="1"
-                    SelectionBackgroundColor="Transparent">
-                    <listviews:SfListView.ItemTemplate>
-                        <DataTemplate>
-                            <AbsoluteLayout>
-                                <border:SfBorder
-                                    Margin="10,0"
-                                    AbsoluteLayout.LayoutBounds="0, 0, 1, 0.6"
-                                    AbsoluteLayout.LayoutFlags="All"
-                                    BorderColor="Transparent"
-                                    CornerRadius="10">
-                                    <Image
-                                        Aspect="AspectFill"
-                                        IsVisible="{Binding CommentImage, Converter={StaticResource ConvertButtonVisibility}}"
-                                        Source="{Binding CommentImage}"
-                                        VerticalOptions="End" />
-                                </border:SfBorder>
-                                <Button
-                                    Clicked="GetPic_Clicked"
-                                    CommandParameter="{Binding CommentImage}"
-                                    IsVisible="{Binding CommentImage, Converter={StaticResource ConvertButtonVisibility}}"
-                                    Text="getpic" />
-
-                                <Frame
-                                    Margin="20,0"
-                                    AbsoluteLayout.LayoutBounds="0, 0.7, 1, 0.4"
-                                    AbsoluteLayout.LayoutFlags="All"
-                                    BackgroundColor="White"
-                                    CornerRadius="10"
-                                    HasShadow="True">
-                                    <Label
-                                        FontAttributes="Bold"
-                                        FontSize="16"
-                                        Text="{Binding CommentContent}" />
+                    <listviews:SfListView
+                                x:Name="commentList"
+                                ItemSize="200"
+                                AutoFitMode="DynamicHeight"
+                                Orientation="Vertical"
+                                Opacity="1"
+                                Padding="0, 10, 0, 0"
+                                SelectionBackgroundColor="Transparent">
+                        <listviews:SfListView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame x:Name="frame" 
+                                       HasShadow="False" 
+                                       Padding="10" 
+                                       Margin="2" 
+                                       CornerRadius="5"
+                                       BackgroundColor="#fbfbfe">
+                                    <StackLayout>
+                                        <Grid Margin="0, 0, 0, 20">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                                <ColumnDefinition Width="3*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <border:SfBorder BorderColor="#4b36a6"
+                                                         BorderWidth="1"
+                                                         CornerRadius="50"
+                                                         HeightRequest="50"
+                                                         WidthRequest="50"
+                                                         HorizontalOptions="Center"
+                                                         VerticalOptions="Center"
+                                                         Grid.Column="0"
+                                                         Grid.Row="0"
+                                                         Grid.RowSpan="2">
+                                                <Image Source="avatar.png" />
+                                            </border:SfBorder>
+                                            <Label HorizontalOptions="Start" 
+                                                   VerticalOptions="End"
+                                                   FontAttributes="Bold"
+                                                   FontSize="Medium"
+                                                   Text="{Binding Author}"
+                                                   Grid.Column="1"
+                                                   Grid.Row="0"/>
+                                            <Label HorizontalOptions="Start"
+                                                   VerticalOptions="Start"
+                                                   FontSize="Small"
+                                                   Text="{Binding CommentTime, StringFormat='{0:dddd, dd MMMM yyyy HH:mm}'}" 
+                                                   Grid.Column="1"
+                                                   Grid.Row="1"/>
+                                        </Grid>
+                                        <Label Text="{Binding CommentContent}"
+                                           FontSize="16" />
+                                        <buttons:SfButton HorizontalOptions="Start"
+                                                          VerticalOptions="Center"
+                                                          BorderWidth="0"
+                                                          WidthRequest="100"
+                                                          CommandParameter="{Binding CommentImage}"
+                                                          Clicked="GetPic_Clicked">  
+                                            <buttons:SfButton.Content>
+                                                    <Image WidthRequest="100"
+                                                           IsVisible="{Binding CommentImage, Converter={StaticResource ConvertButtonVisibility}}"
+                                                           Source="{Binding CommentImage}"
+                                                           VerticalOptions="End"
+                                                           HorizontalOptions="Start"/> 
+                                            </buttons:SfButton.Content>
+                                    </buttons:SfButton> 
+                                    </StackLayout>
                                 </Frame>
-                            </AbsoluteLayout>
-                        </DataTemplate>
-                    </listviews:SfListView.ItemTemplate>
-                </listviews:SfListView>
+                            </DataTemplate>
+                        </listviews:SfListView.ItemTemplate>
+                    </listviews:SfListView>
+                </StackLayout>
+            </border:SfBorder>
+            <border:SfBorder
+                x:Name="NoInternetContent"
+                Padding="20,0"
+                AbsoluteLayout.LayoutBounds="0, 1, 1, .85"
+                AbsoluteLayout.LayoutFlags="All"
+                BackgroundColor="White"
+                BorderWidth="0"
+                CornerRadius="20, 20, 0, 0"
+                IsVisible="False">
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <Label
+                        FontSize="32"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="No internet, try again" />
+                    <Button Clicked="Reload_Clicked"  Text="Retry" />
+                </StackLayout>
+            </border:SfBorder>
+            <StackLayout AbsoluteLayout.LayoutBounds="1, 1, 1, 0.05"
+                         AbsoluteLayout.LayoutFlags="All"
+                         x:Name="UpdateContent"
+                         BackgroundColor="Red"
+                         TranslationY="500">
+                <buttons:SfButton x:Name="Btn_UpdateComments"
+                                  Text="Post added successfully, click here to refresh"
+                                  BackgroundColor="Transparent"
+                                  FontAttributes="Bold"
+                                  VerticalOptions="CenterAndExpand"
+                                  VerticalTextAlignment="Center"
+                                  Clicked="Btn_UpdateComments_Clicked">
+                </buttons:SfButton>
             </StackLayout>
-        </ScrollView>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

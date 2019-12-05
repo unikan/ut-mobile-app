@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
              xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
@@ -11,7 +10,7 @@
              xmlns:converter="clr-namespace:UtMobileApp.Extensions"
              mc:Ignorable="d"
              x:Class="UtMobileApp.Views.Announcements"
-             BackgroundColor="#cc7564">
+             BackgroundColor="#5750f5">
     <ContentPage.Resources>
         <ResourceDictionary>
             <converter:PlainText x:Key="convertToPlainText" />
@@ -19,16 +18,6 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <AbsoluteLayout>
-            <gradient:SfGradientView>
-                <gradient:SfGradientView.BackgroundBrush>
-                    <gradient:SfLinearGradientBrush>
-                        <gradient:SfLinearGradientBrush.GradientStops>
-                            <gradient:SfGradientStop Color="#e68471" Offset="0.0" />
-                            <gradient:SfGradientStop Color="#cc7564" Offset="1.0" />
-                        </gradient:SfLinearGradientBrush.GradientStops>
-                    </gradient:SfLinearGradientBrush>
-                </gradient:SfGradientView.BackgroundBrush>
-            </gradient:SfGradientView>
             <!-- HEADER -->
             <StackLayout Orientation="Horizontal"
                          HorizontalOptions="FillAndExpand"
@@ -74,11 +63,11 @@
                 </Grid>
             </StackLayout>
 
-            <border:SfBorder AbsoluteLayout.LayoutBounds="0, 1, 1, .8"
+            <border:SfBorder AbsoluteLayout.LayoutBounds="0, 1, 1, .85"
                              AbsoluteLayout.LayoutFlags="All"
                              CornerRadius="20, 20, 0, 0" 
                              BorderWidth="0"
-                             BackgroundColor="#EEEEEE"
+                             BackgroundColor="White"
                              Padding="20, 0"
                              x:Name="AnnouncementsContent">
                 <StackLayout>
@@ -86,7 +75,7 @@
                                                ViewBoxHeight="70"
                                                ViewBoxWidth="70"
                                                Title="Loading announcements..."
-                                               TextColor="Salmon"
+                                               TextColor="#5750f5"
                                                TextSize="15" />
 
                     <listviews:SfListView x:Name="announcementsList" 
@@ -98,11 +87,11 @@
                             <DataTemplate>
                                 <Grid Padding="1" Margin="1">
                                     <Frame x:Name="frame" 
-                                       HasShadow="True" 
+                                       HasShadow="False" 
                                        Padding="2" 
                                        Margin="2" 
                                        CornerRadius="10"
-                                       BackgroundColor="White">
+                                       BackgroundColor="#fbfbfe">
                                         <Grid>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="2.5*"></ColumnDefinition>
@@ -154,11 +143,11 @@
                     </listviews:SfListView>
                 </StackLayout>
             </border:SfBorder>
-            <border:SfBorder AbsoluteLayout.LayoutBounds="0, 1, 1, .8"
+            <border:SfBorder AbsoluteLayout.LayoutBounds="0, 1, 1, .85"
                              AbsoluteLayout.LayoutFlags="All"
                              CornerRadius="20, 20, 0, 0" 
                              BorderWidth="0"
-                             BackgroundColor="#EEEEEE"
+                             BackgroundColor="White"
                              Padding="20, 0"
                              x:Name="NoInternetContent">
                 <StackLayout HorizontalOptions="CenterAndExpand"

@@ -12,14 +12,14 @@ using XamarinFirebase.Helper;
 namespace UtMobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Exams : ContentPage
+    public partial class Events : ContentPage
     {
         readonly Extensions.DateExtensions de = new Extensions.DateExtensions();
         readonly FirebaseHelper firebaseHelper = new FirebaseHelper();
         Interface auth;
         private bool _firstAppeareance = true;
 
-        public Exams()
+        public Events()
         {
             InitializeComponent();
 
@@ -36,7 +36,7 @@ namespace UtMobileApp.Views
 
                 try
                 {
-                    await LoadSchedule("local").ContinueWith(async updatebutton =>
+                    await LoadEvents("local").ContinueWith(async updatebutton =>
                     {
                         await Task.Delay(3000);
                         if (Connectivity.NetworkAccess == NetworkAccess.Internet)
@@ -58,49 +58,45 @@ namespace UtMobileApp.Views
             }
         }
 
-        private async Task LoadSchedule(string loadType = "")
+        private async Task LoadEvents(string loadType = "")
         {
             // Hide label
-            await label_exams.FadeTo(0, 300, Easing.Linear);
+            await label_events.FadeTo(0, 300, Easing.Linear);
 
             // Show busy indicator
             await busyindicator.FadeTo(1, 300, Easing.Linear);
             busyindicator.IsBusy = true;
 
             var LoadSchedule = new Extensions.LoadSchedule();
-            List<Models.ExamsJSON.Entry> scheduleList = null;
+            List<Models.EventsJSON.Event> eventsList = null;
 
-            if (Application.Current.Properties.ContainsKey("ExamsData") && loadType == "local")
+            if (Application.Current.Properties.ContainsKey("EventsData") && loadType == "local")
             {
-                scheduleList = await LoadSchedule.DeserializeExamsJsonAsync("local");
+                eventsList = await LoadSchedule.DeserializeEventsJsonAsync("local");
             }
             else
             {
                 if (Connectivity.NetworkAccess == NetworkAccess.Internet)
                 {
-                    // Get current user correct program spreadsheet
-                    auth = DependencyService.Get<Interface>();
-                    var currentUser = await firebaseHelper.GetPerson(auth.GetCurrentUserEmail());
-                    var spreadsheetUrls = await firebaseHelper.GetUrls(currentUser.Program);
-
-                    scheduleList = await LoadSchedule.DeserializeExamsJsonAsync("internet", spreadsheetUrls.Exams);
+                    eventsList = await LoadSchedule.DeserializeEventsJsonAsync("internet");
                 }
                 else
                 {
-                    ExamsContent.IsVisible = false;
+                    EventsContent.IsVisible = false;
                     NoInternetContent.IsVisible = true;
                 }
             }
 
             // Adding calendar event collection to DataSource of Calendar
-            calendar.DataSource = de.AddAppointemntExams(scheduleList);
+            var datasource = de.AddAppointemntEvents(eventsList);
+            events.DataSource = datasource;
 
             // Hide busy indicator
             await busyindicator.FadeTo(0, 300, Easing.Linear);
             busyindicator.IsBusy = false;
 
             // Show label
-            await label_exams.FadeTo(1, 300, Easing.Linear);
+            await label_events.FadeTo(1, 300, Easing.Linear);
         }
 
         private void Calendar_InlineItemTapped(object sender, InlineItemTappedEventArgs e)
@@ -113,7 +109,7 @@ namespace UtMobileApp.Views
         {
             try
             {
-                await LoadSchedule();
+                await LoadEvents();
             }
             catch (Exception ex)
             {
@@ -121,9 +117,9 @@ namespace UtMobileApp.Views
             }
         }
 
-        private async void Btn_UpdateSchedule_Clicked(object sender, EventArgs e)
+        private async void Btn_UpdateEvents_Clicked(object sender, EventArgs e)
         {
-            await LoadSchedule("internet");
+            await LoadEvents("internet");
         }
 
         private async void BtnBack_Clicked(object sender, EventArgs e)

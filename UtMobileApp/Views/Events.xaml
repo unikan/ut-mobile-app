@@ -3,12 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:calendar="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
              xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
-             xmlns:listview="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              mc:Ignorable="d"
-             x:Class="UtMobileApp.Views.Library"
+             x:Class="UtMobileApp.Views.Events"
              BackgroundColor="#5750f5">
     <ContentPage.Content>
         <AbsoluteLayout>
@@ -44,16 +44,27 @@
                                    HeightRequest="20" />
                         </buttons:SfButton.Content>
                     </buttons:SfButton>
-                    <Label Grid.Row="0"
-                           Grid.Column="1"
-                           HorizontalOptions="Center"
-                           VerticalOptions="Center"
-                           HorizontalTextAlignment="Start"
-                           FontSize="Large"
+                    <busyindicator:SfBusyIndicator Grid.Column="1" 
+                                                   Grid.Row="0"
+                                                   x:Name="busyindicator"
+                                                   ViewBoxHeight="70"
+                                                   ViewBoxWidth="70"
+                                                   TextColor="White"
+                                                   TextSize="15"  
+                                                   HorizontalOptions="CenterAndExpand"
+                                                   VerticalOptions="CenterAndExpand">
+                    </busyindicator:SfBusyIndicator>
+                    <Label Grid.Row="0" 
+                           Grid.Column="1" 
+                           x:Name="label_events"
+                           HorizontalTextAlignment="End"
+                           HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                           Text="Midterms"
+                           TextColor="White"
                            FontAttributes="Bold"
-                           MaxLines="1"
-                           Text="Library"
-                           TextColor="White"></Label>
+                           FontSize="Large"
+                           Opacity="0"></Label>
                 </Grid>
             </StackLayout>
 
@@ -63,43 +74,26 @@
                              BorderWidth="0"
                              BackgroundColor="White"
                              Padding="20, 0"
-                             x:Name="LibraryContent"
-                             IsVisible="True">
-                <StackLayout>
-                    <SearchBar x:Name="filterText" HeightRequest="40"
-                           Placeholder="Search by Author, Book or Year" Margin="10"
-                           TextChanged="OnFilterTextChanged" HorizontalOptions="StartAndExpand"/>
-
-                    <busyindicator:SfBusyIndicator x:Name="busyindicator"
-                                               ViewBoxHeight="70"
-                                               ViewBoxWidth="70"
-                                               Title="Loading..."
-                                               TextColor="#5750f5"
-                                               TextSize="15" />
-
-                    <listview:SfListView x:Name="LibraryList" Grid.Row="1" ItemSize="100" SelectionBackgroundColor="Transparent">
-                        <listview:SfListView.ItemTemplate>
-                            <DataTemplate>
-                                <Grid Padding="2" Margin="2" >
-                                    <Frame x:Name="frame" HasShadow="False" Padding="5" Margin="2" CornerRadius="10" BackgroundColor="#f9f9fe">
-                                        <StackLayout VerticalOptions="CenterAndExpand">
-                                            <Label Text="{Binding Author.t}" FontAttributes="Bold" />
-                                            <Label Text="{Binding BookTitle.t}"/>
-                                            <Label Text="{Binding Year.t}" FontAttributes="Italic"/>
-                                        </StackLayout>
-                                    </Frame>
-                                </Grid>
-                            </DataTemplate>
-                        </listview:SfListView.ItemTemplate>
-                    </listview:SfListView>
-                </StackLayout>
+                             x:Name="EventsContent">
+                <calendar:SfCalendar  x:Name="events" 
+                                      ViewMode="MonthView" 
+                                      ShowInlineEvents="True"
+						              ShowLeadingAndTrailingDays="False"
+                                      MaximumEventIndicatorCount="20"
+                                      HorizontalOptions="CenterAndExpand"
+                                      VerticalOptions="CenterAndExpand"
+                                      InlineItemTapped="Calendar_InlineItemTapped">
+                    <calendar:SfCalendar.MonthViewSettings>
+                        <calendar:MonthViewSettings InlineTextColor="#99000000">
+                        </calendar:MonthViewSettings>
+                    </calendar:SfCalendar.MonthViewSettings>
+                </calendar:SfCalendar>
             </border:SfBorder>
             <border:SfBorder AbsoluteLayout.LayoutBounds="0, 1, 1, .85"
                              AbsoluteLayout.LayoutFlags="All"
                              CornerRadius="20, 20, 0, 0" 
                              BorderWidth="0"
                              BackgroundColor="White"
-                             Padding="20, 0"
                              x:Name="NoInternetContent"
                              IsVisible="False">
                 <StackLayout HorizontalOptions="CenterAndExpand"
@@ -108,6 +102,20 @@
                     <Button Text="Retry" Clicked="Reload_Clicked"/>
                 </StackLayout>
             </border:SfBorder>
+            <StackLayout AbsoluteLayout.LayoutBounds="1, 1, 1, 0.05"
+                         AbsoluteLayout.LayoutFlags="All"
+                         x:Name="UpdateContent"
+                         BackgroundColor="Red"
+                         TranslationY="500">
+                <buttons:SfButton x:Name="Btn_UpdateEvents"
+                                  Text="Click here to check for updates"
+                                  BackgroundColor="Transparent"
+                                  FontAttributes="Bold"
+                                  VerticalOptions="CenterAndExpand"
+                                  VerticalTextAlignment="Center"
+                                  Clicked="Btn_UpdateEvents_Clicked">
+                </buttons:SfButton>
+            </StackLayout>
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

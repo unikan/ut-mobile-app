@@ -113,23 +113,26 @@ namespace UtMobileApp.Views
 
         private async void BtnLectures_Clicked(object sender, EventArgs e)
         {
+            var currentScale = BtnLectures.Scale;
             await BtnLectures.ScaleTo(1.1, 200, Easing.BounceOut);
             await Navigation.PushAsync(new Views.Schedule());
-            BtnLectures.Scale = 1;
+            BtnLectures.Scale = currentScale;
         }
 
         private async void BtnMidterms_Clicked(object sender, EventArgs e)
         {
+            var currentScale = BtnMidterms.Scale;
             await BtnMidterms.ScaleTo(1.1, 200, Easing.BounceOut);
             await Navigation.PushAsync(new Views.Midterms());
-            BtnMidterms.Scale = 1;
+            BtnMidterms.Scale = currentScale;
         }
 
         private async void BtnExams_Clicked(object sender, EventArgs e)
         {
+            var currentScale = BtnExams.Scale;
             await BtnExams.ScaleTo(1.1, 200, Easing.BounceOut);
             await Navigation.PushAsync(new Views.Exams());
-            BtnMidterms.Scale = 1;
+            BtnExams.Scale = currentScale;
         }
 
         private async void BtnNews_Clicked(object sender, EventArgs e)
@@ -155,6 +158,11 @@ namespace UtMobileApp.Views
         private async void BtnLibrary_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Views.Library());
+        }
+
+        private async void BtnEvents_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Views.Events());
         }
 
         private async void BtnCareerCenter_Clicked(object sender, EventArgs e)

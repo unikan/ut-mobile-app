@@ -19,7 +19,7 @@ namespace UtMobileApp.Extensions
         public async Task<List<ForumPosts>> GetPosts()
         {
 
-            return (await firebase
+            var posts = (await firebase
                 .Child("ForumPosts")
                 .OnceAsync<ForumPosts>()).Select(item => new ForumPosts
                 {
@@ -33,6 +33,9 @@ namespace UtMobileApp.Extensions
                     PostProgram = item.Object.PostProgram,
                     PostImage = item.Object.PostImage,
                 }).ToList();
+
+            posts = posts.OrderBy(x => x.PostTime).ToList();
+            return posts;
         }
 
         public async Task<List<ForumComments>> GetComments(string currentPostID)
@@ -43,14 +46,13 @@ namespace UtMobileApp.Extensions
                 .OnceAsync<ForumComments>()).Select(item => new ForumComments
                 {
                     CommentID = item.Object.CommentID,
-                    PostID = currentPostID,
+                    PostID = item.Object.PostID,
                     CommentAuthorName = item.Object.CommentAuthorName,
                     CommentAuthorLastName = item.Object.CommentAuthorLastName,
                     CommentContent = item.Object.CommentContent,
                     CommentTime = item.Object.CommentTime,
                     CommentImage = item.Object.CommentImage
-                    
-                }).ToList();
+                }).Where(c => c.PostID == currentPostID).ToList();
         }
 
         public async Task CreatePost(string postid, string postauthorname, string postauthorlastname, string posttitle, string postcontent , DateTime posttime, string postprogram, string imageurl)

@@ -65,7 +65,7 @@
 
                 <inputLayout:SfTextInputLayout
                     ContainerType="Outlined"
-                    FocusedColor="#3e00bc"
+                    FocusedColor="#3e00bc" 
                     Hint="Email"
                     UnfocusedColor="#eeeeee">
                     <Entry

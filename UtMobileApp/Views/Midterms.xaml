@@ -10,19 +10,9 @@
              xmlns:calendar="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
              mc:Ignorable="d"
              x:Class="UtMobileApp.Views.Midterms"
-             BackgroundColor="#7974e6">
+             BackgroundColor="#2c7873">
     <ContentPage.Content>
         <AbsoluteLayout>
-            <gradient:SfGradientView>
-                <gradient:SfGradientView.BackgroundBrush>
-                    <gradient:SfLinearGradientBrush>
-                        <gradient:SfLinearGradientBrush.GradientStops>
-                            <gradient:SfGradientStop Color="#7e79ef" Offset="0.0" />
-                            <gradient:SfGradientStop Color="#7974e6" Offset="1.0" />
-                        </gradient:SfLinearGradientBrush.GradientStops>
-                    </gradient:SfLinearGradientBrush>
-                </gradient:SfGradientView.BackgroundBrush>
-            </gradient:SfGradientView>
             <!-- HEADER -->
             <StackLayout Orientation="Horizontal"
                          HorizontalOptions="FillAndExpand"
@@ -65,10 +55,21 @@
                                                    HorizontalOptions="CenterAndExpand"
                                                    VerticalOptions="CenterAndExpand">
                     </busyindicator:SfBusyIndicator>
+                    <Label Grid.Row="0" 
+                           Grid.Column="1" 
+                           x:Name="label_midterms"
+                           HorizontalTextAlignment="End"
+                           HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                           Text="Midterms"
+                           TextColor="White"
+                           FontAttributes="Bold"
+                           FontSize="Large"
+                           Opacity="0"></Label>
                 </Grid>
             </StackLayout>
 
-            <border:SfBorder AbsoluteLayout.LayoutBounds="0, 1, 1, .8"
+            <border:SfBorder AbsoluteLayout.LayoutBounds="0, 1, 1, .85"
                              AbsoluteLayout.LayoutFlags="All"
                              CornerRadius="20, 20, 0, 0" 
                              BorderWidth="0"
@@ -108,7 +109,7 @@
                          BackgroundColor="Red"
                          TranslationY="500">
                 <buttons:SfButton x:Name="Btn_UpdateSchedule"
-                                  Text="Click here to check for updated schedule"
+                                  Text="Click here to check for updates"
                                   BackgroundColor="Transparent"
                                   FontAttributes="Bold"
                                   VerticalOptions="CenterAndExpand"

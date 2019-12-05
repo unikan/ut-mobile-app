@@ -10,19 +10,9 @@
              xmlns:gradient="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
              mc:Ignorable="d"
              x:Class="UtMobileApp.Views.Schedule"
-             BackgroundColor="#019967">
+             BackgroundColor="#c72c41">
     <ContentPage.Content>
         <AbsoluteLayout>
-            <gradient:SfGradientView>
-                <gradient:SfGradientView.BackgroundBrush>
-                    <gradient:SfLinearGradientBrush>
-                        <gradient:SfLinearGradientBrush.GradientStops>
-                            <gradient:SfGradientStop Color="#01d28e" Offset="0.0" />
-                            <gradient:SfGradientStop Color="#019967" Offset="1.0" />
-                        </gradient:SfLinearGradientBrush.GradientStops>
-                    </gradient:SfLinearGradientBrush>
-                </gradient:SfGradientView.BackgroundBrush>
-            </gradient:SfGradientView>
             <!-- HEADER -->
             <StackLayout Orientation="Horizontal"
                          HorizontalOptions="FillAndExpand"
@@ -65,14 +55,16 @@
                                                    HorizontalOptions="CenterAndExpand"
                                                    VerticalOptions="CenterAndExpand"></busyindicator:SfBusyIndicator>
                     <Label Grid.Row="0" 
-                           Grid.Column="2" 
+                           Grid.Column="1" 
+                           x:Name="label_lectures"
                            HorizontalTextAlignment="End"
                            HorizontalOptions="CenterAndExpand"
                            VerticalOptions="CenterAndExpand"
-                           x:Name="label_monthYear"
+                           Text="Lectures"
                            TextColor="White"
                            FontAttributes="Bold"
-                           FontSize="16"></Label>
+                           FontSize="Large"
+                           Opacity="0"></Label>
                 </Grid>
             </StackLayout>
             <!-- DAYS -->
@@ -276,7 +268,7 @@
                          BackgroundColor="Red"
                          TranslationY="500">
                 <buttons:SfButton x:Name="Btn_UpdateSchedule"
-                                  Text="Click here to check for updated schedule"
+                                  Text="Click here to check for updates"
                                   BackgroundColor="Transparent"
                                   FontAttributes="Bold"
                                   VerticalOptions="CenterAndExpand"

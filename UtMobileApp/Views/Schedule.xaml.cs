@@ -34,8 +34,6 @@ namespace UtMobileApp.Views
             if (_firstAppeareance)
             {
                 _firstAppeareance = false;
-                // Write current month and year in label
-                label_monthYear.Text = DateTime.Now.Year + "\n" + DateTime.Now.ToString("MMMM");
 
                 // Disable schedule swiping
                 schedule.EnableNavigation = false;
@@ -101,6 +99,9 @@ namespace UtMobileApp.Views
                 await busyindicator.FadeTo(0, 300, Easing.Linear);
                 busyindicator.IsBusy = false;
 
+                // Show label
+                await label_lectures.FadeTo(1, 300, Easing.Linear);
+
                 // Show buttons
                 await btn_monday.ScaleTo(1, 100, Easing.Linear);
                 await btn_tuesday.ScaleTo(1, 100, Easing.Linear);
@@ -148,6 +149,10 @@ namespace UtMobileApp.Views
 
         private async Task LoadSchedule(string loadType = "")
         {
+            // Hide label
+            await label_lectures.FadeTo(0, 300, Easing.Linear);
+
+            // Show busy indicator
             await busyindicator.FadeTo(1, 300, Easing.Linear);
             busyindicator.IsBusy = true;
 
@@ -218,13 +223,36 @@ namespace UtMobileApp.Views
 
             var resources = schedule.ScheduleResources;
 
-            // Adding selected resource in resource collection from the resources.
-            selectedResources.Add(resources.FirstOrDefault(resource => (resource as ScheduleResource).Id.ToString() == "I"));
-            selectedResources.Add(resources.FirstOrDefault(resource => (resource as ScheduleResource).Id.ToString() == "II"));
-            selectedResources.Add(resources.FirstOrDefault(resource => (resource as ScheduleResource).Id.ToString() == "III"));
+            if (scheduleList[0].L_Semester.t == "I")
+            {
+                schedule.ScheduleResources.Remove(resources.FirstOrDefault(resource => (resource as ScheduleResource).Id.ToString() == "II"));
+                schedule.ScheduleResources.Remove(resources.FirstOrDefault(resource => (resource as ScheduleResource).Id.ToString() == "IV"));
+                schedule.ScheduleResources.Remove(resources.FirstOrDefault(resource => (resource as ScheduleResource).Id.ToString() == "VI"));
+                schedule.ScheduleResources.Remove(resources.FirstOrDefault(resource => (resource as ScheduleResource).Id.ToString() == "VIII"));
+                schedule.ScheduleResources.Remove(resources.FirstOrDefault(resource => (resource as ScheduleResource).Id.ToString() == "X"));
+                schedule.ScheduleResources.Remove(resources.FirstOrDefault(resource => (resource as ScheduleResource).Id.ToString() == "XII"));
+            }
+            else
+            {
+                schedule.ScheduleResources.Remove(resources.FirstOrDefault(resource => (resource as ScheduleResource).Id.ToString() == "I"));
+                schedule.ScheduleResources.Remove(resources.FirstOrDefault(resource => (resource as ScheduleResource).Id.ToString() == "III"));
+                schedule.ScheduleResources.Remove(resources.FirstOrDefault(resource => (resource as ScheduleResource).Id.ToString() == "V"));
+                schedule.ScheduleResources.Remove(resources.FirstOrDefault(resource => (resource as ScheduleResource).Id.ToString() == "VII"));
+                schedule.ScheduleResources.Remove(resources.FirstOrDefault(resource => (resource as ScheduleResource).Id.ToString() == "IX"));
+                schedule.ScheduleResources.Remove(resources.FirstOrDefault(resource => (resource as ScheduleResource).Id.ToString() == "XI"));
+            }
 
-            // Adding selected resource collection to the selected resources of SfSchedule.
-            schedule.SelectedResources = selectedResources;
+            try
+            {
+                var currentUser = await firebaseHelper.GetPerson(auth.GetCurrentUserEmail());
+
+                // Adding selected resource in resource collection from the resources.
+                selectedResources.Add(resources.FirstOrDefault(resource => (resource as ScheduleResource).Id.ToString() == currentUser.Semestri));
+
+                // Adding selected resource collection to the selected resources of SfSchedule.
+                schedule.SelectedResources = selectedResources;
+            }
+            catch { }
 
             await busyindicator.FadeTo(0, 300, Easing.Linear);
             busyindicator.IsBusy = false;
