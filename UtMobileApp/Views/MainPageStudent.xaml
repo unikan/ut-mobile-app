@@ -28,7 +28,7 @@
                             <ColumnDefinition Width="3*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <border:SfBorder
-                            BorderColor="Black"
+                            BorderColor="#4b36a6"
                             BorderWidth="1"
                             CornerRadius="50"
                             HeightRequest="50"
@@ -38,7 +38,7 @@
                             Grid.Column="0"
                             Grid.Row="0"
                             Grid.RowSpan="2">
-                            <Image Source="https://i5.walmartimages.com/asr/e9c1e290-55cb-4608-8edd-06b01ea694d0_1.cd6956088a6814bf191640ab06739752.png" />
+                        <Image Source="avatar.png" />
                         </border:SfBorder>
                         <Label x:Name="label_flname" 
                             HorizontalOptions="Start" 

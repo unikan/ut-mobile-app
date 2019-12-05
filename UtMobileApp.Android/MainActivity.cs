@@ -10,6 +10,7 @@ using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Plugin.CurrentActivity;
+using Android.Util;
 
 namespace UtMobileApp.Android
 {
@@ -44,6 +45,16 @@ namespace UtMobileApp.Android
                    typeof(Analytics), typeof(Crashes));
             AppCenter.Start("f7bbcd28-6f3e-467d-96c2-ee9c7a2d01b9",
                                typeof(Analytics), typeof(Crashes));
+
+            // get the accent color from your theme
+            var themeAccentColor = new TypedValue();
+            this.Theme.ResolveAttribute(Resource.Attribute.colorAccent, themeAccentColor, true);
+            var droidAccentColor = new global::Android.Graphics.Color(themeAccentColor.Data);
+
+            // set Xamarin Color.Accent to match the theme's accent color
+            var accentColorProp = typeof(Xamarin.Forms.Color).GetProperty(nameof(Xamarin.Forms.Color.Accent), System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
+            var xamarinAccentColor = new Xamarin.Forms.Color(droidAccentColor.R / 87.0, droidAccentColor.G / 80.0, droidAccentColor.B / 245.0, droidAccentColor.A / 255.0);
+            accentColorProp.SetValue(null, xamarinAccentColor, System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static, null, null, System.Globalization.CultureInfo.CurrentCulture);
 
             LoadApplication(new App());
         }

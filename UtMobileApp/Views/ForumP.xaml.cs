@@ -8,6 +8,7 @@ using Plugin.Media;
 using Plugin.Media.Abstractions;
 using System.IO;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace UtMobileApp.Views
 {
@@ -19,21 +20,114 @@ namespace UtMobileApp.Views
         ForumStuffing forumhelper = new ForumStuffing();
         FirebaseHelper firebasehelper = new FirebaseHelper();
         Interface auth; 
+        private bool _firstAppearance = true;
+
         public ForumP()
         {
             InitializeComponent();
-
+            NavigationPage.SetHasNavigationBar(this, false);
             auth = DependencyService.Get<Interface>();
-
         }
 
         protected async override void OnAppearing()
         {
-
             base.OnAppearing();
-            forumList.ItemsSource = await forumhelper.GetPosts();
 
+            if (_firstAppearance)
+            {
+                _firstAppearance = false;
+
+                try
+                {
+                    if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                    {
+                        forumList.ItemsSource = await forumhelper.GetPosts();
+
+                        ForumContent.IsVisible = true;
+                        NoInternetContent.IsVisible = false;
+                    }
+                    else
+                    {
+                        ForumContent.IsVisible = false;
+                        NoInternetContent.IsVisible = true;
+                    }
+                }
+                catch (Exception e)
+                {
+                    await DisplayAlert("Warning", e.Message, "OK");
+                }
+            }
+
+            // Hide busy indicator
+            await busyindicator.FadeTo(0, 300, Easing.Linear);
+            // Show label
+            await label_forum.FadeTo(1, 300, Easing.Linear);
         }
+
+        private async void Post_Clicked(object sender, EventArgs e)
+        {
+            // Hide label
+            await label_forum.FadeTo(0, 300, Easing.Linear);
+            // Show busy indicator
+            await busyindicator.FadeTo(1, 300, Easing.Linear);
+
+            try
+            {
+                string nopicture = "No image file";
+                var postID = auth.GetCurrentUserEmail() + DateTime.Now.Ticks;
+                Registrations currentuserinfo = await firebasehelper.GetPerson(auth.GetCurrentUserEmail());
+                if(file != null) { 
+                await firebaseStorageHelper.UploadFile(file.GetStream(), postID, postID);
+    
+                    await forumhelper.CreatePost(postID, currentuserinfo.FirstName, currentuserinfo.LastName, PostTitle.Text, TextEditor.Text, DateTime.Now, currentuserinfo.Program, await firebaseStorageHelper.UploadFile(file.GetStream(), postID, postID)).ContinueWith(async updatebutton =>
+                    {
+                        await Task.Delay(1000);
+                        if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                        {
+                            await UpdateContent.TranslateTo(0, 0, 500, Easing.BounceIn);
+                            await Task.Delay(5000);
+                            await UpdateContent.TranslateTo(0, 500, 500, Easing.Linear);
+                        }
+                    });
+                }
+                else
+                {
+                    await forumhelper.CreatePost(postID, currentuserinfo.FirstName, currentuserinfo.LastName, PostTitle.Text, TextEditor.Text, DateTime.Now, currentuserinfo.Program, nopicture).ContinueWith(async updatebutton =>
+                    {
+                        if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                        {
+                            await UpdateContent.TranslateTo(0, 0, 500, Easing.BounceIn);
+                            await Task.Delay(5000);
+                            await UpdateContent.TranslateTo(0, 500, 500, Easing.Linear);
+                        }
+                    });
+                }
+            }
+
+            catch (Exception ex)
+            {
+                await DisplayAlert("Warning", ex.Message, "OK");
+            }
+
+            // Hide busy indicator
+            await busyindicator.FadeTo(0, 300, Easing.Linear);
+            // Show label
+            await label_forum.FadeTo(1, 300, Easing.Linear);
+        }
+
+        private async void forumList_ItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)
+        {
+            try {  
+            var selectedPost = e.ItemData as Extensions.ForumPosts;
+
+            await Navigation.PushAsync(new ForumC(selectedPost));
+            }
+            catch (Exception except)
+            {
+                await DisplayAlert("Warning", except.Message, "OK");
+            }
+        }
+
         private async void btnPick_Clicked(object sender, EventArgs e)
         {
 
@@ -56,87 +150,73 @@ namespace UtMobileApp.Views
             {
                 await DisplayAlert("Warning", ex.Message, "OK");
             }
-
         }
 
-        private async void Post_Clicked(object sender, EventArgs e)
+        private async void BtnBack_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
+
+        private async void Btn_UpdatePosts_Clicked(object sender, EventArgs e)
+        {
+            // Hide label
+            await label_forum.FadeTo(0, 300, Easing.Linear);
+            // Show busy indicator
+            await busyindicator.FadeTo(1, 300, Easing.Linear);
+
+            forumList.ItemsSource = await forumhelper.GetPosts();
+
+            // Hide busy indicator
+            await busyindicator.FadeTo(0, 300, Easing.Linear);
+            // Show label
+            await label_forum.FadeTo(1, 300, Easing.Linear);
+        }
+
+        private async void Reload_Clicked(object sender, EventArgs e)
         {
             try
             {
-                
-                string nopicture = "No image file";
-                var postID = auth.GetCurrentUserEmail() + DateTime.Now.Ticks;
-                Registrations currentuserinfo = await firebasehelper.GetPerson(auth.GetCurrentUserEmail());
-                if(file != null) { 
-                await firebaseStorageHelper.UploadFile(file.GetStream(), postID, postID);
-    
-                    
-                    await forumhelper.CreatePost(postID, currentuserinfo.FirstName, currentuserinfo.LastName, PostTitle.Text, TextEditor.Text, DateTime.Now, currentuserinfo.Program, await firebaseStorageHelper.UploadFile(file.GetStream(), postID, postID));
-
-                    await DisplayAlert("Success", "You have created a new image post", "OK");
-                }
-                else
+                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
                 {
-                    await forumhelper.CreatePost(postID, currentuserinfo.FirstName, currentuserinfo.LastName, PostTitle.Text, TextEditor.Text, DateTime.Now, currentuserinfo.Program, nopicture);
+                    // Hide label
+                    await label_forum.FadeTo(0, 300, Easing.Linear);
+                    // Show busy indicator
+                    await busyindicator.FadeTo(1, 300, Easing.Linear);
 
-                    await DisplayAlert("Success", "You have created a new post", "OK");
+                    forumList.ItemsSource = await forumhelper.GetPosts();
+
+                    ForumContent.IsVisible = true;
+                    NoInternetContent.IsVisible = false;
+
+                    // Hide busy indicator
+                    await busyindicator.FadeTo(0, 300, Easing.Linear);
+                    // Show label
+                    await label_forum.FadeTo(1, 300, Easing.Linear);
                 }
-
             }
-
             catch (Exception ex)
             {
                 await DisplayAlert("Warning", ex.Message, "OK");
             }
-
         }
 
-        private async void forumList_ItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)
+        private void PostTitle_Completed(object sender, EventArgs e)
         {
-            try {  
-            var selectedPost = e.ItemData as Extensions.ForumPosts;
-
-            await Navigation.PushAsync(new ForumC(selectedPost));
-            }
-            catch (Exception except)
-            {
-                await DisplayAlert("Warning", except.Message, "OK");
-            }
+            TextEditor.Focus();
         }
 
-        [Obsolete]
-        private void GetPic_Clicked(object sender, EventArgs es)
+        private async void BtnExpand_Clicked(object sender, EventArgs e)
         {
-            try
+            if (PostInputs.Scale == 0)
             {
-                Button btn = sender as Button;
-
-                //try { 
-                //var webClient = new WebClient();
-                //    webClient.DownloadDataCompleted += (s, e) => {
-                //        var bytes = e.Result; // get the downloaded data
-                //        string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-                //        string localFilename = "downloaded.png";
-                //        string localPath = Path.Combine(documentsPath, localFilename);
-                //        File.WriteAllBytes(localPath, bytes); // writes to local storage
-                //    };
-                //    var url = new Uri(btn.CommandParameter.ToString());
-                //webClient.DownloadDataAsync(url);
-                //}
-                //catch (Exception exs)
-                //{
-                //    await DisplayAlert("Warning", exs.Message, "OK");
-
-                //}
-
-                Device.OpenUri(new Uri(btn.CommandParameter.ToString()));
-
+                await PostInputs.ScaleTo(1, 300, Easing.Linear);
+                PostInputs.IsVisible = true;
             }
-            catch (Exception)
+            else
             {
-                DisplayAlert("Warning", "A problem occured", "OK");
+                await PostInputs.ScaleTo(0, 300, Easing.Linear);
+                PostInputs.IsVisible = false;
             }
         }
-
     }
 }

@@ -6,7 +6,6 @@ namespace UtMobileApp.Extensions
 {
     public class ForumPosts
     {
-
         public string PostID { get; set; }
         public string PostAuthorName { get; set; }
         public string PostAuthorLastName { get; set; }
@@ -16,5 +15,12 @@ namespace UtMobileApp.Extensions
         public string PostProgram { get; set; }
         public string PostImage { get; set; }
 
+        public string Author
+        {
+            get
+            {
+                return PostAuthorName + " " + PostAuthorLastName;
+            }
+        }
     }
 }
