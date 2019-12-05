@@ -23,14 +23,14 @@ namespace UtMobileApp.Views
             await Navigation.PopAsync();
         }
 
-        private void Btn0Email_Clicked(object sender, EventArgs e)
+        private async void Btn0Email_Clicked(object sender, EventArgs e)
         {
-            Launcher.OpenAsync(new Uri("mailto:adem.beadini@unite.edu.mk"));
+            await Launcher.OpenAsync(new Uri("mailto:adem.beadini@unite.edu.mk"));
         }
 
-        private void Btn1Email_Clicked(object sender, EventArgs e)
+        private async void Btn1Email_Clicked(object sender, EventArgs e)
         {
-            Launcher.OpenAsync(new Uri("mailto:ibrahim.neziri@unite.edu.mk"));
+            await Launcher.OpenAsync(new Uri("mailto:ibrahim.neziri@unite.edu.mk"));
         }
 
         private void Btn2Email_Clicked(object sender, EventArgs e)

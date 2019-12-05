@@ -31,7 +31,7 @@ namespace UtMobileApp.Views
             switch (Device.RuntimePlatform)
             {
                 case Device.iOS:
-                    url = String.Format("http://maps.apple.com/maps?q={0}", "Str. Ilinden, nn. 1200 Tetova Republic of Macedonia");
+                    url = String.Format("http://maps.apple.com/maps?q={0}", "Str. Ilinden, nn. 1200 Tetova Republic of dd");
                     break;
                 default:
                     url = String.Format("http://maps.google.com/maps?q={0}", "Str. Ilinden, nn. 1200 Tetova Republic of Macedonia");

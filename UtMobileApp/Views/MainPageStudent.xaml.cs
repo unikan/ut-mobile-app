@@ -147,7 +147,8 @@ namespace UtMobileApp.Views
 
         private async void BtnKujdesi_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Views.KujdesiPerTy());
+            // await Navigation.PushAsync(new Views.KujdesiPerTy());
+            await Browser.OpenAsync(new Uri("https://eservices.unite.edu.mk/kujdesi-per-ty/"));
         }
 
         private async void BtnAnnouncements_Clicked(object sender, EventArgs e)

@@ -68,48 +68,38 @@
                     <ScrollView>
                         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
 
-                            <buttons:SfButton HorizontalTextAlignment="Center"
-                                          HorizontalOptions="Center"
+                            <buttons:SfButton HorizontalOptions="Center"
+                                          VerticalOptions="Center"
                                           BackgroundColor="#fbfbfe"
-                                              WidthRequest="350"
                                           CornerRadius="10"
-                                          Padding="20"
-                                              Margin="0,20,0,0"
-                                          Clicked="BtnFeedback_Clicked" Text="Problem Reporting and Feedback" TextColor="Default" >
-                               
-                            </buttons:SfButton>
-                            <BoxView VerticalOptions="Center"
-                                 HorizontalOptions="Center"
-                                 HeightRequest="1"
-                                 WidthRequest="150"  
-                                 Color="#5750f5"></BoxView>
-
-                            <buttons:SfButton HorizontalTextAlignment="Center"
-                                          HorizontalOptions="Center"
-                                          BackgroundColor="#fbfbfe"
-                                              WidthRequest="350"
-                                          CornerRadius="10"
-                                          Padding="20"
-                                          Clicked="BtnPolicy_Clicked" Text="Privacy Policy" TextColor="Default" >
-                                
-                            </buttons:SfButton>
-                            <BoxView VerticalOptions="Center"
-                                 HorizontalOptions="Center"
-                                 HeightRequest="1"
-                                 WidthRequest="150"  
-                                 Color="#5750f5"></BoxView>
-
-                            <buttons:SfButton HorizontalTextAlignment="Center"
-                                          HorizontalOptions="Center"
-                                          BackgroundColor="#fbfbfe"
-                                              WidthRequest="350"
-                                          CornerRadius="10"
-                                          Padding="20"
-                                          Clicked="BtnUnikan_Clicked"
-                                              Text="MADE WITH ❤️ BY UNIKAN" TextColor="Default" >
-
+                                          Padding="10"
+                                          Clicked="BtnFeedback_Clicked">
+                                <buttons:SfButton.Content>
+                                    <Label HorizontalTextAlignment="Center" Text="Problem Reporting and Feedback" />
+                                </buttons:SfButton.Content>
                             </buttons:SfButton>
 
+                            <buttons:SfButton HorizontalOptions="Center"
+                                          VerticalOptions="Center"
+                                          BackgroundColor="#fbfbfe"
+                                          CornerRadius="10"
+                                          Padding="10"
+                                          Clicked="BtnPolicy_Clicked">
+                                <buttons:SfButton.Content>
+                                    <Label HorizontalTextAlignment="Center" Text="Privacy Policy" />
+                                </buttons:SfButton.Content>
+                            </buttons:SfButton>
+
+                            <buttons:SfButton HorizontalOptions="Center"
+                                          VerticalOptions="Center"
+                                          BackgroundColor="#fbfbfe"
+                                          CornerRadius="10"
+                                          Padding="10"
+                                          Clicked="BtnUnikan_Clicked">
+                                <buttons:SfButton.Content>
+                                    <Label HorizontalTextAlignment="Center" Text="MADE WITH ❤️ BY UNIKAN" />
+                                </buttons:SfButton.Content>
+                            </buttons:SfButton>
 
                         </StackLayout>
                     </ScrollView>

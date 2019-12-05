@@ -75,6 +75,7 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
+                                    <Image Source="right.png" Grid.Column="0" WidthRequest="20"/>
                                     <Label Text="News"
                                            TextColor="White"
                                            FontSize="19"
@@ -99,6 +100,7 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
+                                    <Image Source="right.png" Grid.Column="0" WidthRequest="20"/>
                                     <Label Text="Announcements"
                                            TextColor="White"
                                            FontSize="19"
@@ -123,6 +125,7 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
+                                    <Image Source="right.png" Grid.Column="0" WidthRequest="20"/>
                                     <Label Text="Calls"
                                            TextColor="White"
                                            FontSize="19"
@@ -147,6 +150,7 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
+                                    <Image Source="right.png" Grid.Column="0" WidthRequest="20"/>
                                     <Label Text="Career Center"
                                            TextColor="White"
                                            FontSize="19"
@@ -171,6 +175,7 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
+                                    <Image Source="right.png" Grid.Column="0" WidthRequest="20"/>
                                     <Label Text="Offices"
                                            TextColor="White"
                                            FontSize="19"
@@ -195,6 +200,7 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
+                                    <Image Source="right.png" Grid.Column="0" WidthRequest="20"/>
                                     <Label Text="Documents"
                                            TextColor="White"
                                            FontSize="19"
@@ -219,6 +225,7 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
+                                    <Image Source="right.png" Grid.Column="0" WidthRequest="20"/>
                                     <Label Text="Library"
                                            TextColor="White"
                                            FontSize="19"
@@ -243,6 +250,7 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
+                                    <Image Source="right.png" Grid.Column="0" WidthRequest="20"/>
                                     <Label Text="Events"
                                            TextColor="White"
                                            FontSize="19"
@@ -267,6 +275,7 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
+                                    <Image Source="right.png" Grid.Column="0" WidthRequest="20"/>
                                     <Label Text="Discussion Forum"
                                            TextColor="White"
                                            FontSize="19"
@@ -291,6 +300,7 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
+                                    <Image Source="right.png" Grid.Column="0" WidthRequest="20"/>
                                     <Label Text="Erasmus+"
                                            TextColor="White"
                                            FontSize="19"
@@ -315,6 +325,7 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
+                                    <Image Source="right.png" Grid.Column="0" WidthRequest="20"/>
                                     <Label Text="Kujdesi Për Ty"
                                            TextColor="White"
                                            FontSize="19"
@@ -339,6 +350,7 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
+                                    <Image Source="right.png" Grid.Column="0" WidthRequest="20"/>
                                     <Label Text="Contact Us"
                                            TextColor="White"
                                            FontSize="19"
@@ -363,6 +375,7 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
+                                    <Image Source="right.png" Grid.Column="0" WidthRequest="20"/>
                                     <Label Text="Support"
                                            TextColor="White"
                                            FontSize="19"

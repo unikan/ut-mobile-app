@@ -78,21 +78,10 @@
                                           Padding="10"
                                           Clicked="BtnMap_Clicked">
                             <buttons:SfButton.Content>
-                                <Grid Margin="10, 0, 0, 0">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="50" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf5a0;"
-                                           FontFamily="{StaticResource FontAwesomeSolid}"
+                                <Label Text="Str. Ilinden, nn. 1200 Tetova Republic of North Macedonia"
                                            VerticalTextAlignment="Center"
-                                           FontSize="19"
-                                           Grid.Column="0" />
-                                    <Label Text="Str. Ilinden, nn. 1200 Tetova Republic of Macedonia"
-                                           VerticalTextAlignment="Center"
-                                           FontSize="19"
-                                           Grid.Column="1" />
-                                </Grid>
+                                       HorizontalTextAlignment="Center"
+                                           FontSize="19"/>
                             </buttons:SfButton.Content>
                         </buttons:SfButton>
 
@@ -103,21 +92,10 @@
                                           Padding="10"
                                           Clicked="BtnEmail_Clicked">
                             <buttons:SfButton.Content>
-                                <Grid Margin="10, 0, 0, 0">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="50" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf0e0;"
-                                           FontFamily="{StaticResource FontAwesomeSolid}"
+                                <Label Text="international@unite.edu.mk"
                                            VerticalTextAlignment="Center"
-                                           FontSize="19"
-                                           Grid.Column="0" />
-                                    <Label Text="international@unite.edu.mk"
-                                           VerticalTextAlignment="Center"
-                                           FontSize="19"
-                                           Grid.Column="1" />
-                                </Grid>
+                                       HorizontalTextAlignment="Center"
+                                           FontSize="19"/>
                             </buttons:SfButton.Content>
                         </buttons:SfButton>
 
@@ -129,21 +107,10 @@
                                           Padding="10"
                                           Clicked="BtnCall_Clicked">
                             <buttons:SfButton.Content>
-                                <Grid Margin="10, 0, 0, 0">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="50" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf87b;"
-                                           FontFamily="{StaticResource FontAwesomeSolid}"
+                                <Label Text="+389 44 356 500"
+                                       HorizontalTextAlignment="Center"
                                            VerticalTextAlignment="Center"
-                                           FontSize="19"
-                                           Grid.Column="0" />
-                                    <Label Text="+389 44 356 500"
-                                           VerticalTextAlignment="Center"
-                                           FontSize="19"
-                                           Grid.Column="1" />
-                                </Grid>
+                                           FontSize="19" />
                             </buttons:SfButton.Content>
                         </buttons:SfButton>
 
@@ -154,21 +121,10 @@
                                           Padding="10"
                                           Clicked="BtnFacebook_Clicked">
                             <buttons:SfButton.Content>
-                                <Grid Margin="10, 0, 0, 0">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="50" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf082;"
-                                           FontFamily="{StaticResource FontAwesomeBrands}"
+                                <Label Text="Facebook"
                                            VerticalTextAlignment="Center"
-                                           FontSize="19"
-                                           Grid.Column="0" />
-                                    <Label Text="Facebook"
-                                           VerticalTextAlignment="Center"
-                                           FontSize="19"
-                                           Grid.Column="1" />
-                                </Grid>
+                                       HorizontalTextAlignment="Center"
+                                           FontSize="19" />
                             </buttons:SfButton.Content>
                         </buttons:SfButton>
 
@@ -179,21 +135,10 @@
                                           Padding="10"
                                           Clicked="BtnWebsite_Clicked">
                             <buttons:SfButton.Content>
-                                <Grid Margin="10, 0, 0, 0">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="50" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf0ac;"
-                                           FontFamily="{StaticResource FontAwesomeSolid}"
+                                <Label Text="Website"
                                            VerticalTextAlignment="Center"
-                                           FontSize="19"
-                                           Grid.Column="0" />
-                                    <Label Text="Website"
-                                           VerticalTextAlignment="Center"
-                                           FontSize="19"
-                                           Grid.Column="1" />
-                                </Grid>
+                                       HorizontalTextAlignment="Center"
+                                           FontSize="19" />
                             </buttons:SfButton.Content>
                         </buttons:SfButton>
                     </StackLayout>
