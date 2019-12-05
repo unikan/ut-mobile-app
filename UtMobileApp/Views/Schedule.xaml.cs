@@ -223,24 +223,7 @@ namespace UtMobileApp.Views
 
             var resources = schedule.ScheduleResources;
 
-            if (scheduleList[0].L_Semester.t == "I")
-            {
-                schedule.ScheduleResources.Remove(resources.FirstOrDefault(resource => (resource as ScheduleResource).Id.ToString() == "II"));
-                schedule.ScheduleResources.Remove(resources.FirstOrDefault(resource => (resource as ScheduleResource).Id.ToString() == "IV"));
-                schedule.ScheduleResources.Remove(resources.FirstOrDefault(resource => (resource as ScheduleResource).Id.ToString() == "VI"));
-                schedule.ScheduleResources.Remove(resources.FirstOrDefault(resource => (resource as ScheduleResource).Id.ToString() == "VIII"));
-                schedule.ScheduleResources.Remove(resources.FirstOrDefault(resource => (resource as ScheduleResource).Id.ToString() == "X"));
-                schedule.ScheduleResources.Remove(resources.FirstOrDefault(resource => (resource as ScheduleResource).Id.ToString() == "XII"));
-            }
-            else
-            {
-                schedule.ScheduleResources.Remove(resources.FirstOrDefault(resource => (resource as ScheduleResource).Id.ToString() == "I"));
-                schedule.ScheduleResources.Remove(resources.FirstOrDefault(resource => (resource as ScheduleResource).Id.ToString() == "III"));
-                schedule.ScheduleResources.Remove(resources.FirstOrDefault(resource => (resource as ScheduleResource).Id.ToString() == "V"));
-                schedule.ScheduleResources.Remove(resources.FirstOrDefault(resource => (resource as ScheduleResource).Id.ToString() == "VII"));
-                schedule.ScheduleResources.Remove(resources.FirstOrDefault(resource => (resource as ScheduleResource).Id.ToString() == "IX"));
-                schedule.ScheduleResources.Remove(resources.FirstOrDefault(resource => (resource as ScheduleResource).Id.ToString() == "XI"));
-            }
+
 
             try
             {

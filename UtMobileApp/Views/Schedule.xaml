@@ -187,40 +187,40 @@
                     <schedule:SfSchedule.ScheduleResources>
                         <schedule:ScheduleResource Name="Semester I" 
                                                    Id="I" 
-                                                   Color="#D50000" />
+                                                   Color="#E44945" />
                         <schedule:ScheduleResource Name="Semester II" 
                                                    Id="II" 
-                                                   Color="#E67C73" />
+                                                   Color="#E44945" />
                         <schedule:ScheduleResource Name="Semester III" 
                                                    Id="III" 
-                                                   Color="#F4511E" />
+                                                   Color="#CF5F9A" />
                         <schedule:ScheduleResource Name="Semester IV" 
                                                    Id="IV" 
-                                                   Color="#F6BF26" />
+                                                   Color="#CF5F9A" />
                         <schedule:ScheduleResource Name="Semester V" 
                                                    Id="V" 
-                                                   Color="#33B679" />
+                                                   Color="#4663E5" />
                         <schedule:ScheduleResource Name="Semester VI" 
                                                    Id="VI" 
-                                                   Color="#0B8043" />
+                                                   Color="#4663E5" />
                         <schedule:ScheduleResource Name="Semester VII" 
                                                    Id="VII" 
-                                                   Color="#039BE5" />
+                                                   Color="#35C999" />
                         <schedule:ScheduleResource Name="Semester VIII" 
                                                    Id="VIII" 
-                                                   Color="#3F51B5" />
+                                                   Color="#35C999" />
                         <schedule:ScheduleResource Name="Semester IX" 
                                                    Id="IX" 
-                                                   Color="#7986CB" />
+                                                   Color="#ECD23F" />
                         <schedule:ScheduleResource Name="Semester X" 
                                                    Id="X" 
-                                                   Color="#8E24AA" />
+                                                   Color="#ECD23F" />
                         <schedule:ScheduleResource Name="Semester XI" 
                                                    Id="XI" 
-                                                   Color="#a2a8d3" />
+                                                   Color="#ED811F" />
                         <schedule:ScheduleResource Name="Semester XII" 
                                                    Id="XII" 
-                                                   Color="#38598b" />
+                                                   Color="#ED811F" />
                     </schedule:SfSchedule.ScheduleResources>
                     <schedule:SfSchedule.ResourceViewSettings>
                         <schedule:ResourceViewSettings SelectionMode="Multiple" VisibleResourceCount="5" />
@@ -265,7 +265,7 @@
             <StackLayout AbsoluteLayout.LayoutBounds="1, 1, 1, 0.05"
                          AbsoluteLayout.LayoutFlags="All"
                          x:Name="UpdateContent"
-                         BackgroundColor="Red"
+                         BackgroundColor="#00bc67"
                          TranslationY="500">
                 <buttons:SfButton x:Name="Btn_UpdateSchedule"
                                   Text="Click here to check for updates"

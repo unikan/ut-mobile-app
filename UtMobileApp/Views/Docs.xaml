@@ -5,40 +5,110 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:listviews="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
              xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              mc:Ignorable="d"
-             x:Class="UtMobileApp.Views.Docs">
+             x:Class="UtMobileApp.Views.Docs"
+             BackgroundColor="#5750f5">
     <ContentPage.Content>
-        <StackLayout>
-            <listviews:SfListView
+        <AbsoluteLayout>
+            <!-- HEADER -->
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand"
+                         Margin="10, 0"
+                         AbsoluteLayout.LayoutBounds="0.05, 0.03, 1, 0.13"
+                         AbsoluteLayout.LayoutFlags="All">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <buttons:SfButton 
+                            Grid.Row="0" 
+                            Grid.Column="0" 
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"
+                            ShowIcon="True" 
+                            BackgroundColor="Transparent"
+                            CornerRadius="40"
+                            WidthRequest="50"
+                            HeightRequest="50"
+                            Clicked="BtnBack_Clicked">
+                        <buttons:SfButton.Content>
+                            <Image Source="back.png"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   WidthRequest="20" 
+                                   HeightRequest="20" />
+                        </buttons:SfButton.Content>
+                    </buttons:SfButton>
+                    <Label Grid.Row="0"
+                           Grid.Column="1"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           HorizontalTextAlignment="Start"
+                           FontSize="Large"
+                           FontAttributes="Bold"
+                           MaxLines="1"
+                           Text="Documents"
+                           TextColor="White"></Label>
+                </Grid>
+            </StackLayout>
+
+            <border:SfBorder AbsoluteLayout.LayoutBounds="0, 1, 1, .85"
+                             AbsoluteLayout.LayoutFlags="All"
+                             CornerRadius="20, 20, 0, 0" 
+                             BorderWidth="0"
+                             BackgroundColor="White"
+                             Padding="20, 0"
+                             x:Name="DocsContent">
+                <StackLayout>
+                    <listviews:SfListView
                     x:Name="DocsList"
-                    ItemSize="300"
+                    ItemSize="50"
                     ItemTapped="DocsList_ItemTapped"
                     Opacity="1"
                     SelectionBackgroundColor="Transparent">
-                <listviews:SfListView.ItemTemplate>
-                    <DataTemplate>
-                        <Frame
-                                    Margin="20,0"
-                                    AbsoluteLayout.LayoutBounds="0, 0.7, 1, 0.4"
-                                    AbsoluteLayout.LayoutFlags="All"
-                                    BackgroundColor="White"
-                                    CornerRadius="10"
-                                    HasShadow="True">
-                            <StackLayout >
-                                <Label
+                        <listviews:SfListView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame x:Name="frame" 
+                                       HasShadow="False" 
+                                       Padding="2" 
+                                       Margin="2" 
+                                       CornerRadius="10"
+                                       BackgroundColor="#fbfbfe">
+                                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                        <Label
                                         FontAttributes="Bold"
                                         FontSize="16"
                                         Text="{Binding FileName}" />
-                                <Label
+                                        <Label
                                         FontAttributes="Bold"
                                         FontSize="16"
-                                        Text="{Binding FileUrl}" />
-                            </StackLayout>
-
-                        </Frame>
-                    </DataTemplate>
-                </listviews:SfListView.ItemTemplate>
-            </listviews:SfListView>
-        </StackLayout>
+                                        Text="{Binding FileUrl}" IsVisible="False" />
+                                    </StackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </listviews:SfListView.ItemTemplate>
+                    </listviews:SfListView>
+                </StackLayout>
+            </border:SfBorder>
+            <border:SfBorder AbsoluteLayout.LayoutBounds="0, 1, 1, .85"
+                             AbsoluteLayout.LayoutFlags="All"
+                             CornerRadius="20, 20, 0, 0" 
+                             BorderWidth="0"
+                             BackgroundColor="White"
+                             Padding="20, 0"
+                             x:Name="NoInternetContent"
+                             IsVisible="False">
+                <StackLayout HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="CenterAndExpand">
+                    <Label FontSize="32" Text="No internet, try again" HorizontalOptions="CenterAndExpand"></Label>
+                    <Button Text="Retry" Clicked="Reload_Clicked"/>
+                </StackLayout>
+            </border:SfBorder>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

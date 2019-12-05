@@ -128,7 +128,7 @@ namespace UtMobileApp.Extensions
                                     + teacher + "\n"
                                     + "Venue: " + venue1 + " "
                                     + group1,
-                        Color = Color.FromHex("#F28883")
+                        Color = Color.FromHex("#E44945")
                     });
                 }
                 if (scheduleList[i].M_Date2 != null && scheduleList[i].M_Time2 != null)
@@ -147,7 +147,7 @@ namespace UtMobileApp.Extensions
                                     + teacher + "\n"
                                     + "Venue: " + venue2 + " "
                                     + group2,
-                        Color = Color.FromHex("#B9A6E0")
+                        Color = Color.FromHex("#CF5F9A")
                     });
                 }
             }
@@ -187,7 +187,7 @@ namespace UtMobileApp.Extensions
                                     + subject + " - "
                                     + teacher + "\n"
                                     + "Venue: " + venue1,
-                        Color = Color.FromHex("#F28883")
+                        Color = Color.FromHex("#E44945")
                     });
                 }
                 if (scheduleList[i].E_Date2 != null && scheduleList[i].E_Time2 != null)
@@ -205,7 +205,7 @@ namespace UtMobileApp.Extensions
                                     + subject + " - "
                                     + teacher + "\n"
                                     + "Venue: " + venue2,
-                        Color = Color.FromHex("#B9A6E0")
+                        Color = Color.FromHex("#CF5F9A")
                     });
                 }
                 if (scheduleList[i].E_Date3 != null && scheduleList[i].E_Time3 != null)
@@ -223,7 +223,7 @@ namespace UtMobileApp.Extensions
                                     + subject + " - "
                                     + teacher + "\n"
                                     + "Venue: " + venue1,
-                        Color = Color.FromHex("#F28883")
+                        Color = Color.FromHex("#4663E5")
                     });
                 }
                 if (scheduleList[i].E_Date4 != null && scheduleList[i].E_Time4 != null)
@@ -241,7 +241,7 @@ namespace UtMobileApp.Extensions
                                     + subject + " - "
                                     + teacher + "\n"
                                     + "Venue: " + venue2,
-                        Color = Color.FromHex("#B9A6E0")
+                        Color = Color.FromHex("#35C999")
                     });
                 }
             }
@@ -274,7 +274,7 @@ namespace UtMobileApp.Extensions
                     Subject = title + " \n",
                                 //+ organizer + " - "
                                 //+ venue,
-                    Color = Color.FromHex("#F28883")
+                    Color = Color.FromHex("#E44945")
                 });
             }
 
