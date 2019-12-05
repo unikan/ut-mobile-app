@@ -45,7 +45,7 @@
     <ConsolePause>false</ConsolePause>
     <CodesignProvision>UnitEd_Distribution</CodesignProvision>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignKey>iPhone Developer: Krenar Huseini (S4MRRU3FU9)</CodesignKey>
+    <CodesignKey>iPhone Distribution: Krenar Huseini (6M9WM3KG23)</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
