@@ -30,6 +30,15 @@ namespace UtMobileApp
         {
             base.OnAppearing();
 
+            try
+            {
+                img_bg.Source = "backgroundimg4.png";
+            }
+            catch
+            {
+                contentPage.BackgroundColor = Color.FromHex("#5750f5");
+            }
+
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
                 LoginContent.IsVisible = false;

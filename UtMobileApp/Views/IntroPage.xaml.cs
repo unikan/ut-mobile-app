@@ -22,14 +22,18 @@ namespace UtMobileApp.Views
             auth = DependencyService.Get<Interface>();
         }
 
-        protected override async void OnAppearing()
+        protected override void OnAppearing()
         {
-            if (auth.GetCurrentUserStatus())
-            {
-                await Navigation.PushAsync(new MainPageStudent());
-            }
-
             base.OnAppearing();
+
+            try
+            {
+                img_bg.Source = "backgroundimg3.png";
+            }
+            catch 
+            {
+                contentPage.BackgroundColor = Color.FromHex("#5750f5");
+            }
         }
 
         protected override bool OnBackButtonPressed()

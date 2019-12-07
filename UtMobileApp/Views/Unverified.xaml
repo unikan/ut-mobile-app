@@ -7,11 +7,12 @@
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    BackgroundColor="#EEEEEE"
-    BackgroundImageSource="backgroundimg7.png"
+    x:Name="contentPage"
     mc:Ignorable="d">
     <ContentPage.Content>
         <AbsoluteLayout>
+            <Image x:Name="img_bg"
+                   Aspect="Fill"/>
             <StackLayout
                 x:Name="UnverifiedContent"
                 Padding="20,0"

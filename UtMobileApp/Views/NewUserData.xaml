@@ -11,10 +11,12 @@
     xmlns:numeric="clr-namespace:Syncfusion.SfNumericUpDown.XForms;assembly=Syncfusion.SfNumericUpDown.XForms"
     xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
     mc:Ignorable="d"
-    BackgroundImageSource="backgroundimg8.png">
+    x:Name="contentPage">
     <ContentPage.Content>
         <ScrollView Orientation="Vertical">
             <AbsoluteLayout Padding="10, 0">
+                <Image x:Name="img_bg"
+                       Aspect="Fill"/>
                 <StackLayout AbsoluteLayout.LayoutBounds="0, 1, 1, 1"
                          AbsoluteLayout.LayoutFlags="All"
                          x:Name="CompleteRegistrationContent"
