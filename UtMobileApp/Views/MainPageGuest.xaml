@@ -61,7 +61,7 @@
                                      Clicked="BtnNews_Clicked">
                         <button:SfButton.Content>
                             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                                <Image Source="icons/news.png"
+                                <Image Source="news.png"
                                        WidthRequest="30"
                                        HorizontalOptions="Center" />
                                 <Label Text="News"
@@ -82,7 +82,7 @@
                                      Clicked="BtnAnnouncements_Clicked">
                         <button:SfButton.Content>
                             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                                <Image Source="icons/announcements.png"
+                                <Image Source="announcements.png"
                                        WidthRequest="30"
                                        HorizontalOptions="Center" />
                                 <Label Text="Announcements" 
@@ -102,7 +102,7 @@
                                      Clicked="BtnCalls_Clicked">
                         <button:SfButton.Content>
                             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                                <Image Source="icons/calls.png"
+                                <Image Source="calls.png"
                                        WidthRequest="30"
                                        HorizontalOptions="Center" />
                                 <Label Text="Calls" 
@@ -122,7 +122,7 @@
                                      Clicked="BtnCareerCenter_Clicked">
                         <button:SfButton.Content>
                             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                                <Image Source="icons/careercenter.png"
+                                <Image Source="careercenter.png"
                                        WidthRequest="30"
                                        HorizontalOptions="Center" />
                                 <Label Text="Career Center" 
@@ -142,7 +142,7 @@
                                      Clicked="BtnEvents_Clicked">
                         <button:SfButton.Content>
                             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                                <Image Source="icons/events.png"
+                                <Image Source="events.png"
                                        WidthRequest="30"
                                        HorizontalOptions="Center" />
                                 <Label Text="Events" 
@@ -162,7 +162,7 @@
                                      Clicked="BtnOffices_Clicked">
                         <button:SfButton.Content>
                             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                                <Image Source="icons/info.png"
+                                <Image Source="info.png"
                                        WidthRequest="30"
                                        HorizontalOptions="Center" />
                                 <Label Text="Offices" 
@@ -182,7 +182,7 @@
                                      Clicked="BtnKujdesi_Clicked">
                         <button:SfButton.Content>
                             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                                <Image Source="icons/kujdesiperty.png"
+                                <Image Source="kujdesiperty.png"
                                        WidthRequest="30"
                                        HorizontalOptions="Center" />
                                 <Label Text="Kujdesi Për Ty" 
@@ -202,7 +202,7 @@
                                      Clicked="BtnContact_Clicked">
                         <button:SfButton.Content>
                             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                                <Image Source="icons/contact.png"
+                                <Image Source="contact.png"
                                        WidthRequest="30"
                                        HorizontalOptions="Center" />
                                 <Label Text="Contact Us"

@@ -340,73 +340,76 @@
     <BundleResource Include="Resources\avatar.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icons\announcements.png" />
+    <BundleResource Include="Resources\announcements.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icons\calls.png" />
+    <BundleResource Include="Resources\calls.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icons\careercenter.png" />
+    <BundleResource Include="Resources\careercenter.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icons\contact.png" />
+    <BundleResource Include="Resources\contact.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icons\erasmus.png" />
+    <BundleResource Include="Resources\erasmus.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icons\events.png" />
+    <BundleResource Include="Resources\events.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icons\forum.png" />
+    <BundleResource Include="Resources\forum.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icons\kujdesiperty.png" />
+    <BundleResource Include="Resources\kujdesiperty.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icons\library.png" />
+    <BundleResource Include="Resources\library.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icons\news.png" />
+    <BundleResource Include="Resources\news.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icons\signout.png" />
+    <BundleResource Include="Resources\signout.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icons\support.png" />
+    <BundleResource Include="Resources\support.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icons\documents.png" />
+    <BundleResource Include="Resources\documents.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icons\email.png" />
+    <BundleResource Include="Resources\email.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icons\facebook.png" />
+    <BundleResource Include="Resources\facebook.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icons\globe.png" />
+    <BundleResource Include="Resources\globe.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icons\info.png" />
+    <BundleResource Include="Resources\info.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icons\map.png" />
+    <BundleResource Include="Resources\map.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icons\contact-dark.png" />
+    <BundleResource Include="Resources\contact-dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icons\email-dark.png" />
+    <BundleResource Include="Resources\emailDark.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icons\facebook-dark.png" />
+    <BundleResource Include="Resources\facebookDark.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icons\globe-dark.png" />
+    <BundleResource Include="Resources\globeDark.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icons\map-dark.png" />
+    <BundleResource Include="Resources\mapDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\contactDark.png" />
   </ItemGroup>
   <PropertyGroup>
     <AutoUnifyAssemblyReferences>true</AutoUnifyAssemblyReferences>

@@ -83,7 +83,7 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="icons/map-dark.png"
+                                    <Image Source="mapDark.png"
                                            VerticalOptions="Center"
                                            WidthRequest="19"
                                            Grid.Column="0" />
@@ -107,7 +107,7 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="icons/email-dark.png"
+                                    <Image Source="emailDark.png"
                                            VerticalOptions="Center"
                                            WidthRequest="19"
                                            Grid.Column="0" />
@@ -131,7 +131,7 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="icons/contact-dark.png"
+                                    <Image Source="contactDark.png"
                                            VerticalOptions="Center"
                                            WidthRequest="19"
                                            Grid.Column="0" />
@@ -155,7 +155,7 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="icons/facebook-dark.png"
+                                    <Image Source="facebookDark.png"
                                            VerticalOptions="Center"
                                            WidthRequest="19"
                                            Grid.Column="0" />
@@ -179,7 +179,7 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="icons/globe-dark.png"
+                                    <Image Source="globeDark.png"
                                            VerticalOptions="Center"
                                            WidthRequest="19"
                                            Grid.Column="0" />

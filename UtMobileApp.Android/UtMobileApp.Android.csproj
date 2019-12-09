@@ -248,73 +248,73 @@
     <AndroidResource Include="Resources\drawable\avatar.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icons\announcements.png" />
+    <AndroidResource Include="Resources\drawable\announcements.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icons\calls.png" />
+    <AndroidResource Include="Resources\drawable\calls.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icons\careercenter.png" />
+    <AndroidResource Include="Resources\drawable\careercenter.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icons\contact.png" />
+    <AndroidResource Include="Resources\drawable\contact.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icons\erasmus.png" />
+    <AndroidResource Include="Resources\drawable\erasmus.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icons\events.png" />
+    <AndroidResource Include="Resources\drawable\events.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icons\forum.png" />
+    <AndroidResource Include="Resources\drawable\forum.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icons\kujdesiperty.png" />
+    <AndroidResource Include="Resources\drawable\kujdesiperty.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icons\library.png" />
+    <AndroidResource Include="Resources\drawable\library.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icons\news.png" />
+    <AndroidResource Include="Resources\drawable\news.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icons\signout.png" />
+    <AndroidResource Include="Resources\drawable\signout.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icons\support.png" />
+    <AndroidResource Include="Resources\drawable\support.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icons\facebook.png" />
+    <AndroidResource Include="Resources\drawable\facebook.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icons\globe.png" />
+    <AndroidResource Include="Resources\drawable\globe.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icons\info.png" />
+    <AndroidResource Include="Resources\drawable\info.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icons\map.png" />
+    <AndroidResource Include="Resources\drawable\map.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icons\documents.png" />
+    <AndroidResource Include="Resources\drawable\documents.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icons\email.png" />
+    <AndroidResource Include="Resources\drawable\email.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icons\contact-dark.png" />
+    <AndroidResource Include="Resources\drawable\emailDark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icons\email-dark.png" />
+    <AndroidResource Include="Resources\drawable\facebookDark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icons\facebook-dark.png" />
+    <AndroidResource Include="Resources\drawable\globeDark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icons\globe-dark.png" />
+    <AndroidResource Include="Resources\drawable\mapDark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icons\map-dark.png" />
+    <AndroidResource Include="Resources\drawable\contactDark.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

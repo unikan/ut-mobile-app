@@ -75,7 +75,7 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="icons/news.png"
+                                    <Image Source="news.png"
                                            WidthRequest="19"
                                            Grid.Column="0" />
                                     <Label Text="News"
@@ -102,7 +102,7 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="icons/announcements.png"
+                                    <Image Source="announcements.png"
                                            WidthRequest="19"
                                            Grid.Column="0" />
                                     <Label Text="Announcements"
@@ -129,7 +129,7 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="icons/calls.png"
+                                    <Image Source="calls.png"
                                            WidthRequest="19"
                                            Grid.Column="0" />
                                     <Label Text="Calls"
@@ -156,7 +156,7 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="icons/careercenter.png"
+                                    <Image Source="careercenter.png"
                                            WidthRequest="19"
                                            Grid.Column="0" />
                                     <Label Text="Career Center"
@@ -183,7 +183,7 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="icons/info.png"
+                                    <Image Source="info.png"
                                            WidthRequest="19"
                                            Grid.Column="0" />
                                     <Label Text="Offices"
@@ -210,7 +210,7 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="icons/documents.png"
+                                    <Image Source="documents.png"
                                            WidthRequest="19"
                                            Grid.Column="0" />
                                     <Label Text="Documents"
@@ -237,7 +237,7 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="icons/library.png"
+                                    <Image Source="library.png"
                                            WidthRequest="19"
                                            Grid.Column="0" />
                                     <Label Text="Library"
@@ -264,7 +264,7 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="icons/events.png"
+                                    <Image Source="events.png"
                                            WidthRequest="19"
                                            Grid.Column="0" />
                                     <Label Text="Events"
@@ -291,7 +291,7 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="icons/forum.png"
+                                    <Image Source="forum.png"
                                            WidthRequest="19"
                                            Grid.Column="0" />
                                     <Label Text="Discussion Forum"
@@ -318,7 +318,7 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="icons/erasmus.png"
+                                    <Image Source="erasmus.png"
                                            WidthRequest="19"
                                            Grid.Column="0" />
                                     <Label Text="Erasmus+"
@@ -345,7 +345,7 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="icons/kujdesiperty.png"
+                                    <Image Source="kujdesiperty.png"
                                            WidthRequest="19"
                                            Grid.Column="0" />
                                     <Label Text="Kujdesi Për Ty"
@@ -372,7 +372,7 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="icons/contact.png"
+                                    <Image Source="contact.png"
                                            WidthRequest="19"
                                            Grid.Column="0" />
                                     <Label Text="Contact Us"
@@ -399,7 +399,7 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="icons/support.png"
+                                    <Image Source="support.png"
                                            WidthRequest="19"
                                            Grid.Column="0" />
                                     <Label Text="Support"
@@ -425,7 +425,7 @@
                                     <ColumnDefinition Width="50" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
-                                <Image Source="icons/signout.png"
+                                <Image Source="signout.png"
                                            WidthRequest="19"
                                            Grid.Column="0" />
                                 <Label Text="Sign Out"

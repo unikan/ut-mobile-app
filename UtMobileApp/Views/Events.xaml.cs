@@ -16,7 +16,6 @@ namespace UtMobileApp.Views
     {
         readonly Extensions.DateExtensions de = new Extensions.DateExtensions();
         readonly FirebaseHelper firebaseHelper = new FirebaseHelper();
-        Interface auth;
         private bool _firstAppeareance = true;
 
         public Events()
