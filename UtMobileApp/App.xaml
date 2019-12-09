@@ -2,33 +2,4 @@
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UtMobileApp.App">
-	<Application.Resources>
-
-        <ResourceDictionary>
-            <OnPlatform x:TypeArguments="x:String" 
-                        x:Key="FontAwesomeRegular">
-                <On Platform="Android" 
-                    Value="FontAwesomeRegular.otf#Regular" />
-                <On Platform="iOS" 
-                    Value="FontAwesomeRegular-Regular" />
-            </OnPlatform>
-
-            <OnPlatform x:TypeArguments="x:String" 
-                        x:Key="FontAwesomeSolid">
-                <On Platform="Android" 
-                    Value="FontAwesomeSolid.otf#Solid" />
-                <On Platform="iOS" 
-                    Value="FontAwesomeSolid-Solid" />
-            </OnPlatform>
-
-            <OnPlatform x:TypeArguments="x:String" 
-                        x:Key="FontAwesomeBrands">
-                <On Platform="Android" 
-                    Value="FontAwesomeBrands.otf#Brands" />
-                <On Platform="iOS" 
-                    Value="FontAwesomeBrands-Brands" />
-            </OnPlatform>
-        </ResourceDictionary>
-
-    </Application.Resources>
 </Application>

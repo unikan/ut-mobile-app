@@ -68,8 +68,6 @@
 	<true/>
 	<key>XSAppIconAssets</key>
 	<string>Media.xcassets/AppIcons.appiconset</string>
-	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Allow this app to access your photos.</string>
 	<key>NSAppleMusicUsageDescription</key>
@@ -78,10 +76,7 @@
 	<string>Allow this app to access your camera.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Allow this app to access your photos.</string>
-  <key>UIAppFonts</key>
-  <array>
-    <string>FontAwesomeRegular.otf</string>
-    <string>FontAwesomeSolid.otf</string>
-  </array>
+	<key>CFBundleShortVersionString</key>
+	<string>2.2</string>
 </dict>
 </plist>

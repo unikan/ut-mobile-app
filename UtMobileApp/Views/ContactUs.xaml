@@ -83,10 +83,9 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf5a0;"
-                                           FontFamily="{StaticResource FontAwesomeSolid}"
-                                           VerticalTextAlignment="Center"
-                                           FontSize="19"
+                                    <Image Source="icons/map-dark.png"
+                                           VerticalOptions="Center"
+                                           WidthRequest="19"
                                            Grid.Column="0" />
                                     <Label Text="Str. Ilinden, nn. 1200 Tetova Republic of North Macedonia"
                                            VerticalTextAlignment="Center"
@@ -108,10 +107,9 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf0e0;"
-                                           FontFamily="{StaticResource FontAwesomeSolid}"
-                                           VerticalTextAlignment="Center"
-                                           FontSize="19"
+                                    <Image Source="icons/email-dark.png"
+                                           VerticalOptions="Center"
+                                           WidthRequest="19"
                                            Grid.Column="0" />
                                     <Label Text="international@unite.edu.mk"
                                            VerticalTextAlignment="Center"
@@ -120,7 +118,6 @@
                                 </Grid>
                             </buttons:SfButton.Content>
                         </buttons:SfButton>
-
 
                         <buttons:SfButton HorizontalTextAlignment="Start"
                                           HorizontalOptions="StartAndExpand"
@@ -134,10 +131,9 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf87b;"
-                                           FontFamily="{StaticResource FontAwesomeSolid}"
-                                           VerticalTextAlignment="Center"
-                                           FontSize="19"
+                                    <Image Source="icons/contact-dark.png"
+                                           VerticalOptions="Center"
+                                           WidthRequest="19"
                                            Grid.Column="0" />
                                     <Label Text="+389 44 356 500"
                                            VerticalTextAlignment="Center"
@@ -159,10 +155,9 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf082;"
-                                           FontFamily="{StaticResource FontAwesomeBrands}"
-                                           VerticalTextAlignment="Center"
-                                           FontSize="19"
+                                    <Image Source="icons/facebook-dark.png"
+                                           VerticalOptions="Center"
+                                           WidthRequest="19"
                                            Grid.Column="0" />
                                     <Label Text="Facebook"
                                            VerticalTextAlignment="Center"
@@ -184,10 +179,9 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf0ac;"
-                                           FontFamily="{StaticResource FontAwesomeSolid}"
-                                           VerticalTextAlignment="Center"
-                                           FontSize="19"
+                                    <Image Source="icons/globe-dark.png"
+                                           VerticalOptions="Center"
+                                           WidthRequest="19"
                                            Grid.Column="0" />
                                     <Label Text="Website"
                                            VerticalTextAlignment="Center"

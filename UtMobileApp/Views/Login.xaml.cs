@@ -34,10 +34,7 @@ namespace UtMobileApp
             {
                 img_bg.Source = "backgroundimg4.png";
             }
-            catch
-            {
-                contentPage.BackgroundColor = Color.FromHex("#5750f5");
-            }
+            catch { }
 
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {

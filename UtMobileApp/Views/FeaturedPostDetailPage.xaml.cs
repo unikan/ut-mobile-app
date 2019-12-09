@@ -60,7 +60,7 @@ namespace UtMobileApp.Views
                 try
                 {
                     var uri = new Uri(e.Url);
-                    await Launcher.OpenAsync(uri);
+                    await Browser.OpenAsync(uri);
                 }
                 catch (Exception)
                 {

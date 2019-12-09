@@ -9,7 +9,8 @@
     xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    x:Name="contentPage">
+    x:Name="contentPage"
+    BackgroundColor="#5750f5">
     <ContentPage.Content>
         <AbsoluteLayout>
             <Image x:Name="img_bg"
@@ -73,7 +74,8 @@
                         x:Name="EmailInput"
                         Completed="EmailInput_Completed"
                         Keyboard="Email"
-                        Placeholder="n.lastname3615111035@unite.edu.mk" />
+                        Placeholder="n.lastname3615111035@unite.edu.mk"
+                        TextColor="White"/>
                 </inputLayout:SfTextInputLayout>
 
                 <inputLayout:SfTextInputLayout
@@ -82,7 +84,7 @@
                     FocusedColor="#3e00bc"
                     Hint="Password"
                     UnfocusedColor="#eeeeee">
-                    <Entry x:Name="PasswordInput" IsPassword="True" />
+                    <Entry x:Name="PasswordInput" IsPassword="True" TextColor="White" />
                 </inputLayout:SfTextInputLayout>
                 <Label
                     Margin="0,0,0,10"

@@ -62,9 +62,9 @@
             <!--  DRAWER CONTENT  -->
             <navigationdrawer:SfNavigationDrawer.DrawerContentView>
                 <ScrollView Orientation="Vertical">
-                    <StackLayout BackgroundColor="#5750f5"
-                                 Padding="20"
-                                 Spacing="10">
+                    <StackLayout Padding="20"
+                                 Spacing="10"
+                                 BackgroundColor="#5750f5">
                         <buttons:SfButton HorizontalTextAlignment="Start"
                                           HorizontalOptions="StartAndExpand"
                                           BackgroundColor="Transparent"
@@ -75,10 +75,8 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf1ea;"
-                                           FontFamily="{StaticResource FontAwesomeRegular}"
-                                           TextColor="White"
-                                           FontSize="19"
+                                    <Image Source="icons/news.png"
+                                           WidthRequest="19"
                                            Grid.Column="0" />
                                     <Label Text="News"
                                            TextColor="White"
@@ -104,10 +102,8 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf0f3;"
-                                           FontFamily="{StaticResource FontAwesomeRegular}"
-                                           TextColor="White"
-                                           FontSize="19"
+                                    <Image Source="icons/announcements.png"
+                                           WidthRequest="19"
                                            Grid.Column="0" />
                                     <Label Text="Announcements"
                                            TextColor="White"
@@ -133,10 +129,8 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf0eb;"
-                                           FontFamily="{StaticResource FontAwesomeRegular}"
-                                           TextColor="White"
-                                           FontSize="19"
+                                    <Image Source="icons/calls.png"
+                                           WidthRequest="19"
                                            Grid.Column="0" />
                                     <Label Text="Calls"
                                            TextColor="White"
@@ -162,10 +156,8 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf2b5;"
-                                           FontFamily="{StaticResource FontAwesomeRegular}"
-                                           TextColor="White"
-                                           FontSize="19"
+                                    <Image Source="icons/careercenter.png"
+                                           WidthRequest="19"
                                            Grid.Column="0" />
                                     <Label Text="Career Center"
                                            TextColor="White"
@@ -191,10 +183,8 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf129;"
-                                           FontFamily="{StaticResource FontAwesomeSolid}"
-                                           TextColor="White"
-                                           FontSize="19"
+                                    <Image Source="icons/info.png"
+                                           WidthRequest="19"
                                            Grid.Column="0" />
                                     <Label Text="Offices"
                                            TextColor="White"
@@ -220,10 +210,8 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf15c;"
-                                           FontFamily="{StaticResource FontAwesomeRegular}"
-                                           TextColor="White"
-                                           FontSize="19"
+                                    <Image Source="icons/documents.png"
+                                           WidthRequest="19"
                                            Grid.Column="0" />
                                     <Label Text="Documents"
                                            TextColor="White"
@@ -249,10 +237,8 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf02d;"
-                                           FontFamily="{StaticResource FontAwesomeSolid}"
-                                           TextColor="White"
-                                           FontSize="19"
+                                    <Image Source="icons/library.png"
+                                           WidthRequest="19"
                                            Grid.Column="0" />
                                     <Label Text="Library"
                                            TextColor="White"
@@ -278,10 +264,8 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf073;"
-                                           FontFamily="{StaticResource FontAwesomeRegular}"
-                                           TextColor="White"
-                                           FontSize="19"
+                                    <Image Source="icons/events.png"
+                                           WidthRequest="19"
                                            Grid.Column="0" />
                                     <Label Text="Events"
                                            TextColor="White"
@@ -307,10 +291,8 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf086;"
-                                           FontFamily="{StaticResource FontAwesomeRegular}"
-                                           TextColor="White"
-                                           FontSize="19"
+                                    <Image Source="icons/forum.png"
+                                           WidthRequest="19"
                                            Grid.Column="0" />
                                     <Label Text="Discussion Forum"
                                            TextColor="White"
@@ -336,10 +318,8 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf362;"
-                                           FontFamily="{StaticResource FontAwesomeSolid}"
-                                           TextColor="White"
-                                           FontSize="19"
+                                    <Image Source="icons/erasmus.png"
+                                           WidthRequest="19"
                                            Grid.Column="0" />
                                     <Label Text="Erasmus+"
                                            TextColor="White"
@@ -365,10 +345,8 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf044;"
-                                           FontFamily="{StaticResource FontAwesomeRegular}"
-                                           TextColor="White"
-                                           FontSize="19"
+                                    <Image Source="icons/kujdesiperty.png"
+                                           WidthRequest="19"
                                            Grid.Column="0" />
                                     <Label Text="Kujdesi Për Ty"
                                            TextColor="White"
@@ -394,10 +372,8 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf87b;"
-                                           FontFamily="{StaticResource FontAwesomeSolid}"
-                                           TextColor="White"
-                                           FontSize="19"
+                                    <Image Source="icons/contact.png"
+                                           WidthRequest="19"
                                            Grid.Column="0" />
                                     <Label Text="Contact Us"
                                            TextColor="White"
@@ -423,10 +399,8 @@
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="&#xf2b6;"
-                                           FontFamily="{StaticResource FontAwesomeRegular}"
-                                           TextColor="White"
-                                           FontSize="19"
+                                    <Image Source="icons/support.png"
+                                           WidthRequest="19"
                                            Grid.Column="0" />
                                     <Label Text="Support"
                                            TextColor="White"
@@ -441,16 +415,26 @@
             <!--  FOOTER CONTENT  -->
             <navigationdrawer:SfNavigationDrawer.DrawerFooterView>
                 <StackLayout BackgroundColor="#5750f5" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
-                    <buttons:SfButton BackgroundColor="Transparent"
-                                      Clicked="SignOut_Clicked"
-                                      FontSize="Medium"
-                                      HorizontalOptions="StartAndExpand"
-                                      HorizontalTextAlignment="Center"
+                    <buttons:SfButton HorizontalOptions="CenterAndExpand"
                                       VerticalOptions="EndAndExpand"
-                                      VerticalTextAlignment="End"
-                                      Text="&#xf2f5; Log Out" 
-                                      FontFamily="{StaticResource FontAwesomeSolid}"
-                                      TextColor="White" />
+                                      BackgroundColor="Transparent"
+                                      Clicked="SignOut_Clicked">
+                        <buttons:SfButton.Content>
+                            <Grid Margin="10, 0, 0, 0" HorizontalOptions="CenterAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Source="icons/signout.png"
+                                           WidthRequest="19"
+                                           Grid.Column="0" />
+                                <Label Text="Sign Out"
+                                           TextColor="White"
+                                           FontSize="19"
+                                           Grid.Column="1" />
+                            </Grid>
+                        </buttons:SfButton.Content>
+                    </buttons:SfButton>
                 </StackLayout>
             </navigationdrawer:SfNavigationDrawer.DrawerFooterView>
             <navigationdrawer:SfNavigationDrawer.ContentView>
@@ -462,16 +446,6 @@
                         BorderWidth="0"
                         CornerRadius="0, 0, 150, 0">
                         <AbsoluteLayout BackgroundColor="#5750f5">
-                            <!--<gradient:SfGradientView>
-                                <gradient:SfGradientView.BackgroundBrush>
-                                    <gradient:SfLinearGradientBrush>
-                                        <gradient:SfLinearGradientBrush.GradientStops>
-                                            <gradient:SfGradientStop Offset="0.0" Color="#e68471" />
-                                            <gradient:SfGradientStop Offset="1.0" Color="#cc7564" />
-                                        </gradient:SfLinearGradientBrush.GradientStops>
-                                    </gradient:SfLinearGradientBrush>
-                                </gradient:SfGradientView.BackgroundBrush>
-                            </gradient:SfGradientView>-->
                             <!--  Nav toggle  -->
                             <buttons:SfButton
                                 x:Name="NavToggle"

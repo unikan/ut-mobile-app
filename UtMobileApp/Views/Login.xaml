@@ -8,7 +8,8 @@
     xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    x:Name="contentPage">
+    x:Name="contentPage"
+    BackgroundColor="#5750f5">
     <ContentPage.Content>
         <AbsoluteLayout>
             <Image x:Name="img_bg"

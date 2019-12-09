@@ -28,7 +28,7 @@ namespace UtMobileApp.Views
             try
             {
                 var uri = new Uri("https://unikan.dev/unitedapp/support.html");
-                await Launcher.OpenAsync(uri);
+                await Browser.OpenAsync(uri);
             }
             catch (Exception) { }
         }
@@ -38,7 +38,7 @@ namespace UtMobileApp.Views
             try
             {
                 var uri = new Uri("https://unikan.dev/unitedapp/privacy_policy.html");
-                await Launcher.OpenAsync(uri);
+                await Browser.OpenAsync(uri);
             }
             catch (Exception) { }
         }
@@ -48,7 +48,7 @@ namespace UtMobileApp.Views
             try
             {
                 var uri = new Uri("https://unikan.dev");
-                await Launcher.OpenAsync(uri);
+                await Browser.OpenAsync(uri);
             }
             catch (Exception) { }
         }

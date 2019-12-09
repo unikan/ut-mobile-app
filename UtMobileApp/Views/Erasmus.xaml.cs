@@ -26,14 +26,14 @@ namespace UtMobileApp.Views
 
         private void BtnEmail_Clicked(object sender, EventArgs e)
         {
-            Launcher.OpenAsync(new Uri("mailto:shpresa.ademi@unite.edu.mk"));
+            Browser.OpenAsync(new Uri("mailto:shpresa.ademi@unite.edu.mk"));
         }
         private async void BtnDoc0_Clicked(object sender, EventArgs e)
         {
             try
             {
                 var uri = new Uri("https://unite.edu.mk/wp-content/uploads/2019/05/ApplicationErasmus2019.pdf");
-                await Launcher.OpenAsync(uri);
+                await Browser.OpenAsync(uri);
             }
             catch (Exception) { }
         }
@@ -43,7 +43,7 @@ namespace UtMobileApp.Views
             try
             {
                 var uri = new Uri("http://unite.edu.mk/wp-content/uploads/2018/05/erasmus_udhezues.pdf");
-                await Launcher.OpenAsync(uri);
+                await Browser.OpenAsync(uri);
             }
             catch (Exception) { }
         }
@@ -53,7 +53,7 @@ namespace UtMobileApp.Views
             try
             {
                 var uri = new Uri("http://unite.edu.mk/wp-content/uploads/2018/05/ErasmusPolicyStatement.docx");
-                await Launcher.OpenAsync(uri);
+                await Browser.OpenAsync(uri);
             }
             catch (Exception) { }
         }
@@ -63,7 +63,7 @@ namespace UtMobileApp.Views
             try
             {
                 var uri = new Uri("http://erasmus.unite.edu.mk:3500/Application");
-                await Launcher.OpenAsync(uri);
+                await Browser.OpenAsync(uri);
             }
             catch (Exception) { }
         }
@@ -73,7 +73,7 @@ namespace UtMobileApp.Views
             try
             {
                 var uri = new Uri("https://i2.wp.com/unite.edu.mk/wp-content/uploads/2018/05/erasmus-doc.jpg?fit=1316%2C956&ssl=1");
-                await Launcher.OpenAsync(uri);
+                await Browser.OpenAsync(uri);
             }
             catch (Exception) { }
         }
@@ -83,7 +83,7 @@ namespace UtMobileApp.Views
             try
             {
                 var uri = new Uri("https://unite.edu.mk/erasmus/");
-                await Launcher.OpenAsync(uri);
+                await Browser.OpenAsync(uri);
             }
             catch (Exception) { }
         }

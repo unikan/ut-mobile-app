@@ -61,7 +61,7 @@ namespace UtMobileApp.Views
             try
             {
                 var uri = new Uri(currentItem.FileUrl);
-                await Launcher.OpenAsync(uri);
+                await Browser.OpenAsync(uri);
             }
             catch (Exception)
             {

@@ -60,308 +60,285 @@
                              AbsoluteLayout.LayoutFlags="All"
                              CornerRadius="20, 20, 0, 0" 
                              BorderWidth="0"
-                             BackgroundColor="White"
+                             BackgroundColor="Blue"
                              Padding="20, 0"
                              x:Name="CallsContent">
-                <border:SfBorder CornerRadius="20" BorderWidth="0">
-
-                    <ScrollView>
-                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
-                            <Label Text="Secretary General"
+                <ScrollView Orientation="Vertical"
+                            VerticalOptions="Fill">
+                    <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="Red">
+                        <Label Text="Secretary General"
                                            VerticalTextAlignment="Center"
                                            FontSize="20"
                                            Grid.Column="1"
                                HorizontalTextAlignment="Center"/>
-                            <Label Text="Adem Beadini"
+                        <Label Text="Adem Beadini"
                                            VerticalTextAlignment="Center"
                                            FontSize="19"
                                            Grid.Column="1"
                                HorizontalTextAlignment="Center"/>
 
-                            <buttons:SfButton HorizontalTextAlignment="Center"
-                                          HorizontalOptions="Center"
+                        <buttons:SfButton HorizontalOptions="CenterAndExpand"
+                                          VerticalOptions="CenterAndExpand"
                                           BackgroundColor="#fbfbfe"
                                           CornerRadius="10"
                                           Padding="10"
-                                          Clicked="Btn0Email_Clicked"
-                                              Text="E-mail: adem.beadini@unite.edu.mk" TextColor="Default">
-                            </buttons:SfButton>
+                                          Clicked="Btn0Email_Clicked">
+                            <buttons:SfButton.Content>
+                                <Label HorizontalTextAlignment="Center" Text="adem.beadini@unite.edu.mk" />
+                            </buttons:SfButton.Content>
+                        </buttons:SfButton>
+                        <Label FontSize="10" />
 
-                            <BoxView VerticalOptions="Center"
-                                 HorizontalOptions="Center"
-                                 HeightRequest="1"
-                                 WidthRequest="450"  
-                                 Color="#5750f5"></BoxView>
-                            <!-- NEXT -->
+                        <!-- NEXT -->
 
-                            <Label Text="Office of Education"
+                        <Label Text="Office of Education"
                                            VerticalTextAlignment="Center"
                                            FontSize="20"
                                            Grid.Column="1"
                                HorizontalTextAlignment="Center"/>
-                            <Label Text="Head: Asst. Prof. Dr. Ibrahim Neziri"
+                        <Label Text="Head: Asst. Prof. Dr. Ibrahim Neziri"
                                            VerticalTextAlignment="Center"
                                            FontSize="19"
                                            Grid.Column="1"
                                HorizontalTextAlignment="Center"/>
 
-                            <buttons:SfButton HorizontalTextAlignment="Center"
-                                          HorizontalOptions="Center"
+                        <buttons:SfButton HorizontalOptions="CenterAndExpand"
+                                          VerticalOptions="CenterAndExpand"
                                           BackgroundColor="#fbfbfe"
                                           CornerRadius="10"
                                           Padding="10"
-                                          Clicked="Btn1Email_Clicked"
-                                          Text="E-mail: ibrahim.neziri@unite.edu.mk"
-                                              TextColor="Default">
-                            </buttons:SfButton>
-                            <BoxView VerticalOptions="Center"
-                                 HorizontalOptions="Center"
-                                 HeightRequest="1"
-                                 WidthRequest="450"  
-                                 Color="#5750f5"></BoxView>
-                            <!-- NEXT -->
+                                          Clicked="Btn1Email_Clicked">
+                            <buttons:SfButton.Content>
+                                <Label HorizontalTextAlignment="Center" Text="ibrahim.neziri@unite.edu.mk" />
+                            </buttons:SfButton.Content>
+                        </buttons:SfButton>
+                        <Label FontSize="10" />
 
-                            <Label Text="International Relations Office"
+                        <!-- NEXT -->
+
+                        <Label Text="International Relations Office"
                                            VerticalTextAlignment="Center"
                                            FontSize="20"
                                            Grid.Column="1"
                                HorizontalTextAlignment="Center"/>
-                            <Label Text="Head: Mr.Sc. Hatibe Deari"
+                        <Label Text="Head: Mr.Sc. Hatibe Deari"
                                            VerticalTextAlignment="Center"
                                            FontSize="19"
                                            Grid.Column="1"
                                HorizontalTextAlignment="Center"/>
 
-                            <buttons:SfButton HorizontalTextAlignment="Center"
-                                          HorizontalOptions="Center"
+                        <buttons:SfButton HorizontalOptions="CenterAndExpand"
+                                          VerticalOptions="CenterAndExpand"
                                           BackgroundColor="#fbfbfe"
                                           CornerRadius="10"
                                           Padding="10"
-                                          Clicked="Btn2Email_Clicked" 
-                                              Text="E-mail: hatibe.deari@unite.edu.mk"
-                                              TextColor="Default">
-                            </buttons:SfButton>
-                            <BoxView VerticalOptions="Center"
-                                 HorizontalOptions="Center"
-                                 HeightRequest="1"
-                                 WidthRequest="450"  
-                                 Color="#5750f5"></BoxView>
-                            <!-- NEXT -->
+                                          Clicked="Btn2Email_Clicked">
+                            <buttons:SfButton.Content>
+                                <Label HorizontalTextAlignment="Center" Text="hatibe.deari@unite.edu.mk" />
+                            </buttons:SfButton.Content>
+                        </buttons:SfButton>
+                        <Label FontSize="10" />
 
-                            <Label Text="Office of Finance and Accounting"
+                        <!-- NEXT -->
+
+                        <Label Text="Office of Finance and Accounting"
                                            VerticalTextAlignment="Center"
                                            FontSize="20"
                                            Grid.Column="1"
                                HorizontalTextAlignment="Center"/>
-                            <Label Text="Head: Mr.Sc. Imberjah Tairi"
+                        <Label Text="Head: Mr.Sc. Imberjah Tairi"
                                            VerticalTextAlignment="Center"
                                            FontSize="19"
                                            Grid.Column="1"
                                HorizontalTextAlignment="Center"/>
 
-                            <buttons:SfButton HorizontalTextAlignment="Center"
-                                          HorizontalOptions="Center"
+                        <buttons:SfButton HorizontalOptions="CenterAndExpand"
+                                          VerticalOptions="CenterAndExpand"
                                           BackgroundColor="#fbfbfe"
                                           CornerRadius="10"
                                           Padding="10"
-                                          Clicked="Btn3Email_Clicked" 
-                                              Text="E-mail: imberjah.tairi@unite.edu.mk"
-                                              TextColor="Default">
-                            </buttons:SfButton>
-                            <BoxView VerticalOptions="Center"
-                                 HorizontalOptions="Center"
-                                 HeightRequest="1"
-                                 WidthRequest="450"  
-                                 Color="#5750f5"></BoxView>
-                            <!-- NEXT -->
+                                          Clicked="Btn3Email_Clicked">
+                            <buttons:SfButton.Content>
+                                <Label HorizontalTextAlignment="Center" Text="imberjah.tairi@unite.edu.mk" />
+                            </buttons:SfButton.Content>
+                        </buttons:SfButton>
+                        <Label FontSize="10" />
 
-                            <Label Text="Office of Legal Affairs"
+                        <!-- NEXT -->
+
+                        <Label Text="Office of Legal Affairs"
                                            VerticalTextAlignment="Center"
                                            FontSize="20"
                                            Grid.Column="1"
                                HorizontalTextAlignment="Center"/>
-                            <Label Text="Head: Mr.Sc. Florian Nesimi"
+                        <Label Text="Head: Mr.Sc. Florian Nesimi"
                                            VerticalTextAlignment="Center"
                                            FontSize="19"
                                            Grid.Column="1"
                                HorizontalTextAlignment="Center"/>
 
-                            <buttons:SfButton HorizontalTextAlignment="Center"
-                                          HorizontalOptions="Center"
+                        <buttons:SfButton HorizontalOptions="CenterAndExpand"
+                                          VerticalOptions="CenterAndExpand"
                                           BackgroundColor="#fbfbfe"
                                           CornerRadius="10"
                                           Padding="10"
-                                          Clicked="Btn4Email_Clicked" 
-                                              Text="E-mail: florian.nesimi@unite.edu.mk"
-                                              TextColor="Default">
-                            </buttons:SfButton>
-                            <BoxView VerticalOptions="Center"
-                                 HorizontalOptions="Center"
-                                 HeightRequest="1"
-                                 WidthRequest="450"  
-                                 Color="#5750f5"></BoxView>
-                            <!-- NEXT -->
+                                          Clicked="Btn4Email_Clicked">
+                            <buttons:SfButton.Content>
+                                <Label HorizontalTextAlignment="Center" Text="florian.nesimi@unite.edu.mk" />
+                            </buttons:SfButton.Content>
+                        </buttons:SfButton>
+                        <Label FontSize="10" />
 
-                            <Label Text="Press Office"
+                        <!-- NEXT -->
+
+                        <Label Text="Press Office"
                                            VerticalTextAlignment="Center"
                                            FontSize="20"
                                            Grid.Column="1"
                                HorizontalTextAlignment="Center"/>
-                            <Label Text="Head: Selam Sulejmani"
+                        <Label Text="Head: Selam Sulejmani"
                                            VerticalTextAlignment="Center"
                                            FontSize="19"
                                            Grid.Column="1"
                                HorizontalTextAlignment="Center"/>
 
-                            <buttons:SfButton HorizontalTextAlignment="Center"
-                                          HorizontalOptions="Center"
+                        <buttons:SfButton HorizontalOptions="CenterAndExpand"
+                                          VerticalOptions="CenterAndExpand"
                                           BackgroundColor="#fbfbfe"
                                           CornerRadius="10"
                                           Padding="10"
-                                          Clicked="Btn5Email_Clicked" 
-                                              Text="E-mail: press@unite.edu.mk"
-                                              TextColor="Default">
-                            </buttons:SfButton>
-                            <BoxView VerticalOptions="Center"
-                                 HorizontalOptions="Center"
-                                 HeightRequest="1"
-                                 WidthRequest="450"  
-                                 Color="#5750f5"></BoxView>
-                            <!-- NEXT -->
+                                          Clicked="Btn5Email_Clicked">
+                            <buttons:SfButton.Content>
+                                <Label HorizontalTextAlignment="Center" Text="press@unite.edu.mk" />
+                            </buttons:SfButton.Content>
+                        </buttons:SfButton>
+                        <Label FontSize="10" />
 
-                            <Label Text="Project Management Office"
+                        <!-- NEXT -->
+
+                        <Label Text="Project Management Office"
                                            VerticalTextAlignment="Center"
                                            FontSize="20"
                                            Grid.Column="1"
                                HorizontalTextAlignment="Center"/>
-                            <Label Text="Mr. Sc. Gjeraqina Leka"
+                        <Label Text="Head: Mr. Sc. Gjeraqina Leka"
                                            VerticalTextAlignment="Center"
                                            FontSize="19"
                                            Grid.Column="1"
                                HorizontalTextAlignment="Center"/>
 
-                            <buttons:SfButton HorizontalTextAlignment="Center"
-                                          HorizontalOptions="Center"
+                        <buttons:SfButton HorizontalOptions="CenterAndExpand"
+                                          VerticalOptions="CenterAndExpand"
                                           BackgroundColor="#fbfbfe"
                                           CornerRadius="10"
                                           Padding="10"
-                                          Clicked="Btn6Email_Clicked" 
-                                              Text="E-mail: projects@unite.edu.mk"
-                                              TextColor="Default">
-                            </buttons:SfButton>
-                            <BoxView VerticalOptions="Center"
-                                 HorizontalOptions="Center"
-                                 HeightRequest="1"
-                                 WidthRequest="450"  
-                                 Color="#5750f5"></BoxView>
-                            <!-- NEXT -->
+                                          Clicked="Btn6Email_Clicked">
+                            <buttons:SfButton.Content>
+                                <Label HorizontalTextAlignment="Center" Text="projects@unite.edu.mk" />
+                            </buttons:SfButton.Content>
+                        </buttons:SfButton>
+                        <Label FontSize="10" />
 
-                            <Label Text="Office for Scientific Research and Innovation"
+                        <!-- NEXT -->
+
+                        <Label Text="Office for Scientific Research and Innovation"
                                            VerticalTextAlignment="Center"
                                            FontSize="20"
                                            Grid.Column="1"
                                HorizontalTextAlignment="Center"/>
-                            <Label Text="Head: Asst. Prof. Dr. Agon Memeti"
+                        <Label Text="Head: Asst. Prof. Dr. Agon Memeti"
                                            VerticalTextAlignment="Center"
                                            FontSize="19"
                                            Grid.Column="1"
                                HorizontalTextAlignment="Center"/>
 
-                            <buttons:SfButton HorizontalTextAlignment="Center"
-                                          HorizontalOptions="Center"
+                        <buttons:SfButton HorizontalOptions="CenterAndExpand"
+                                          VerticalOptions="CenterAndExpand"
                                           BackgroundColor="#fbfbfe"
                                           CornerRadius="10"
                                           Padding="10"
-                                          Clicked="Btn7Email_Clicked" 
-                                              Text="E-mail: zshi@unite.edu.mk"
-                                              TextColor="Default">
-                            </buttons:SfButton>
-                            <BoxView VerticalOptions="Center"
-                                 HorizontalOptions="Center"
-                                 HeightRequest="1"
-                                 WidthRequest="450"  
-                                 Color="#5750f5"></BoxView>
-                            <!-- NEXT -->
+                                          Clicked="Btn7Email_Clicked">
+                            <buttons:SfButton.Content>
+                                <Label HorizontalTextAlignment="Center" Text="zshi@unite.edu.mk" />
+                            </buttons:SfButton.Content>
+                        </buttons:SfButton>
+                        <Label FontSize="10" />
 
-                            <Label Text="Office for Evaluation and Quality Management"
+                        <!-- NEXT -->
+
+                        <Label Text="Office for Evaluation and Quality Management"
                                            VerticalTextAlignment="Center"
                                            FontSize="20"
                                            Grid.Column="1"
                                HorizontalTextAlignment="Center"/>
-                            <Label Text="Head: Dr.Sc. Sheruze Osmani Ballazhi"
+                        <Label Text="Head: Dr.Sc. Sheruze Osmani Ballazhi"
                                            VerticalTextAlignment="Center"
                                            FontSize="19"
                                            Grid.Column="1"
                                HorizontalTextAlignment="Center"/>
 
-                            <buttons:SfButton HorizontalTextAlignment="Center"
-                                          HorizontalOptions="Center"
+                        <buttons:SfButton HorizontalOptions="CenterAndExpand"
+                                          VerticalOptions="CenterAndExpand"
                                           BackgroundColor="#fbfbfe"
                                           CornerRadius="10"
                                           Padding="10"
-                                          Clicked="Btn8Email_Clicked" 
-                                              Text="E-mail: evaluation@unite.edu.mk"
-                                              TextColor="Default">
-                            </buttons:SfButton>
+                                          Clicked="Btn8Email_Clicked">
+                            <buttons:SfButton.Content>
+                                <Label HorizontalTextAlignment="Center" Text="evaluation@unite.edu.mk" />
+                            </buttons:SfButton.Content>
+                        </buttons:SfButton>
+                        <Label FontSize="10" />
 
-                            <BoxView VerticalOptions="Center"
-                                 HorizontalOptions="Center"
-                                 HeightRequest="1"
-                                 WidthRequest="450"  
-                                 Color="#5750f5"></BoxView>
-                            <!-- NEXT -->
+                        <!-- NEXT -->
 
-                            <Label Text="ECTS Coordinator"
+                        <Label Text="ECTS Coordinator"
                                            VerticalTextAlignment="Center"
                                            FontSize="20"
                                            Grid.Column="1"
                                HorizontalTextAlignment="Center"/>
-                            <Label Text="Head: Asst. Prof. Dr. Kushtrim Ahmeti"
+                        <Label Text="Head: Asst. Prof. Dr. Kushtrim Ahmeti"
                                            VerticalTextAlignment="Center"
                                            FontSize="19"
                                            Grid.Column="1"
                                HorizontalTextAlignment="Center"/>
 
-                            <buttons:SfButton HorizontalTextAlignment="Center"
-                                          HorizontalOptions="Center"
+                        <buttons:SfButton HorizontalOptions="CenterAndExpand"
+                                          VerticalOptions="CenterAndExpand"
                                           BackgroundColor="#fbfbfe"
                                           CornerRadius="10"
                                           Padding="10"
-                                          Clicked="Btn9Email_Clicked" 
-                                              Text="E-mail: kushtrim.ahmeti@unite.edu.mk"
-                                              TextColor="Default">
-                            </buttons:SfButton>
-                            <BoxView VerticalOptions="Center"
-                                 HorizontalOptions="Center"
-                                 HeightRequest="1"
-                                 WidthRequest="450"  
-                                 Color="#5750f5"></BoxView>
-                            <!-- NEXT -->
+                                          Clicked="Btn9Email_Clicked">
+                            <buttons:SfButton.Content>
+                                <Label HorizontalTextAlignment="Center" Text="kushtrim.ahmeti@unite.edu.mk" />
+                            </buttons:SfButton.Content>
+                        </buttons:SfButton>
+                        <Label FontSize="10" />
 
-                            <Label Text="Office for Doctoral Studies"
+                        <!-- NEXT -->
+
+                        <Label Text="Office for Doctoral Studies"
                                            VerticalTextAlignment="Center"
                                            FontSize="20"
                                            Grid.Column="1"
                                HorizontalTextAlignment="Center"/>
-                            <Label Text="Head: Asst. Prof. Dr. Kushtrim Ahmeti"
+                        <Label Text="Head: Asst. Prof. Dr. Kushtrim Ahmeti"
                                            VerticalTextAlignment="Center"
                                            FontSize="19"
                                            Grid.Column="1"
                                HorizontalTextAlignment="Center"/>
 
-                            <buttons:SfButton HorizontalTextAlignment="Center"
-                                          HorizontalOptions="Center"
+                        <buttons:SfButton HorizontalOptions="CenterAndExpand"
+                                          VerticalOptions="CenterAndExpand"
                                           BackgroundColor="#fbfbfe"
                                           CornerRadius="10"
                                           Padding="10"
-                                          Clicked="Btn10Email_Clicked" 
-                                              Text="E-mail: doktoratura@unite.edu.mk"
-                                              TextColor="Default">
-                            </buttons:SfButton>
-
-                        </StackLayout>
-                    </ScrollView>
-                </border:SfBorder>
+                                          Clicked="Btn10Email_Clicked">
+                            <buttons:SfButton.Content>
+                                <Label HorizontalTextAlignment="Center" Text="doktoratura@unite.edu.mk" />
+                            </buttons:SfButton.Content>
+                        </buttons:SfButton>
+                    </StackLayout>
+                </ScrollView>
             </border:SfBorder>
         </AbsoluteLayout>
     </ContentPage.Content>

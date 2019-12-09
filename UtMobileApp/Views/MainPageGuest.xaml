@@ -61,11 +61,9 @@
                                      Clicked="BtnNews_Clicked">
                         <button:SfButton.Content>
                             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                                <Label Text="&#xf1ea;"
-                                       FontFamily="{StaticResource FontAwesomeRegular}"
-                                       FontSize="30"
-                                       TextColor="White"
-                                       HorizontalTextAlignment="Center" />
+                                <Image Source="icons/news.png"
+                                       WidthRequest="30"
+                                       HorizontalOptions="Center" />
                                 <Label Text="News"
                                        FontSize="23"
                                        TextColor="White"
@@ -73,6 +71,7 @@
                             </StackLayout>
                         </button:SfButton.Content>
                     </button:SfButton>
+                    
                     <button:SfButton x:Name="BtnAnnouncements" 
                                      CornerRadius="10" 
                                      HorizontalOptions="FillAndExpand"
@@ -83,11 +82,9 @@
                                      Clicked="BtnAnnouncements_Clicked">
                         <button:SfButton.Content>
                             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                                <Label Text="&#xf0f3;"
-                                       FontFamily="{StaticResource FontAwesomeRegular}"
-                                       FontSize="30"
-                                       TextColor="White"
-                                       HorizontalTextAlignment="Center" />
+                                <Image Source="icons/announcements.png"
+                                       WidthRequest="30"
+                                       HorizontalOptions="Center" />
                                 <Label Text="Announcements" 
                                        FontSize="23"
                                        TextColor="White"
@@ -105,11 +102,9 @@
                                      Clicked="BtnCalls_Clicked">
                         <button:SfButton.Content>
                             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                                <Label Text="&#xf0eb;"
-                                       FontFamily="{StaticResource FontAwesomeRegular}"
-                                       FontSize="30"
-                                       TextColor="White"
-                                       HorizontalTextAlignment="Center" />
+                                <Image Source="icons/calls.png"
+                                       WidthRequest="30"
+                                       HorizontalOptions="Center" />
                                 <Label Text="Calls" 
                                        FontSize="23"
                                        TextColor="White"
@@ -127,11 +122,9 @@
                                      Clicked="BtnCareerCenter_Clicked">
                         <button:SfButton.Content>
                             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                                <Label Text="&#xf2b5;"
-                                       FontFamily="{StaticResource FontAwesomeRegular}"
-                                       FontSize="30"
-                                       TextColor="White"
-                                       HorizontalTextAlignment="Center" />
+                                <Image Source="icons/careercenter.png"
+                                       WidthRequest="30"
+                                       HorizontalOptions="Center" />
                                 <Label Text="Career Center" 
                                        FontSize="23"
                                        TextColor="White"
@@ -149,11 +142,9 @@
                                      Clicked="BtnEvents_Clicked">
                         <button:SfButton.Content>
                             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                                <Label Text="&#xf073;"
-                                       FontFamily="{StaticResource FontAwesomeRegular}"
-                                       FontSize="30"
-                                       TextColor="White"
-                                       HorizontalTextAlignment="Center" />
+                                <Image Source="icons/events.png"
+                                       WidthRequest="30"
+                                       HorizontalOptions="Center" />
                                 <Label Text="Events" 
                                        FontSize="23"
                                        TextColor="White"
@@ -171,11 +162,9 @@
                                      Clicked="BtnOffices_Clicked">
                         <button:SfButton.Content>
                             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                                <Label Text="&#xf129;"
-                                       FontFamily="{StaticResource FontAwesomeSolid}"
-                                       FontSize="30"
-                                       TextColor="White"
-                                       HorizontalTextAlignment="Center" />
+                                <Image Source="icons/info.png"
+                                       WidthRequest="30"
+                                       HorizontalOptions="Center" />
                                 <Label Text="Offices" 
                                        FontSize="23"
                                        TextColor="White"
@@ -193,11 +182,9 @@
                                      Clicked="BtnKujdesi_Clicked">
                         <button:SfButton.Content>
                             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                                <Label Text="&#xf044;"
-                                       FontFamily="{StaticResource FontAwesomeRegular}"
-                                       FontSize="30"
-                                       TextColor="White"
-                                       HorizontalTextAlignment="Center" />
+                                <Image Source="icons/kujdesiperty.png"
+                                       WidthRequest="30"
+                                       HorizontalOptions="Center" />
                                 <Label Text="Kujdesi Për Ty" 
                                        FontSize="23"
                                        TextColor="White"
@@ -215,11 +202,9 @@
                                      Clicked="BtnContact_Clicked">
                         <button:SfButton.Content>
                             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                                <Label Text="&#xf87b;"
-                                       FontFamily="{StaticResource FontAwesomeSolid}"
-                                       FontSize="30"
-                                       TextColor="White"
-                                       HorizontalTextAlignment="Center" />
+                                <Image Source="icons/contact.png"
+                                       WidthRequest="30"
+                                       HorizontalOptions="Center" />
                                 <Label Text="Contact Us"
                                        FontSize="23"
                                        TextColor="White"

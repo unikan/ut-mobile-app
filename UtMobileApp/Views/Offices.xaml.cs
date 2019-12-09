@@ -25,57 +25,57 @@ namespace UtMobileApp.Views
 
         private void Btn0Email_Clicked(object sender, EventArgs e)
         {
-            Launcher.OpenAsync(new Uri("mailto:adem.beadini@unite.edu.mk"));
+            Browser.OpenAsync(new Uri("mailto:adem.beadini@unite.edu.mk"));
         }
 
         private void Btn1Email_Clicked(object sender, EventArgs e)
         {
-            Launcher.OpenAsync(new Uri("mailto:ibrahim.neziri@unite.edu.mk"));
+            Browser.OpenAsync(new Uri("mailto:ibrahim.neziri@unite.edu.mk"));
         }
 
         private void Btn2Email_Clicked(object sender, EventArgs e)
         {
-            Launcher.OpenAsync(new Uri("mailto:hatibe.deari@unite.edu.mk"));
+            Browser.OpenAsync(new Uri("mailto:hatibe.deari@unite.edu.mk"));
         }
 
         private void Btn3Email_Clicked(object sender, EventArgs e)
         {
-            Launcher.OpenAsync(new Uri("mailto:imberjah.tairi@unite.edu.mk"));
+            Browser.OpenAsync(new Uri("mailto:imberjah.tairi@unite.edu.mk"));
         }
 
         private void Btn4Email_Clicked(object sender, EventArgs e)
         {
-            Launcher.OpenAsync(new Uri("mailto:florian.nesimi@unite.edu.mk"));
+            Browser.OpenAsync(new Uri("mailto:florian.nesimi@unite.edu.mk"));
         }
 
         private void Btn5Email_Clicked(object sender, EventArgs e)
         {
-            Launcher.OpenAsync(new Uri("mailto:press@unite.edu.mk"));
+            Browser.OpenAsync(new Uri("mailto:press@unite.edu.mk"));
         }
 
         private void Btn6Email_Clicked(object sender, EventArgs e)
         {
-            Launcher.OpenAsync(new Uri("mailto:projects@unite.edu.mk"));
+            Browser.OpenAsync(new Uri("mailto:projects@unite.edu.mk"));
         }
 
         private void Btn7Email_Clicked(object sender, EventArgs e)
         {
-            Launcher.OpenAsync(new Uri("mailto:zshi@unite.edu.mk"));
+            Browser.OpenAsync(new Uri("mailto:zshi@unite.edu.mk"));
         }
 
         private void Btn8Email_Clicked(object sender, EventArgs e)
         {
-            Launcher.OpenAsync(new Uri("mailto:evaluation@unite.edu.mk"));
+            Browser.OpenAsync(new Uri("mailto:evaluation@unite.edu.mk"));
         }
 
         private void Btn9Email_Clicked(object sender, EventArgs e)
         {
-            Launcher.OpenAsync(new Uri("mailto:kushtrim.ahmeti@unite.edu.mk"));
+            Browser.OpenAsync(new Uri("mailto:kushtrim.ahmeti@unite.edu.mk"));
         }
 
         private void Btn10Email_Clicked(object sender, EventArgs e)
         {
-            Launcher.OpenAsync(new Uri("mailto:kushtrim.ahmeti@unite.edu.mk"));
+            Browser.OpenAsync(new Uri("mailto:kushtrim.ahmeti@unite.edu.mk"));
         }
 
 

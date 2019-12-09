@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -55,7 +55,8 @@ namespace UtMobileApp.Views
 
         private async void BtnKujdesi_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Views.KujdesiPerTy());
+            //await Navigation.PushAsync(new Views.KujdesiPerTy());
+            await Browser.OpenAsync(new Uri("https://eservices.unite.edu.mk/kujdesi-per-ty/"));
         }
 
         private async void BtnBack_Clicked(object sender, EventArgs e)

@@ -30,10 +30,7 @@ namespace UtMobileApp.Views
             {
                 img_bg.Source = "backgroundimg3.png";
             }
-            catch 
-            {
-                contentPage.BackgroundColor = Color.FromHex("#5750f5");
-            }
+            catch { }
         }
 
         protected override bool OnBackButtonPressed()

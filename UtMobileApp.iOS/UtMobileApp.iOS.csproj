@@ -119,26 +119,8 @@
     <BundleResource Include="GoogleService-Info.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <BundleResource Include="Resources\FontAwesomeRegular.otf" />
-    <BundleResource Include="Resources\FontAwesomeSolid.otf" />
-    <BundleResource Include="Resources\FontAwesomeBrands.otf" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Default-568h%402x.png" />
-    <BundleResource Include="Resources\Default-Portrait.png" />
-    <BundleResource Include="Resources\Default-Portrait%402x.png" />
-    <BundleResource Include="Resources\Default.png" />
-    <BundleResource Include="Resources\Default%402x.png" />
-    <BundleResource Include="Resources\Icon-60%402x.png" />
-    <BundleResource Include="Resources\Icon-60%403x.png" />
-    <BundleResource Include="Resources\Icon-76.png" />
-    <BundleResource Include="Resources\Icon-76%402x.png" />
-    <BundleResource Include="Resources\Icon-Small-40.png" />
-    <BundleResource Include="Resources\Icon-Small-40%402x.png" />
-    <BundleResource Include="Resources\Icon-Small-40%403x.png" />
-    <BundleResource Include="Resources\Icon-Small.png" />
-    <BundleResource Include="Resources\Icon-Small%402x.png" />
-    <BundleResource Include="Resources\Icon-Small%403x.png" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
   </ItemGroup>
   <ItemGroup>
@@ -356,6 +338,75 @@
   <ItemGroup>
     <BundleResource Include="Resources\erasmusdoc.jpg" />
     <BundleResource Include="Resources\avatar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icons\announcements.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icons\calls.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icons\careercenter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icons\contact.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icons\erasmus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icons\events.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icons\forum.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icons\kujdesiperty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icons\library.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icons\news.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icons\signout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icons\support.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icons\documents.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icons\email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icons\facebook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icons\globe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icons\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icons\map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icons\contact-dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icons\email-dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icons\facebook-dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icons\globe-dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icons\map-dark.png" />
   </ItemGroup>
   <PropertyGroup>
     <AutoUnifyAssemblyReferences>true</AutoUnifyAssemblyReferences>
