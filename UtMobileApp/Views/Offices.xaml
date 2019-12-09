@@ -60,12 +60,12 @@
                              AbsoluteLayout.LayoutFlags="All"
                              CornerRadius="20, 20, 0, 0" 
                              BorderWidth="0"
-                             BackgroundColor="Blue"
+                             BackgroundColor="White"
                              Padding="20, 0"
                              x:Name="CallsContent">
                 <ScrollView Orientation="Vertical"
                             VerticalOptions="Fill">
-                    <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="Red">
+                    <StackLayout VerticalOptions="FillAndExpand">
                         <Label Text="Secretary General"
                                            VerticalTextAlignment="Center"
                                            FontSize="20"
