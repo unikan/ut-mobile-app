@@ -26,11 +26,11 @@ namespace UtMobileApp.Views
         {
             base.OnAppearing();
 
-            try
-            {
-                img_bg.Source = "backgroundimg3.png";
-            }
-            catch { }
+            //try
+            //{
+            //    img_bg.Source = "backgroundimg3.png";
+            //}
+            //catch { }
         }
 
         protected override bool OnBackButtonPressed()

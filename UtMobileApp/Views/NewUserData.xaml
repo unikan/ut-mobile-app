@@ -11,7 +11,8 @@
     xmlns:numeric="clr-namespace:Syncfusion.SfNumericUpDown.XForms;assembly=Syncfusion.SfNumericUpDown.XForms"
     xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
     mc:Ignorable="d"
-    x:Name="contentPage">
+    x:Name="contentPage"
+    BackgroundColor="#5750f5">
     <ContentPage.Content>
         <ScrollView Orientation="Vertical">
             <AbsoluteLayout Padding="10, 0">

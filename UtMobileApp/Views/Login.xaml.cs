@@ -30,11 +30,11 @@ namespace UtMobileApp
         {
             base.OnAppearing();
 
-            try
-            {
-                img_bg.Source = "backgroundimg4.png";
-            }
-            catch { }
+            //try
+            //{
+            //    img_bg.Source = "backgroundimg4.png";
+            //}
+            //catch { }
 
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
