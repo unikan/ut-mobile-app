@@ -18,6 +18,11 @@ namespace UtMobileApp.Views
             InitializeComponent();
         }
 
+        private async void BtnBrochure_Clicked(object sender, EventArgs e)
+        {
+            await Browser.OpenAsync(new Uri("https://drive.google.com/file/d/1XMvccSvpF-Zbm_aIykhtGP6lkXXKtGWE/view?usp=sharing"));
+        }
+
         private async void BtnNews_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Views.News());

@@ -44,6 +44,8 @@ namespace UtMobileApp.iOS
             Syncfusion.XForms.iOS.Graphics.SfGradientViewRenderer.Init();
             Syncfusion.SfCalendar.XForms.iOS.SfCalendarRenderer.Init();
             Syncfusion.SfPullToRefresh.XForms.iOS.SfPullToRefreshRenderer.Init();
+            Syncfusion.SfPdfViewer.XForms.iOS.SfPdfDocumentViewRenderer.Init();
+            Syncfusion.SfRangeSlider.XForms.iOS.SfRangeSliderRenderer.Init();
 
             // Initialization of Animation for transitions
             FormsControls.Touch.Main.Init();

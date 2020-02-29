@@ -16,7 +16,7 @@ namespace UtMobileApp
             InitializeComponent();
 
             // Register Syncfusion license
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTUwODY0QDMxMzcyZTMzMmUzMFl5bDFGeGJPRDAwU3VhRW9wd2UrSUFpbk80bVZpMER6R0ljZ2RSdkdkdlU9");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MjE3MzQxQDMxMzcyZTM0MmUzMGxsY1UwU3dDbnZqbFpqekk5L2hHN1JUdURSUTNLUWtESk5pSnF1cDdQQkk9");
 
 
 

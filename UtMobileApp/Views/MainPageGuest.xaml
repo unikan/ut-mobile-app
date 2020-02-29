@@ -6,7 +6,7 @@
              xmlns:button="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              mc:Ignorable="d"
              x:Class="UtMobileApp.Views.MainPageGuest"
-             BackgroundColor="#cdd5e0">
+             BackgroundColor="#e7eaf6">
     <ContentPage.Content>
         <StackLayout Padding="10, 50, 10, 0">
             <Grid>
@@ -19,7 +19,7 @@
                                  HorizontalOptions="Start"
                                  VerticalOptions="Center"
                                  ShowIcon="True" 
-                                 BackgroundColor="#32407b"
+                                 BackgroundColor="#2b3595"
                                  CornerRadius="40"
                                  WidthRequest="50"
                                  HeightRequest="50"
@@ -36,28 +36,47 @@
                 <Image Source="utlogo.png" 
                        HorizontalOptions="CenterAndExpand"
                        VerticalOptions="CenterAndExpand"
-                       HeightRequest="120"
-                       WidthRequest="120"
+                       HeightRequest="150"
+                       WidthRequest="150"
                        Grid.Column="1" />
             </Grid>
             <ScrollView Orientation="Vertical">
-                <Grid RowSpacing="20" ColumnSpacing="10">
+                <Grid RowSpacing="20" ColumnSpacing="10" Padding="0, 0, 0, 20">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="80"/>
                         <RowDefinition Height="150"/>
                         <RowDefinition Height="150"/>
                         <RowDefinition Height="150"/>
                         <RowDefinition Height="150"/>
                     </Grid.RowDefinitions>
+                    <button:SfButton x:Name="BtnBrochure" 
+                                     CornerRadius="10" 
+                                     HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="FillAndExpand"
+                                     BackgroundColor="#2b3595"
+                                     Grid.Row="0" Grid.Column="0"
+                                     Grid.ColumnSpan="2"
+                                     Clicked="BtnBrochure_Clicked">
+                        <button:SfButton.Content>
+                            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                <Label Text="Brochure 2020/21"
+                                       FontSize="23"
+                                       TextColor="White"
+                                       HorizontalTextAlignment="Center"/>
+                            </StackLayout>
+                        </button:SfButton.Content>
+                    </button:SfButton>
+                    
                     <button:SfButton x:Name="BtnNews" 
                                      CornerRadius="10" 
                                      HorizontalOptions="FillAndExpand"
                                      VerticalOptions="FillAndExpand"
-                                     BackgroundColor="#32407b"
-                                     Grid.Row="0" Grid.Column="0"
+                                     BackgroundColor="#2b3595"
+                                     Grid.Row="1" Grid.Column="0"
                                      Clicked="BtnNews_Clicked">
                         <button:SfButton.Content>
                             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
@@ -77,8 +96,8 @@
                                      HorizontalOptions="FillAndExpand"
                                      VerticalOptions="FillAndExpand"
                                      FontSize="20"
-                                     BackgroundColor="#32407b"
-                                     Grid.Row="0" Grid.Column="1"
+                                     BackgroundColor="#2b3595"
+                                     Grid.Row="1" Grid.Column="1"
                                      Clicked="BtnAnnouncements_Clicked">
                         <button:SfButton.Content>
                             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
@@ -97,8 +116,8 @@
                                      HorizontalOptions="FillAndExpand"
                                      VerticalOptions="FillAndExpand"
                                      FontSize="20"
-                                     BackgroundColor="#32407b"
-                                     Grid.Row="1" Grid.Column="0"
+                                     BackgroundColor="#2b3595"
+                                     Grid.Row="2" Grid.Column="0"
                                      Clicked="BtnCalls_Clicked">
                         <button:SfButton.Content>
                             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
@@ -117,8 +136,8 @@
                                      HorizontalOptions="FillAndExpand"
                                      VerticalOptions="FillAndExpand"
                                      FontSize="20"
-                                     BackgroundColor="#32407b"
-                                     Grid.Row="1" Grid.Column="1"
+                                     BackgroundColor="#2b3595"
+                                     Grid.Row="2" Grid.Column="1"
                                      Clicked="BtnCareerCenter_Clicked">
                         <button:SfButton.Content>
                             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
@@ -137,8 +156,8 @@
                                      HorizontalOptions="FillAndExpand"
                                      VerticalOptions="FillAndExpand"
                                      FontSize="20"
-                                     BackgroundColor="#32407b"
-                                     Grid.Row="2" Grid.Column="0"
+                                     BackgroundColor="#2b3595"
+                                     Grid.Row="3" Grid.Column="0"
                                      Clicked="BtnEvents_Clicked">
                         <button:SfButton.Content>
                             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
@@ -157,8 +176,8 @@
                                      HorizontalOptions="FillAndExpand"
                                      VerticalOptions="FillAndExpand"
                                      FontSize="20"
-                                     BackgroundColor="#32407b"
-                                     Grid.Row="2" Grid.Column="1"
+                                     BackgroundColor="#2b3595"
+                                     Grid.Row="3" Grid.Column="1"
                                      Clicked="BtnOffices_Clicked">
                         <button:SfButton.Content>
                             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
@@ -177,8 +196,8 @@
                                      HorizontalOptions="FillAndExpand"
                                      VerticalOptions="FillAndExpand"
                                      FontSize="20"
-                                     BackgroundColor="#32407b"
-                                     Grid.Row="3" Grid.Column="0"
+                                     BackgroundColor="#2b3595"
+                                     Grid.Row="4" Grid.Column="0"
                                      Clicked="BtnKujdesi_Clicked">
                         <button:SfButton.Content>
                             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
@@ -197,8 +216,8 @@
                                      HorizontalOptions="FillAndExpand"
                                      VerticalOptions="FillAndExpand"
                                      FontSize="20"
-                                     BackgroundColor="#32407b"
-                                     Grid.Row="3" Grid.Column="1"
+                                     BackgroundColor="#2b3595"
+                                     Grid.Row="4" Grid.Column="1"
                                      Clicked="BtnContact_Clicked">
                         <button:SfButton.Content>
                             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
