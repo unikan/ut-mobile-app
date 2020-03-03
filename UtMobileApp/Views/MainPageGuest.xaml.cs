@@ -20,7 +20,7 @@ namespace UtMobileApp.Views
 
         private async void BtnBrochure_Clicked(object sender, EventArgs e)
         {
-            await Browser.OpenAsync(new Uri("https://drive.google.com/file/d/1XMvccSvpF-Zbm_aIykhtGP6lkXXKtGWE/view?usp=sharing"));
+            await Browser.OpenAsync(new Uri("https://unite.edu.mk/wp-content/uploads/2019/04/BROSHURA-SHQIP.pdf"));
         }
 
         private async void BtnNews_Clicked(object sender, EventArgs e)
