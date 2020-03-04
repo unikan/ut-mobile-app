@@ -13,6 +13,7 @@ namespace UtMobileApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Erasmus : ContentPage
     {
+        readonly Extensions.Helper helper = new Extensions.Helper();
         public Erasmus()
         {
             NavigationPage.SetHasNavigationBar(this, false);
@@ -24,9 +25,20 @@ namespace UtMobileApp.Views
             await Navigation.PopAsync();
         }
 
-        private void BtnEmail_Clicked(object sender, EventArgs e)
+        private async void BtnEmail_Clicked(object sender, EventArgs e)
         {
-            Browser.OpenAsync(new Uri("mailto:shpresa.ademi@unite.edu.mk"));
+            try
+            {
+                await helper.SendEmail("shpresa.ademi@unite.edu.mk");
+            }
+            catch (FeatureNotSupportedException fbsEx)
+            {
+                await DisplayAlert("Warning", "Email is not supported on this device", "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Warning", "The email can't be ", "OK");
+            }
         }
         private async void BtnDoc0_Clicked(object sender, EventArgs e)
         {

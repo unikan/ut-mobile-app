@@ -54,5 +54,21 @@ namespace UtMobileApp.Extensions
         {
             return Application.Current.Properties[key].ToString();
         }
+
+        public async Task SendEmail(string email)
+        {
+            List<string> emailTo = new List<string>();
+            emailTo.Add(email);
+
+            var message = new Xamarin.Essentials.EmailMessage
+            {
+                Subject = "",
+                Body = "",
+                To = emailTo
+                //Cc = ccRecipients,
+                //Bcc = bccRecipients
+            };
+            await Xamarin.Essentials.Email.ComposeAsync(message);
+        }
     }
 }

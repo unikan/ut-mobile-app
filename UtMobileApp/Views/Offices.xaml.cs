@@ -12,6 +12,8 @@ namespace UtMobileApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Offices : ContentPage
     {
+        readonly Extensions.Helper helper = new Extensions.Helper();
+
         public Offices()
         {
             NavigationPage.SetHasNavigationBar(this, false);
@@ -23,59 +25,180 @@ namespace UtMobileApp.Views
             await Navigation.PopAsync();
         }
 
-        private void Btn0Email_Clicked(object sender, EventArgs e)
+        private async void Btn0Email_Clicked(object sender, EventArgs e)
         {
-            Browser.OpenAsync(new Uri("mailto:adem.beadini@unite.edu.mk"));
+            try
+            {
+                await helper.SendEmail("adem.beadini@unite.edu.mk");
+            }
+            catch (FeatureNotSupportedException fbsEx)
+            {
+                await DisplayAlert("Warning", "Email is not supported on this device", "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Warning", "The email can't be ", "OK");
+            }
         }
 
-        private void Btn1Email_Clicked(object sender, EventArgs e)
+        private async void Btn1Email_Clicked(object sender, EventArgs e)
         {
-            Browser.OpenAsync(new Uri("mailto:ibrahim.neziri@unite.edu.mk"));
+            try
+            {
+                await helper.SendEmail("ibrahim.neziri@unite.edu.mk");
+            }
+            catch (FeatureNotSupportedException fbsEx)
+            {
+                await DisplayAlert("Warning", "Email is not supported on this device", "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Warning", "The email can't be ", "OK");
+            }
         }
 
-        private void Btn2Email_Clicked(object sender, EventArgs e)
+        private async void Btn2Email_Clicked(object sender, EventArgs e)
         {
-            Browser.OpenAsync(new Uri("mailto:hatibe.deari@unite.edu.mk"));
+            try
+            {
+                await helper.SendEmail("hatibe.deari@unite.edu.mk");
+            }
+            catch (FeatureNotSupportedException fbsEx)
+            {
+                await DisplayAlert("Warning", "Email is not supported on this device", "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Warning", "The email can't be ", "OK");
+            }
         }
 
-        private void Btn3Email_Clicked(object sender, EventArgs e)
+        private async void Btn3Email_Clicked(object sender, EventArgs e)
         {
-            Browser.OpenAsync(new Uri("mailto:imberjah.tairi@unite.edu.mk"));
+            try
+            {
+                await helper.SendEmail("imberjah.tairi@unite.edu.mk");
+            }
+            catch (FeatureNotSupportedException fbsEx)
+            {
+                await DisplayAlert("Warning", "Email is not supported on this device", "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Warning", "The email can't be ", "OK");
+            }
         }
 
-        private void Btn4Email_Clicked(object sender, EventArgs e)
+        private async void Btn4Email_Clicked(object sender, EventArgs e)
         {
-            Browser.OpenAsync(new Uri("mailto:florian.nesimi@unite.edu.mk"));
+            try
+            {
+                await helper.SendEmail("florian.nesimi@unite.edu.mk");
+            }
+            catch (FeatureNotSupportedException fbsEx)
+            {
+                await DisplayAlert("Warning", "Email is not supported on this device", "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Warning", "The email can't be ", "OK");
+            }
         }
 
-        private void Btn5Email_Clicked(object sender, EventArgs e)
+        private async void Btn5Email_Clicked(object sender, EventArgs e)
         {
-            Browser.OpenAsync(new Uri("mailto:press@unite.edu.mk"));
+            try
+            {
+                await helper.SendEmail("press@unite.edu.mk");
+            }
+            catch (FeatureNotSupportedException fbsEx)
+            {
+                await DisplayAlert("Warning", "Email is not supported on this device", "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Warning", "The email can't be ", "OK");
+            }
         }
 
-        private void Btn6Email_Clicked(object sender, EventArgs e)
+        private async void Btn6Email_Clicked(object sender, EventArgs e)
         {
-            Browser.OpenAsync(new Uri("mailto:projects@unite.edu.mk"));
+            try
+            {
+                await helper.SendEmail("projects@unite.edu.mk");
+            }
+            catch (FeatureNotSupportedException fbsEx)
+            {
+                await DisplayAlert("Warning", "Email is not supported on this device", "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Warning", "The email can't be ", "OK");
+            }
         }
 
-        private void Btn7Email_Clicked(object sender, EventArgs e)
+        private async void Btn7Email_Clicked(object sender, EventArgs e)
         {
-            Browser.OpenAsync(new Uri("mailto:zshi@unite.edu.mk"));
+            try
+            {
+                await helper.SendEmail("zshi@unite.edu.mk");
+            }
+            catch (FeatureNotSupportedException fbsEx)
+            {
+                await DisplayAlert("Warning", "Email is not supported on this device", "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Warning", "The email can't be ", "OK");
+            }
         }
 
-        private void Btn8Email_Clicked(object sender, EventArgs e)
+        private async void Btn8Email_Clicked(object sender, EventArgs e)
         {
-            Browser.OpenAsync(new Uri("mailto:evaluation@unite.edu.mk"));
+            try
+            {
+                await helper.SendEmail("evaluation@unite.edu.mk");
+            }
+            catch (FeatureNotSupportedException fbsEx)
+            {
+                await DisplayAlert("Warning", "Email is not supported on this device", "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Warning", "The email can't be ", "OK");
+            }
         }
 
-        private void Btn9Email_Clicked(object sender, EventArgs e)
+        private async void Btn9Email_Clicked(object sender, EventArgs e)
         {
-            Browser.OpenAsync(new Uri("mailto:kushtrim.ahmeti@unite.edu.mk"));
+            try
+            {
+                await helper.SendEmail("kushtrim.ahmeti@unite.edu.mk");
+            }
+            catch (FeatureNotSupportedException fbsEx)
+            {
+                await DisplayAlert("Warning", "Email is not supported on this device", "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Warning", "The email can't be ", "OK");
+            }
         }
 
-        private void Btn10Email_Clicked(object sender, EventArgs e)
+        private async void Btn10Email_Clicked(object sender, EventArgs e)
         {
-            Browser.OpenAsync(new Uri("mailto:kushtrim.ahmeti@unite.edu.mk"));
+            try
+            {
+                await helper.SendEmail("kushtrim.ahmeti@unite.edu.mk");
+            }
+            catch (FeatureNotSupportedException fbsEx)
+            {
+                await DisplayAlert("Warning", "Email is not supported on this device", "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Warning", "The email can't be ", "OK");
+            }
         }
 
 

@@ -13,6 +13,8 @@ namespace UtMobileApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ContactUs : ContentPage
     {
+        readonly Extensions.Helper helper = new Extensions.Helper();
+
         public ContactUs()
         {
             NavigationPage.SetHasNavigationBar(this, false);
@@ -46,9 +48,20 @@ namespace UtMobileApp.Views
             catch (Exception) { }
         }
 
-        private void BtnEmail_Clicked(object sender, EventArgs e)
+        private async void BtnEmail_Clicked(object sender, EventArgs e)
         {
-            Browser.OpenAsync(new Uri("mailto:international@unite.edu.mk"));
+            try
+            {
+                await helper.SendEmail("international@unite.edu.mk");
+            }
+            catch (FeatureNotSupportedException fbsEx)
+            {
+                await DisplayAlert("Warning", "Email is not supported on this device", "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Warning", "The email can't be ", "OK");
+            }
         }
 
         private void BtnCall_Clicked(object sender, EventArgs e)
