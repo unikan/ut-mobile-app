@@ -414,13 +414,13 @@
             </navigationdrawer:SfNavigationDrawer.DrawerContentView>
             <!--  FOOTER CONTENT  -->
             <navigationdrawer:SfNavigationDrawer.DrawerFooterView>
-                <StackLayout BackgroundColor="#5750f5" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+                <StackLayout BackgroundColor="#5750f5" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                     <buttons:SfButton HorizontalOptions="CenterAndExpand"
-                                      VerticalOptions="EndAndExpand"
+                                      VerticalOptions="CenterAndExpand"
                                       BackgroundColor="Transparent"
                                       Clicked="SignOut_Clicked">
                         <buttons:SfButton.Content>
-                            <Grid Margin="10, 0, 0, 0" HorizontalOptions="CenterAndExpand">
+                            <Grid Margin="10, 0, 0, 30" HorizontalOptions="CenterAndExpand">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="50" />
                                     <ColumnDefinition Width="*" />
