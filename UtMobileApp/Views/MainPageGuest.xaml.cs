@@ -6,21 +6,27 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XamarinFirebase.Helper;
 
 namespace UtMobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPageGuest : ContentPage
     {
+        FirebaseHelper firebaseHelper = new FirebaseHelper();
+
         public MainPageGuest()
         {
             NavigationPage.SetHasNavigationBar(this, false);
-            InitializeComponent();
+            InitializeComponent();            
         }
 
         private async void BtnBrochure_Clicked(object sender, EventArgs e)
         {
-            await Browser.OpenAsync(new Uri("https://unite.edu.mk/wp-content/uploads/2019/04/BROSHURA-SHQIP.pdf"));
+            // Get brochure link
+            Extensions.Dokumente brochure = await firebaseHelper.GetBrochure();
+
+            await Browser.OpenAsync(new Uri(brochure.FileUrl));
         }
 
         private async void BtnNews_Clicked(object sender, EventArgs e)

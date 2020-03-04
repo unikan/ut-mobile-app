@@ -45,7 +45,12 @@ namespace XamarinFirebase.Helper
             }).ToList();
         }
 
-     
+        public async Task<Dokumente> GetBrochure()
+        {
+            var docs = await GetAllDocs();
+
+            return docs.Find(doc => doc.FileName == "Brochure");
+        }
 
         public async Task AddPerson(string email, string firstname, string lastname, string indexnumber, string semestri)
         {
