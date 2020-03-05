@@ -479,9 +479,10 @@
                                    Opacity="0">
                                 <Label.FormattedText>
                                     <FormattedString>
-                                        <Span FontSize="40" Text="Hello,&#x0a;" />
-                                        <Span FontSize="40" FontAttributes="Bold" x:Name="label_name" />
-                                        <Span FontSize="20" x:Name="label_date" />
+                                        <Span LineHeight="2.1" FontSize="40" Text="Hello,&#x0a;" />
+                                        <Span LineHeight="2.1" FontSize="40" FontAttributes="Bold" x:Name="label_name" />
+                                        <Span FontSize="5" Text="&#x0a;" />
+                                        <Span LineHeight="1.2" FontSize="20" FontAttributes="Italic" x:Name="label_date" />
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>
