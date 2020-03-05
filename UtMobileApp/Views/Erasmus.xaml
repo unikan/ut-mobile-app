@@ -69,9 +69,9 @@
                         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
                             <buttons:SfButton HorizontalOptions="CenterAndExpand"
                                               VerticalOptions="CenterAndExpand"
-                                              BackgroundColor="#fbfbfe"
+                                              BackgroundColor="Transparent" FontAttributes="Bold"
                                               CornerRadius="10"
-                                              Padding="10"
+                                              Padding="15"
                                               Clicked="Image_Clicked">
                                 <buttons:SfButton.Content>
                                     <Image Source="erasmusdoc.jpg" 
@@ -82,78 +82,78 @@
                             
                             <Label Text="For more detailed information, please contact International Relations Office (Rectorate, Office 224) &#x0a;Coordinator for ERASMUS + program"
                                    VerticalTextAlignment="Center"
-                                   FontSize="19"
+                                   FontSize="16"
                                    Grid.Column="1"
                                    HorizontalTextAlignment="Center"/>
 
                             <buttons:SfButton HorizontalTextAlignment="Center"
                                               HorizontalOptions="StartAndExpand"
-                                              BackgroundColor="#fbfbfe"
+                                              BackgroundColor="#dddcfd" FontAttributes="Bold"
                                               CornerRadius="10"
-                                              Padding="20"
+                                              Padding="15"
                                               Clicked="BtnEmail_Clicked" 
                                               Text="Shpresa Ademi | shpresa.ademi@unite.edu.mk"
-                                              TextColor="Default">
+                                              TextColor="#303030" FontSize="14">
                             </buttons:SfButton>
 
                             <buttons:SfButton HorizontalTextAlignment="Center"
                                               HorizontalOptions="StartAndExpand"
-                                              BackgroundColor="#fbfbfe"
+                                              BackgroundColor="#dddcfd" FontAttributes="Bold"
                                               CornerRadius="10"
-                                              Padding="20"
+                                              Padding="15"
                                               Clicked="BtnCall_Clicked" 
                                               Text="+ 389 44 356 514"
-                                              TextColor="Default">
+                                              TextColor="#303030" FontSize="16">
                             </buttons:SfButton>
 
                             <buttons:SfButton HorizontalTextAlignment="Center"
                                               HorizontalOptions="StartAndExpand"
-                                              BackgroundColor="#fbfbfe"
+                                              BackgroundColor="#dddcfd" FontAttributes="Bold"
                                               CornerRadius="10"
-                                              Padding="20"
+                                              Padding="15"
                                               Clicked="FacultiesRelations_Clicked" 
                                               Text="Universities within Erasmus+"
-                                              TextColor="Default">
+                                              TextColor="#303030" FontSize="16">
                             </buttons:SfButton>
 
                             <buttons:SfButton HorizontalTextAlignment="Center"
                                               HorizontalOptions="StartAndExpand"
-                                              BackgroundColor="#fbfbfe"
+                                              BackgroundColor="#dddcfd" FontAttributes="Bold"
                                               CornerRadius="10"
-                                              Padding="20"
+                                              Padding="15"
                                               Clicked="BtnDoc0_Clicked" 
                                               Text="Application Erasmus 2019"
-                                              TextColor="Default">
+                                              TextColor="#303030" FontSize="16">
                             </buttons:SfButton>
 
                             <buttons:SfButton HorizontalTextAlignment="Center"
                                               HorizontalOptions="StartAndExpand"
-                                              BackgroundColor="#fbfbfe"
+                                              BackgroundColor="#dddcfd" FontAttributes="Bold"
                                               CornerRadius="10"
-                                              Padding="20"
+                                              Padding="15"
                                               Clicked="BtnDoc1_Clicked" 
                                               Text="Erasmus Guidelines"
-                                              TextColor="Default">
+                                              TextColor="#303030" FontSize="16">
                             </buttons:SfButton>
 
                             <buttons:SfButton HorizontalTextAlignment="Center"
                                               HorizontalOptions="StartAndExpand"
-                                              BackgroundColor="#fbfbfe"
+                                              BackgroundColor="#dddcfd" FontAttributes="Bold"
                                               CornerRadius="10"
-                                              Padding="20"
+                                              Padding="15"
                                               Clicked="BtnDoc2_Clicked" 
                                               Text="Erasmus Policy Statement"
-                                              TextColor="Default">
+                                              TextColor="#303030" FontSize="16">
                             </buttons:SfButton>
 
                             <buttons:SfButton HorizontalTextAlignment="Center"
                                               HorizontalOptions="StartAndExpand"
-                                              BackgroundColor="#fbfbfe"
+                                              BackgroundColor="#dddcfd" FontAttributes="Bold"
                                               CornerRadius="10"
-                                              Padding="20"
+                                              Padding="15"
                                               Clicked="Apply_Clicked" 
                                               Text="Apply Now"
-                                              TextColor="Default">
+                                              TextColor="#303030" FontSize="16">
                             </buttons:SfButton>
                         </StackLayout>
                     </ScrollView>

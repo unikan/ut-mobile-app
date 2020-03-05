@@ -81,11 +81,11 @@
                         <listview:SfListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid Padding="2" Margin="2" >
-                                    <Frame x:Name="frame" HasShadow="False" Padding="5" Margin="2" CornerRadius="10" BackgroundColor="#f9f9fe">
-                                        <StackLayout VerticalOptions="CenterAndExpand">
-                                            <Label Text="{Binding Author.t}" FontAttributes="Bold" />
-                                            <Label Text="{Binding BookTitle.t}"/>
-                                            <Label Text="{Binding Year.t}" FontAttributes="Italic"/>
+                                    <Frame x:Name="frame" HasShadow="False" Padding="5" Margin="2" CornerRadius="10" BackgroundColor="#dddcfd">
+                                        <StackLayout VerticalOptions="CenterAndExpand" Margin="10, 0, 0, 0">
+                                            <Label Text="{Binding Author.t}" TextColor="#303030" FontAttributes="Bold" />
+                                            <Label Text="{Binding BookTitle.t}" TextColor="#303030"/>
+                                            <Label Text="{Binding Year.t}" TextColor="#303030" FontAttributes="Italic"/>
                                         </StackLayout>
                                     </Frame>
                                 </Grid>

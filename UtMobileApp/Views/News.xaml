@@ -76,7 +76,7 @@
                 BackgroundColor="White"
                 BorderWidth="0"
                 CornerRadius="20, 20, 0, 0">
-                <StackLayout>
+                <StackLayout Margin="0, 5">
                     <busyindicator:SfBusyIndicator
                         x:Name="busyindicator"
                         Title="Loading news..."
@@ -109,12 +109,13 @@
                                         Margin="20,0"
                                         AbsoluteLayout.LayoutBounds="0, 0.7, 1, 0.4"
                                         AbsoluteLayout.LayoutFlags="All"
-                                        BackgroundColor="#f9f9fe"
+                                        BackgroundColor="#dddcfd"
                                         CornerRadius="5"
                                         HasShadow="True">
                                         <Label
                                             FontAttributes="Bold"
                                             FontSize="16"
+                                            TextColor="#303030"
                                             Text="{Binding Title, Converter={StaticResource convertToPlainText}}" />
                                     </Frame>
                                 </AbsoluteLayout>

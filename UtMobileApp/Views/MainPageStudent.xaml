@@ -8,12 +8,13 @@
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:navigationdrawer="clr-namespace:Syncfusion.SfNavigationDrawer.XForms;assembly=Syncfusion.SfNavigationDrawer.XForms"
-    BackgroundColor="#cdd5e0"
+    BackgroundColor="#FDFEED"
     mc:Ignorable="d">
     <ContentPage.Content>
         <navigationdrawer:SfNavigationDrawer
             x:Name="navigationDrawer"
-            DrawerFooterHeight="55"
+            DrawerFooterHeight="65"
+            DrawerHeaderHeight="110"
             DrawerWidth="300"
             HorizontalOptions="FillAndExpand"
             TouchThreshold="200"
@@ -22,7 +23,7 @@
             Duration="400">
             <!--  DRAWER HEADER  -->
             <navigationdrawer:SfNavigationDrawer.DrawerHeaderView>
-                <Grid BackgroundColor="#5750f5">
+                <Grid BackgroundColor="#564ff0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                             <ColumnDefinition Width="3*"></ColumnDefinition>
@@ -34,29 +35,28 @@
                             HeightRequest="50"
                             WidthRequest="50"
                             HorizontalOptions="Center"
-                            VerticalOptions="Center"
+                            VerticalOptions="End"
                             Grid.Column="0"
                             Grid.Row="0"
                             Grid.RowSpan="2">
                         <Image Source="avatar.png" />
                         </border:SfBorder>
+                    <StackLayout Orientation="Vertical"
+                                 Grid.Column="1"
+                                 Grid.Row="0"
+                                 Grid.RowSpan="2"
+                                 HorizontalOptions="StartAndExpand"
+                                 VerticalOptions="End">
                         <Label x:Name="label_flname" 
-                            HorizontalOptions="Start" 
-                            VerticalOptions="End"
                             FontAttributes="Bold"
-                            FontSize="Medium"
+                            FontSize="17"
                             Text="Filan Fisteki"
-                            TextColor="White"
-                            Grid.Column="1"
-                            Grid.Row="0"/>
+                            TextColor="White"/>
                         <Label x:Name="label_email"
-                                HorizontalOptions="Start"
-                                VerticalOptions="Start"
-                                FontSize="Small"
+                                FontSize="11"
                                 Text="f.filani3615111043@unite.edu.mk" 
-                                TextColor="White"
-                                Grid.Column="1"
-                                Grid.Row="1"/>
+                                TextColor="White"/>
+                    </StackLayout>
                     </Grid>
             </navigationdrawer:SfNavigationDrawer.DrawerHeaderView>
             <!--  DRAWER CONTENT  -->

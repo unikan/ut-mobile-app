@@ -67,37 +67,43 @@
 
                     <ScrollView>
                         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                            <Image Source="unikanlogo.png" 
+                                   HorizontalOptions="CenterAndExpand"
+                                   VerticalOptions="CenterAndExpand"
+                                   HeightRequest="100"
+                                   WidthRequest="100"
+                                   Margin="0, 0, 0, 15"/>
 
                             <buttons:SfButton HorizontalOptions="Center"
                                           VerticalOptions="Center"
-                                          BackgroundColor="#fbfbfe"
+                                          BackgroundColor="#dddcfd"
                                           CornerRadius="10"
                                           Padding="10"
                                           Clicked="BtnFeedback_Clicked">
                                 <buttons:SfButton.Content>
-                                    <Label HorizontalTextAlignment="Center" Text="Problem Reporting and Feedback" />
+                                    <Label FontSize="19" FontAttributes="Bold" TextColor="#303030" HorizontalTextAlignment="Center" Text="Problem Reporting and Feedback" />
                                 </buttons:SfButton.Content>
                             </buttons:SfButton>
 
                             <buttons:SfButton HorizontalOptions="Center"
                                           VerticalOptions="Center"
-                                          BackgroundColor="#fbfbfe"
+                                          BackgroundColor="#dddcfd"
                                           CornerRadius="10"
                                           Padding="10"
                                           Clicked="BtnPolicy_Clicked">
                                 <buttons:SfButton.Content>
-                                    <Label HorizontalTextAlignment="Center" Text="Privacy Policy" />
+                                    <Label FontSize="19" FontAttributes="Bold" TextColor="#303030" HorizontalTextAlignment="Center" Text="Privacy Policy" />
                                 </buttons:SfButton.Content>
                             </buttons:SfButton>
 
                             <buttons:SfButton HorizontalOptions="Center"
                                           VerticalOptions="Center"
-                                          BackgroundColor="#fbfbfe"
+                                          BackgroundColor="#dddcfd"
                                           CornerRadius="10"
                                           Padding="10"
                                           Clicked="BtnUnikan_Clicked">
                                 <buttons:SfButton.Content>
-                                    <Label HorizontalTextAlignment="Center" Text="MADE WITH ❤️ BY UNIKAN" />
+                                    <Label FontSize="19" FontAttributes="Bold" TextColor="#303030" HorizontalTextAlignment="Center" Text="MADE WITH ❤️ BY UNIKAN" />
                                 </buttons:SfButton.Content>
                             </buttons:SfButton>
 

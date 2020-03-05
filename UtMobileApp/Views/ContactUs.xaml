@@ -68,12 +68,12 @@
                         <Image Source="utlogo.png" 
                                HorizontalOptions="CenterAndExpand"
                                VerticalOptions="CenterAndExpand"
-                               HeightRequest="150"
-                               WidthRequest="150" />
+                               HeightRequest="100"
+                               WidthRequest="100" />
 
                         <buttons:SfButton HorizontalTextAlignment="Start"
                                           HorizontalOptions="StartAndExpand"
-                                          BackgroundColor="#fbfbfe"
+                                          BackgroundColor="#dddcfd"
                                           CornerRadius="10"
                                           Padding="10"
                                           Clicked="BtnMap_Clicked">
@@ -89,7 +89,7 @@
                                            Grid.Column="0" />
                                     <Label Text="Str. Ilinden, nn. 1200 Tetova Republic of North Macedonia"
                                            VerticalTextAlignment="Center"
-                                           FontSize="19"
+                                           FontSize="19" FontAttributes="Bold" TextColor="#303030"
                                            Grid.Column="1" />
                                 </Grid>
                             </buttons:SfButton.Content>
@@ -97,7 +97,7 @@
 
                         <buttons:SfButton HorizontalTextAlignment="Start"
                                           HorizontalOptions="StartAndExpand"
-                                          BackgroundColor="#fbfbfe"
+                                          BackgroundColor="#dddcfd"
                                           CornerRadius="10"
                                           Padding="10"
                                           Clicked="BtnEmail_Clicked">
@@ -113,7 +113,7 @@
                                            Grid.Column="0" />
                                     <Label Text="international@unite.edu.mk"
                                            VerticalTextAlignment="Center"
-                                           FontSize="19"
+                                           FontSize="19" FontAttributes="Bold" TextColor="#303030"
                                            Grid.Column="1" />
                                 </Grid>
                             </buttons:SfButton.Content>
@@ -121,7 +121,7 @@
 
                         <buttons:SfButton HorizontalTextAlignment="Start"
                                           HorizontalOptions="StartAndExpand"
-                                          BackgroundColor="#fbfbfe"
+                                          BackgroundColor="#dddcfd"
                                           CornerRadius="10"
                                           Padding="10"
                                           Clicked="BtnCall_Clicked">
@@ -137,7 +137,7 @@
                                            Grid.Column="0" />
                                     <Label Text="+389 44 356 500"
                                            VerticalTextAlignment="Center"
-                                           FontSize="19"
+                                           FontSize="19" FontAttributes="Bold" TextColor="#303030"
                                            Grid.Column="1" />
                                 </Grid>
                             </buttons:SfButton.Content>
@@ -145,7 +145,7 @@
 
                         <buttons:SfButton HorizontalTextAlignment="Start"
                                           HorizontalOptions="StartAndExpand"
-                                          BackgroundColor="#fbfbfe"
+                                          BackgroundColor="#dddcfd"
                                           CornerRadius="10"
                                           Padding="10"
                                           Clicked="BtnFacebook_Clicked">
@@ -161,7 +161,7 @@
                                            Grid.Column="0" />
                                     <Label Text="Facebook"
                                            VerticalTextAlignment="Center"
-                                           FontSize="19"
+                                           FontSize="19" FontAttributes="Bold" TextColor="#303030"
                                            Grid.Column="1" />
                                 </Grid>
                             </buttons:SfButton.Content>
@@ -169,7 +169,7 @@
 
                         <buttons:SfButton HorizontalTextAlignment="Start"
                                           HorizontalOptions="StartAndExpand"
-                                          BackgroundColor="#fbfbfe"
+                                          BackgroundColor="#dddcfd"
                                           CornerRadius="10"
                                           Padding="10"
                                           Clicked="BtnWebsite_Clicked">
@@ -185,7 +185,7 @@
                                            Grid.Column="0" />
                                     <Label Text="Website"
                                            VerticalTextAlignment="Center"
-                                           FontSize="19"
+                                           FontSize="19" FontAttributes="Bold" TextColor="#303030"
                                            Grid.Column="1" />
                                 </Grid>
                             </buttons:SfButton.Content>

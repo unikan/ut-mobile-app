@@ -70,7 +70,7 @@
                              BackgroundColor="White"
                              Padding="20, 0"
                              x:Name="AnnouncementsContent">
-                <StackLayout>
+                <StackLayout Margin="0, 5">
                     <busyindicator:SfBusyIndicator x:Name="busyindicator"
                                                ViewBoxHeight="70"
                                                ViewBoxWidth="70"
@@ -79,10 +79,10 @@
                                                TextSize="15" />
 
                     <listviews:SfListView x:Name="announcementsList" 
-                                      ItemTapped="announcementsList_ItemTapped"
-                                      ItemSize="100"
-                                      SelectionBackgroundColor="Transparent"
-                                      Opacity="0">
+                                          ItemTapped="announcementsList_ItemTapped"
+                                          ItemSize="100"
+                                          SelectionBackgroundColor="Transparent"
+                                          Opacity="0">
                         <listviews:SfListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid Padding="1" Margin="1">
@@ -91,7 +91,7 @@
                                        Padding="2" 
                                        Margin="2" 
                                        CornerRadius="10"
-                                       BackgroundColor="#fbfbfe">
+                                       BackgroundColor="#dddcfd">
                                         <Grid>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="2.5*"></ColumnDefinition>
@@ -104,6 +104,7 @@
                                                FontSize="Medium"
                                                FontAttributes="Bold"
                                                Padding="10, 0, 0, 0"
+                                               TextColor="#303030"
                                                Text="{Binding Title.Rendered, Converter={StaticResource convertToPlainText}}"
                                                ></Label>
                                             <Grid Grid.Row="0"
@@ -123,6 +124,7 @@
                                                    Margin="0"
                                                    FontSize="Medium"
                                                    FontAttributes="Bold"
+                                                   TextColor="#303030"
                                                    Text="{Binding Date, StringFormat='{0:dd}'}"></Label>
                                                 <Label Grid.Row="1" 
                                                    HorizontalOptions="CenterAndExpand"
@@ -133,6 +135,7 @@
                                                    Margin="0"
                                                    FontSize="Small"
                                                    FontAttributes="Italic"
+                                                   TextColor="#303030"
                                                    Text="{Binding Date, StringFormat='{0:MMMM}'}"></Label>
                                             </Grid>
                                         </Grid>

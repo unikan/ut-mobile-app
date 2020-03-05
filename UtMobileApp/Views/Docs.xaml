@@ -78,15 +78,16 @@
                                        Padding="2" 
                                        Margin="2" 
                                        CornerRadius="10"
-                                       BackgroundColor="#fbfbfe">
-                                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                       BackgroundColor="#dddcfd">
+                                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Spacing="15">
                                         <Label HorizontalTextAlignment="Center"
                                         FontAttributes="Bold"
-                                        FontSize="16"
+                                        FontSize="17"
+                                        TextColor="#303030"
                                         Text="{Binding FileName}" />
                                         <Label
                                         FontAttributes="Bold"
-                                        FontSize="16"
+                                        FontSize="18"
                                         Text="{Binding FileUrl}" IsVisible="False" />
                                     </StackLayout>
                                 </Frame>
