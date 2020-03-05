@@ -417,6 +417,9 @@
   <ItemGroup>
     <BundleResource Include="Resources\unikanlogo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\unikan.png" />
+  </ItemGroup>
   <PropertyGroup>
     <AutoUnifyAssemblyReferences>true</AutoUnifyAssemblyReferences>
   </PropertyGroup>

@@ -17,6 +17,9 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2150" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="utlogo.png">
                                 <rect key="frame" x="0.0" y="226" width="414" height="285"/>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2556" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="unikan.png">
+                                <rect key="frame" x="156" y="690" width="101" height="67"/>
+                            </imageView>
                         </subviews>
                     </view>
                 </viewController>
@@ -27,5 +30,6 @@
     </scenes>
     <resources>
         <image name="utlogo.png" width="200" height="200"/>
+        <image name="unikan.png" width="107" height="26"/>
     </resources>
 </document>

@@ -52,6 +52,7 @@
                         <RowDefinition Height="150"/>
                         <RowDefinition Height="150"/>
                         <RowDefinition Height="150"/>
+                        <RowDefinition Height="150"/>
                     </Grid.RowDefinitions>
                     <button:SfButton x:Name="BtnBrochure" 
                                      CornerRadius="10" 
@@ -111,6 +112,7 @@
                             </StackLayout>
                         </button:SfButton.Content>
                     </button:SfButton>
+                    
                     <button:SfButton x:Name="BtnCalls" 
                                      CornerRadius="10" 
                                      HorizontalOptions="FillAndExpand"
@@ -131,6 +133,7 @@
                             </StackLayout>
                         </button:SfButton.Content>
                     </button:SfButton>
+                    
                     <button:SfButton x:Name="BtnCareerCenter" 
                                      CornerRadius="10" 
                                      HorizontalOptions="FillAndExpand"
@@ -151,26 +154,28 @@
                             </StackLayout>
                         </button:SfButton.Content>
                     </button:SfButton>
-                    <button:SfButton x:Name="BtnEvents" 
+
+                    <button:SfButton x:Name="BtnDocs" 
                                      CornerRadius="10" 
                                      HorizontalOptions="FillAndExpand"
                                      VerticalOptions="FillAndExpand"
                                      FontSize="20"
                                      BackgroundColor="#3e00bc"
                                      Grid.Row="3" Grid.Column="0"
-                                     Clicked="BtnEvents_Clicked">
+                                     Clicked="BtnDocs_Clicked">
                         <button:SfButton.Content>
                             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                                <Image Source="events.png"
+                                <Image Source="documents.png"
                                        WidthRequest="30"
                                        HorizontalOptions="Center" />
-                                <Label Text="Events" 
+                                <Label Text="Documents" 
                                        FontSize="23"
                                        TextColor="White"
                                        HorizontalTextAlignment="Center"/>
                             </StackLayout>
                         </button:SfButton.Content>
                     </button:SfButton>
+
                     <button:SfButton x:Name="BtnOffices" 
                                      CornerRadius="10" 
                                      HorizontalOptions="FillAndExpand"
@@ -191,13 +196,35 @@
                             </StackLayout>
                         </button:SfButton.Content>
                     </button:SfButton>
-                    <button:SfButton x:Name="BtnKujdesi" 
+
+                    <button:SfButton x:Name="BtnEvents" 
                                      CornerRadius="10" 
                                      HorizontalOptions="FillAndExpand"
                                      VerticalOptions="FillAndExpand"
                                      FontSize="20"
                                      BackgroundColor="#3e00bc"
                                      Grid.Row="4" Grid.Column="0"
+                                     Clicked="BtnEvents_Clicked">
+                        <button:SfButton.Content>
+                            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                <Image Source="events.png"
+                                       WidthRequest="30"
+                                       HorizontalOptions="Center" />
+                                <Label Text="Events" 
+                                       FontSize="23"
+                                       TextColor="White"
+                                       HorizontalTextAlignment="Center"/>
+                            </StackLayout>
+                        </button:SfButton.Content>
+                    </button:SfButton>
+
+                    <button:SfButton x:Name="BtnKujdesi" 
+                                     CornerRadius="10" 
+                                     HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="FillAndExpand"
+                                     FontSize="20"
+                                     BackgroundColor="#3e00bc"
+                                     Grid.Row="4" Grid.Column="1"
                                      Clicked="BtnKujdesi_Clicked">
                         <button:SfButton.Content>
                             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
@@ -211,13 +238,35 @@
                             </StackLayout>
                         </button:SfButton.Content>
                     </button:SfButton>
+
+                    <button:SfButton x:Name="BtnSupport"  
+                                     CornerRadius="10" 
+                                     HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="FillAndExpand"
+                                     FontSize="20"
+                                     BackgroundColor="#3e00bc"
+                                     Grid.Row="5" Grid.Column="0"
+                                     Clicked="BtnSupport_Clicked">
+                        <button:SfButton.Content>
+                            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                <Image Source="support.png"
+                                       WidthRequest="30"
+                                       HorizontalOptions="Center" />
+                                <Label Text="Support"
+                                       FontSize="23"
+                                       TextColor="White"
+                                       HorizontalTextAlignment="Center"/>
+                            </StackLayout>
+                        </button:SfButton.Content>
+                    </button:SfButton>
+
                     <button:SfButton x:Name="BtnContact"  
                                      CornerRadius="10" 
                                      HorizontalOptions="FillAndExpand"
                                      VerticalOptions="FillAndExpand"
                                      FontSize="20"
                                      BackgroundColor="#3e00bc"
-                                     Grid.Row="4" Grid.Column="1"
+                                     Grid.Row="5" Grid.Column="1"
                                      Clicked="BtnContact_Clicked">
                         <button:SfButton.Content>
                             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">

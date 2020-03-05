@@ -74,5 +74,15 @@ namespace UtMobileApp.Views
         {
             await Navigation.PopAsync();
         }
+
+        private async void BtnDocs_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Docs());
+        }
+
+        private async void BtnSupport_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Views.Support());
+        }
     }
 }

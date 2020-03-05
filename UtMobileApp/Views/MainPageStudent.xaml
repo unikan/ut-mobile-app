@@ -335,6 +335,7 @@
                                    WidthRequest="350"  
                                    Color="#80FFFFFF"></BoxView>
                         
+
                         <buttons:SfButton HorizontalTextAlignment="Start"
                                           HorizontalOptions="StartAndExpand"
                                           BackgroundColor="Transparent"

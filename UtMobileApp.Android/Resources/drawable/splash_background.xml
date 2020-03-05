@@ -11,4 +11,9 @@
     android:tileMode="disabled"
     android:gravity="center"/>
   </item>
+  <item android:bottom="50dp">
+    <bitmap
+        android:gravity="bottom"
+        android:src="@drawable/unikan"/>
+  </item>
 </layer-list>
