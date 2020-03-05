@@ -58,11 +58,11 @@ namespace UtMobileApp.Views
 
                 //await Task.Delay(500); // Wait .5sec so the animation can be seen
                 await BtnLectures.TranslateTo(0, 0, 700, Easing.SpringOut);
-                await BtnLectures.ScaleTo(1, 150, Easing.Linear);
+                await BtnLectures.ScaleTo(0.95, 150, Easing.Linear);
                 await BtnMidterms.TranslateTo(0, 0, 700, Easing.SpringOut);
-                await BtnMidterms.ScaleTo(1, 150, Easing.Linear);
+                await BtnMidterms.ScaleTo(0.95, 150, Easing.Linear);
                 await BtnExams.TranslateTo(0, 0, 700, Easing.SpringOut);
-                await BtnExams.ScaleTo(1, 150, Easing.Linear);
+                await BtnExams.ScaleTo(0.95, 150, Easing.Linear);
                 //await BtnConsultations.TranslateTo(0, 0, 700, Easing.SpringOut);
                 //await BtnConsultations.ScaleTo(0.88, 150, Easing.Linear);
             }

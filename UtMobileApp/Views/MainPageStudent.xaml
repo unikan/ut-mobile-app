@@ -13,7 +13,7 @@
     <ContentPage.Content>
         <navigationdrawer:SfNavigationDrawer
             x:Name="navigationDrawer"
-            DrawerFooterHeight="100"
+            DrawerFooterHeight="55"
             DrawerWidth="300"
             HorizontalOptions="FillAndExpand"
             TouchThreshold="200"
@@ -62,15 +62,15 @@
             <!--  DRAWER CONTENT  -->
             <navigationdrawer:SfNavigationDrawer.DrawerContentView>
                 <ScrollView Orientation="Vertical">
-                    <StackLayout Padding="20"
-                                 Spacing="10"
+                    <StackLayout Padding="0"
+                                 Spacing="0"
                                  BackgroundColor="#5750f5">
                         <buttons:SfButton HorizontalTextAlignment="Start"
                                           HorizontalOptions="StartAndExpand"
                                           BackgroundColor="Transparent"
                                           Clicked="BtnNews_Clicked">
                             <buttons:SfButton.Content>
-                                <Grid Margin="10, 0, 0, 0">
+                                <Grid Margin="12">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
@@ -87,9 +87,9 @@
                         </buttons:SfButton>
 
                         <BoxView VerticalOptions="Center"
-                                 HorizontalOptions="Center"
+                                 HorizontalOptions="StartAndExpand"
                                  HeightRequest="1"
-                                 WidthRequest="250"  
+                                 WidthRequest="350"  
                                  Color="#80FFFFFF"></BoxView>
 
                         <buttons:SfButton HorizontalTextAlignment="Start"
@@ -97,7 +97,7 @@
                                           BackgroundColor="Transparent" 
                                           Clicked="BtnAnnouncements_Clicked">
                             <buttons:SfButton.Content>
-                                <Grid Margin="10, 0, 0, 0">
+                                <Grid Margin="12">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
@@ -114,9 +114,9 @@
                         </buttons:SfButton>
 
                         <BoxView   VerticalOptions="Center"
-                                   HorizontalOptions="Center"
+                                   HorizontalOptions="StartAndExpand"
                                    HeightRequest="1"
-                                   WidthRequest="250"  
+                                   WidthRequest="350"  
                                    Color="#80FFFFFF"></BoxView>
                         
                         <buttons:SfButton HorizontalTextAlignment="Start"
@@ -124,7 +124,7 @@
                                           BackgroundColor="Transparent" 
                                           Clicked="BtnCalls_Clicked">
                             <buttons:SfButton.Content>
-                                <Grid Margin="10, 0, 0, 0">
+                                <Grid Margin="12">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
@@ -141,9 +141,9 @@
                         </buttons:SfButton>
 
                         <BoxView   VerticalOptions="Center"
-                                   HorizontalOptions="Center"
+                                   HorizontalOptions="StartAndExpand"
                                    HeightRequest="1"
-                                   WidthRequest="250"  
+                                   WidthRequest="350"  
                                    Color="#80FFFFFF"></BoxView>
                         
                         <buttons:SfButton HorizontalTextAlignment="Start"
@@ -151,7 +151,7 @@
                                           BackgroundColor="Transparent" 
                                           Clicked="BtnCareerCenter_Clicked">
                             <buttons:SfButton.Content>
-                                <Grid Margin="10, 0, 0, 0">
+                                <Grid Margin="12">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
@@ -168,9 +168,9 @@
                         </buttons:SfButton>
 
                         <BoxView   VerticalOptions="Center"
-                                   HorizontalOptions="Center"
+                                   HorizontalOptions="StartAndExpand"
                                    HeightRequest="1"
-                                   WidthRequest="250"  
+                                   WidthRequest="350"  
                                    Color="#80FFFFFF"></BoxView>
                         
                         <buttons:SfButton HorizontalTextAlignment="Start"
@@ -178,7 +178,7 @@
                                           BackgroundColor="Transparent"
                                           Clicked="BtnOffices_Clicked">
                             <buttons:SfButton.Content>
-                                <Grid Margin="10, 0, 0, 0">
+                                <Grid Margin="12">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
@@ -195,9 +195,9 @@
                         </buttons:SfButton>
 
                         <BoxView   VerticalOptions="Center"
-                                   HorizontalOptions="Center"
+                                   HorizontalOptions="StartAndExpand"
                                    HeightRequest="1"
-                                   WidthRequest="250"  
+                                   WidthRequest="350"  
                                    Color="#80FFFFFF"></BoxView>
                          
                         <buttons:SfButton HorizontalTextAlignment="Start"
@@ -205,7 +205,7 @@
                                           BackgroundColor="Transparent"
                                           Clicked="BtnDokumente_Clicked">
                             <buttons:SfButton.Content>
-                                <Grid Margin="10, 0, 0, 0">
+                                <Grid Margin="12">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
@@ -222,9 +222,9 @@
                         </buttons:SfButton>
 
                         <BoxView   VerticalOptions="Center"
-                                   HorizontalOptions="Center"
+                                   HorizontalOptions="StartAndExpand"
                                    HeightRequest="1"
-                                   WidthRequest="250"  
+                                   WidthRequest="350"  
                                    Color="#80FFFFFF"></BoxView>
                         
                         <buttons:SfButton HorizontalTextAlignment="Start"
@@ -232,7 +232,7 @@
                                           BackgroundColor="Transparent"
                                           Clicked="BtnLibrary_Clicked">
                             <buttons:SfButton.Content>
-                                <Grid Margin="10, 0, 0, 0">
+                                <Grid Margin="12">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
@@ -249,9 +249,9 @@
                         </buttons:SfButton>
 
                         <BoxView   VerticalOptions="Center"
-                                   HorizontalOptions="Center"
+                                   HorizontalOptions="StartAndExpand"
                                    HeightRequest="1"
-                                   WidthRequest="250"  
+                                   WidthRequest="350"  
                                    Color="#80FFFFFF"></BoxView>
 
                         <buttons:SfButton HorizontalTextAlignment="Start"
@@ -259,7 +259,7 @@
                                           BackgroundColor="Transparent"
                                           Clicked="BtnEvents_Clicked">
                             <buttons:SfButton.Content>
-                                <Grid Margin="10, 0, 0, 0">
+                                <Grid Margin="12">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
@@ -276,9 +276,9 @@
                         </buttons:SfButton>
 
                         <BoxView   VerticalOptions="Center"
-                                   HorizontalOptions="Center"
+                                   HorizontalOptions="StartAndExpand"
                                    HeightRequest="1"
-                                   WidthRequest="250"  
+                                   WidthRequest="350"  
                                    Color="#80FFFFFF"></BoxView>
 
                         <buttons:SfButton HorizontalTextAlignment="Start"
@@ -286,7 +286,7 @@
                                           BackgroundColor="Transparent"
                                           Clicked="BtnForum_Clicked">
                             <buttons:SfButton.Content>
-                                <Grid Margin="10, 0, 0, 0">
+                                <Grid Margin="12">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
@@ -303,9 +303,9 @@
                         </buttons:SfButton>
 
                         <BoxView   VerticalOptions="Center"
-                                   HorizontalOptions="Center"
+                                   HorizontalOptions="StartAndExpand"
                                    HeightRequest="1"
-                                   WidthRequest="250"  
+                                   WidthRequest="350"  
                                    Color="#80FFFFFF"></BoxView>
                         
                         <buttons:SfButton HorizontalTextAlignment="Start"
@@ -313,7 +313,7 @@
                                           BackgroundColor="Transparent"
                                           Clicked="BtnErasmus_Clicked">
                             <buttons:SfButton.Content>
-                                <Grid Margin="10, 0, 0, 0">
+                                <Grid Margin="12">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
@@ -330,9 +330,9 @@
                         </buttons:SfButton>
 
                         <BoxView   VerticalOptions="Center"
-                                   HorizontalOptions="Center"
+                                   HorizontalOptions="StartAndExpand"
                                    HeightRequest="1"
-                                   WidthRequest="250"  
+                                   WidthRequest="350"  
                                    Color="#80FFFFFF"></BoxView>
                         
                         <buttons:SfButton HorizontalTextAlignment="Start"
@@ -340,7 +340,7 @@
                                           BackgroundColor="Transparent"
                                           Clicked="BtnKujdesi_Clicked">
                             <buttons:SfButton.Content>
-                                <Grid Margin="10, 0, 0, 0">
+                                <Grid Margin="12">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
@@ -357,9 +357,9 @@
                         </buttons:SfButton>
 
                         <BoxView   VerticalOptions="Center"
-                                   HorizontalOptions="Center"
+                                   HorizontalOptions="StartAndExpand"
                                    HeightRequest="1"
-                                   WidthRequest="250"  
+                                   WidthRequest="350"  
                                    Color="#80FFFFFF"></BoxView>
                          
                         <buttons:SfButton HorizontalTextAlignment="Start"
@@ -367,7 +367,7 @@
                                           BackgroundColor="Transparent"
                                           Clicked="BtnContactUs_Clicked">
                             <buttons:SfButton.Content>
-                                <Grid Margin="10, 0, 0, 0">
+                                <Grid Margin="12">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
@@ -384,9 +384,9 @@
                         </buttons:SfButton>
 
                         <BoxView   VerticalOptions="Center"
-                                   HorizontalOptions="Center"
+                                   HorizontalOptions="StartAndExpand"
                                    HeightRequest="1"
-                                   WidthRequest="250"  
+                                   WidthRequest="350"  
                                    Color="#80FFFFFF"></BoxView>
                          
                         <buttons:SfButton HorizontalTextAlignment="Start"
@@ -394,7 +394,7 @@
                                           BackgroundColor="Transparent"
                                           Clicked="BtnSupport_Clicked">
                             <buttons:SfButton.Content>
-                                <Grid Margin="10, 0, 0, 0">
+                                <Grid Margin="12">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="50" />
                                         <ColumnDefinition Width="*" />
@@ -414,28 +414,21 @@
             </navigationdrawer:SfNavigationDrawer.DrawerContentView>
             <!--  FOOTER CONTENT  -->
             <navigationdrawer:SfNavigationDrawer.DrawerFooterView>
-                <StackLayout BackgroundColor="#5750f5" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                    <buttons:SfButton HorizontalOptions="CenterAndExpand"
-                                      VerticalOptions="CenterAndExpand"
-                                      BackgroundColor="Transparent"
-                                      Clicked="SignOut_Clicked">
-                        <buttons:SfButton.Content>
-                            <Grid Margin="10, 0, 0, 30" HorizontalOptions="CenterAndExpand">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="50" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Image Source="signout.png"
-                                           WidthRequest="19"
-                                           Grid.Column="0" />
-                                <Label Text="Sign Out"
-                                           TextColor="White"
-                                           FontSize="19"
-                                           Grid.Column="1" />
-                            </Grid>
-                        </buttons:SfButton.Content>
-                    </buttons:SfButton>
-                </StackLayout>
+                <buttons:SfButton BackgroundColor="#564ff0"
+                                  Clicked="SignOut_Clicked">
+                    <buttons:SfButton.Content>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                            <Image Source="signout.png"
+                                   WidthRequest="19"
+                                   HeightRequest="19"
+                                   VerticalOptions="Center"/>
+                            <Label Text="Sign Out"
+                                   TextColor="White"
+                                   FontSize="19"
+                                   VerticalOptions="Center"/>
+                        </StackLayout>
+                    </buttons:SfButton.Content>
+                </buttons:SfButton>
             </navigationdrawer:SfNavigationDrawer.DrawerFooterView>
             <navigationdrawer:SfNavigationDrawer.ContentView>
                 <!--  MAIN CONTENT VIEW  -->
@@ -496,7 +489,8 @@
                         <ScrollView Orientation="Horizontal" 
                                     HorizontalScrollBarVisibility="Never" Scrolled="ScrollView_Scrolled">
                             <StackLayout Orientation="Horizontal"
-                                         Spacing="20">
+                                         Spacing="20"
+                                         Padding="20, 0">
                                 <buttons:SfButton x:Name="BtnLectures"
                                                   Text="Lectures"  
                                                   CornerRadius="20" 
