@@ -484,13 +484,16 @@
                     <StackLayout AbsoluteLayout.LayoutBounds="1, 1, 1, 0.45"
                                  AbsoluteLayout.LayoutFlags="All"
                                  HorizontalOptions="CenterAndExpand"
-                                 VerticalOptions="CenterAndExpand"
-                                 x:Name="scheduleContent">
+                                 x:Name="scheduleContent"
+                                 Margin="0, 5">
                         <ScrollView Orientation="Horizontal" 
-                                    HorizontalScrollBarVisibility="Never" Scrolled="ScrollView_Scrolled">
+                                    HorizontalScrollBarVisibility="Never" 
+                                    VerticalOptions="FillAndExpand"
+                                    Scrolled="ScrollView_Scrolled">
                             <StackLayout Orientation="Horizontal"
                                          Spacing="20"
-                                         Padding="20, 0">
+                                         Padding="20, 0"
+                                         VerticalOptions="FillAndExpand">
                                 <buttons:SfButton x:Name="BtnLectures"
                                                   Text="Lectures"  
                                                   CornerRadius="20" 
@@ -498,7 +501,7 @@
                                                   HeightRequest="300"
                                                   HorizontalTextAlignment="Center"
                                                   VerticalTextAlignment="Center"
-                                                  Padding="20"
+                                                  VerticalOptions="Center"
                                                   FontSize="24"
                                                   FontAttributes="Bold"
                                                   TranslationX="600"
@@ -512,7 +515,7 @@
                                                   HeightRequest="300"
                                                   HorizontalTextAlignment="Center"
                                                   VerticalTextAlignment="Center"
-                                                  Padding="20"
+                                                  VerticalOptions="Center"
                                                   FontSize="24"
                                                   FontAttributes="Bold"
                                                   TranslationX="600"
@@ -526,7 +529,7 @@
                                                   HeightRequest="300"
                                                   HorizontalTextAlignment="Center"
                                                   VerticalTextAlignment="Center"
-                                                  Padding="20"
+                                                  VerticalOptions="Center"
                                                   FontSize="24"
                                                   FontAttributes="Bold"
                                                   TranslationX="600"
