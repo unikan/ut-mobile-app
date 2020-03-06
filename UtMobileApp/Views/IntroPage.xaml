@@ -12,12 +12,11 @@
     BackgroundColor="#5750f5">
     <ContentPage.Content>
         <AbsoluteLayout HorizontalOptions="CenterAndExpand">
-            <Image x:Name="img_bg"
-                   Aspect="Fill"/>
             <StackLayout
                 AbsoluteLayout.LayoutBounds="0, 0.15, 1, 0.5"
                 AbsoluteLayout.LayoutFlags="All"
                 VerticalOptions="CenterAndExpand">
+                <Image Source="unitedbg.png" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"></Image>
                 <Label
                     FontAttributes="Bold"
                     FontSize="35"

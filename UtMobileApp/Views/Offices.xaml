@@ -65,7 +65,7 @@
                              x:Name="CallsContent">
                 <ScrollView Orientation="Vertical"
                             Margin="0, 5">
-                    <StackLayout VerticalOptions="FillAndExpand">
+                    <StackLayout>
                         <Label Text="Secretary General"
                                            VerticalTextAlignment="Center"
                                            FontSize="20"
