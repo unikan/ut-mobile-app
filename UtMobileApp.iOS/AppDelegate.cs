@@ -7,6 +7,7 @@ using Microsoft.AppCenter;
 using Plugin.Permissions;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using Lottie.Forms.iOS.Renderers;
 
 namespace UtMobileApp.iOS
 {
@@ -53,6 +54,9 @@ namespace UtMobileApp.iOS
             // Appcenter
             AppCenter.Start("c79194b5-5202-45a0-9c03-836b08c99659",
                    typeof(Analytics), typeof(Crashes));
+
+            // Initialization of Lottie animations
+            AnimationViewRenderer.Init();
 
             LoadApplication(new App());
 

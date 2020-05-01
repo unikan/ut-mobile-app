@@ -15,6 +15,8 @@ namespace UtMobileApp.Views
         readonly Extensions.Helper helper = new Extensions.Helper();
         readonly Interface auth;
 
+        private bool _firstAppereance = true;
+
         public IntroPage()
         {
             NavigationPage.SetHasNavigationBar(this, false);
@@ -26,11 +28,11 @@ namespace UtMobileApp.Views
         {
             base.OnAppearing();
 
-            //try
-            //{
-            //    img_bg.Source = "backgroundimg3.png";
-            //}
-            //catch { }
+            if (_firstAppereance)
+            {
+                _firstAppereance = false;
+                Navigation.PushModalAsync(new StayHomeModal());
+            }
         }
 
         protected override bool OnBackButtonPressed()

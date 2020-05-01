@@ -11,6 +11,7 @@ using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Plugin.CurrentActivity;
 using Android.Util;
+using Lottie.Forms.Droid;
 
 namespace UtMobileApp.Android
 {
@@ -55,6 +56,9 @@ namespace UtMobileApp.Android
             var accentColorProp = typeof(Xamarin.Forms.Color).GetProperty(nameof(Xamarin.Forms.Color.Accent), System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
             var xamarinAccentColor = new Xamarin.Forms.Color(droidAccentColor.R / 87.0, droidAccentColor.G / 80.0, droidAccentColor.B / 245.0, droidAccentColor.A / 255.0);
             accentColorProp.SetValue(null, xamarinAccentColor, System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static, null, null, System.Globalization.CultureInfo.CurrentCulture);
+
+            // Initialization of Lottie animations
+            AnimationViewRenderer.Init();
 
             LoadApplication(new App());
         }
