@@ -4,7 +4,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 using Microsoft.AppCenter;
-using Plugin.Permissions;
+//using Plugin.Permissions;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Lottie.Forms.iOS.Renderers;

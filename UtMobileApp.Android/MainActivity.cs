@@ -9,7 +9,6 @@ using Android.OS;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
-using Plugin.CurrentActivity;
 using Android.Util;
 using Lottie.Forms.Droid;
 
@@ -21,8 +20,11 @@ namespace UtMobileApp.Android
         
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, global::Android.Content.PM.Permission[] grantResults)
         {
-            
-            Plugin.Permissions.PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+
+            //Plugin.Permissions.PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+
+            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 
         protected override void OnCreate(Bundle bundle)
@@ -30,7 +32,7 @@ namespace UtMobileApp.Android
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
-            CrossCurrentActivity.Current.Init(this, bundle);
+            //CrossCurrentActivity.Current.Init(this, bundle);
 
             base.OnCreate(bundle);
 
