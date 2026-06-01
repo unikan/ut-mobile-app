@@ -111,7 +111,7 @@
                                            VerticalOptions="Center"
                                            WidthRequest="19"
                                            Grid.Column="0" />
-                                    <Label Text="international@unite.edu.mk"
+                                    <Label Text="unikan@unite.edu.mk"
                                            VerticalTextAlignment="Center"
                                            FontSize="19" FontAttributes="Bold" TextColor="#303030"
                                            Grid.Column="1" />
